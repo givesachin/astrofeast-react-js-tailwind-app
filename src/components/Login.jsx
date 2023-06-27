@@ -22,7 +22,7 @@ const Login = () => {
                 <form action="get" className='flex flex-col items-start w-full gap-y-4' onSubmit={handleSubmit(onSubmit)}>
                     <div className='w-full h-full flex flex-col items-start gap-y-1'>
                         <label className='text-lg' htmlFor="email">Sign up with email</label>
-                        <input id='email' className='h-auto text-lg w-full border-2 border-[#B9B9B9] pl-4 py-3' name='email' type="email" placeholder='Enter your email address' required  {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, when: (value) => value.length > 0 })} />
+                        <input id='email' className='h-auto text-lg w-full border-2 border-[#B9B9B9] pl-4 py-3' name='email' type="email" placeholder='Enter your email address' required  {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, when: (value) => { value.length > 0; }  })} />
                         {errors.email && <span className='text-red-700'>Invalid email</span>}
                         {!errors.email && <span className='text-green-700'>Invalid email</span>}
                     </div>
