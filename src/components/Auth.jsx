@@ -7,9 +7,9 @@ import Signup from './Atoms/Signup';
 const Auth = () => {
     return (
 
-        <section className='h-screen w-full flex md:flex-row flex-col gap-x-[7%] items-center font-poppins'>
+        <section className='h-screen w-full flex md:flex-row overflow-hidden flex-col gap-x-[7%] items-center font-poppins'>
             <img className=' h-2/5 md:h-full md:w-auto w-screen md:object-fill object-cover object-top' src={afloginimg} alt='astrofeast login poster' title='poster' />
-            <div className='md:w-[45%] md:h-[65.85%] h-auto  flex flex-col justify-evenly items-start w-full  p-4'>
+            <div className='md:w-[45%] md:h-[65.85%] h-full overflow-y-scroll flex flex-col justify-evenly items-start w-full  p-4'>
                 <img src={aflogoufo} alt='astrofeast logo' title='UFO' />
                 <p className='text-2xl font-semibold'>On sign-up, everyone gets</p>
                 <p>Free Delivery on the first  order & Access to all content</p>

@@ -22,7 +22,7 @@ const Signup = () => {
                 </div>
                 <button type='submit' className='w-full py-3 bg-black text-white capitalize'>Create Account </button>
            <div className='flex '>
-              <p className=''>already have an account?</p>   <NavLink to="/"><p  className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Log In</p></NavLink>
+              <p className=''>already have an account?</p><NavLink to="/"><p  className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Log In</p></NavLink>
            </div>
             </form>
         </section>
