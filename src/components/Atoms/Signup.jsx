@@ -21,9 +21,9 @@ const Signup = () => {
                     <textarea className='w-full text-lg  py-4 pl-4 border-2  border-gray-400' placeholder='enter address' type="textarea" name="address" id="uaddress" />
                 </div>
                 <button type='submit' className='w-full py-3 bg-black text-white capitalize'>Create Account </button>
-           <div className='flex '>
-              <p className=''>already have an account?</p><NavLink to="/"><p  className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Log In</p></NavLink>
-           </div>
+                <div className='flex '>
+                    <p className=''>already have an account?</p><NavLink to="/login"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Log In</p></NavLink>
+                </div>
             </form>
         </section>
     )

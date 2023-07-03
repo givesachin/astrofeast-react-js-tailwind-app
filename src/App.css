@@ -13,6 +13,16 @@
   }
 }
 
+.noscrollbar{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+}
+
+.noscrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,3 +46,5 @@
     transform: rotate(360deg);
   }
 }
+
+
