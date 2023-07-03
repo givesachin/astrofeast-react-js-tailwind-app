@@ -11,10 +11,12 @@ const Login = () => {
     } = useForm();
 
     const [showPasswordInput, setShowPasswordInput] = useState(false);
-
     const onSubmit = (data) => {
         console.log(data);
         setShowPasswordInput(true);
+        if (validatePassword(data.password)) {
+            window.location.href = '/';
+        }
     };
 
     const validatePassword = (value) => {
@@ -86,8 +88,8 @@ const Login = () => {
                 Login
             </button>
             <div className='flex '>
-                    <p className=''>Dont have an account?</p><NavLink to="/signup"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Create Account</p></NavLink>
-                </div>
+                <p className=''>Dont have an account?</p><NavLink to="/signup"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Create Account</p></NavLink>
+            </div>
         </form>
     );
 };

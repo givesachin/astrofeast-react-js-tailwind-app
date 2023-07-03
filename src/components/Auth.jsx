@@ -3,8 +3,9 @@ import '../App.css';
 import afloginimg from "../assets/Rectangle 32.png";
 import aflogoufo from "../assets/Flying_saucer_logo 1.png";
 import Login from './Atoms/Login'
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from './Atoms/Signup';
+import Home from './Home';
 const Auth = () => {
     return (
 
@@ -17,8 +18,8 @@ const Auth = () => {
                 <hr className='h-px  mb-5  w-full border-[#0f0d0d]' />
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/login" element={<Login />} />
-                        <Route path="signup" element={<Signup />} />
+                        <Route path="/" element={<Login />} />
+                        <Route path="/signup" element={<Signup />} />
 
                     </Routes>
                 </BrowserRouter>
