@@ -20,7 +20,6 @@ const Auth = () => {
                     <Routes>
                         <Route path="/" element={<Login />} />
                         <Route path="/signup" element={<Signup />} />
-
                     </Routes>
                 </BrowserRouter>
                 <p className='w-full my-4'>or</p>
