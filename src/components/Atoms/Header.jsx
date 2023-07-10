@@ -11,7 +11,7 @@ const Header = () => {
 
             {/* black head bar */}
             <div className='w-full h-auto py-5 px-16 bg-black flex justify-between items-center'>
-                <img className='h-fit w-auto' src={aflogo} alt="af-logo" srcset={aflogo} />
+                <img className='h-fit w-auto' src={aflogo} alt="af-logo" srcSet={aflogo} />
                 <div className='w-auto  h-fit justify-between '>
                     <div className='flex w-auto h-auto justify-center gap-x-6'>
                         {/* searchbar */}

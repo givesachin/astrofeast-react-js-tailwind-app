@@ -1,7 +1,7 @@
 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="20" height="20" fill="#F5F5F5"/>
 <g id="About">
-<g clip-path="url(#clip0_2124_8623)">
+<g clipPath="url(#clip0_2124_8623)">
 <rect x="-1290" y="-30" width="1440" height="4060" fill="white"/>
 <g id="Navigation">
 <rect width="1440" height="80" transform="translate(-1290 -30)" fill="#030712"/>
@@ -10,7 +10,7 @@
 <g id="user">
 <g id="Frame">
 <g id="user-single-neutral--close-geometric-human-person-single-up-user">
-<path id="Union" fill-rule="evenodd" clip-rule="evenodd" d="M10 10.4167C12.5313 10.4167 14.5833 8.36467 14.5833 5.83333C14.5833 3.30202 12.5313 1.25 10 1.25C7.46869 1.25 5.41667 3.30202 5.41667 5.83333C5.41667 8.36467 7.46869 10.4167 10 10.4167ZM1.68693 14.1802C4.16067 12.8425 6.99292 12.0833 10 12.0833C13.0071 12.0833 15.8393 12.8425 18.3131 14.1802L18.75 14.4165V18.75H1.25V14.4165L1.68693 14.1802Z" fill="white"/>
+<path id="Union" fillRule="evenodd" clipRule="evenodd" d="M10 10.4167C12.5313 10.4167 14.5833 8.36467 14.5833 5.83333C14.5833 3.30202 12.5313 1.25 10 1.25C7.46869 1.25 5.41667 3.30202 5.41667 5.83333C5.41667 8.36467 7.46869 10.4167 10 10.4167ZM1.68693 14.1802C4.16067 12.8425 6.99292 12.0833 10 12.0833C13.0071 12.0833 15.8393 12.8425 18.3131 14.1802L18.75 14.4165V18.75H1.25V14.4165L1.68693 14.1802Z" fill="white"/>
 </g>
 </g>
 </g>
