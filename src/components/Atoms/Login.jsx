@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
     const {
         register,
@@ -41,6 +41,8 @@ const Login = () => {
 
     const emailValue = watch('email', '');
     const passwordValue = watch('password', '');
+
+
 
     return (
         <form action='/' onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start w-full gap-y-4 h-auto">
@@ -88,7 +90,7 @@ const Login = () => {
                 Login
             </button>
             <div className='flex '>
-                <p className=''>Dont have an account?</p><NavLink to="/signup"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Create Account</p></NavLink>
+                <p className=''>Dont have an account?</p><NavLink to="/auth/signup"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Create Account</p></NavLink>
             </div>
         </form>
     );

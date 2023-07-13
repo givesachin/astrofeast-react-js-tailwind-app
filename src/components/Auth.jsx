@@ -1,12 +1,14 @@
+// import React, { useState } from 'react'
 import React from 'react'
 import '../App.css';
 import afloginimg from "../assets/Rectangle 32.png";
 import aflogoufo from "../assets/Flying_saucer_logo 1.png";
 import Login from './Atoms/Login'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from './Atoms/Signup';
-import Home from './Home';
+import { Route, Routes } from "react-router-dom";
+
 const Auth = () => {
+
     return (
 
         <section className='h-screen w-screen flex md:flex-row overflow-hidden flex-col gap-x-[7%] items-center font-poppins'>
@@ -16,12 +18,11 @@ const Auth = () => {
                 <p className='text-2xl font-semibold'>On sign-up, everyone gets</p>
                 <p>Free Delivery on the first  order & Access to all content</p>
                 <hr className='h-px  mb-5  w-full border-[#0f0d0d]' />
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<Login />} />
-                        <Route path="/signup" element={<Signup />} />
-                    </Routes>
-                </BrowserRouter>
+                <Routes>
+                    <Route exact path='/' element={<Login />} />
+                    <Route exact path='signup' element={<Signup />} />
+                </Routes>
+
                 <p className='w-full my-4'>or</p>
                 <button className='w-full py-3 border-2 border-black capitalize'>Sign up with google</button>
                 <hr className='h-px  mt-5  w-full border-[#B9B9B9]' />
