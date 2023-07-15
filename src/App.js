@@ -14,8 +14,10 @@ function App() {
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Home />} ></Route>
-                    <Route path="/auth" element={<Auth />} />
-
+                    <Route path="/auth" element={<Auth />} >
+                        <Route exact path='login' element={<Login />} />
+                        <Route exact path='signup' element={<Signup />} />
+                    </Route>
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}

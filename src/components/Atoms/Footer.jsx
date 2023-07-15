@@ -23,23 +23,23 @@ const Footer = () => {
                 </div>
                 <div className='flex w-full'>
                     <div className='w-full flex flex-col border-r border-black'>
-                        <p className='px-16 py-6 text-start border-b text-xl font-medium uppercase border-black'>work with us</p>
+                        <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black'>work with us</p>
                         <div className='w-full gap-y-2 p-16 flex flex-col items-start'>
                             <p className=' font-semibold text-2xl'> Kitchens</p>
                             <p className=' font-semibold text-2xl'> Investors</p>
                             <p className=' font-semibold text-2xl'> Careers</p>
                             <p className=' font-semibold text-2xl'> Cold Chain</p>
-                            <p className=' font-semibold text-2xl'> Sustainabilityƒ</p>
+                            <p className=' font-semibold text-2xl'> Sustainability</p>
                         </div >
                     </div >
                     <div className='w-full flex flex-col'>
-                        <p className='px-16 py-6 text-start border-b text-xl font-medium uppercase border-black'>work with us</p>
+                        <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black'>quick links</p>
                         <div className='w-full gap-y-2 p-16 flex flex-col items-start'>
-                            <p className=' font-semibold text-2xl'> Kitchens</p>
-                            <p className=' font-semibold text-2xl'> Investors</p>
-                            <p className=' font-semibold text-2xl'> Careers</p>
-                            <p className=' font-semibold text-2xl'> Cold Chain</p>
-                            <p className=' font-semibold text-2xl'> Sustainabilityƒ</p>
+                            <p className=' font-semibold text-2xl'> Account</p>
+                            <p className=' font-semibold text-2xl'> Shop</p>
+                            <p className=' font-semibold text-2xl'> Golden Ticket</p>
+                            <p className=' font-semibold text-2xl'> FAQs </p>
+                            <p className=' font-semibold text-2xl'> Support</p>
                         </div >
                     </div >
                 </div>
