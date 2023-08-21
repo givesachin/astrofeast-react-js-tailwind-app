@@ -8,6 +8,15 @@ module.exports = {
         'poppins': ['Poppins'],
         'Staatliches': ['Staatliches'],
       },
+      colors: {
+        'blue': '#2C488E',
+        'green': '#BDC695',
+        'yellow': '#F4A73F',
+        'gray-100': '#F9FAFB',
+        'gray-300': '#F5F7FB',
+        'gray-600': '#838282',
+        'gray-900': '#070123',
+      },
     },
     plugins: [],
   }
