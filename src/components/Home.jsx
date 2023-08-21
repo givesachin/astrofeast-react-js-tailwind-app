@@ -4,6 +4,44 @@ import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
+
+const prodData =
+{
+    "items": [
+        {
+            "id": 1,
+            "imageSrc": afherobg,
+            "title": "The astrofeast product1"
+        },
+        {
+            "id": 2,
+            "imageSrc": afherobg,
+            "title": "The astrofeast product2"
+        },
+        {
+            "id": 3,
+            "imageSrc": afherobg,
+            "title": "The astrofeast product3"
+        },
+        {
+            "id": 4,
+            "imageSrc": afherobg,
+            "title": "The astrofeast product4"
+        },
+        {
+            "id": 5,
+            "imageSrc": afherobg,
+            "title": "The astrofeast product5"
+        },
+        {
+            "id": 6,
+            "imageSrc": afherobg,
+            "title": "The astrofeast product6"
+        },
+        /* ... more items ... */
+    ]
+}
+
 const Home = () => {
     return (
         <section>
@@ -87,48 +125,13 @@ const Home = () => {
                 </div>
                 <div className=' h-full flex  overflow-x-scroll flex-nowrap '>
                     <div className=' flex gap-x-8 flex-nowrap '>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
+                        {prodData.items.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
+                            <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
                             <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
+                                <p className='text-lg w-full'>{item.title}</p>
                             </div>
-                        </div>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
-                            </div>
-                        </div>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
-                            </div>
-                        </div>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
-                            </div>
-                        </div>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
-                            </div>
-                        </div>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
-                            </div>
-                        </div>
-                        <div className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={afherobg} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full '>The astrofeast project</p>
-                            </div>
-                        </div>
+                        </div>))}
+
                     </div>
                 </div>
             </section>
