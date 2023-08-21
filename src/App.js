@@ -6,6 +6,8 @@ import Signup from './components/Atoms/Signup';
 import Auth from './components/Auth'
 import Home from './components/Home';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Shop from './components/Shop';
+import Sitemap from './components/Sitemap';
 
 function App() {
     return (
@@ -14,6 +16,9 @@ function App() {
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Home />} ></Route>
+                    <Route exact path="/about" element={<About />} ></Route>
+                    <Route exact path="/shop" element={<Shop />} ></Route>
+                    <Route exact path="/sitemap" element={<Sitemap />} ></Route>
                     <Route path="/auth" element={<Auth />} >
                         <Route exact path='login' element={<Login />} />
                         <Route exact path='signup' element={<Signup />} />

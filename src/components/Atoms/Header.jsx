@@ -5,6 +5,8 @@ import afsearch from "../../assets/search.svg";
 import afuser from "../../assets/afuser.svg";
 import afbag from "../../assets/afbag.png";
 import Sidebar from "./Sidebar";
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
     const [toggle, setToggle] = useState(false)
 
@@ -13,7 +15,7 @@ const Header = () => {
 
             {/* black head bar */}
             <div className='w-full h-full py-5 pr-16 bg-black flex justify-between items-center'>
-                <img className='h-fit w-auto ml-16' src={aflogo} alt="af-logo" />
+                <NavLink to='/'> <img className='h-fit w-auto ml-16' src={aflogo} alt="af-logo" /></NavLink>
                 <div className='w-auto h-fit justify-between '>
                     <div className='flex w-auto h-auto justify-center gap-x-6'>
                         {/* searchbar */}

@@ -3,8 +3,6 @@ import React from 'react'
 import '../App.css';
 import afloginimg from "../assets/Rectangle 32.png";
 import aflogoufo from "../assets/Flying_saucer_logo 1.png";
-import Login from './Atoms/Login'
-import Signup from './Atoms/Signup';
 import { Outlet } from "react-router-dom";
 
 const Auth = () => {

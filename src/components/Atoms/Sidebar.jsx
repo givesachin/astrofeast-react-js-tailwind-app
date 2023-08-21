@@ -3,6 +3,7 @@ import afclose from "../../assets/close.svg";
 import afsearch from "../../assets/search.svg";
 import afuser from "../../assets/afuser.svg";
 import afbag from "../../assets/afbag.png";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
     const [hide, setHide] = useState(true)
@@ -25,15 +26,15 @@ const Sidebar = () => {
                     </div>
                     <div className='h-full flex flex-col justify-start items-start gap-y-9'>
                         <p className='capitalize text-4xl font-medium'>account</p>
-                        <p className='capitalize text-4xl  font-medium'>shop</p>
+                        <NavLink to="/shop"> <p className='capitalize text-4xl  font-medium'>shop</p></NavLink>
                         <p className='capitalize text-4xl  font-medium'>gifts</p>
                         <p className='capitalize text-4xl  font-medium'>journal</p>
-                        <p className='capitalize text-4xl  font-medium'>about us</p>
+                        <NavLink to="/about"> <p className='capitalize text-4xl  font-medium'>about us</p></NavLink>
                     </div>
                     <hr className='border-black w-full' />
                     <div className='w-full flex  justify-between items-center gap-y-9'>
-<p className='uppercase text-lg font-semibold'>faq</p>
-<p className='uppercase text-lg font-semibold'>get in touch</p>
+                        <p className='uppercase text-lg font-semibold'>faq</p>
+                        <p className='uppercase text-lg font-semibold'>get in touch</p>
                     </div>
                 </div >
             </section > : null}
