@@ -42,8 +42,8 @@ const Shop = () => {
                 {/* container */}
                 <div className='border-x border-black pt-10'>
                     {/* headline */}
-                    <hr className='w-screen border border-black absolute left-0' />
-                    <div className='w-full py-9 px-8 border-b border-black'>
+                    <hr className='w-screen  border-black absolute left-0' />
+                    <div className='w-full py-9 px-8 '>
                         <p className='font-Staatliches text-5xl w-full text-left'>eat what you want</p>
                     </div>
                     <ProductContainer pitem={bestseller} containerHeader='Best Sellers' />

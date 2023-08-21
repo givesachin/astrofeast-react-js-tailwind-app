@@ -5,7 +5,7 @@ import ProductItem from './ProuductItem'
 const ProductContainer = ({ pitem,containerHeader }) => {
     return (
         <>
-            <div className='w-full py-9 px-8 border-b border-black'>
+            <div className='w-full py-9 px-8 border-y border-black'>
                 <p className='font-Staatliches text-4xl w-full text-left'>{containerHeader}</p>
             </div>
             <div className=' h-full flex  overflow-x-none flex-nowrap p-8'>

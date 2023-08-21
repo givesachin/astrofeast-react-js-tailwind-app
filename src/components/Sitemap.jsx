@@ -11,7 +11,6 @@ const Sitemap = () => {
                 <NavLink to="/"><h1 className='text-xl font-bold capitalize'>Home</h1></NavLink>
                 <NavLink to="/about"><h1 className='text-xl font-bold capitalize'>about</h1></NavLink>
                 <NavLink to="/shop"><h1 className='text-xl font-bold capitalize'>shop</h1></NavLink>
-
             </section>
             <Footer />
         </div>
