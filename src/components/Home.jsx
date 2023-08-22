@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import { NavLink } from "react-router-dom";
 import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
@@ -43,6 +43,15 @@ const prodData =
 }
 
 const Home = () => {
+    // TODO: get products API here 1.1
+    // const [products, setProducts] = useState({});
+    // useEffect(() => { getProducts(); }, []);
+    // function getProducts() {
+    //     axios.get('').then(function (response) {
+    //         console.log(response.data);
+    //         setProducts(response.data)
+    //     })
+    // }
     return (
         <section>
             <Header />
@@ -124,6 +133,17 @@ const Home = () => {
                     </svg>
                 </div>
                 <div className=' h-full flex  overflow-x-scroll flex-nowrap '>
+
+                    {/* TODO: set products here from API 1.2
+                    <div className=' flex gap-x-8 flex-nowrap '>
+                        {products.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
+                            <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
+                            <div className='w-full h-auto flex items-end justify-center py-5'>
+                                <p className='text-lg w-full'>{item.title}</p>
+                            </div>
+                        </div>))}
+
+                    </div> */}
                     <div className=' flex gap-x-8 flex-nowrap '>
                         {prodData.items.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
                             <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
