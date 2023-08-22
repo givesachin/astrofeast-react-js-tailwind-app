@@ -39,14 +39,16 @@ const Header = () => {
                 </div>
             </div>
             {/* navigation */}
-            <nav className='w-full h-auto flex justify-between  border-b border-black'>
-                <a className='uppercase text-black p-4 w-full font-Staatliches' href="">Appetizer</a>
-                <a className='uppercase text-black border-l border-black  p-4 w-full font-Staatliches' href="">desserts</a>
-                <a className='uppercase text-black border-l border-black  p-4 w-full font-Staatliches' href="">combos</a>
-                <a className='uppercase text-black border-l border-black  p-4 w-full font-Staatliches' href="">seafood</a>
-                <a className='uppercase text-black border-l border-black  p-4 w-full font-Staatliches' href="">vegetarian</a>
-                <a className='uppercase text-black border-l border-black  p-4 w-full font-Staatliches' href="">meat</a>
-                <a className='uppercase text-[#F4A73F] border-l border-black  p-4 w-full font-Staatliches ' href="">view all</a>
+            <nav className='w-full h-auto flex justify-between border-b border-black'>
+
+                <NavLink className='w-full' to=""><p className='uppercase text-black text-xl  px-4 py-3 w-full font-Staatliches' >Appetizer</p></NavLink>
+                <NavLink className='w-full' to=""><p className='uppercase text-black text-xl  border-l border-black  px-4 py-3 w-full font-Staatliches' >desserts</p></NavLink>
+                <NavLink className='w-full' to=""><p className='uppercase text-black text-xl  border-l border-black  px-4 py-3 w-full font-Staatliches' >combos</p></NavLink>
+                <NavLink className='w-full' to=""><p className='uppercase text-black text-xl  border-l border-black  px-4 py-3 w-full font-Staatliches' >seafood</p></NavLink>
+                <NavLink className='w-full' to=""><p className='uppercase text-black text-xl  border-l border-black  px-4 py-3 w-full font-Staatliches' >vegetarian</p></NavLink>
+                <NavLink className='w-full' to=""><p className='uppercase text-black text-xl  border-l border-black  px-4 py-3 w-full font-Staatliches' >meat</p></NavLink>
+                <NavLink className='w-full' to=""><p className='uppercase text-[#F4A73F] text-xl  border-l border-black  px-4 py-3 w-full font-Staatliches ' >view all</p></NavLink>
+
             </nav>
             {/* menu */}
             {toggle && (<Sidebar />)}
