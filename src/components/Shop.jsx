@@ -103,9 +103,20 @@ const Shop = () => {
                     <div className='w-full py-9 px-8 '>
                         <p className='font-Staatliches text-5xl w-full text-left'>eat what you want</p>
                     </div>
-                    <ProductContainer pitem={bestseller.veggies} containerHeader='Best Sellers' />
-                    <ProductContainer pitem={bestseller.seafood}containerHeader='seafood' />
-                    <ProductContainer pitem={bestseller.meat} containerHeader='meat' />
+                    <div className='w-full py-9 px-8 border-t border-black'>
+                        <p className='font-Staatliches text-4xl w-full text-left'>bestseller</p>
+                    </div>
+                    <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.veggies} />
+                    <div className='w-full py-9 px-8 border-t border-black'>
+                        <p className='font-Staatliches text-4xl w-full text-left'>seafood</p>
+                    </div>
+                    <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.seafood} />
+                    <div className='w-full py-9 px-8 border-t border-black'>
+                        <p className='font-Staatliches text-4xl w-full text-left'>meat</p>
+                    </div>
+                    <div className='w-full flex '>
+                        <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.meat} />
+                    </div>
                 </div>
             </section>
             <Footer />
