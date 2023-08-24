@@ -5,6 +5,7 @@ import Signup from './components/Atoms/Signup';
 // uncomment the page which you want to be displayed
 import Auth from './components/Auth'
 import Home from './components/Home';
+import Account from './components/Account';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Shop from './components/Shop';
 import Sitemap from './components/Sitemap';
@@ -23,6 +24,7 @@ function App() {
                         <Route exact path='login' element={<Login />} />
                         <Route exact path='signup' element={<Signup />} />
                     </Route>
+                    <Route path="/my-account" element={<Account/>}></Route>
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}

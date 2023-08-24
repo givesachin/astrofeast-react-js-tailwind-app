@@ -4,7 +4,7 @@ import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
-import axios from 'axios'
+import axios from 'axios';
 
 // const prodData =
 // {
