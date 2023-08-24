@@ -1,57 +1,71 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 // import { NavLink } from "react-router-dom";
 import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
+import axios from 'axios'
 
-const prodData =
-{
-    "items": [
-        {
-            "id": 1,
-            "imageSrc": afherobg,
-            "title": "The astrofeast product1"
-        },
-        {
-            "id": 2,
-            "imageSrc": afherobg,
-            "title": "The astrofeast product2"
-        },
-        {
-            "id": 3,
-            "imageSrc": afherobg,
-            "title": "The astrofeast product3"
-        },
-        {
-            "id": 4,
-            "imageSrc": afherobg,
-            "title": "The astrofeast product4"
-        },
-        {
-            "id": 5,
-            "imageSrc": afherobg,
-            "title": "The astrofeast product5"
-        },
-        {
-            "id": 6,
-            "imageSrc": afherobg,
-            "title": "The astrofeast product6"
-        },
-        /* ... more items ... */
-    ]
-}
+// const prodData =
+// {
+//     "items": [
+//         {
+//             "id": 1,
+//             "imageSrc": afherobg,
+//             "title": "The astrofeast product1"
+//         },
+//         {
+//             "id": 2,
+//             "imageSrc": afherobg,
+//             "title": "The astrofeast product2"
+//         },
+//         {
+//             "id": 3,
+//             "imageSrc": afherobg,
+//             "title": "The astrofeast product3"
+//         },
+//         {
+//             "id": 4,
+//             "imageSrc": afherobg,
+//             "title": "The astrofeast product4"
+//         },
+//         {
+//             "id": 5,
+//             "imageSrc": afherobg,
+//             "title": "The astrofeast product5"
+//         },
+//         {
+//             "id": 6,
+//             "imageSrc": afherobg,
+//             "title": "The astrofeast product6"
+//         },
+//         /* ... more items ... */
+//     ]
+// }
+
+const options = {
+    method: 'GET',
+    url: 'https://pizza-and-desserts.p.rapidapi.com/pizzas',
+    headers: {
+        'X-RapidAPI-Key': 'bdbad44431mshf133f3e78cc7290p12f0b7jsna61826593fed',
+        'X-RapidAPI-Host': 'pizza-and-desserts.p.rapidapi.com'
+    }
+};
 
 const Home = () => {
     // TODO: get products API here 1.1
-    // const [products, setProducts] = useState({});
-    // useEffect(() => { getProducts(); }, []);
-    // function getProducts() {
-    //     axios.get('').then(function (response) {
-    //         console.log(response.data);
-    //         setProducts(response.data)
-    //     })
-    // }
+    const [products, setProducts] = useState({});
+    useEffect(() => { getProducts(); }, []);
+    function getProducts() {
+        axios.request(options).then(function (response) {
+            console.log(response.data);
+            setProducts(response.data)
+        });
+        // axios.get('').then(function (response) {
+        //     console.log(response.data);
+        //     setProducts(response.data)
+        // })
+    }
     return (
         <section>
             <Header />
@@ -134,17 +148,17 @@ const Home = () => {
                 </div>
                 <div className=' h-full flex  overflow-x-scroll flex-nowrap '>
 
-                    {/* TODO: set products here from API 1.2
+                    {/* TODO: set products here from API 1.2 */}
                     <div className=' flex gap-x-8 flex-nowrap '>
                         {products.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
+                            <img className='w-full object-cover h-72 border-black border-b' src={item.img} alt="product" />
                             <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full'>{item.title}</p>
+                                <p className='text-lg w-full'>{item.name}</p>
                             </div>
                         </div>))}
 
-                    </div> */}
-                    <div className=' flex gap-x-8 flex-nowrap '>
+                    </div>
+                    {/* <div className=' flex gap-x-8 flex-nowrap '>
                         {prodData.items.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
                             <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
                             <div className='w-full h-auto flex items-end justify-center py-5'>
@@ -152,7 +166,7 @@ const Home = () => {
                             </div>
                         </div>))}
 
-                    </div>
+                    </div> */}
                 </div>
             </section>
             <Footer />
