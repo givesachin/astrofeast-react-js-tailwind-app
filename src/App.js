@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Shop from './components/Shop';
 import Sitemap from './components/Sitemap';
 import CategoryDetail from './components/CategoryDetail';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
     return (
@@ -20,11 +21,14 @@ function App() {
                     <Route exact path="/about" element={<About />} ></Route>
                     <Route exact path="/shop" element={<Shop />} ></Route>
                     <Route exact path="/shop/categorydetail" element={<CategoryDetail />} ></Route>
+                    <Route exact path="/shop/productdetail" element={<ProductDetails />} ></Route>
                     <Route exact path="/sitemap" element={<Sitemap />} ></Route>
                     <Route path="/auth" element={<Auth />} >
                         <Route exact path='login' element={<Login />} />
                         <Route exact path='signup' element={<Signup />} />
                     </Route>
+                    <Route path="*" element={<h1>page not found</h1>} />
+
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}
