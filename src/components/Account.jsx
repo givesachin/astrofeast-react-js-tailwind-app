@@ -7,14 +7,16 @@ import afarrow from "../assets/afarrow.svg";
 
 import { NavLink } from "react-router-dom";
 const initialFormData = {
-    name: '',
+    first_name: '',
+last_name:'',
     mobile: '',
     email: '',
     address: '',
 };
 
 const initialFormErrors = {
-    name: '',
+    first_name: '',
+    last_name:'',
     mobile: '',
     email: '',
     address: '',
@@ -29,12 +31,19 @@ const Account = () => {
         const newFormErrors = { ...initialFormErrors };
 
         console.log("logging form data", formData);
-        // Validate name
-        if (!formData.name.trim()) {
-            newFormErrors.name = 'Name is required';
+        // Validate first_name
+        if (!formData.frist_name.trim()) {
+            newFormErrors.first_name = 'First name is required';
             isValid = false;
         } else {
-            newFormErrors.name = ''; // Clear the error message
+            newFormErrors.frist_name = ''; // Clear the error message
+        }
+        // Validate last_name
+        if (!formData.last_name.trim()) {
+            newFormErrors.last_name = 'Last name is required';
+            isValid = false;
+        } else {
+            newFormErrors.last_name = ''; // Clear the error message
         }
 
         // Validate mobile
@@ -118,14 +127,14 @@ const Account = () => {
                                 <form className='flex-col flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleSignup}>
                                     <div className='w-full flex gap-5'>
                                         <div className='w-full text-start'>
-                                            <input className={`w-full py-2 pl-4  border-2 ${formErrors.name ? 'border-red-500' : 'border-gray-400'
-                                                }`} placeholder='Enter first name' onChange={handleChange} type="text" name="name" id="uname" />
-                                            <p className='text-red-500 text-sm'>{formErrors.name}</p>
+                                            <input className={`w-full py-2 pl-4  border-2 ${formErrors.frist_name ? 'border-red-500' : 'border-gray-400'
+                                                }`} placeholder='Enter first name' onChange={handleChange} type="text" name="first_name" id="ufirstname" />
+                                            <p className='text-red-500 text-sm'>{formErrors.frist_name}</p>
                                         </div>
                                         <div className='w-full text-start'>
-                                            <input className={`w-full  py-2 pl-4  border-2 ${formErrors.name ? 'border-red-500' : 'border-gray-400'
-                                                }`} placeholder='Enter last name' onChange={handleChange} type="text" name="name" id="uname" />
-                                            <p className='text-red-500 text-sm'>{formErrors.name}</p>
+                                            <input className={`w-full  py-2 pl-4  border-2 ${formErrors.last_name ? 'border-red-500' : 'border-gray-400'
+                                                }`} placeholder='Enter last name' onChange={handleChange} type="text" name="last_name" id="ulastname" />
+                                            <p className='text-red-500 text-sm'>{formErrors.last_name}</p>
                                         </div>
                                     </div>
                                     <div className='w-full text-start'>
@@ -148,7 +157,7 @@ const Account = () => {
                                     <div className='flex gap-5'>
 
                                     <input className=' px-6 py-3 text-white font-Staatliches  bg-black' type="submit" value="SAVE CHANGES" />
-                                    <input className=' px-6 py-3 text-black font-Staatliches border-2 border-gray-900 ' type="submit" value="DISCARD" />
+                                    <input className=' px-6 py-3 text-black font-Staatliches border-2 border-gray-900 ' type="reset" value="DISCARD"  />
                                     </div>
 
                                    
