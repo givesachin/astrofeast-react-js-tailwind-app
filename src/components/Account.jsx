@@ -111,9 +111,7 @@ const Account = () => {
                         <a className='uppercase text-[#838282]  w-full font-Staatliches' href="">orders</a>
                         <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">subscriptions</a>
                         <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">golden ticket</a>
-                        <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">seafood</a>
-                        <a className='uppercase text-black   w-full font-Staatliches' href="">account</a>
-                    
+                        <a className='uppercase text-black w-full font-Staatliches underline decoration-[6px]  underline-offset-[18px]' href="">account</a> 
                     </div>
 
                     <div className='w-full border-t h-auto flex   border-b border-black'>
