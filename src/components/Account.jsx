@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-// import { NavLink } from "react-router-dom";
+
 import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
 
 import user from "../assets/user.jpg";
 import pencil from "../assets/pencil-2-xxl.png";
-import { NavLink } from "react-router-dom";
 const initialFormData = {
     first_name: '',
     last_name: '',
@@ -86,7 +85,7 @@ const Account = () => {
             [name]: value
         }));
     }
-    const handleSignup = (event) => {
+    const handleEdit = (event) => {
         event.preventDefault();
         console.log(users)
         if (validateForm()) {
@@ -102,9 +101,9 @@ const Account = () => {
         <section>
             <Header />
             <section className='px-16 relative'>
-                {/* container */}
+             
                 <div className='border-x border-black py-10' >
-                    {/* poster */}
+                  
                     <div className='w-full border-t h-auto flex  border-black' ></div>
 
                     <div className='w-full p-4 text-start text-2xl space-x-7' >
@@ -139,7 +138,7 @@ const Account = () => {
                         </ul>
                         <div className='w-full h-auto p-6 flex flex-col'>
                             <section className='w-full h-auto'>
-                                <form className='flex-col flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleSignup}>
+                                <form className='flex-col flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleEdit}>
                                     <div className='w-full flex gap-5'>
                                         <div className='w-full text-start'>
                                             <input className={`w-full py-2 pl-4  border-2 ${formErrors.first_name ? 'border-red-500' : 'border-gray-400'
