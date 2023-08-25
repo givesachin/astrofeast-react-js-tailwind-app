@@ -32,11 +32,11 @@ const Account = () => {
 
         console.log("logging form data", formData);
         // Validate first_name
-        if (!formData.frist_name.trim()) {
+        if (!formData.first_name.trim()) {
             newFormErrors.first_name = 'First name is required';
             isValid = false;
         } else {
-            newFormErrors.frist_name = ''; // Clear the error message
+            newFormErrors.first_name = ''; // Clear the error message
         }
         // Validate last_name
         if (!formData.last_name.trim()) {
@@ -134,7 +134,7 @@ const Account = () => {
                     <div className='w-full h-auto flex justify-center border-b border-black'>
                         <ul className='h-auto flex flex-col items-start p-6 '>
                             <div>
-                                <img class=" w-full object-cover h-40" src={user} title="poster" />
+                                <img className=" w-full object-cover h-40" src={user} title="poster" />
                             </div>
                         </ul>
                         <div className='w-full h-auto p-6 flex flex-col'>
@@ -142,9 +142,9 @@ const Account = () => {
                                 <form className='flex-col flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleSignup}>
                                     <div className='w-full flex gap-5'>
                                         <div className='w-full text-start'>
-                                            <input className={`w-full py-2 pl-4  border-2 ${formErrors.frist_name ? 'border-red-500' : 'border-gray-400'
+                                            <input className={`w-full py-2 pl-4  border-2 ${formErrors.first_name ? 'border-red-500' : 'border-gray-400'
                                                 }`} placeholder='Enter first name' onChange={handleChange} type="text" name="first_name" id="ufirstname" />
-                                            <p className='text-red-500 text-sm'>{formErrors.frist_name}</p>
+                                            <p className='text-red-500 text-sm'>{formErrors.first_name}</p>
                                         </div>
                                         <div className='w-full text-start'>
                                             <input className={`w-full  py-2 pl-4  border-2 ${formErrors.last_name ? 'border-red-500' : 'border-gray-400'
