@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 // import { NavLink } from "react-router-dom";
 import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
-import afherobg from "../assets/herobg.png";
-import afarrow from "../assets/afarrow.svg";
 
+import user from "../assets/user.jpg";
+import pencil from "../assets/pencil-2-xxl.png";
 import { NavLink } from "react-router-dom";
 const initialFormData = {
     first_name: '',
-last_name:'',
+    last_name: '',
     mobile: '',
     email: '',
     address: '',
@@ -16,7 +16,7 @@ last_name:'',
 
 const initialFormErrors = {
     first_name: '',
-    last_name:'',
+    last_name: '',
     mobile: '',
     email: '',
     address: '',
@@ -106,12 +106,26 @@ const Account = () => {
                 <div className='border-x border-black pt-10'>
                     {/* poster */}
 
-                    <div className='w-full border-t h-auto flex justify-between  border-b border-black'>
-                        <div className='w-full flex flex-col border-r border-black'>
-                            <p className='text-5xl h-auto p-5 font-Staatliches flex items-center justify-start'>MY ACCOUNT</p>
-                            <div className='w-full h-full p-4 border-black flex flex-col justify-evenly  text-start'>
-                                <p className='w-full'>Personalize your experience here and see everything we track and do with your data.</p>
-                            </div>
+                    <div>
+                        <a className='uppercase text-[#838282] p-4 w-full font-Staatliches' href="">orders</a>
+                        <a className='uppercase text-[#838282]   p-4 w-full font-Staatliches' href="">subscriptions</a>
+                        <a className='uppercase text-[#838282]   p-4 w-full font-Staatliches' href="">golden ticket</a>
+                        <a className='uppercase text-[#838282]   p-4 w-full font-Staatliches' href="">seafood</a>
+                        <a className='uppercase text-black  p-4 w-full font-Staatliches' href="">account</a>
+                    
+                    </div>
+
+                    <div className='w-full border-t h-auto flex   border-b border-black'>
+                        <div className='w-full flex flex-col border-black py-6'>
+                            <p className='px-6 text-5xl h-auto font-Staatliches flex items-center justify-start'>MY ACCOUNT</p>
+                            <p className='px-6 w-full border-black flex flex-col justify-evenly text-start'>Personalize your experience here and see everything we track and do with your data.</p>
+
+                        </div>
+                        <div className='w-80 flex gap-3 p-8 place-content-end' >
+                            <img className='h-5 w-5' src={pencil} alt="bag" />
+                            <p className='text-orange-400 font-Staatliches text-xl '>
+                                EDIT DETAILS
+                            </p>
                         </div>
 
                     </div>
@@ -120,7 +134,9 @@ const Account = () => {
                     {/* subpart of who we are */}
                     <div className='w-full h-auto flex justify-center border-b border-black'>
                         <ul className='h-auto flex flex-col items-start p-6 '>
-                            image
+                            <div>
+                                <img class=" w-full object-cover h-40" src={user} title="poster" />
+                            </div>
                         </ul>
                         <div className='w-full h-auto p-6 flex flex-col'>
                             <section className='w-full h-auto'>
@@ -156,15 +172,15 @@ const Account = () => {
                                     </div>
                                     <div className='flex gap-5'>
 
-                                    <input className=' px-6 py-3 text-white font-Staatliches  bg-black' type="submit" value="SAVE CHANGES" />
-                                    <input className=' px-6 py-3 text-black font-Staatliches border-2 border-gray-900 ' type="reset" value="DISCARD"  />
+                                        <input className=' px-6 py-3 text-white font-Staatliches  bg-black' type="submit" value="SAVE CHANGES" />
+                                        <input className=' px-6 py-3 text-black font-Staatliches border-2 border-gray-900 ' type="reset" value="DISCARD" />
                                     </div>
 
-                                   
+
                                 </form>
                             </section>
                         </div>
-                    </div>               
+                    </div>
                 </div>
             </section>
 
