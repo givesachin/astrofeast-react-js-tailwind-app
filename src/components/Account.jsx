@@ -103,15 +103,16 @@ const Account = () => {
             <Header />
             <section className='px-16 relative'>
                 {/* container */}
-                <div className='border-x border-black pt-10'>
+                <div className='border-x border-black py-10' >
                     {/* poster */}
+                    <div className='w-full border-t h-auto flex  border-black' ></div>
 
-                    <div>
-                        <a className='uppercase text-[#838282] p-4 w-full font-Staatliches' href="">orders</a>
-                        <a className='uppercase text-[#838282]   p-4 w-full font-Staatliches' href="">subscriptions</a>
-                        <a className='uppercase text-[#838282]   p-4 w-full font-Staatliches' href="">golden ticket</a>
-                        <a className='uppercase text-[#838282]   p-4 w-full font-Staatliches' href="">seafood</a>
-                        <a className='uppercase text-black  p-4 w-full font-Staatliches' href="">account</a>
+                    <div className='w-full p-4 text-start text-2xl space-x-7' >
+                        <a className='uppercase text-[#838282]  w-full font-Staatliches' href="">orders</a>
+                        <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">subscriptions</a>
+                        <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">golden ticket</a>
+                        <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">seafood</a>
+                        <a className='uppercase text-black   w-full font-Staatliches' href="">account</a>
                     
                     </div>
 
