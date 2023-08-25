@@ -3,6 +3,7 @@ import Header from './Atoms/Header'
 import Footer from './Atoms/Footer'
 import ProductContainer from './Atoms/ProductContainer'
 import afherobg from "../assets/herobg.png";
+import { NavLink } from 'react-router-dom';
 const bestseller = {
     meat: [
         {
@@ -104,7 +105,7 @@ const Shop = () => {
                         <p className='font-Staatliches text-5xl w-full text-left'>eat what you want</p>
                     </div>
                     <div className='w-full py-9 px-8 border-t border-black'>
-                        <p className='font-Staatliches text-4xl w-full text-left'>bestseller</p>
+                        <p className='font-Staatliches text-4xl w-full text-left'><NavLink to='/shop/categorydetail'>bestseller</NavLink></p>
                     </div>
                     <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.veggies} />
                     <div className='w-full py-9 px-8 border-t border-black'>

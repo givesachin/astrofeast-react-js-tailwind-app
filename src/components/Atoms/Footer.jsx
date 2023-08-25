@@ -1,5 +1,5 @@
 import React from 'react'
-// import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
     return (
@@ -37,7 +37,7 @@ const Footer = () => {
                         <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black'>quick links</p>
                         <div className='w-full gap-y-2 p-16 flex flex-col items-start'>
                             <p className=' font-semibold text-2xl'> Account</p>
-                            <p className=' font-semibold text-2xl'> Shop</p>
+                            <p className=' font-semibold text-2xl'><NavLink to='/shop'>Shop</NavLink> </p>
                             <p className=' font-semibold text-2xl'> Golden Ticket</p>
                             <p className=' font-semibold text-2xl'> FAQs </p>
                             <p className=' font-semibold text-2xl'> Support</p>
