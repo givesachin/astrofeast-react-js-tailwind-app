@@ -54,7 +54,7 @@ const options = {
 
 const Home = () => {
     // TODO: get products API here 1.1
-    const [products, setProducts] = useState({});
+    const [products, setProducts] = useState([]);
     useEffect(() => { getProducts(); }, []);
     function getProducts() {
         axios.request(options).then(function (response) {
