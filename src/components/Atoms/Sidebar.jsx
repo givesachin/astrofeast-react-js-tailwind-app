@@ -25,7 +25,7 @@ const Sidebar = () => {
                         </div>
                     </div>
                     <div className='h-full flex flex-col justify-start items-start gap-y-9'>
-                        <p className='capitalize text-4xl font-medium'>account</p>
+                        <NavLink to="/my-account"><p className='capitalize text-4xl font-medium'>account</p></NavLink>
                         <NavLink to="/shop"> <p className='capitalize text-4xl  font-medium'>shop</p></NavLink>
                         <p className='capitalize text-4xl  font-medium'>gifts</p>
                         <p className='capitalize text-4xl  font-medium'>journal</p>

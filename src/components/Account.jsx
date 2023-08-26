@@ -103,22 +103,18 @@ const Account = () => {
             {/* <div className='relative w-[65px] h-[65px] border-r border-b border-black ' ></div>
             <div className='relative w-[65px] h-[65px] relative border-l border-b border-black left-[1635px] bottom-[65px]' ></div> */}
             <div className='flex justify-between'>
-                <div class="flex w-16 h-16 border-r border-black">
-                  
-                </div>
-                <div class="flex w-16 h-16 border-l border-black place-self-end">
-                  
-                </div>
+                <div className="flex w-16 h-16 border-r border-black"></div>
+                <div className="flex w-16 h-16 border-l border-black place-self-end"></div>
             </div>
-            <section className='px-16  border-t border-black   '>
+            <section className='px-16  border-t border-black'>
                 <div className='w-full p-4 text-start text-2xl space-x-7 border-x border-black' >
                     <a className='uppercase text-[#838282]  w-full font-Staatliches' href="">orders</a>
-                    <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">subscriptions</a>
-                    <a className='uppercase text-[#838282]    w-full font-Staatliches' href="">golden ticket</a>
+                    <a className='uppercase text-[#838282]  w-full font-Staatliches' href="">subscriptions</a>
+                    <a className='uppercase text-[#838282]  w-full font-Staatliches' href="">golden ticket</a>
                     <a className='uppercase text-black w-full font-Staatliches underline decoration-[6px]  underline-offset-[18px]' href="">account</a>
                 </div>
 
-                <div className='w-full border-t h-auto flex   border-x border-b border-black'>
+                <div className='w-full border-t h-auto flex border-x border-b border-black'>
                     <div className='w-full flex flex-col border-black py-6'>
                         <p className='px-6 text-5xl h-auto font-Staatliches flex items-center justify-start'>MY ACCOUNT</p>
                         <p className='px-6 w-full border-black flex flex-col justify-evenly text-start'>Personalize your experience here and see everything we track and do with your data.</p>
@@ -133,7 +129,7 @@ const Account = () => {
 
                 </div>
 
-                <div className='w-full h-auto flex justify-center border-b border-x border-black'>
+                <div className='w-full h-auto flex justify-center border-x border-black'>
                     <ul className='h-auto flex flex-col items-start p-6 '>
                         <div>
                             <img className=" w-full object-cover h-40" src={user} title="poster" />

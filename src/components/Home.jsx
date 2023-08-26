@@ -45,10 +45,10 @@ import axios from 'axios';
 
 const options = {
     method: 'GET',
-    url: 'https://pizza-and-desserts.p.rapidapi.com/pizzas',
+    url: 'https://the-mexican-food-db.p.rapidapi.com/',
     headers: {
-        'X-RapidAPI-Key': 'bdbad44431mshf133f3e78cc7290p12f0b7jsna61826593fed',
-        'X-RapidAPI-Host': 'pizza-and-desserts.p.rapidapi.com'
+        'X-RapidAPI-Key': '25ad220f10msh8efa45310a070c6p1a029cjsn3a6be4c1eca8',
+        'X-RapidAPI-Host': 'the-mexican-food-db.p.rapidapi.com'
     }
 };
 
@@ -151,9 +151,9 @@ const Home = () => {
                     {/* TODO: set products here from API 1.2 */}
                     <div className=' flex gap-x-8 flex-nowrap '>
                         {products.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={item.img} alt="product" />
+                            <img className='w-full object-cover h-72 border-black border-b' src={item.image} alt="product" />
                             <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full'>{item.name}</p>
+                                <p className='text-lg w-full'>{item.title}</p>
                             </div>
                         </div>))}
 
