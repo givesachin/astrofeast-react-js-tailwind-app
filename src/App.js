@@ -9,6 +9,9 @@ import Account from './components/Account';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Shop from './components/Shop';
 import Sitemap from './components/Sitemap';
+import GoldenTicket from './components/Account/GoldenTicket';
+import Subscriptions from './components/Account/Subscription';
+import Orders from './components/Account/Orders';
 
 function App() {
     return (
@@ -24,7 +27,10 @@ function App() {
                         <Route exact path='login' element={<Login />} />
                         <Route exact path='signup' element={<Signup />} />
                     </Route>
-                    <Route path="/my-account" element={<Account/>}></Route>
+                    <Route path="/my-account" element={<Account />}></Route>
+                    <Route path="/golden-ticket" element={<GoldenTicket />}></Route>
+                    <Route path="/subscriptions" element={<Subscriptions />}></Route>
+                    <Route path="/orders" element={<Orders />}></Route>
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}
