@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductItem from './ProuductItem'
+import { NavLink } from 'react-router-dom'
 
 
 const ProductContainer = ({ pitem, cardcontainer }) => {
@@ -13,7 +14,9 @@ const ProductContainer = ({ pitem, cardcontainer }) => {
                 <div className={`flex gap-8 ${cardcontainer}`}>
                     {pitem.map((plist) => (
                         // Add parentheses to render the component
-                        <ProductItem key={plist.id} prodList={plist} />
+                        <NavLink to='/shop/ProductDetail'>
+                            <ProductItem key={plist.id} prodList={plist} />
+                        </NavLink>
                     ))}
 
                 </div>
