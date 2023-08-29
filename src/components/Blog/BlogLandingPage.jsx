@@ -101,7 +101,7 @@ const BlogLandingPage = () => {
                             <img className='border-b border-black w-80 h-80 object-cover' src={item.image} />
                             {/* <img className='border-black border-b object-cover' src={item.image} alt="product" /> */}
                             <div className='w-full font-poppins font-semi-bold h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full'>{item.title}</p>
+                                <p className='text-lg w-full font-medium'>{(item.title).substring(0, (item.title).indexOf(' '))}</p>
                             </div>
                         </div>))}
 
