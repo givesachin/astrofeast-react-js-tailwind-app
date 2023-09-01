@@ -14,6 +14,7 @@ import Subscriptions from './components/Account/Subscription';
 import Orders from './components/Account/Orders';
 import BlogLandingPage from './components/Blog/BlogLandingPage'
 import Recipe from './components/Blog/Recipe';
+import FeastBox from './components/FeastBox';
 
 function App() {
     return (
@@ -35,6 +36,8 @@ function App() {
                     <Route path="/orders" element={<Orders />}></Route>
                     <Route path="/blog/" element={<BlogLandingPage />}></Route>
                     <Route path="/blog/recipe" element={<Recipe />}></Route>
+                    <Route path="/feastbox" element={<FeastBox />}></Route>
+
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}
