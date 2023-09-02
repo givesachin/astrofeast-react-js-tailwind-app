@@ -111,7 +111,7 @@ const Account = () => {
                 <AccountNavbar />
                 <div className='w-full border-t h-auto flex border-x border-b border-black'>
                     <div className='w-full flex flex-col border-black py-6'>
-                        <p className='px-6 text-4xl h-auto font-Staatliches flex items-center justify-start'>MY ACCOUNT</p>
+                        <p className='px-6 h-auto fs_w400_s48 flex items-center justify-start'>MY ACCOUNT</p>
                         <p className='px-6 w-full border-black flex flex-col justify-evenly text-start'>Personalize your experience here and see everything we track and do with your data.</p>
 
                     </div>

@@ -112,8 +112,10 @@ const Home = () => {
             </section>
             <section className='w-full h-auto flex flex-col items-center py-52 px-16 justify-between gap-y-8'>
                 <div className='flex flex-col items-center w-full h-auto gap-y-4'>
-                    <p className='text-6xl font-Staatliches '>The astrofeast project</p>
-                    <p className='text-2xl w-2/5 text-center'>or how we declassify authentic food from around the world, and keep it fresh AF</p>
+                    <p className='fs_w400_s60'>The astrofeast project</p>
+                    <div className='flex place-content-center'>
+                        <p className='w-8/12 text-center font-poppins'>or how we declassify authentic food from around the world, and keep it fresh AF</p>
+                    </div>
                 </div>
                 <button className='bg-black w-auto h-auto text-white px-6 py-3 flex items-center font-Staatliches text-xl  gap-x-2'>
                     why we freeze

@@ -25,7 +25,7 @@ const GoldenTicket = () => {
                 <AccountNavbar />
                 <div className='w-full border-t h-auto flex border-x border-black'>
                     <div className='w-full flex flex-col border-black py-6 gap-1'>
-                        <p className='px-6 text-4xl h-auto font-Staatliches flex items-center justify-start'>GOLDEN TICKET</p>
+                        <p className='px-6 h-auto fs_w400_s48 flex items-center justify-start'>GOLDEN TICKET</p>
                         <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>Buy any 5 products and activate subscription benefits for the entire year</p>
 
                     </div>

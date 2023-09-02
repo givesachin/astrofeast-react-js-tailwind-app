@@ -32,7 +32,7 @@ const FeastBox = () => {
                 <div className='border-x border-black pt-10'>
                     <div className='w-full h-auto flex border-b border-black'>
                         <div className='w-full flex flex-col border-black py-6 gap-1'>
-                            <p className='px-6 text-4xl h-auto font-Staatliches flex items-center justify-start'>build your own feast box</p>
+                            <p className='fs_w400_s60 text-4xl h-auto flex items-center justify-start'>build your own feast box</p>
                             <p className='px-6 w-1/2 border-black font-poppins flex flex-col justify-evenly text-start'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con.</p>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ const FeastBox = () => {
                                 </div>
                                 <div className='flex '>
                                     <QuantityBox />
-                                    <p className='text-center self-center text-4xl font-Staatliches'>$350.00</p>
+                                    <p className='text-center self-center fs_w400_s48'>$350.00</p>
 
                                 </div>
                                 <input className=' w-full p-3 text-white font-Staatliches  bg-black' type="submit" value="add to stash    >" />

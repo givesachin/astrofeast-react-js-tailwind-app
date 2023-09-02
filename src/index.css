@@ -1,3 +1,11 @@
+.fs_w400_s60 {
+  @apply text-6xl font-Staatliches
+}
+
+.fs_w400_s48 {
+  @apply text-5xl font-Staatliches
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

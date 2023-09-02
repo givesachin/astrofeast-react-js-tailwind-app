@@ -35,7 +35,7 @@ const BlogLandingPage = () => {
             <section className='px-16 relative'>
                 <div className='w-full border-x border-black pt-10'>
                     <div className='w-full'>
-                        <p className='text-5xl h-auto p-8 font-Staatliches flex items-center justify-start'>BLOGS</p>
+                        <p className='fs_w400_s60 h-auto p-8 flex items-center justify-start'>BLOGS</p>
                         {/* <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>CHECK OUT RECIPES!</p> */}
 
                     </div>
@@ -54,7 +54,7 @@ const BlogLandingPage = () => {
                 </div>
                 <div className='w-full border-x border-black pt-10'>
                     <div className='w-full border-t border-black'>
-                        <p className='text-5xl h-auto p-8 font-Staatliches flex items-center justify-start'>feature section</p>
+                        <p className='fs_w400_s48 h-auto p-8 flex items-center justify-start'>feature section</p>
                     </div>
                     <div className='flex border-t border-b border-black gap-10'>
                         <div className='w-1/2 h-1/2 '>
@@ -84,7 +84,7 @@ const BlogLandingPage = () => {
                 </div>
                 <div className='w-full border-x border-black'>
                     <div className='p-6 flex justify-between'>
-                        <p className='font-Staatliches font-semi-bold text-left text-3xl'>stories that have been read the most</p>
+                        <p className='fs_w400_s48 font-semi-bold text-left'>stories that have been read the most</p>
                         <input className='  text-3xl font-Staatliches ' type="submit" value="view all     >" />
                     </div>
                     {/* <div>

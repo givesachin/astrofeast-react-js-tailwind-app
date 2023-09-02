@@ -44,7 +44,7 @@ const Recipe = () => {
             <section className='px-16 relative'>
                 <div className='w-full border-x border-black pt-10'>
                     <div className='w-full'>
-                        <p className='text-5xl h-auto p-8 font-Staatliches flex items-center justify-start'>recipes</p>
+                        <p className='fs_w400_s60 h-auto p-8 flex items-center justify-start'>recipes</p>
                         {/* <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>CHECK OUT RECIPES!</p> */}
 
                     </div>
@@ -76,10 +76,10 @@ const Recipe = () => {
                     </div>
                     <div className='flex border-t border-black'>
                         <div className='w-1/2 '>
-                            <p className='text-3xl h-auto pl-8 py-3 font-Staatliches flex items-center justify-start border-r border-black'>preparation</p>
+                            <p className='fs_w400_s48 h-auto pl-8 py-3 flex items-center justify-start border-r border-black'>preparation</p>
                         </div>
                         <div className='w-1/2'>
-                            <p className='text-3xl h-auto pl-8 py-3 font-Staatliches flex items-center justify-start '>ingredients</p>
+                            <p className='h-auto pl-8 py-3 fs_w400_s48 flex items-center justify-start '>ingredients</p>
                         </div>
                     </div>
                     <div className='flex border-y border-black'>
@@ -91,8 +91,8 @@ const Recipe = () => {
                         </div>
                     </div>
                     <div className='p-6 flex justify-between'>
-                        <p className='font-Staatliches font-semi-bold text-left text-3xl'>Look at more recipes</p>
-                        <input className='  text-3xl font-Staatliches ' type="submit" value="view all     >" />
+                        <p className='fs_w400_s48 font-semi-bold text-left'>Look at more recipes</p>
+                        <input className='fs_w400_s48 ' type="submit" value="view all     >" />
                     </div>
 
                 </div>
