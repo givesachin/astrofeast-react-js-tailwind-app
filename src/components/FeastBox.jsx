@@ -7,6 +7,7 @@ import bullet from "../assets/bullet.png";
 import Footer from './Atoms/Footer';
 import Header from './Atoms/Header';
 import QuantityBox from './Atoms/QuantityBox';
+import CTABar from './Atoms/CTABar';
 
 const products =
     [{ id: 0, prod_img: afnonveg, title: 'Fresh Pancakes' },
@@ -25,12 +26,7 @@ const FeastBox = () => {
     return (
         <section className='w-full h-full font-poppins'>
             <Header />
-            <div className='absolute w-screen h-auto z-10'>
-                <ul className='w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 '>
-                    <li>  <p className='w-full'>&#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p></li>
-                    <li>  <p className='w-full'> &#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p> </li>
-                </ul>
-            </div>
+            <CTABar />
             <section className='px-16 relative'>
 
                 <div className='border-x border-black pt-10'>

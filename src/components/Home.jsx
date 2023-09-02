@@ -5,6 +5,7 @@ import Header from './Atoms/Header';
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
 import axios from 'axios';
+import CTABar from './Atoms/CTABar';
 
 // const prodData =
 // {
@@ -70,12 +71,7 @@ const Home = () => {
         <section>
             <Header />
             <section className='w-full h-[48.75rem] relative'>
-                <div className='absolute w-screen h-auto top-[2%] z-10'>
-                    <ul className='w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 '>
-                        <li>  <p className='w-full'>&#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p></li>
-                        <li>  <p className='w-full'> &#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p> </li>
-                    </ul>
-                </div>
+                <CTABar />
                 <img className='w-full object-cover h-full brightness-50' src={afherobg} alt="hero background" />
                 <div className='absolute pl-16 top-[15%] gap-y-3 w-full h-auto flex flex-col items-start justify-between  '>
                     <h1 className='w-10/12 leading-[112px] text-[7rem] font-Staatliches    text-left z-10 text-[#fefefe] '>

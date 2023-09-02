@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react'
 import About from './components/About';
 import Login from './components/Atoms/Login';
 import Signup from './components/Atoms/Signup';

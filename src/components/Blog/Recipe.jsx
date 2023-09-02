@@ -3,6 +3,7 @@ import Footer from '../Atoms/Footer';
 import Header from '../Atoms/Header';
 import blog4 from '../../assets/Blog/blog4.png'
 import axios from 'axios';
+import CTABar from '../Atoms/CTABar';
 
 const options = {
     method: 'GET',
@@ -38,12 +39,8 @@ const Recipe = () => {
     return (
         <section className='w-full h-full font-poppins'>
             <Header />
-            <div className='absolute w-screen h-auto z-10'>
-                <ul className='w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 '>
-                    <li>  <p className='w-full'>&#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p></li>
-                    <li>  <p className='w-full'> &#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p> </li>
-                </ul>
-            </div>
+            <CTABar />
+
             <section className='px-16 relative'>
                 <div className='w-full border-x border-black pt-10'>
                     <div className='w-full'>
