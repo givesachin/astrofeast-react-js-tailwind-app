@@ -49,6 +49,10 @@ const GoldenTicket = () => {
                 </div>
 
             </section>
+            <div className='h-0 border-t  border-black flex justify-center items-center' />
+            <section className='px-16 relative'>
+                <div className='border-x border-black pt-12' />
+            </section>
             <Footer />
         </section >
 
