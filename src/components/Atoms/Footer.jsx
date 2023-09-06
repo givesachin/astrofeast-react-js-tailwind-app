@@ -3,29 +3,29 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className='w-full flex items-center flex-col'>
-            <div className='w-full flex border-t border-black'>
+        <footer className='w-full lg:flex lg:items-center lg:flex-col'>
+            <div className='w-full  lg:flex border-t border-black'>
                 <div className='border-r w-full border-black'>
-                    <p className='px-16 py-6 text-start border-b text-xl font-medium uppercase border-black'>Stay up with Astrofeast</p>
-                    <div className='p-16 gap-y-9 flex flex-col items-start'>
+                    <p className='px-16 py-6 text-start border-b text-xl font-medium font-poppins uppercase border-black'>Stay up with Astrofeast</p>
+                    <div className='px-16 py-8 lg:p-16 gap-y-9 flex flex-col items-start'>
                         <div className='w-full gap-y-2 flex flex-col items-start'>
-                            <p className=' font-semibold text-2xl'>Tales from Outer Space</p>
-                            <p className=' text-xl'>Fortnightly briefs from around the world</p>
+                            <p className=' font-semibold text-2xl font-poppins'>Tales from Outer Space</p>
+                            <p className=' text-xl font-poppins'>Fortnightly briefs from around the world</p>
                         </div>
 
                         <div className='w-full gap-y-2 flex flex-col items-start '>
                             <form className='w-full flex flex-between gap-x-4' action="get">
-                                <input className='w-full p-4 border border-black' type='text' placeholder='Email/WhatsApp' />
-                                <input className=' px-6 py-3 text-white font-Staatliches  bg-black' type="submit" value="Send me a tale" />
+                                <input className='w-3/4 p-4 border border-black placeholder:text-black font-poppins' type='text' placeholder='Email/Whatsapp' />
+                                <input className=' px-6 py-3 text-white font-Staatliches  bg-black lg:w-auto md:w-1/4 text-xl md:tracking-wider' type="submit" value="Send me a tale" />
                             </form>
-                            <p className='text-xs'>No spams. No automations. No filters.</p>
+                            <p className='text-xs font-poppins pt-2'>No spams. No automations. No filters.</p>
                         </div>
                     </div>
                 </div>
-                <div className='flex w-full'>
+                <div className='flex w-full lg:border-white md:border-t md:border-black'>
                     <div className='w-full flex flex-col border-r border-black'>
-                        <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black'>work with us</p>
-                        <div className='w-full gap-y-2 p-16 flex flex-col items-start'>
+                        <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black font-poppins'>work with us</p>
+                        <div className='w-full gap-y-2 p-16 flex flex-col items-start font-poppins gap-y-4'>
                             <p className=' font-semibold text-2xl'> Kitchens</p>
                             <p className=' font-semibold text-2xl'> Investors</p>
                             <p className=' font-semibold text-2xl'> Careers</p>
@@ -34,8 +34,8 @@ const Footer = () => {
                         </div >
                     </div >
                     <div className='w-full flex flex-col'>
-                        <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black'>quick links</p>
-                        <div className='w-full gap-y-2 p-16 flex flex-col items-start'>
+                        <p className='px-16 py-6 text-start border-b text-lg font-medium uppercase border-black font-poppins'>quick links</p>
+                        <div className='w-full gap-y-2 p-16 flex flex-col items-start font-poppins gap-y-4'>
                             <p className=' font-semibold text-2xl'> Account</p>
                             <p className=' font-semibold text-2xl'> Shop</p>
                             <p className=' font-semibold text-2xl'> Golden Ticket</p>
@@ -45,9 +45,9 @@ const Footer = () => {
                     </div >
                 </div>
             </div >
-            <div className='w-full font-poppins flex justify-between px-16 py-12 border-t border-black'>
-                <p className='w-full text-left'>2023 &#169; astrofeast</p>
-                <div className='w-full flex justify-end gap-x-8 uppercase'>
+            <div className='w-full font-poppins flex flex-col-reverse gap-y-8 lg:flex-row justify-between px-16 py-12 border-t border-black font-medium'>
+                <p className='w-full lg:text-left uppercase'>2023 &#169; astrofeast</p>
+                <div className='w-full flex justify-center lg:justify-end gap-x-8 uppercase'>
                     <p>whitepaper</p>
                     <p>privacy</p>
                     <p>terms</p>
