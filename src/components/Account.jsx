@@ -101,21 +101,17 @@ const Account = () => {
     return (
         <section >
             <Header />
-            {/* <div className='relative w-[65px] h-[65px] border-r border-b border-black ' ></div>
-            <div className='relative w-[65px] h-[65px] relative border-l border-b border-black left-[1635px] bottom-[65px]' ></div> */}
-            <div className='flex justify-between'>
-                <div className="flex w-16 h-16 border-r border-black"></div>
-                <div className="flex w-16 h-16 border-l border-black place-self-end"></div>
-            </div>
-            <section className='px-16  border-t border-black'>
+            <section className='hidden lg:block lg:px-16 lg:relative'>
+                <div className='border-x border-black pt-12' />
+            </section>
+            <section className='lg:px-16 border-t border-black'>
                 <AccountNavbar />
-                <div className='w-full border-t h-auto flex border-x border-b border-black'>
+                <div className='w-full border-t h-auto flex lg:border-x border-b border-black'>
                     <div className='w-full flex flex-col border-black py-6'>
                         <p className='px-6 h-auto fs_w400_s48 flex items-center justify-start'>MY ACCOUNT</p>
-                        <p className='px-6 w-full border-black flex flex-col justify-evenly text-start'>Personalize your experience here and see everything we track and do with your data.</p>
-
+                        <p className='px-6 w-full border-black flex flex-col justify-evenly text-start whitespace-nowrap'>Personalize your experience here and see everything we track and do with your data.</p>
                     </div>
-                    <div className='w-80 flex gap-3 p-8 place-content-end' >
+                    <div className='w-60 h-10 flex gap-3 p-8 place-content-end ' >
                         <img className='h-5 w-5' src={pencil} alt="bag" />
                         <p className='text-orange-400 font-Staatliches text-xl '>
                             EDIT DETAILS
@@ -124,7 +120,7 @@ const Account = () => {
 
                 </div>
 
-                <div className='w-full h-auto flex justify-center border-x border-black'>
+                <div className='w-full h-auto flex flex-col lg:flex-row justify-center lg:border-x border-black'>
                     <ul className='h-auto flex flex-col items-start p-6 '>
                         <div>
                             <img className=" w-full object-cover h-40" src={user} title="poster" />
@@ -176,9 +172,9 @@ const Account = () => {
                 </div>
 
             </section>
-            <div className='h-0 border-t  border-black flex justify-center items-center' />
-            <section className='px-16 relative'>
-                <div className='border-x border-black pt-12' />
+            <div className='h-0 lg:border-t  border-black flex justify-center items-center' />
+            <section className='hidden  lg:block lg:px-16 lg:relative'>
+                <div className='lg:border-x border-black pt-12' />
             </section>
             <Footer />
         </section >

@@ -10,7 +10,7 @@ const AccountNavbar = () => {
     return (
         <section className=''>
 
-            <div className='flex w-full p-4 text-start text-2xl space-x-7 border-x border-black relative ' >
+            <div className='flex w-full p-6 text-start text-2xl space-x-7 lg:border-x border-black relative ' >
                 <NavLink to="/orders"><p className='uppercase text-[#838282]  w-full font-Staatliches hover:underline hover:decoration-4 hover:text-black hover: underline-offset-[22px]'>orders</p></NavLink>
                 <NavLink to="/subscriptions"> <p className='uppercase text-[#838282]  w-full font-Staatliches hover:underline hover:decoration-4 hover:text-black hover: underline-offset-[22px]'>subscriptions</p></NavLink>
                 <NavLink to="/golden-ticket"> <p className='uppercase text-[#838282]  w-full font-Staatliches  hover:underline hover:decoration-4 hover:text-black hover: underline-offset-[22px]'>golden ticket</p></NavLink>
