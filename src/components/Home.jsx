@@ -6,10 +6,9 @@ import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
 import axios from 'axios';
 import CTABar from './Atoms/CTABar';
-import afhb from "../assets/afhb.png";
 import afsearch from "../assets/search.svg";
 import afbag from "../assets/afbag.png";
-
+import afmenu from "../assets/afmenu.svg";
 // const prodData =
 // {
 //     "items": [
@@ -58,28 +57,27 @@ const options = {
 
 const Home = () => {
     // TODO: get products API here 1.1
-    const [products, setProducts] = useState([]);
-    useEffect(() => { getProducts(); }, []);
-    function getProducts() {
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-            setProducts(response.data)
-        });
-        // axios.get('').then(function (response) {
-        //     console.log(response.data);
-        //     setProducts(response.data)
-        // })
-    }
+    // const [products, setProducts] = useState([]);
+    // useEffect(() => { getProducts(); }, []);
+    // function getProducts() {
+    //     axios.request(options).then(function (response) {
+    //         console.log(response.data);
+    //         setProducts(response.data)
+    //     });
+    //     // axios.get('').then(function (response) {
+    //     //     console.log(response.data);
+    //     //     setProducts(response.data)
+    //     // })
+    // }
     const [toggle, setToggle] = useState(false)
     return (
         <section>
             <Header />
             <section className='w-full h-[48.75rem] relative'>
                 <CTABar />
-
                 <img className='w-full object-cover h-full brightness-50' src={afherobg} alt="hero background" />
-                <div className='absolute pl-16 top-[15%] gap-y-3 w-full h-auto flex flex-col items-start justify-between  '>
-                    <h1 className='w-10/12 leading-[112px] text-[7rem] font-Staatliches    text-left z-10 text-[#fefefe] '>
+                <div className='absolute pl-16 pr-16 top-[15%] gap-y-3 w-full h-auto flex flex-col items-start justify-between  '>
+                    <h1 className='pt-20 w-7/12 lg:w-8/12 leading-1 text-7xl font-Staatliches text-left z-10 text-[#fefefe] '>
                         Reliable Interplanetary Food Delivery
                     </h1>
                     <div className='w-full h-auto gap-y-8 flex flex-col items-start justify-between'>
@@ -89,12 +87,11 @@ const Home = () => {
                         <button className='px-8 py-4 bg-white uppercase font-Staatliches text-xl'> view shop</button>
                     </div>
 
-
-                    <div className='border border-red-500 flex bg-white w'>
-                        <img onClick={() => { setToggle(!toggle); console.log('click from header', toggle); }} className='' src={afhb} alt="menu" />
-                        <img className='invert h-10' src={afbag} alt="bag" />
-                        <img src={afsearch} alt="search" className='h-5 w-fit invert font-bold' />
-                        <button>see collection</button>
+                    <div className='lg:hidden flex bg-white w-auto mt-28 px-16 py-3 justify-evenly gap-x-10 items-center'>
+                        <div className=''><img onClick={() => { setToggle(!toggle); console.log('click from header', toggle); }} className='invert' src={afmenu} alt="menu" /></div>
+                        <img className='h-8' src={afbag} alt="bag" />
+                        <img src={afsearch} alt="search" className='h-8' />
+                        <button className='font-Staatliches border-2 border-black px-56 py-2 font-medium text-lg tracking-wide'>see collection</button>
                     </div>
                 </div>
                 <div className='absolute right-0 bottom-0 w-auto h-auto m-16'>
@@ -160,7 +157,7 @@ const Home = () => {
                 <div className=' h-full flex  overflow-x-scroll flex-nowrap '>
 
                     {/* TODO: set products here from API 1.2 */}
-                    <div className=' flex gap-x-8 flex-nowrap '>
+                    {/* <div className=' flex gap-x-8 flex-nowrap '>
                         {products.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
                             <img className='w-full object-cover h-72 border-black border-b' src={item.image} alt="product" />
                             <div className='w-full h-auto flex items-end justify-center py-5'>
@@ -168,7 +165,7 @@ const Home = () => {
                             </div>
                         </div>))}
 
-                    </div>
+                    </div> */}
                     {/* <div className=' flex gap-x-8 flex-nowrap '>
                         {prodData.items.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
                             <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
