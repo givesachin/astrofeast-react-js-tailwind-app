@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className='w-full lg:flex lg:items-center lg:flex-col'>
             <div className='w-full  lg:flex border-t border-black'>
-                <div className='border-r w-full border-black'>
+                <div className='lg:border-r w-full border-black'>
                     <p className='px-16 py-6 text-start border-b text-xl font-medium font-poppins uppercase border-black'>Stay up with Astrofeast</p>
                     <div className='px-16 py-8 lg:p-16 gap-y-9 flex flex-col items-start'>
                         <div className='w-full gap-y-2 flex flex-col items-start'>

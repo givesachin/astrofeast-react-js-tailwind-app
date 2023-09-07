@@ -46,29 +46,29 @@ const Orders = () => {
                         <input className='flex py-6 px-6 text-[#F4A73F] font-Staatliches' type="submit" value="reedem code" />
                     </div>
                 </div>
-                <div className=' px-6 py-3 flex-column w-full h-full border-t lg:border-x border-black justify-between gap-5'>
+                <div className='hidden lg:block lg:px-6 lg:py-3 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black lg:justify-between lg:gap-5'>
                     {data.map((item, index) => (
                         <div key={index} className='flex flex-col'>
-                            <div className='flex px-6 py-6 lg:flex-row w-full h-full border-black justify-between lg:gap-5'>
-                                <div className='order-1 lg:order-1 flex flex-col'>
+                            <div className='flex px-6 py-6 flex-row w-full h-full border-black justify-between gap-5'>
+                                <div>
                                     <p className=' text-2xl h-auto font-Staatliches flex items-center justify-start'>order #{item.order_number}</p>
-                                    <p className='text-sm font-poppins justify-start flex'>No of meals: {item.no_of_meals}</p>
+                                    <p className='text-sm font-poppins font-medium justify-start flex'>No of meals: {item.no_of_meals}</p>
                                 </div>
-                                <div className='order-3 lg:order-2 flex flex-col'>
+                                <div >
                                     <p className='text-xs font-poppins justify-start flex'>Status</p>
                                     <p className='text-sm font-semibold font-poppins justify-start flex pt-2'>{item.status}</p>
 
                                 </div>
-                                <div className='order-4 lg:order-3 flex flex-col'>
+                                <div>
                                     <p className='text-xs font-poppins justify-start flex'> Shipped to</p>
                                     <p className='text-sm font-semibold font-poppins justify-start flex pt-2'>{item.shipped_to}</p>
                                 </div>
-                                <div className='order-5 lg:order-4 flex flex-col'>
+                                <div>
                                     <p className='text-xs font-poppins justify-start flex'>Order Date</p>
                                     <p className='text-sm font-semibold font-poppins justify-start flex pt-2'>{item.order_date}</p>
                                 </div>
 
-                                <div className='order-2 lg:order-5 justify-end flex flex-col'>
+                                <div>
                                     <input className='flex px-6 py-3 text-white font-Staatliches bg-black object-start' type="submit" value="track order" />
                                 </div>
                             </div>
@@ -79,7 +79,48 @@ const Orders = () => {
                                 </div>
                             )}
                         </div>
+                    ))}
 
+                </div>
+                <div className='lg:hidden block px-6 py-3 flex-column w-full h-full border-t border-black justify-between gap-5'>
+                    {data.map((item, index) => (
+                        <div key={index} className='flex flex-col'>
+                            <div className='flex px-6 py-6 flex-col w-full h-full border-black justify-between gap-5'>
+                                <div className='flex justify-between'>
+                                    <div>
+                                        <p className=' text-2xl h-auto font-Staatliches flex items-center justify-start'>order #{item.order_number}</p>
+                                        <p className='text-sm font-medium font-poppins justify-start flex'>No of meals: {item.no_of_meals}</p>
+                                    </div>
+                                    <div>
+                                        <input className='flex px-6 py-3 text-white font-Staatliches bg-black object-start' type="submit" value="track order" />
+                                    </div>
+
+                                </div>
+
+                                <div className='flex justify-between w-3/4'>
+                                    <div className='' >
+                                        <p className='text-xs font-poppins justify-start flex'>Status</p>
+                                        <p className='text-sm font-semibold font-poppins justify-start flex pt-2'>{item.status}</p>
+
+                                    </div>
+                                    <div className='' >
+                                        <p className='text-xs font-poppins justify-start flex'> Shipped to</p>
+                                        <p className='text-sm font-semibold font-poppins justify-start flex pt-2'>{item.shipped_to}</p>
+                                    </div>
+                                    <div className='' >
+                                        <p className='text-xs font-poppins justify-start flex'>Order Date</p>
+                                        <p className='text-sm font-semibold font-poppins justify-start flex pt-2'>{item.order_date}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {index !== data.length - 1 && (
+                                <div className='flex '>
+                                    <hr className='w-full border-t border-black' />
+                                </div>
+                            )}
+                        </div>
                     ))}
 
                 </div>
