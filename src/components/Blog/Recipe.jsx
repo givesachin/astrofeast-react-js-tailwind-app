@@ -30,10 +30,10 @@ const Recipe = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => { getProducts(); }, []);
     function getProducts() {
-        axios.request(options).then(function (response) {
-            console.log(response.data);
-            setProducts(response.data)
-        });
+        // axios.request(options).then(function (response) {
+        //     console.log(response.data);
+        //     setProducts(response.data)
+        // });
 
     }
     return (
@@ -41,18 +41,18 @@ const Recipe = () => {
             <Header />
             <CTABar />
 
-            <section className='px-16 relative'>
-                <div className='w-full border-x border-black pt-10'>
+            <section className='lg:px-16 relative'>
+                <div className='w-full lg:border-x border-black lg:pt-10'>
                     <div className='w-full'>
                         <p className='fs_w400_s60 h-auto p-8 flex items-center justify-start'>recipes</p>
                         {/* <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>CHECK OUT RECIPES!</p> */}
 
                     </div>
-                    <div className='p-8 flex border-t border-black gap-10'>
-                        <div className='w-1/2 h-1/2 '>
-                            <img className='' src={blog4} alt="recipe pic" />
+                    <div className='p-8 flex flex-col lg:flex-row border-t border-black gap-10'>
+                        <div className='lg:w-1/2 lg:h-1/2 '>
+                            <img className='w-full' src={blog4} alt="recipe pic" />
                         </div>
-                        <div className='w-1/2 h-1/2 place-self-center gap-20'>
+                        <div className='lg:w-1/2 lg:h-1/2 place-self-center gap-20'>
                             <div className=''>
                                 <p className='font-poppins text-left text-sm text-gray-600 pb-2'>Created By</p>
                                 <div className='flex gap-3'>
@@ -74,7 +74,27 @@ const Recipe = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex border-t border-black'>
+                    <div className='flex flex-col lg:flex-row  border-black'>
+                        <div className='flex flex-col lg:w-1/2 '>
+                            <div className=''>
+                                <p className='fs_w400_s48 h-auto pl-8 py-3 flex items-center justify-start border-y lg:border-r  border-black bg-slate-50'>preparation</p>
+                            </div>
+                            <div className='lg:border-r h-full border-black  '>
+                                <p className='text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-20'>Heat the olive oil in a frying pan, add the onion and cook for 5 minutes until softened and starting to turn golden. Set aside.In a bowl, combine the beef mince with the herbs and the egg. Season, add the onions and mix well. Using your hands, shape into 4 patties.Cook the burgers on a preheated barbecue or griddle for 5-6 minutes on each side. While the second side is cooking, lay a slice of cheese on top to melt slightly (if using).Lay burgers on an oiled barbecue grill over a solid bed of hot coals or high heat on a gas grill (you can hold your hand at grill level only 2 to 3 seconds); close lid on gas grill. Cook burgers, turning once, until browned on both sides and no longer pink inside (cut to test), 7 to 8 minutes total. Remove from grillMeanwhile, lightly toast the cut-sides of the buns on the barbecue. Fill with the lettuce, burgers and tomato slices. Serve with ketchup, if you like.Meanwhile, lightly toast the cut-sides of the buns on the barbecue. Fill with the lettuce, burgers and tomato slices. Serve with ketchup, if you like.</p>
+                            </div>
+                        </div>
+                        <div className='flex flex-col lg:w-1/2'>
+                            <div className=''>
+                                <p className='h-auto pl-8 py-3 fs_w400_s48 flex items-center justify-start border-y border-black  bg-slate-50'>ingredients</p>
+                            </div>
+                            <div className=''>
+                                <p className='text-sm h-auto pl-8 py-3 font-poppins flex items-center justify-start  text-left pr-80'>1 lb. Beyond Beef 16 cherry tomatoes 2 small zucchini, each cut into 8(½- inch) slices 2 small yellow squash, each cut into 8(½-inch) slices 1 medium orange bell pepper, cut into 16 pieces 1 tbsp olive oil ¾ tsp kosher salt, divided ¾ tsp black pepper, divided  1 large red onion ½ cup chopped fresh cilantro, leaves and stems  1¼ tsp ground cumin, divided ½ cup plain fat - free Greek yogurt 1 tbsp fresh lemon juice 1 small garlic clove, grated Cooking spray</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    {/* <div className='flex border-t border-black'>
                         <div className='w-1/2 '>
                             <p className='fs_w400_s48 h-auto pl-8 py-3 flex items-center justify-start border-r border-black'>preparation</p>
                         </div>
@@ -89,14 +109,14 @@ const Recipe = () => {
                         <div className='w-1/2'>
                             <p className='text-sm h-auto pl-8 py-3 font-poppins flex items-center justify-start  text-left pr-80'>1 lb. Beyond Beef 16 cherry tomatoes 2 small zucchini, each cut into 8(½- inch) slices 2 small yellow squash, each cut into 8(½-inch) slices 1 medium orange bell pepper, cut into 16 pieces 1 tbsp olive oil ¾ tsp kosher salt, divided ¾ tsp black pepper, divided  1 large red onion ½ cup chopped fresh cilantro, leaves and stems  1¼ tsp ground cumin, divided ½ cup plain fat - free Greek yogurt 1 tbsp fresh lemon juice 1 small garlic clove, grated Cooking spray</p>
                         </div>
-                    </div>
-                    <div className='p-6 flex justify-between'>
+                    </div> */}
+                    <div className='p-6 flex justify-between border-t border-black  bg-slate-50'>
                         <p className='fs_w400_s48 font-semi-bold text-left'>Look at more recipes</p>
                         <input className='fs_w400_s48 ' type="submit" value="view all     >" />
                     </div>
 
                 </div>
-                <div className='w-full border-x border-black'>
+                <div className='w-full lg:border-x border-black'>
 
 
                     <div className=' flex gap-x-8 flex-nowrap p-6 border-t border-black '>
@@ -112,9 +132,9 @@ const Recipe = () => {
                     </div>
                 </div>
             </section>
-            <div className='h-0 border-t  border-black flex justify-center items-center' />
-            <section className='px-16 relative'>
-                <div className='border-x border-black pt-12' />
+            <div className='h-0 lg:border-t  border-black flex justify-center items-center' />
+            <section className='hidden  lg:block lg:px-16 lg:relative'>
+                <div className='lg:border-x border-black pt-12' />
             </section>
 
 
