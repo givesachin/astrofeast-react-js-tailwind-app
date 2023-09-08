@@ -14,8 +14,8 @@ const Header = () => {
         <header className='w-full h-auto  flex flex-col items-center'>
 
             {/* black head bar */}
-            <div className='w-full h-full py-5 pr-16 bg-black flex justify-between items-center'>
-                <NavLink to='/'> <img className='h-fit w-auto ml-16' src={aflogo} alt="af-logo" /></NavLink>
+            <div className='w-full h-full py-5 pr-8 md:pr-16 bg-black flex justify-between items-center'>
+                <NavLink to='/'> <img className='h-fit w-auto ml-8 md:ml-16' src={aflogo} alt="af-logo" /></NavLink>
                 <div className='w-auto h-fit justify-between '>
                     <div className='flex w-auto h-auto justify-center gap-x-6'>
                         {/* searchbar */}

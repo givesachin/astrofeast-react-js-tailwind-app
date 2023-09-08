@@ -76,25 +76,25 @@ const Home = () => {
             <section className='w-full h-[48.75rem] relative'>
                 <CTABar />
                 <img className='w-full object-cover h-full brightness-50' src={afherobg} alt="hero background" />
-                <div className='absolute pl-16 pr-16 top-[15%] gap-y-3 w-full h-auto flex flex-col items-start justify-between  '>
-                    <h1 className='pt-20 w-7/12 lg:w-8/12 leading-1 text-7xl font-Staatliches text-left z-10 text-[#fefefe] '>
+                <div className='absolute pl-8 md:pl-16 pr-8 md:pr-16 top-[15%] gap-y-3 w-full h-auto flex flex-col items-start justify-between  '>
+                    <h1 className='pt-10 md:pt-20 w-11/12 md:w-7/12 lg:w-8/12 leading-1 text-7xl font-Staatliches text-left z-10 text-[#fefefe] '>
                         Reliable Interplanetary Food Delivery
                     </h1>
                     <div className='w-full h-auto gap-y-8 flex flex-col items-start justify-between'>
-                        <h2 className='w-10/12  text-2xl     text-left z-10 text-[#fefefe] '>
+                        <h2 className='md:w-10/12  text-2xl     text-left z-10 text-[#fefefe] '>
                             Celebrate with good food from around the world
                         </h2>
                         <button className='px-8 py-4 bg-white uppercase font-Staatliches text-xl'> view shop</button>
                     </div>
 
-                    <div className='lg:hidden flex bg-white w-auto mt-28 px-16 py-3 justify-evenly gap-x-10 items-center'>
+                    <div className='lg:hidden flex self-center bg-white w-auto mt-28 px-8 md:px-16 py-3 justify-evenly gap-x-10 items-center'>
                         <div className=''><img onClick={() => { setToggle(!toggle); console.log('click from header', toggle); }} className='invert' src={afmenu} alt="menu" /></div>
                         <img className='h-8' src={afbag} alt="bag" />
                         <img src={afsearch} alt="search" className='h-8' />
-                        <button className='font-Staatliches border-2 border-black px-56 py-2 font-medium text-lg tracking-wide'>see collection</button>
+                        <button className='font-Staatliches border md:border-2 border-black px-7 md:px-56 py-2 font-medium text-lg tracking-wide'>see collection</button>
                     </div>
                 </div>
-                <div className='absolute right-0 bottom-0 w-auto h-auto m-16'>
+                <div className='absolute right-0 bottom-28 md:bottom-0 w-auto h-auto m-8 md:m-16'>
                     <svg width="181" height="188" viewBox="0 0 181 188" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_2124_8814)">
                             <path d="M123.92 13.6782C129.039 12.4372 134.233 15.4359 135.717 20.4895C136.873 24.4222 140.34 27.2321 144.427 27.5459C149.674 27.9487 153.68 32.4166 153.532 37.6767C153.416 41.7737 155.844 45.5286 159.632 47.0927C164.495 49.1004 166.92 54.5932 165.158 59.55C163.784 63.4133 164.93 67.7415 168.049 70.4037C172.052 73.8212 172.662 79.795 169.456 83.9697C166.957 87.2241 166.711 91.6962 168.853 95.1959C171.604 99.6901 170.346 105.559 166.005 108.545C162.622 110.873 161.012 115.049 161.967 119.042C163.195 124.173 160.196 129.369 155.138 130.871C151.202 132.04 148.39 135.522 148.066 139.616C147.651 144.869 143.197 148.892 137.929 148.757C133.827 148.652 130.078 151.101 128.509 154.893C126.496 159.756 121.018 162.215 116.057 160.457C112.192 159.087 107.87 160.259 105.212 163.38C101.8 167.385 95.8305 168.031 91.6605 164.823C88.4117 162.325 83.9461 162.1 80.4558 164.248C75.9745 167.007 70.1021 165.771 67.1299 161.429C64.8147 158.046 60.6475 156.448 56.664 157.414C51.5451 158.655 46.3511 155.656 44.8665 150.603C43.7112 146.67 40.2438 143.86 36.1569 143.546C30.9101 143.144 26.9038 138.676 27.0521 133.416C27.1676 129.319 24.74 125.564 20.9516 124C16.0889 121.992 13.6636 116.499 15.4261 111.542C16.7998 107.679 15.6536 103.351 12.5352 100.689C8.53199 97.2711 7.92179 91.2973 11.1276 87.1227C13.6267 83.8682 13.8732 79.3961 11.731 75.8964C8.98 71.4022 10.2377 65.5332 14.5791 62.5469C17.9624 60.2196 19.5723 56.0438 18.6166 52.0501C17.3887 46.919 20.3882 41.7237 25.4458 40.2215C29.3824 39.0523 32.1937 35.5702 32.5176 31.4765C32.9331 26.2236 37.387 22.1999 42.6546 22.3352C46.7565 22.4406 50.5062 19.991 52.0751 16.1995C54.0876 11.3359 59.5661 8.87744 64.5274 10.6355C68.3921 12.0051 72.7135 10.8336 75.3724 7.71229C78.7839 3.70755 84.7534 3.06154 88.9235 6.26889C92.1723 8.76767 96.6379 8.99258 100.128 6.84408C104.609 4.08562 110.482 5.32124 113.454 9.66365C115.769 13.0461 119.936 14.644 123.92 13.6782Z" fill="url(#paint0_linear_2124_8814)" />
@@ -124,7 +124,7 @@ const Home = () => {
                 <div className='flex flex-col items-center w-full h-auto gap-y-4'>
                     <p className='fs_w400_s60'>The astrofeast project</p>
                     <div className='flex place-content-center'>
-                        <p className='w-8/12 text-center font-poppins'>or how we declassify authentic food from around the world, and keep it fresh AF</p>
+                        <p className=' md:w-8/12 text-center font-poppins'>or how we declassify authentic food from around the world, and keep it fresh AF</p>
                     </div>
                 </div>
                 <button className='bg-black w-auto h-auto text-white px-6 py-3 flex items-center font-Staatliches text-xl  gap-x-2'>
