@@ -177,8 +177,6 @@ const About = () => {
                                     <p className='text-base'>Freezing at peak ripeness locks in maximum nutrition. And there's already enough research!</p>
                                 </div>
                             </div>
-
-
                             <div className='w-full flex flex-col lg:flex-row gap-x-6 justify-start'>
                                 <div className='w-[10%] h-full'>
                                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -219,11 +217,11 @@ const About = () => {
                         </svg>
 
                     </div>
-                    <div className='flex  overflow-auto md:justify-center p-8 gap-x-5 md:p-0 md:w-full border-b border-black'>
+                    <div className='flex  overflow-auto md:overflow-visible md:justify-center p-8 md:gap-x-0 gap-x-5 md:p-0 md:w-full border-b border-black'>
                         {/* shubhranshu */}
-                        <div className='w-3/4 md:w-full flex flex-shrink-0 border md:border-r border-black flex-col'>
+                        <div className='w-3/4 md:w-1/3  flex flex-shrink-0 md:flex-shrink-1 border md:border-0 border-black flex-col'>
                             <div className='h-full flex flex-col  px-6 py-6 lg:py-4 border-b border-black'>
-                                <div className='w-full font-semibold text-2xl font-poppins'> Shubhranshu Jha</div>
+                                <div className='w-full font-semibold text-2xl font-poppins md:text-lg'> Shubhranshu Jha</div>
                                 <div className='w-full font-medium text-lg font-poppins text-black md:text-[#838282]'> co-founder, coo</div>
                             </div>
                             <img className='w-auto  border-b border-black' src={afshubh} alt="COO Shubhranshu" />
@@ -243,9 +241,9 @@ const About = () => {
 
 
                         {/* Rana Uppalapati */}
-                        <div className='w-3/4 md:w-full flex flex-shrink-0 border md:border-r border-black flex-col'>
+                        <div className='w-3/4 md:w-1/3  flex flex-shrink-0 md:flex-shrink-1 border md:border-x md:border-y-0 border-black flex-col'>
                             <div className='h-full flex flex-col  px-6 py-6 lg:py-4 border-b border-black'>
-                                <div className='w-full font-semibold text-2xl font-poppins'> Rana Uppalapati</div>
+                                <div className='w-full font-semibold text-2xl md:text-lg font-poppins'> Rana Uppalapati</div>
                                 <div className='w-full font-medium text-lg font-poppins text-black md:text-[#838282]'>co-founder, ceo</div>
                             </div>
                             <img className='w-auto  border-b border-black' src={afrana} alt="COO Shubhranshu" />
@@ -264,10 +262,10 @@ const About = () => {
                         </div>
 
                         {/* Hemanth Thimmasarthi */}
-                        <div className='w-3/4 md:w-full flex flex-shrink-0 flex-col border border-black md:border-none'>
+                        <div className='w-3/4 md:w-1/3  flex flex-shrink-0 md:flex-shrink-1 flex-col border border-black md:border-none'>
                             <div className='h-full flex flex-col px-1 md:px-3 py-6 lg:py-4 border-b border-black'>
-                                <div className='w-full font-semibold text-2xl font-poppins'>Hemanth Thimmasarthi</div>
-                                <div className='w-full font-medium text-base md:text-lg font-poppins text-black md:text-[#838282]'>advisor - strategy & partnerships</div>
+                                <div className='w-full font-semibold text-2xl md:text-lg font-poppins'>Hemanth Thimmasarthi</div>
+                                <div className='w-full font-medium text-base font-poppins text-black md:text-[#838282]'>advisor - strategy & partnerships</div>
                             </div>
                             <img className='w-auto  border-b border-black' src={afhemanth} alt="COO Shubhranshu" />
                             <div className='w-full flex flex-col lg:flex-row px-6 py-4 lg:py-4 '>

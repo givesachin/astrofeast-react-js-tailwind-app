@@ -14,9 +14,9 @@ const Footer = () => {
                         </div>
 
                         <div className='w-full gap-y-2 flex flex-col items-start '>
-                            <form className='w-full flex flex-wrap md:flex-between gap-y-4 md:gap-x-4' action="get">
+                            <form className='w-full flex md:flex-nowrap flex-wrap md:flex-between gap-y-4 md:gap-x-4 border ' action="get">
                                 <input className='w-full md:w-3/4 p-4 border border-black placeholder:text-black font-poppins' type='text' placeholder='Email/Whatsapp' />
-                                <input className='w-full px-6 py-3 text-white font-Staatliches  bg-black lg:w-auto md:w-1/5 text-xl md:tracking-wider' type="submit" value="Send me a tale" />
+                                <input className='w-full px-6 py-3 text-white font-Staatliches  bg-black lg:w-auto md:w-1/4 text-xl md:tracking-wider' type="submit" value="Send me a tale" />
                             </form>
                             <p className='text-xs font-poppins pt-2'>No spams. No automations. No filters.</p>
                         </div>
