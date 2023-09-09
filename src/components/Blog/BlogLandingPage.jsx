@@ -46,7 +46,7 @@ const BlogLandingPage = () => {
                         <div className='lg:w-1/2 lg:h-1/2 place-self-center gap-20'>
                             <p className='font-poppins font-bold text-left text-2xl leading-10'> Latest Article</p>
                             <p className='mt-6 lg:mt-3 font-poppins text-left pr-16'>In a small bowl, combine yogurt, lemon juice, garlic, remaining Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <input className='mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start' type="submit" value="read now     >" />
+                            <input className='mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base ' type="submit" value="read now     >" />
 
                         </div>
                     </div>
@@ -63,7 +63,7 @@ const BlogLandingPage = () => {
                         <div className='pl-8 lg:w-1/2 lg:h-1/2 place-self-center gap-20'>
                             <p className='font-poppins font-bold text-left text-2xl leading-10'> Organic. Fresh. Frozen.</p>
                             <p className='mt-6 lg:mt-3 font-poppins text-left pr-16'>In a small bowl, combine yogurt, lemon juice, garlic, remaining Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.  </p>
-                            <input className='mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start' type="submit" value="read now     >" />
+                            <input className='mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base ' type="submit" value="read now     >" />
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@ const BlogLandingPage = () => {
                         <div className='lg:w-1/2 lg:h-1/2 place-self-center gap-20 ml-6 my-6 lg:m-10 order-2 lg:order-1'>
                             <p className='font-poppins font-bold text-left text-2xl leading-10'> Passionate about baking</p>
                             <p className='font-poppins text-left pr-16'>In a small bowl, combine yogurt, lemon juice, garlic, remaining Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                            <input className='mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start' type="submit" value="read now     >" />
+                            <input className='mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base' type="submit" value="read now     >" />
 
                         </div>
                         <div className='lg:w-1/2 lg:h-1/2 order-1 lg:order-2'>
@@ -82,9 +82,13 @@ const BlogLandingPage = () => {
                     </div>
                 </div>
                 <div className='w-full lg:border-x border-black'>
-                    <div className='p-6 flex justify-between'>
-                        <p className='text-3xl font-Staatliches lg:fs_w400_s48 font-semi-bold text-left'>stories that have been read the most</p>
-                        <input className='  text-3xl font-Staatliches ' type="submit" value="view all     >" />
+                    <div className='p-6 flex flex-col md:flex-row justify-between'>
+                        <div className='self-start'>
+                            <p className='text-3xl font-Staatliches lg:fs_w400_s48 font-semi-bold text-left'>stories that have been read the most</p>
+                        </div>
+                        <div className='pt-2 md:pt-0 self-start'>
+                            <input className='  text-3xl font-Staatliches ' type="submit" value="view all     >" />
+                        </div>
                     </div>
                     {/* <div>
                         <img></img>

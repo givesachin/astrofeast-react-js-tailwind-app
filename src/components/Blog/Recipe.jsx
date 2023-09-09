@@ -111,8 +111,8 @@ const Recipe = () => {
                         </div>
                     </div> */}
                     <div className='p-6 flex justify-between border-t border-black  bg-slate-50'>
-                        <p className='fs_w400_s48 font-semi-bold text-left'>Look at more recipes</p>
-                        <input className='fs_w400_s48 ' type="submit" value="view all     >" />
+                        <p className='text-3xl font-Staatliches md:fs_w400_s48 font-semi-bold text-left'>Look at more recipes</p>
+                        <input className='text-3xl font-Staatliches md:fs_w400_s48 ' type="submit" value="view all     >" />
                     </div>
 
                 </div>
