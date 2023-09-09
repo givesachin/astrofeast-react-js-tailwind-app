@@ -28,11 +28,11 @@ const GoldenTicket = () => {
                     </div>
                 </div>
                 <div className='flex px-6 py-6 flex-col lg:flex-row w-full h-full border-t lg:border-x border-black justify-between gap-5'>
-                    <div className='w-full align-left '>
+                    <div className='w-full md:align-left '>
                         <p className='text-xl h-auto font-poppins font-semibold flex justify-start'>
                             What are tickets?
                         </p><br />
-                        <p className=' pr-48 font-poppins flex text-left text-justify'>
+                        <p className=' md:pr-48 font-poppins flex text-left '>
                             Tickets, just like loyalty programs and subscriptions enable extra benefits, including offline experiences, exclusive content on your account and a whole lot more as you’re part of the crew.<br /><br />
                             They are set in stone and are designed for you, and we can’t modify or cancel them out of the blue..
                         </p><br />

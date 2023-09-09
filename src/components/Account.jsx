@@ -106,14 +106,17 @@ const Account = () => {
             </section>
             <section className='lg:px-16 border-t border-black'>
                 <AccountNavbar />
-                <div className='w-full border-t h-auto flex lg:border-x border-b border-black'>
-                    <div className='w-full flex flex-col border-black py-6'>
+                <div className='w-full gap-y-5 border-t h-auto flex flex-col md:flex-row lg:border-x border-b border-black'>
+                    <div className='order-1 w-full flex flex-wrap flex-col border-black pt-6'>
                         <p className='px-6 h-auto fs_w400_s48 flex items-center justify-start'>MY ACCOUNT</p>
-                        <p className='px-6 w-full border-black flex flex-col justify-evenly text-start whitespace-nowrap'>Personalize your experience here and see everything we track and do with your data.</p>
                     </div>
-                    <div className='w-60 h-10 flex gap-3 p-8 place-content-end ' >
-                        <img className='h-5 w-5' src={pencil} alt="bag" />
-                        <p className='text-orange-400 font-Staatliches text-xl '>
+                    <div className='order-3 pb-5 md:pb-0'>
+                        <p className=' px-6 w-3/4 md:w-full border-black flex flex-col justify-evenly text-start md:whitespace-nowrap'>Personalize your experience here and see everything we track and do with your data.</p>
+
+                    </div>
+                    <div className='order-2 w-60 h-10 flex gap-3 md:p-8 place-content-start px-6 md:place-content-end ' >
+                        <img className='h-6 w-6 md:h-5 md:w-5' src={pencil} alt="bag" />
+                        <p className='text-orange-400 font-Staatliches text-2xl md:text-xl '>
                             EDIT DETAILS
                         </p>
                     </div>
@@ -129,7 +132,7 @@ const Account = () => {
                     <div className='w-full h-auto p-6 flex flex-col'>
                         <section className='w-full h-auto'>
                             <form className='flex-col flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleEdit}>
-                                <div className='w-full flex gap-5'>
+                                <div className='w-full flex flex-col md:flex-row gap-5'>
                                     <div className='w-full text-start'>
                                         <input className={`w-full py-2 pl-4  border-2 ${formErrors.first_name ? 'border-red-500' : 'border-gray-400'
                                             }`} placeholder='Enter first name' onChange={handleChange} type="text" name="first_name" id="ufirstname" />
