@@ -10,6 +10,7 @@ import Shop from './components/Shop';
 import Sitemap from './components/Sitemap';
 import CategoryDetail from './components/CategoryDetail';
 import ProductDetails from './components/ProductDetails';
+import OrderCheckout from './components/OrderCheckout';
 
 function App() {
     return (
@@ -28,7 +29,7 @@ function App() {
                         <Route exact path='signup' element={<Signup />} />
                     </Route>
                     <Route path="*" element={<h1>page not found</h1>} />
-
+                    <Route path="/checkout" element={<OrderCheckout />}></Route>
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}
