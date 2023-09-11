@@ -98,12 +98,6 @@ const ProductDetails = () => {
             <Header />
             <CTABar />
             <section className='relative'>
-                {/* <div className='absolute w-screen h-auto top-4 z-10'>
-                    <ul className='w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 '>
-                        <li>  <p className='w-full'>&#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p></li>
-                        <li>  <p className='w-full'> &#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p> </li>
-                    </ul>
-                </div> */}
 
                 <section className='lg:px-16 relative'>
                     {/* container */}
@@ -115,11 +109,11 @@ const ProductDetails = () => {
                         <section className='h-full w-full border-b border-black flex lg:flex-row flex-col'>
                             {/* name and images */}
                             <div className=' h-full w-auto flex flex-col justify-start ' >
-                                <div className='flex flex-col justify-between items-start w-full h-full py-10 px-8 border-b  border-black'>
-                                    <h1 className='font-Staatliches  text-6xl'>
+                                <div className='flex flex-col justify-between items-start w-full h-full py-5 px-4 border-b  border-black'>
+                                    <h1 className='font-Staatliches  text-3xl'>
                                         tenderloin (250g)
                                     </h1>
-                                    <h2 className='font-Staatliches  text-6xl'>
+                                    <h2 className='font-Staatliches  text-2xl'>
                                         $350.00
                                     </h2>
                                     <h2 className='text-gray-900 capitalize text-left text-2xl'>
@@ -129,10 +123,10 @@ const ProductDetails = () => {
                                 <div className='flex flex-col gap-6 w-auto h-auto py-10 px-8 '>
                                     <img className=' w-full h-full object-cover' src={afherobg} alt="products" />
                                     <div className='flex w-auto h-auto justify-between'>
-                                        <img className=' h-24 w-44 object-cover' src={afherobg} alt="products" />
-                                        <img className=' h-24 w-44 object-cover' src={afherobg} alt="products" />
-                                        <img className=' h-24 w-44 object-cover' src={afherobg} alt="products" />
-                                        <img className=' h-24 w-44 object-cover' src={afherobg} alt="products" />
+                                        <img className=' h-24 w-28 md:w-44 lg:w-24 object-cover' src={afherobg} alt="products" />
+                                        <img className=' h-24 w-28 md:w-44 lg:w-24 object-cover' src={afherobg} alt="products" />
+                                        <img className=' h-24 w-28 md:w-44 lg:w-24 object-cover' src={afherobg} alt="products" />
+                                        <img className=' h-24 w-28 md:w-44 lg:w-24 object-cover' src={afherobg} alt="products" />
 
                                     </div>
                                 </div>
@@ -141,7 +135,7 @@ const ProductDetails = () => {
                             <section className='flex flex-col h-auto border-t lg:border-t-0 lg:border-x border-black'>
                                 <div className='flex flex-col h-auto w-full border-b border-black'>
 
-                                    <div className='flex justify-start border-b border-black items-start py-6 px-8'>
+                                    <div className='flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100'>
                                         <h3 className='font-Staatliches  text-4xl'>nutrition</h3>
                                     </div>
                                     <div className='flex flex-col w-full h-auto gap-5 p-8 justify-start items-start'>
@@ -155,7 +149,7 @@ const ProductDetails = () => {
                                     </div>
                                 </div>
                                 <div className='flex flex-col h-auto w-full '>
-                                    <div className='flex justify-start border-b border-black items-start py-6 px-8'>
+                                    <div className='flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100'>
                                         <h3 className='font-Staatliches  text-4xl'>certificates</h3>
                                     </div>
                                     <div className='flex flex-col gap-6 p-8 justify-between items-center'>
@@ -179,7 +173,7 @@ const ProductDetails = () => {
                             <section className='flex flex-col h-auto lg:w-[28rem]'>
                                 <div className='flex flex-col h-full w-full border-t lg:border-t-0 border-b border-black'>
 
-                                    <div className='w-full flex justify-start border-b border-black items-start py-6 px-8'>
+                                    <div className='w-full flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100'>
                                         <h3 className='font-Staatliches  text-4xl'>tales</h3>
                                     </div>
                                     <div className='w-full flex flex-col h-auto gap-5 p-8 justify-start items-start'>
@@ -191,7 +185,7 @@ const ProductDetails = () => {
                                     </div>
                                 </div>
                                 <div className='flex flex-col h-auto w-full '>
-                                    <div className='flex justify-start border-b border-black items-start py-6 px-8'>
+                                    <div className='flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100'>
                                         <h3 className='font-Staatliches text-4xl'>subscribe</h3>
                                     </div>
                                     <div className='w-auto flex flex-col gap-6 p-8 justify-start items-start'>
@@ -257,7 +251,7 @@ const ProductDetails = () => {
                             </section>
                         </section>
                         <section className=' flex flex-col border-b border-black w-full h-full'>
-                            <div className='flex justify-start border-b border-black items-start py-6 px-8'>
+                            <div className='flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100'>
                                 <h3 className='font-Staatliches text-4xl'>how to heat</h3>
                             </div>
                             <div className='flex flex-col justify-start gap-10 p-8 items-start py-6 px-8'>
@@ -298,7 +292,7 @@ const ProductDetails = () => {
                         </section>
                         {/* how to heat and comments */}
                         <section className='border-b border-black flex flex-col w-full h-full'>
-                            <div className='flex justify-start border-b border-black items-start py-6 px-8'>
+                            <div className='flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100'>
                                 <h3 className='font-Staatliches text-4xl'>tips</h3>
                             </div>
                             <div className='w-full p-8 flex flex-col justify-start text-left h-auto gap-y-8'>
@@ -373,7 +367,7 @@ const ProductDetails = () => {
                             </div>
 
                         </section>
-                        <div className='flex justify-between  items-start py-6 px-8'>
+                        <div className='flex justify-between  items-start py-6 px-8 bg-gray-100'>
                             <h3 className='font-Staatliches text-4xl'>similar products</h3>
                             <h3 className='font-Staatliches text-4xl'>View all</h3>
                         </div>

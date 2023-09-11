@@ -73,10 +73,10 @@ const CategoryDetail = () => {
                                 <p className='text-yellow w-auto font-Staatliches text-2xl font-normal uppercase'>back to SHOP</p>
                             </NavLink>
                         </div>
-                        <p className='font-Staatliches text-5xl text-left'>eat what you want</p>
+                        <p className='font-Staatliches text-5xl text-left'>seafood</p>
                     </div>
 
-                    <div className='flex md:flex-col flex-row'>
+                    <div className='flex flex-col lg:flex-row'>
                         {/* filters */}
                         <div className=' w-auto border-t flex flex-col justify-start gap-y-8 border-r border-black p-8'>
                             <div className='flex justify-between lg:gap-x-7 items-center'>
@@ -138,7 +138,7 @@ const CategoryDetail = () => {
 
 
                         </div>
-                        <ProductContainer cardcontainer='flex-wrap' pitem={bestseller.meat} />
+                        <ProductContainer cardcontainer='flex-wrap ' pitem={bestseller.meat} />
 
                     </div>
                 </div>

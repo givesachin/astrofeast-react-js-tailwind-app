@@ -104,16 +104,16 @@ const Shop = () => {
                     <div className='w-full py-9 px-8 '>
                         <p className='font-Staatliches text-5xl w-full text-left'>eat what you want</p>
                     </div>
-                    <div className='w-full py-9 px-8 border-t border-black'>
-                        <p className='font-Staatliches text-4xl w-full text-left'><NavLink to='/shop/categorydetail'>bestseller</NavLink></p>
+                    <div className='w-full py-9 px-8 border-t border-black bg-gray-100'>
+                        <p className='font-Staatliches text-4xl w-full text-left'><NavLink to='/shop/categorydetail'>best sellers</NavLink></p>
                     </div>
                     <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.veggies} />
-                    <div className='w-full py-9 px-8 border-t border-black'>
+                    <div className='w-full py-9 px-8 border-t border-black bg-gray-100'>
                         <p className='font-Staatliches text-4xl w-full text-left'>seafood</p>
                     </div>
                     <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.seafood} />
 
-                    <div className='w-full py-9 px-8 border-t border-black'>
+                    <div className='w-full py-9 px-8 border-t border-black bg-gray-100'>
                         <p className='font-Staatliches text-4xl w-full text-left'>meat</p>
                     </div>
                     <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.meat} />
