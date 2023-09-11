@@ -87,7 +87,7 @@ const Home = () => {
                         <button className='px-8 py-4 bg-white uppercase font-Staatliches text-xl'> view shop</button>
                     </div>
 
-                    <div className='lg:hidden flex self-center bg-white w-auto mt-28 px-8 md:px-16 py-3 justify-evenly gap-x-10 items-center'>
+                    <div className='fixed bottom-4 bg-slate-100 lg:hidden flex self-center w-auto mt-28 px-8 md:px-16 py-3 justify-evenly gap-x-10 items-center'>
                         <div className=''><img onClick={() => { setToggle(!toggle); console.log('click from header', toggle); }} className='invert' src={afmenu} alt="menu" /></div>
                         <img className='h-8' src={afbag} alt="bag" />
                         <img src={afsearch} alt="search" className='h-8' />
