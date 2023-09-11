@@ -11,6 +11,7 @@ import Sitemap from './components/Sitemap';
 import CategoryDetail from './components/CategoryDetail';
 import ProductDetails from './components/ProductDetails';
 import OrderCheckout from './components/OrderCheckout';
+import PaymentSuccess from './components/PaymentSuccess';
 
 function App() {
     return (
@@ -30,6 +31,7 @@ function App() {
                     </Route>
                     <Route path="*" element={<h1>page not found</h1>} />
                     <Route path="/checkout" element={<OrderCheckout />}></Route>
+                    <Route path="/payment-success" element={<PaymentSuccess />}></Route>
                 </Routes>
             </Router>
             {/* uncomment the component which you want to be displayed */}
