@@ -12,6 +12,7 @@ import Shop from './components/Shop';
 import Sitemap from './components/Sitemap';
 import GoldenTicket from './components/Account/GoldenTicket';
 import Subscriptions from './components/Account/Subscription';
+import TrackOrder from './components/Account/TrackOrder';
 import Orders from './components/Account/Orders';
 import BlogLandingPage from './components/Blog/BlogLandingPage'
 import Recipe from './components/Blog/Recipe';
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/my-account" element={<Account />}></Route>
                     <Route path="/golden-ticket" element={<GoldenTicket />}></Route>
                     <Route path="/subscriptions" element={<Subscriptions />}></Route>
+                    <Route path="/track-order" element={<TrackOrder />}></Route>
                     <Route path="/orders" element={<Orders />}></Route>
                     <Route path="/blog/" element={<BlogLandingPage />}></Route>
                     <Route path="/blog/recipe" element={<Recipe />}></Route>
