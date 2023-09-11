@@ -3,6 +3,7 @@ import Header from './Atoms/Header'
 import Footer from './Atoms/Footer'
 import ProductContainer from './Atoms/ProductContainer'
 import afherobg from "../assets/herobg.png";
+import { NavLink } from 'react-router-dom';
 const bestseller = {
     meat: [
         {
@@ -95,17 +96,29 @@ const Shop = () => {
             {/* <section className='w-screen h-auto'>
                 <p className='font-Staatliches text-5xl '>eat what you want</p>
             </section> */}
-            <section className='px-16 relative'>
+            <section className='lg:px-16 relative'>
                 {/* container */}
-                <div className='border-x border-black pt-10'>
+                <div className='lg:border-x border-black lg:pt-10'>
                     {/* headline */}
                     <hr className='w-screen  border-black absolute left-0' />
                     <div className='w-full py-9 px-8 '>
                         <p className='font-Staatliches text-5xl w-full text-left'>eat what you want</p>
                     </div>
-                    <ProductContainer pitem={bestseller.veggies} containerHeader='Best Sellers' />
-                    <ProductContainer pitem={bestseller.seafood}containerHeader='seafood' />
-                    <ProductContainer pitem={bestseller.meat} containerHeader='meat' />
+                    <div className='w-full py-9 px-8 border-t border-black bg-gray-100'>
+                        <p className='font-Staatliches text-4xl w-full text-left'><NavLink to='/shop/categorydetail'>best sellers</NavLink></p>
+                    </div>
+                    <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.veggies} />
+                    <div className='w-full py-9 px-8 border-t border-black bg-gray-100'>
+                        <p className='font-Staatliches text-4xl w-full text-left'>seafood</p>
+                    </div>
+                    <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.seafood} />
+
+                    <div className='w-full py-9 px-8 border-t border-black bg-gray-100'>
+                        <p className='font-Staatliches text-4xl w-full text-left'>meat</p>
+                    </div>
+                    <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.meat} />
+
+
                 </div>
             </section>
             <Footer />

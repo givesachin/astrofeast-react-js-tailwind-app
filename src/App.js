@@ -10,6 +10,7 @@ import Account from './components/Account';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Shop from './components/Shop';
 import Sitemap from './components/Sitemap';
+
 import GoldenTicket from './components/Account/GoldenTicket';
 import Subscriptions from './components/Account/Subscription';
 import TrackOrder from './components/Account/TrackOrder';
@@ -17,6 +18,12 @@ import Orders from './components/Account/Orders';
 import BlogLandingPage from './components/Blog/BlogLandingPage'
 import Recipe from './components/Blog/Recipe';
 import FeastBox from './components/FeastBox';
+
+import CategoryDetail from './components/CategoryDetail';
+import ProductDetails from './components/ProductDetails';
+import OrderCheckout from './components/OrderCheckout';
+import PaymentSuccess from './components/PaymentSuccess';
+
 
 function App() {
     return (
@@ -27,11 +34,14 @@ function App() {
                     <Route exact path="/" element={<Home />} ></Route>
                     <Route exact path="/about" element={<About />} ></Route>
                     <Route exact path="/shop" element={<Shop />} ></Route>
+                    <Route exact path="/shop/categorydetail" element={<CategoryDetail />} ></Route>
+                    <Route exact path="/shop/productdetail" element={<ProductDetails />} ></Route>
                     <Route exact path="/sitemap" element={<Sitemap />} ></Route>
                     <Route path="/auth" element={<Auth />} >
                         <Route exact path='login' element={<Login />} />
                         <Route exact path='signup' element={<Signup />} />
                     </Route>
+
                     <Route path="/my-account" element={<Account />}></Route>
                     <Route path="/golden-ticket" element={<GoldenTicket />}></Route>
                     <Route path="/subscriptions" element={<Subscriptions />}></Route>
@@ -40,6 +50,11 @@ function App() {
                     <Route path="/blog/" element={<BlogLandingPage />}></Route>
                     <Route path="/blog/recipe" element={<Recipe />}></Route>
                     <Route path="/feastbox" element={<FeastBox />}></Route>
+
+
+                    <Route path="*" element={<h1>page not found</h1>} />
+                    <Route path="/checkout" element={<OrderCheckout />}></Route>
+                    <Route path="/payment-success" element={<PaymentSuccess />}></Route>
 
                 </Routes>
             </Router>
