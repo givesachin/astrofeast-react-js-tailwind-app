@@ -96,9 +96,9 @@ const Shop = () => {
             {/* <section className='w-screen h-auto'>
                 <p className='font-Staatliches text-5xl '>eat what you want</p>
             </section> */}
-            <section className='px-16 relative'>
+            <section className='lg:px-16 relative'>
                 {/* container */}
-                <div className='border-x border-black pt-10'>
+                <div className='lg:border-x border-black lg:pt-10'>
                     {/* headline */}
                     <hr className='w-screen  border-black absolute left-0' />
                     <div className='w-full py-9 px-8 '>

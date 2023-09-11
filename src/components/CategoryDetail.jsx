@@ -59,9 +59,9 @@ const CategoryDetail = () => {
     return (
         <>
             <Header />
-            <section className='px-16 relative font-poppins'>
+            <section className='lg:px-16 relative font-poppins'>
                 {/* container */}
-                <div className='border-x border-black pt-10'>
+                <div className='lg:border-x border-black lg:pt-10'>
                     {/* headline */}
                     <hr className='w-full border-black absolute left-0' />
                     {/* product grid */}
@@ -76,28 +76,30 @@ const CategoryDetail = () => {
                         <p className='font-Staatliches text-5xl text-left'>eat what you want</p>
                     </div>
 
-                    <div className='flex'>
+                    <div className='flex md:flex-col flex-row'>
                         {/* filters */}
                         <div className=' w-auto border-t flex flex-col justify-start gap-y-8 border-r border-black p-8'>
-                            <div className='flex justify-between gap-x-7 items-center'>
+                            <div className='flex justify-between lg:gap-x-7 items-center'>
                                 <h2 className='font-Staatliches text-4xl'> filters </h2>
-                                <button onClick={handleFilter} className='w-full flex gap-1 items-center'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                                        <g clipPath="url(#clip0_2591_4720)">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M8.00028 10.3852L14.0576 16.4426L15.943 14.5572L9.88562 8.49989L15.943 2.44255L14.0576 0.55722L8.00028 6.61322L1.94295 0.55722L0.0576172 2.44255L6.11495 8.49989L0.0576172 14.5572L1.94295 16.4426L8.00028 10.3852Z" fill="#030712" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_2591_4720">
-                                                <rect width="16" height="16" fill="white" transform="translate(0 0.5)" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <p className='font-Staatliches w-20 text-xl'>Clear ALL</p>
-                                </button>
+                                <div>
+                                    <button onClick={handleFilter} className='w-full flex gap-1 items-center '>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                                            <g clipPath="url(#clip0_2591_4720)">
+                                                <path fillRule="evenodd" clipRule="evenodd" d="M8.00028 10.3852L14.0576 16.4426L15.943 14.5572L9.88562 8.49989L15.943 2.44255L14.0576 0.55722L8.00028 6.61322L1.94295 0.55722L0.0576172 2.44255L6.11495 8.49989L0.0576172 14.5572L1.94295 16.4426L8.00028 10.3852Z" fill="#030712" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_2591_4720">
+                                                    <rect width="16" height="16" fill="white" transform="translate(0 0.5)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p className='font-Staatliches w-20 text-xl'>Clear ALL</p>
+                                    </button>
+                                </div>
                             </div>
                             {/* filter 1 */}
 
-                            <div className='w-full h-auto gap-7 flex flex-col justify-start items-center'>
+                            <div className='hidden lg:w-full lg:h-auto lg:gap-7 lg:flex lg:flex-col lg:justify-start lg:items-center'>
                                 <div className='w-full flex justify-between gap-y-6 '>
                                     <p className='text-xl font-poppins font-semibold capitalize '>starters</p>
                                     <button onClick={handleFilter}>
@@ -132,7 +134,7 @@ const CategoryDetail = () => {
                                 )}
                             </div>
 
-                            <hr className='w-full border border-black' />
+                            <hr className='hidden lg:w-full lg:border border-black' />
 
 
                         </div>
@@ -142,9 +144,9 @@ const CategoryDetail = () => {
                 </div>
 
             </section >
-            <div className='h-0 border-t  border-black flex justify-center items-center' />
-            <section className='px-16 relative'>
-                <div className='border-x border-black pt-12' />
+            <div className='lg:h-0 lg:border-t  border-black lg:flex lg:justify-center lg:items-center' />
+            <section className='lg:px-16 lg:relative'>
+                <div className='lg:border-x border-black pt-12' />
             </section>
 
 
