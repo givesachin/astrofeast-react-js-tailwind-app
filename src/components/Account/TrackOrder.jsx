@@ -21,9 +21,9 @@ const GoldenTicket = () => {
             <section className='lg:px-16  border-t border-black'>
                 <AccountNavbar />
                 <div className='w-full border-t h-auto flex lg:border-x border-black flex-col'>
-                    <div className='w-full flex flex-col border-black py-6 gap-1'>
-                        <p className='px-6 h-auto fs_w400_s48 flex items-center justify-start'>Track your package</p>
-                        <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>Sit back relax while we deliver to your doorstep</p>
+                    <div className='w-full flex flex-col border-black py-6 gap-1 px-10'>
+                        <p className=' h-auto fs_w400_s48 flex items-center justify-start'>Track your package</p>
+                        <p className=' border-black font-poppins flex flex-col justify-evenly text-start'>Sit back relax while we deliver to your doorstep</p>
                     </div>
                     <div className='border-t border-black h-20 flex align-middle p-10 '>
                         <div class="w-11/12 lg:w-2/6 mx-auto">
@@ -53,8 +53,8 @@ const GoldenTicket = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='flex border-t border-black'>
-                        <div className='border-r border-black w-1/2'>
+                    <div className='flex flex-col lg:flex-row border-t border-black p-10 lg:p-0 '>
+                        <div className='lg:border-r border-black w-full lg:w-1/2'>
                             <p className='text-start p-4 font-poppins font-semibold'>Shipment information</p>
                             <div className='flex p-4'>
                                 <p className='w-1/2 text-start'> Tracking ID</p>
@@ -69,7 +69,7 @@ const GoldenTicket = () => {
                                 <p className='text-start'>#121213</p>
                             </div>
                         </div>
-                        <div className='w-1/2'>
+                        <div className='border-t  border-black  lg:border-t-0 w-full lg:w-1/2'>
                             <p className='text-start p-4 font-poppins font-semibold'>Order details</p>
                             <div className='flex p-4'>
                                 <p className='w-1/2 text-start'> Number of meals</p>

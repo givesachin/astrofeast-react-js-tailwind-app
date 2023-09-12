@@ -175,27 +175,17 @@ const OrderCheckout = () => {
         <>
             <Header />
             <section className='lg:px-16 relative font-poppins'>
-                {/* container */}
                 <div className='lg:border-x border-black lg:pt-10'>
-                    {/* headline */}
                     <hr className='w-full border-black absolute left-0' />
-                    {/* product grid */}
                     <div className='w-full flex flex-col justify-start items-start gap-y-4 py-9 px-8 '>
-                        {/* <div className='flex justify-between w-auto gap-x-2'>
-                            <NavLink className='flex justify-between w-auto gap-x-2' to='/shop'>  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                <path d="M21.877 2.28564L8.16267 15.9999L21.877 29.7142" stroke="#F4A73F" strokeWidth="2.61225" />
-                            </svg>
-                                <p className='text-yellow w-auto font-Staatliches text-2xl font-normal uppercase'>back to SHOP</p>
-                            </NavLink>
-                        </div> */}
                         <p className='font-Staatliches text-5xl text-left'>order checkout</p>
                     </div>
 
                     <div className='w-full flex border-t border-black'>
                         <div className='w-full h-auto flex flex-col'>
                             <section className='w-full h-auto'>
-                                <form className='flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleEdit}>
-                                    <div className='w-2/3 p-6 gap-y-10 flex flex-col border-black'>
+                                <form className='flex flex-col lg:flex-row items-start gap-5 capitalize' action="/" method="get" onSubmit={handleEdit}>
+                                    <div className='w-full lg:w-2/3 p-6 gap-y-10 flex flex-col border-black'>
                                         <div><p className='font-Poppins text-xl text-left'>Enter the recipient's details</p></div>
                                         <div className='w-full text-start'>
                                             <input className={`w-full py-2 pl-4 border-2  ${formErrors.email ? 'border-red-500' : 'border-gray-400'
@@ -239,7 +229,7 @@ const OrderCheckout = () => {
                                             <p className='text-red-500 text-sm'>{formErrors.address}</p>
                                         </div>
                                     </div>
-                                    <div className='w-1/3 flex border-l border-black '>
+                                    <div className='w-full lg:w-1/3 flex border-t lg:border-t-0 lg:border-l border-black '>
                                         <div className='w-full '>
                                             <div className=''>
                                                 <p className='p-8 text-left text-3xl font-Staatliches'>Your Cart (2)</p>
@@ -248,7 +238,7 @@ const OrderCheckout = () => {
                                                 <p className='p-8 text-sm text-[#F4A73F] text-left font-Poppins'></p>
                                             </div>
                                             {added_products.map((added) => (
-                                                <div key={added.id} className='h-auto pl-8 pb-8 w-auto flex ' >
+                                                <div key={added.id} className='h-auto px-8 pb-8 w-auto flex lg:justify-normal justify-between' >
 
                                                     <img className='w-32 h-32 object-cover' src={added.prod_img} alt="product" />
                                                     <div className='pl-8'>
