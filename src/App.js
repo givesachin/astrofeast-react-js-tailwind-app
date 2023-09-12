@@ -45,7 +45,6 @@ function App() {
                     <Route path="/my-account" element={<Account />}></Route>
                     <Route path="/golden-ticket" element={<GoldenTicket />}></Route>
                     <Route path="/subscriptions" element={<Subscriptions />}></Route>
-                    <Route path="/track-order" element={<TrackOrder />}></Route>
                     <Route path="/orders" element={<Orders />}></Route>
                     <Route path="/blog/" element={<BlogLandingPage />}></Route>
                     <Route path="/blog/recipe" element={<Recipe />}></Route>
@@ -55,6 +54,7 @@ function App() {
                     <Route path="*" element={<h1>page not found</h1>} />
                     <Route path="/checkout" element={<OrderCheckout />}></Route>
                     <Route path="/payment-success" element={<PaymentSuccess />}></Route>
+                    <Route path="/track-order" element={<TrackOrder />}></Route>
 
                 </Routes>
             </Router>
