@@ -106,15 +106,15 @@ const Account = () => {
             </section>
             <section className='lg:px-16 border-t border-black'>
                 <AccountNavbar />
-                <div className='w-full gap-y-5 border-t h-auto flex flex-col md:flex-row lg:border-x border-b border-black'>
-                    <div className='order-1 w-full flex flex-wrap flex-col border-black pt-6'>
+                <div className='w-full gap-y-5 border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-b border-black'>
+                    <div className='px-6 md:pl-6 lg:px-3 order-1 w-full md:w-1/2   flex flex-col border-black pt-6 '>
                         <p className='px-6 h-auto fs_w400_s48 flex items-center justify-start'>MY ACCOUNT</p>
                     </div>
-                    <div className='order-3 pb-5 md:pb-0'>
+                    <div className='md:pl-6 lg:px-3 order-3 pb-3'>
                         <p className=' px-6 w-3/4 md:w-full border-black flex flex-col justify-evenly text-start md:whitespace-nowrap'>Personalize your experience here and see everything we track and do with your data.</p>
 
                     </div>
-                    <div className='order-2 w-60 h-10 flex gap-3 md:p-8 place-content-start px-6 md:place-content-end ' >
+                    <div className='order-2 md:w-1/2 h-10 flex gap-3 md:p-8 place-content-start px-6 md:justify-end ' >
                         <img className='h-6 w-6 md:h-5 md:w-5' src={pencil} alt="bag" />
                         <p className='text-orange-400 font-Staatliches text-2xl md:text-xl '>
                             EDIT DETAILS
