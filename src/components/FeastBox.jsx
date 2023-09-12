@@ -27,29 +27,31 @@ const FeastBox = () => {
         <section className='w-full h-full font-poppins'>
             <Header />
             <CTABar />
-            <section className='px-16 relative'>
+            <section className='lg:px-16 relative'>
 
-                <div className='border-x border-black pt-10'>
-                    <div className='w-full h-auto flex border-b border-black'>
-                        <div className='w-full flex flex-col border-black py-6 gap-1'>
+                <div className='border-x border-black lg:pt-10 '>
+                    <div className='w-full h-auto flex flex-row lg:flex-col border-b border-black'>
+                        <div className='w-full flex flex-col border-black p-8 gap-1'>
                             <p className='fs_w400_s60 text-4xl h-auto flex items-center justify-start'>build your own feast box</p>
-                            <p className='px-6 w-1/2 border-black font-poppins flex flex-col justify-evenly text-start'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con.</p>
+                            <p className='lg:w-1/2 border-black font-poppins flex flex-col justify-evenly text-start'>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo con.</p>
                         </div>
                     </div>
-                    <div className='flex'>
-                        {products.map((product) => (
-                            <div key={product.id} className='pl-8 pt-8 pb-8'>
-                                <div className='h-96 w-64 flex flex-col border-black border justify-center items-center' >
-                                    <img className='w-full object-cover h-72 border-black border-b' src={product.prod_img} alt="product" />
-                                    <p className='text-xl font-poppins font-semibold w-full text-center pt-4'>{product.title}</p>
-                                    <div className="flex justify-center">
-                                        <QuantityBox />
+                    <div className='flex flex-col lg:flex-row'>
+                        <div className='flex overflow-scroll lg:w-2/3'>
+                            {products.map((product) => (
+                                <div key={product.id} className='pl-8 pt-8 pb-8'>
+                                    <div className='h-96 w-76 flex flex-col border-black border justify-center items-center' >
+                                        <img className='w-full object-cover h-72 border-black border-b' src={product.prod_img} alt="product" />
+                                        <p className='text-xl font-poppins font-semibold w-full text-center pt-4'>{product.title}</p>
+                                        <div className="flex justify-center">
+                                            <QuantityBox />
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
-                        ))}
-                        <div className='border-l border-black ml-8 w-full '>
+                                </div>
+                            ))}
+                        </div>
+                        <div className='border-t lg:border-t-0 lg:border-l border-black lg:ml-8 lg:w-1/3 '>
                             <div className=''>
                                 <p className='p-8 text-left text-3xl font-Staatliches'>my feast box</p>
                             </div>
@@ -57,10 +59,10 @@ const FeastBox = () => {
                                 <p className='p-8 text-sm text-[#F4A73F] text-left font-Poppins'>Add at least 4 more dishes to complete the box.</p>
                             </div>
                             {added_products.map((added) => (
-                                <div key={added.id} className='h-auto pl-8 pb-8 w-auto flex ' >
+                                <div key={added.id} className='h-auto px-8 pb-8 w-auto flex justify-between lg:justify-normal ' >
 
                                     <img className='w-32 h-32 object-cover' src={added.prod_img} alt="product" />
-                                    <div className='pl-8'>
+                                    <div className='pl-40 lg:pl-8'>
                                         <p className='text-xl font-poppins font-semibold w-full '>{added.title}</p>
                                         <QuantityBox />
                                         <p className='font-Poppins text-left text-gray-400'>${added.price}</p>
@@ -103,7 +105,7 @@ const FeastBox = () => {
                                     <p>Pause, cancel, modify — anytime</p>
                                 </div>
                             </div>
-                            <div className='px-8'>
+                            <div className='px-8 pb-8'>
                                 <div className=''>
                                     <p className='text-left text-gray-900'>Select Quantity:</p>
                                 </div>
@@ -118,8 +120,8 @@ const FeastBox = () => {
                     </div>
                 </div>
             </section>
-            <div className='h-0 border-t  border-black flex justify-center items-center' />
-            <section className='px-16 relative'>
+            <div className='hidden lg:h-0 lg:border-t  lg:border-black lg:flex lg:justify-center lg:items-center' />
+            <section className='lg:px-16 lg:relative'>
                 <div className='border-x border-black pt-12' />
             </section>
             <Footer />

@@ -170,6 +170,7 @@ const OrderCheckout = () => {
     const handleOptionChange = (option) => {
         setSelectedOption(option);
     };
+
     return (
         <>
             <Header />
@@ -191,10 +192,10 @@ const OrderCheckout = () => {
                     </div>
 
                     <div className='w-full flex border-t border-black'>
-                        <div className='w-2/3 flex border-r border-black'>
-                            <div className='w-full h-auto p-6 flex flex-col'>
-                                <section className='w-full h-auto'>
-                                    <form className='flex-col flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleEdit}>
+                        <div className='w-full h-auto flex flex-col'>
+                            <section className='w-full h-auto'>
+                                <form className='flex items-start gap-5 capitalize' action="/" method="get" onSubmit={handleEdit}>
+                                    <div className='w-2/3 p-6 gap-y-10 flex flex-col border-black'>
                                         <div><p className='font-Poppins text-xl text-left'>Enter the recipient's details</p></div>
                                         <div className='w-full text-start'>
                                             <input className={`w-full py-2 pl-4 border-2  ${formErrors.email ? 'border-red-500' : 'border-gray-400'
@@ -237,54 +238,55 @@ const OrderCheckout = () => {
                                                 }`} placeholder='Address' onChange={handleChange} type="textarea" name="address" id="uaddress" />
                                             <p className='text-red-500 text-sm'>{formErrors.address}</p>
                                         </div>
-                                    </form>
-                                </section>
+                                    </div>
+                                    <div className='w-1/3 flex border-l border-black '>
+                                        <div className='w-full '>
+                                            <div className=''>
+                                                <p className='p-8 text-left text-3xl font-Staatliches'>Your Cart (2)</p>
+                                            </div>
+                                            <div className='border-t border-black'>
+                                                <p className='p-8 text-sm text-[#F4A73F] text-left font-Poppins'></p>
+                                            </div>
+                                            {added_products.map((added) => (
+                                                <div key={added.id} className='h-auto pl-8 pb-8 w-auto flex ' >
 
-                            </div>
-                        </div>
-                        <div className='w-1/3 flex '>
-                            <div className='w-full '>
-                                <div className=''>
-                                    <p className='p-8 text-left text-3xl font-Staatliches'>Your Cart (2)</p>
-                                </div>
-                                <div className='border-t border-black'>
-                                    <p className='p-8 text-sm text-[#F4A73F] text-left font-Poppins'></p>
-                                </div>
-                                {added_products.map((added) => (
-                                    <div key={added.id} className='h-auto pl-8 pb-8 w-auto flex ' >
+                                                    <img className='w-32 h-32 object-cover' src={added.prod_img} alt="product" />
+                                                    <div className='pl-8'>
+                                                        <p className='text-xl font-poppins font-semibold w-full '>{added.title}</p>
+                                                        <QuantityBox />
+                                                        <p className='font-Poppins text-left text-gray-400'>${added.price}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
 
-                                        <img className='w-32 h-32 object-cover' src={added.prod_img} alt="product" />
-                                        <div className='pl-8'>
-                                            <p className='text-xl font-poppins font-semibold w-full '>{added.title}</p>
-                                            <QuantityBox />
-                                            <p className='font-Poppins text-left text-gray-400'>${added.price}</p>
+                                            <div className='flex flex-col p-8 border-t border-black gap-y-3 font-poppins'>
+                                                <div className='text-start flex justify-between'>
+                                                    <p>Service fee</p>
+                                                    <p>$83</p>
+                                                </div>
+                                                <div className='text-start flex justify-between'>
+                                                    <p>Taxes and fees</p>
+                                                    <p>$29</p>
+                                                </div>
+                                                <div className='text-start flex justify-between'>
+                                                    <p>Weekly discount</p>
+                                                    <p>-$28</p>
+                                                </div>
+                                                <div className='text-start flex justify-between border-y border-black p-3'>
+                                                    <p>Total</p>
+                                                    <p>$701</p>
+                                                </div>
+                                                <input className=' w-full p-3 text-white font-Staatliches  bg-black' type="submit" value="place order    >" />
+                                            </div>
                                         </div>
                                     </div>
-                                ))}
+                                </form>
+                            </section>
 
-                                <div className='flex flex-col p-8 border-t border-black gap-y-3 font-poppins'>
-                                    <div className='text-start flex justify-between'>
-                                        <p>Service fee</p>
-                                        <p>$83</p>
-                                    </div>
-                                    <div className='text-start flex justify-between'>
-                                        <p>Taxes and fees</p>
-                                        <p>$29</p>
-                                    </div>
-                                    <div className='text-start flex justify-between'>
-                                        <p>Weekly discount</p>
-                                        <p>-$28</p>
-                                    </div>
-                                    <div className='text-start flex justify-between border-y border-black p-3'>
-                                        <p>Total</p>
-                                        <p>$701</p>
-                                    </div>
-                                    <input className=' w-full p-3 text-white font-Staatliches  bg-black' type="submit" value="place order    >" />
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
+
 
             </section >
             <div className='lg:h-0 lg:border-t  border-black lg:flex lg:justify-center lg:items-center' />
