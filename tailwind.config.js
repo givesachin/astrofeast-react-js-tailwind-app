@@ -18,7 +18,8 @@ module.exports = {
         'gray-900': '#070123',
       },
       screens: {
-        'md': '768px',
+        
+        'md': '640px',
         // => @media (min-width: 768px) { ... }
 
         'lg': '1024px',
