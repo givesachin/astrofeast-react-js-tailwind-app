@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="w-full lg:flex lg:items-center lg:flex-col">
@@ -7,12 +8,12 @@ const Footer = () => {
           <p className="px-8 py-3 md:px-16 md:py-6 text-start border-b text-xl font-medium font-poppins uppercase border-black">
             Stay up with Astrofeast
           </p>
-          <div className="px-8 md:px-16 py-8 lg:p-16 gap-y-9 flex flex-col items-start">
+          <div className="px-6 md:px-16 py-8 lg:p-16 gap-y-9 flex flex-col items-start">
             <div className="w-full gap-y-2 flex flex-col items-start">
               <p className=" font-semibold text-2xl font-poppins">
                 Tales from Outer Space
               </p>
-              <p className=" text-xl font-poppins">
+              <p className=" text-lg md:text-xl font-poppins">
                 Fortnightly briefs from around the world
               </p>
             </div>
@@ -44,12 +45,12 @@ const Footer = () => {
             <p className="px-8 md:px-16 py-4 md:py-6 text-start border-b text-lg font-medium uppercase border-black font-poppins">
               work with us
             </p>
-            <div className="w-full gap-y-6 md:gap-y-5 lg:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins lg:gap-y-4">
-              <p className=" font-semibold text-2xl"> Kitchens</p>
-              <p className=" font-semibold text-2xl"> Investors</p>
-              <p className=" font-semibold text-2xl"> Careers</p>
-              <p className=" font-semibold text-2xl"> Cold Chain</p>
-              <p className=" font-semibold text-2xl"> Sustainability</p>
+            <div className="w-full gap-y-6 md:gap-y-5 p-8 md:p-16 flex flex-col items-start font-poppins lg:gap-y-4">
+              <p className=" font-semibold text-xl md:text-2xl"> Kitchens</p>
+              <p className=" font-semibold text-xl md:text-2xl"> Investors</p>
+              <p className=" font-semibold text-xl md:text-2xl"> Careers</p>
+              <p className=" font-semibold text-xl md:text-2xl"> Cold Chain</p>
+              <p className=" font-semibold text-xl md:text-2xl"> Sustainability</p>
             </div>
           </div>
           <div className="w-1/2 md:w-full flex flex-col">
@@ -57,16 +58,22 @@ const Footer = () => {
               quick links
             </p>
             <div className="w-full md:gap-y-5 lg:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins gap-y-6">
-              <p className=" font-semibold text-2xl"> Account</p>
-              <p className=" font-semibold text-2xl"> Shop</p>
-              <p className=" font-semibold text-2xl"> Golden Ticket</p>
-              <p className=" font-semibold text-2xl"> FAQs </p>
-              <p className=" font-semibold text-2xl"> Support</p>
+              <NavLink to="/my-account">
+                <p className=" font-semibold text-xl md:text-2xl"> Account</p>
+              </NavLink>
+              <NavLink to="/shop">
+                <p className=" font-semibold text-xl md:text-2xl"> Shop</p>
+              </NavLink>
+              <NavLink to="/golden-ticket">
+                <p className=" font-semibold text-xl md:text-2xl"> Golden Ticket</p>
+              </NavLink>
+              <p className=" font-semibold text-xl md:text-2xl"> FAQs </p>
+              <p className=" font-semibold text-xl md:text-2xl"> Support</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full font-poppins flex flex-col-reverse gap-y-8 lg:flex-row justify-between px-16 py-12 border-t border-black font-medium md:mb-10 lg:mb-0">
+      <div className="w-full font-poppins flex flex-col-reverse gap-y-8 lg:flex-row justify-between px-16 py-12 border-t border-black font-medium mb-10 lg:mb-0">
         <p className="w-full lg:text-left uppercase">2023 &#169; astrofeast</p>
         <div className="w-full flex md:place-content-center  flex-col md:flex-row gap-y-8 gap-x-8">
           <div className="flex gap-y-8 justify-center lg:justify-start gap-x-8 uppercase">

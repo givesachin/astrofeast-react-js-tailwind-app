@@ -54,9 +54,9 @@ const GoldenTicket = () => {
             />
           </div>
           <div className="w-96 h-36 lg:w-36 lg:h-96 lg:align-right lg:bg-slate-50 flex lg:flex-col ">
-            <img className="p-3 " src={gt1} alt="gt1" />
-            <img className="p-3" src={gt2} alt="gt2" />
-            <img className="p-3" src={gt3} alt="gt3" />
+            <img className="p-3 w-1/3 h-32 md:h-auto md:w-auto" src={gt1} alt="gt1" />
+            <img className="p-3 w-1/3 h-32 md:h-auto md:w-auto" src={gt2} alt="gt2" />
+            <img className="p-3 w-1/3 h-32 md:h-auto md:w-auto" src={gt3} alt="gt3" />
           </div>
         </div>
       </section>

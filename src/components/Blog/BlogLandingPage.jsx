@@ -7,6 +7,7 @@ import Footer from "../Atoms/Footer";
 import Header from "../Atoms/Header";
 import checkoutRecipe from "../../assets/checkoutRecipe.png";
 import FloatNavbar from "../Atoms/FloatNavbar";
+import { NavLink } from "react-router-dom";
 const options = {
   method: "GET",
   url: "https://the-mexican-food-db.p.rapidapi.com/",
@@ -39,11 +40,13 @@ const BlogLandingPage = () => {
             <p className="fs_w400_s60 h-auto p-8 flex items-center justify-start">
               BLOGS
             </p>
-            <img
-              className="absolute top-16 right-16"
-              src={checkoutRecipe}
-              alt="certified"
-            />
+            <NavLink to="/blog/recipe">
+              <img
+                className="absolute top-10 md:top-16 right-5 md:right-16"
+                src={checkoutRecipe}
+                alt="certified"
+              />
+            </NavLink>
             {/* <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>CHECK OUT RECIPES!</p> */}
           </div>
           <div className="p-8 flex flex-col lg:flex-row border-t border-black gap-10 items-center">
@@ -55,7 +58,7 @@ const BlogLandingPage = () => {
                 {" "}
                 Latest Article
               </p>
-              <p className="mt-6 lg:mt-3 font-poppins text-left pr-16">
+              <p className="mt-6 lg:mt-3 font-poppins text-left md:pr-16">
                 In a small bowl, combine yogurt, lemon juice, garlic, remaining
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit officia consequat duis enim velit mollit.
@@ -71,7 +74,7 @@ const BlogLandingPage = () => {
         </div>
         <div className="w-full lg:border-x border-black lg:pt-10">
           <div className="w-full border-t border-black">
-            <p className="fs_w400_s48 h-auto p-8 flex items-center justify-start">
+            <p className="text-4xl font-Staatliches md:fs_w400_s48 h-auto px-8 py-4 md:p-8 flex items-center justify-start">
               feature section
             </p>
           </div>
@@ -84,7 +87,7 @@ const BlogLandingPage = () => {
                 {" "}
                 Organic. Fresh. Frozen.
               </p>
-              <p className="mt-6 lg:mt-3 font-poppins text-left pr-16">
+              <p className="mt-6 lg:mt-3 font-poppins text-left md:pr-16">
                 In a small bowl, combine yogurt, lemon juice, garlic, remaining
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit officia consequat duis enim velit mollit.
@@ -105,7 +108,7 @@ const BlogLandingPage = () => {
                 {" "}
                 Passionate about baking
               </p>
-              <p className="font-poppins text-left pr-16">
+              <p className="font-poppins text-left pr-2 md:pr-16">
                 In a small bowl, combine yogurt, lemon juice, garlic, remaining
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit officia consequat duis enim velit mollit.

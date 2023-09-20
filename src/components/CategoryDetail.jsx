@@ -93,7 +93,7 @@ const CategoryDetail = () => {
 
           <div className="flex flex-col lg:flex-row">
             {/* filters */}
-            <div className=" w-auto border-t flex flex-col justify-start gap-y-8 border-r border-black p-8">
+            <div className=" w-auto border-t flex flex-col justify-start gap-y-8 border-r border-black md:p-8 px-8 py-4">
               <div className="flex justify-between lg:gap-x-7 items-center">
                 <h2 className="font-Staatliches text-4xl"> filters </h2>
                 <div>

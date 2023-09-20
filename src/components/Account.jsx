@@ -111,7 +111,7 @@ const Account = () => {
             </p>
           </div>
           <div className="md:pl-6 lg:px-3 order-3 pb-3">
-            <p className=" px-6 w-3/4 md:w-full border-black flex flex-col justify-evenly text-start md:whitespace-nowrap">
+            <p className=" px-6 w-6/7 font-poppins md:w-full border-black flex flex-col justify-evenly text-start md:whitespace-nowrap">
               Personalize your experience here and see everything we track and
               do with your data.
             </p>
@@ -145,11 +145,10 @@ const Account = () => {
                 <div className="w-full flex flex-col md:flex-row gap-5">
                   <div className="w-full text-start">
                     <input
-                      className={`w-full py-2 pl-4  border-2 ${
-                        formErrors.first_name
-                          ? "border-red-500"
-                          : "border-gray-400"
-                      }`}
+                      className={`w-full py-2 pl-4  border-2 ${formErrors.first_name
+                        ? "border-red-500"
+                        : "border-gray-400"
+                        }`}
                       placeholder="Enter first name"
                       onChange={handleChange}
                       type="text"
@@ -162,11 +161,10 @@ const Account = () => {
                   </div>
                   <div className="w-full text-start">
                     <input
-                      className={`w-full  py-2 pl-4  border-2 ${
-                        formErrors.last_name
-                          ? "border-red-500"
-                          : "border-gray-400"
-                      }`}
+                      className={`w-full  py-2 pl-4  border-2 ${formErrors.last_name
+                        ? "border-red-500"
+                        : "border-gray-400"
+                        }`}
                       placeholder="Enter last name"
                       onChange={handleChange}
                       type="text"
@@ -180,9 +178,8 @@ const Account = () => {
                 </div>
                 <div className="w-full text-start">
                   <input
-                    className={`w-full py-2 pl-4 border-2  ${
-                      formErrors.email ? "border-red-500" : "border-gray-400"
-                    }`}
+                    className={`w-full py-2 pl-4 border-2  ${formErrors.email ? "border-red-500" : "border-gray-400"
+                      }`}
                     placeholder="Email address"
                     onChange={handleChange}
                     type="email"
@@ -193,9 +190,8 @@ const Account = () => {
                 </div>
                 <div className="w-full text-start">
                   <input
-                    className={`w-full py-2 pl-4 border-2  ${
-                      formErrors.mobile ? "border-red-500" : "border-gray-400"
-                    }`}
+                    className={`w-full py-2 pl-4 border-2  ${formErrors.mobile ? "border-red-500" : "border-gray-400"
+                      }`}
                     placeholder="Phone number"
                     onChange={handleChange}
                     type="tel"
@@ -206,9 +202,8 @@ const Account = () => {
                 </div>
                 <div className="w-full text-start">
                   <textarea
-                    className={`w-full py-2 pl-4 border-2  ${
-                      formErrors.address ? "border-red-500" : "border-gray-400"
-                    }`}
+                    className={`w-full py-2 pl-4 border-2  ${formErrors.address ? "border-red-500" : "border-gray-400"
+                      }`}
                     placeholder="Address"
                     onChange={handleChange}
                     type="textarea"

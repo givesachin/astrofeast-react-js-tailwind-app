@@ -79,7 +79,7 @@ const Home = () => {
           alt="hero background"
         />
         <div className="absolute pl-8 md:pl-16 pr-8 md:pr-16 top-[15%] gap-y-3 w-full h-auto flex flex-col items-start justify-between  ">
-          <h1 className="pt-10 md:pt-20 w-11/12 md:w-7/12 lg:w-8/12 leading-1 text-7xl font-Staatliches text-left z-10 text-[#fefefe] ">
+          <h1 className="pt-10 md:pt-20 w-11/12 md:w-7/12 lg:w-8/12 leading-1 text-6xl md:text-7xl font-Staatliches text-left z-10 text-[#fefefe] ">
             Reliable Interplanetary Food Delivery
           </h1>
           <div className="w-full h-auto gap-y-8 flex flex-col items-start justify-between">
@@ -98,8 +98,8 @@ const Home = () => {
         <div className="absolute right-0 bottom-28 md:bottom-0 w-auto h-auto m-8 md:m-16">
           <NavLink to="/auth/signup">
             <svg
-              width="181"
-              height="188"
+              width="150"
+              height="150"
               viewBox="0 0 181 188"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -167,9 +167,9 @@ const Home = () => {
           </NavLink>
         </div>
       </section>
-      <section className="w-full h-auto flex flex-col items-center py-52 px-16 justify-between gap-y-8">
+      <section className="w-full h-auto flex flex-col items-center py-52 px-10 md:px-16 justify-between gap-y-8">
         <div className="flex flex-col items-center w-full h-auto gap-y-4">
-          <p className="fs_w400_s60">The astrofeast project</p>
+          <p className="text-5xl font-Staatliches md:fs_w400_s60">The astrofeast project</p>
           <div className="flex place-content-center">
             <p className=" md:w-8/12 text-center font-poppins">
               or how we declassify authentic food from around the world, and
@@ -186,8 +186,8 @@ const Home = () => {
       <section className="w-screen h-auto flex pb-16 px-8 relative">
         <div className="absolute -top-1/4">
           <svg
-            width="217"
-            height="226"
+            width="180"
+            height="180"
             viewBox="0 0 217 226"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

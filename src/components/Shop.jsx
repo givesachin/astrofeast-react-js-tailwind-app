@@ -104,17 +104,17 @@ const Shop = () => {
           {/* headline */}
           <hr className="w-screen  border-black absolute left-0" />
           <div className="w-full py-9 px-8 ">
-            <p className="font-Staatliches text-5xl w-full text-left">
+            <p className="font-Staatliches text-4xl md:text-5xl w-full text-left">
               eat what you want
             </p>
           </div>
           <img
-            className="absolute top-5 md:top-10 lg:top-20 right-20"
+            className="absolute top-5 md:top-10 lg:top-20 right-0 md:right-20"
             src={offer}
             alt="offer"
           />
-          <div className="w-full py-9 px-8 border-t border-black bg-gray-100">
-            <p className="font-Staatliches text-4xl w-full text-left">
+          <div className="w-full py-5 md:py-9 px-8 border-t border-black bg-gray-100">
+            <p className="font-Staatliches text-3xl md:text-4xl w-full text-left">
               <NavLink to="/shop/categorydetail">best sellers</NavLink>
             </p>
           </div>
@@ -122,8 +122,8 @@ const Shop = () => {
             cardcontainer="flex-nowrap"
             pitem={bestseller.veggies}
           />
-          <div className="w-full py-9 px-8 border-t border-black bg-gray-100">
-            <p className="font-Staatliches text-4xl w-full text-left">
+          <div className="w-full py-5 md:py-9 px-8 border-t border-black bg-gray-100">
+            <p className="font-Staatliches text-3xl md:text-4xl w-full text-left">
               seafood
             </p>
           </div>
@@ -132,8 +132,8 @@ const Shop = () => {
             pitem={bestseller.seafood}
           />
 
-          <div className="w-full py-9 px-8 border-t border-black bg-gray-100">
-            <p className="font-Staatliches text-4xl w-full text-left">meat</p>
+          <div className="w-full py-5 md:py-9 px-8 border-t border-black bg-gray-100">
+            <p className="font-Staatliches text-3xl md:text-4xl w-full text-left">meat</p>
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"

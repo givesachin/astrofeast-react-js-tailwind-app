@@ -113,13 +113,13 @@ const ProductDetails = () => {
                     tenderloin (250g)
                   </h1>
                   <h2 className="font-Staatliches  text-3xl">$350.00</h2>
-                  <h2 className="font-medium text-left text-xl">
+                  <h2 className="font-normal md:font-medium text-left text-xl">
                     steak marinated with a blend of lemon, chilli and herbs
                   </h2>
                 </div>
-                <div className="flex flex-col gap-6 w-auto h-auto py-10 px-8 ">
+                <div className="flex flex-col gap-6 w-auto h-auto py-5 md:py-10 px-4 md:px-8 ">
                   <img
-                    className=" w-full h-full object-cover"
+                    className="w-96 h-96 md:w-full md:h-full object-cover"
                     src={afherobg}
                     alt="products"
                   />
@@ -131,22 +131,22 @@ const ProductDetails = () => {
 
                   <div className="flex w-auto h-auto justify-between">
                     <img
-                      className=" h-24 w-28 md:w-36 lg:w-24 object-cover"
+                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
                       src={afherobg}
                       alt="products"
                     />
                     <img
-                      className=" h-24 w-28 md:w-36 lg:w-24 object-cover"
+                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
                       src={afherobg}
                       alt="products"
                     />
                     <img
-                      className=" h-24 w-28 md:w-36 lg:w-24 object-cover"
+                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
                       src={afherobg}
                       alt="products"
                     />
                     <img
-                      className=" h-24 w-28 md:w-36 lg:w-24 object-cover"
+                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
                       src={afherobg}
                       alt="products"
                     />
@@ -347,7 +347,7 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <NavLink to="/checkout" className="">
-                      <button className="w-full md:px-72 lg:px-5 lg:w-96 bg-black text-white py-3 px-5 flex justify-center gap-2 items-center font-Staatliches">
+                      <button className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches">
                         add to stash <img src={afarrow} alt="arrow to stash" />
                       </button>
                     </NavLink>
@@ -653,8 +653,8 @@ const ProductDetails = () => {
               </div>
             </section>
             <div className="flex justify-between  items-start py-6 px-8 bg-gray-100">
-              <h3 className="font-Staatliches text-4xl">similar products</h3>
-              <h3 className="font-Staatliches text-4xl">View all</h3>
+              <h3 className="font-Staatliches text-3xl md:text-4xl">similar products</h3>
+              <h3 className="font-Staatliches text-3xl md:text-4xl">View all</h3>
             </div>
             <ProductContainer
               cardcontainer="flex-nowrap"

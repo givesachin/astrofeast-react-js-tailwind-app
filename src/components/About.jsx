@@ -77,14 +77,14 @@ const About = () => {
           </div>
           {/* subpart of who we are */}
           <div className="w-full h-auto flex flex-col lg:flex-row justify-center border-b border-black">
-            <ul className="w-full h-auto lg:border-r border-black flex flex-row lg:flex-col items-start justify-start p-4 pl-8 md:p-8 lg:p-12 gap-x-8 md: gap-x-8 lg:gap-x-16 lg:gap-y-6">
-              <li className="text-2xl md:text-2xl lg:text-4xl font-bold text-[#2C488E]">
+            <ul className="w-full h-auto lg:border-r border-black flex flex-row lg:flex-col items-start justify-start p-4 pl-8 md:p-8 lg:p-12 gap-x-6 md:gap-x-8 lg:gap-x-16 lg:gap-y-6">
+              <li className="text-xl md:text-2xl lg:text-4xl font-bold text-[#2C488E]">
                 Food
               </li>
-              <li className="text-2xl md:text-2xl lg:text-4xl font-bold text-[#838282]">
+              <li className="text-xl md:text-2xl lg:text-4xl font-bold text-[#838282]">
                 Marketplace
               </li>
-              <li className="text-2xl md:text-2xl lg:text-4xl font-bold text-[#838282]">
+              <li className="text-xl md:text-2xl lg:text-4xl font-bold text-[#838282]">
                 Delivery
               </li>
             </ul>
@@ -97,19 +97,20 @@ const About = () => {
           </div>
           {/* why go sub zero */}
           <div className=" border-b border-black px-6 py-4 md:px-12 md:py-9 flex justify-center md:justify-start lg:justify-center items-center">
-            <p className="fs_w400_s24 md:fs_w400_s48">why go sub zero?</p>
+            <p className="text-3xl font-Staatliches md:fs_w400_s24 md:fs_w400_s48">why go sub zero?</p>
           </div>
           {/* difference of fresh and frozen */}
-          <div className=" border-b border-black flex justify-center items-center">
-            <p className="text-2xl md:text-3xl text-start font-semibold px-6 md:px-12 py-6 w-full lg:border-r border-black">
-              Fresh (~0-12°C)
+          <div className=" md:border-r border-black flex justify-center items-center">
+            <p className="text-xl md:text-3xl text-start font-semibold px-6 md:px-12 py-6 w-1/2 md:w-full lg:border-r  font-poppins border-black">
+              Ambient<br />(4-20°C)
             </p>
-            <p className="text-2xl md:text-3xl text-start font-semibold px-6 md:px-12 py-6 w-full">
-              Flash Frozen (-20°C)
+            <p className="text-xl md:text-3xl text-start font-semibold px-6 md:px-12 py-6 w-1/2 md:w-full font-poppins">
+              Properly Frozen (-20°C)
             </p>
           </div>
-          <div className=" border-b border-black flex justify-center items-center">
-            <div className=" px-12 py-9 w-full h-auto lg:border-r border-black flex flex-col gap-y-12 justify-evenly items-center text-left">
+          <div className="w-full border border-black flex justify-center items-center">
+            {/* //ext-xl md:text-3xl text-start font-semibold px-6 md:px-12 py-6 w-1/2 md:w-full lg:border-r  font-poppins border-black */}
+            <div className="pl-6 md:px-12 py-6 w-60 md:w-full lg:border-r border-black flex flex-col gap-y-12 justify-evenly items-center text-start">
               <div className="w-full flex flex-col lg:flex-row gap-x-6 justify-start">
                 <div className="w-[10%] h-full">
                   <svg
@@ -128,7 +129,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium"> Limited Freshness</p>
+                  <p className="text-lg md:text-2xl font-medium"> Limited Freshness</p>
                   <p className="text-base">
                     A lot of produce spoils, decays and must be used quickly
                   </p>
@@ -154,7 +155,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">Compromised quality</p>
+                  <p className="text-lg md:text-2xl font-medium">Compromised quality</p>
                   <p className="text-base">
                     Lengthy travel conditions often results in preservation
                     through chemicals{" "}
@@ -180,7 +181,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">
+                  <p className="text-lg md:text-2xl font-medium">
                     Weakened Nutritional Value
                   </p>
                   <p className="text-base">
@@ -226,7 +227,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">Promotes Food Waste</p>
+                  <p className="text-lg md:text-2xl font-medium">Promotes Food Waste</p>
                   <p className="text-base">
                     According to multiple sources, India waste's over 50% of the
                     fresh food it produces
@@ -235,7 +236,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className=" px-12 py-9 w-full h-auto flex flex-col gap-y-12 justify-evenly items-center text-left">
+            <div className="md:px-12 py-6 w-1/2 md:w-full lg:border-r border-black flex flex-col gap-y-12 justify-evenly items-center text-start">
               <div className="w-full flex flex-col lg:flex-row gap-x-6 justify-start">
                 <div className="w-[10%] h-full">
                   <svg
@@ -254,7 +255,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">Prolonged Freshness</p>
+                  <p className="text-lg md:text-2xl font-medium">Prolonged Freshness</p>
                   <p className="text-base">
                     When frozen at peak ripeness, it inhibits spoilage
                   </p>
@@ -279,7 +280,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">Free of Preservatives</p>
+                  <p className="text-lg md:text-2xl font-medium">Free of Preservatives</p>
                   <p className="text-base">
                     Use of flash frozen eliminates the need for any unwanted
                     ingredient
@@ -311,7 +312,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">Guaranteed Nutrients</p>
+                  <p className="text-lg md:text-2xl font-medium">Guaranteed Nutrients</p>
                   <p className="text-base">
                     Freezing at peak ripeness locks in maximum nutrition. And
                     there's already enough research!
@@ -350,7 +351,7 @@ const About = () => {
                   </svg>
                 </div>
                 <div className="flex flex-col items-start gap-y-3">
-                  <p className="text-2xl font-medium">Combats Food Wate</p>
+                  <p className="text-lg md:text-2xl font-medium">Combats Food Wate</p>
                   <p className="text-base">
                     Available data suggest frozen food can be cheaper in the
                     long run too
@@ -361,9 +362,9 @@ const About = () => {
           </div>
           {/* captain skopck */}
           <div className="w-full py-12 border-b border-black flex justify-center items-center bg-black text-white">
-            <div className="w-4/6 gap-y-10 flex flex-col justify-center items-center">
+            <div className="w-4/5 md:w-4/6 gap-y-10 flex flex-col justify-center items-center">
               <div className="w-full h-auto">
-                <q className="text-2xl italic">
+                <q className="text-xl md:text-2xl italic">
                   Insufficient facts always invite danger
                 </q>
                 <p className="text-gray-600 italic pt-3">
@@ -403,7 +404,7 @@ const About = () => {
             {/* shubhranshu */}
             <div className="w-3/4 md:w-1/3  flex flex-shrink-0 md:flex-shrink-1 border md:border-0 border-black flex-col">
               <div className="h-full flex flex-col  px-6 py-6 lg:py-4 border-b border-black">
-                <div className="w-full font-semibold text-2xl font-poppins md:text-lg">
+                <div className="w-full font-semibold text-xl font-poppins md:text-lg">
                   {" "}
                   Shubhranshu Jha
                 </div>
@@ -463,7 +464,7 @@ const About = () => {
             {/* Rana Uppalapati */}
             <div className="w-3/4 md:w-1/3  flex flex-shrink-0 md:flex-shrink-1 border md:border-x md:border-y-0 border-black flex-col">
               <div className="h-full flex flex-col  px-6 py-6 lg:py-4 border-b border-black">
-                <div className="w-full font-semibold text-2xl md:text-lg font-poppins">
+                <div className="w-full font-semibold text-xl md:text-lg font-poppins">
                   {" "}
                   Rana Uppalapati
                 </div>
@@ -521,11 +522,11 @@ const About = () => {
 
             {/* Hemanth Thimmasarthi */}
             <div className="w-3/4 md:w-1/3  flex flex-shrink-0 md:flex-shrink-1 flex-col border border-black md:border-none">
-              <div className="h-full flex flex-col px-1 md:px-3 py-6 lg:py-4 border-b border-black">
-                <div className="w-full font-semibold text-2xl md:text-lg font-poppins">
+              <div className="h-full flex flex-col md:px-3 py-6 lg:py-4 border-b border-black">
+                <div className="w-full font-semibold text-xl md:text-lg font-poppins">
                   Hemanth Thimmasarthi
                 </div>
-                <div className="w-full font-medium text-base font-poppins text-black md:text-[#838282]">
+                <div className="w-full font-medium text-sm font-poppins text-black md:text-[#838282] ">
                   advisor - strategy & partnerships
                 </div>
               </div>

@@ -28,10 +28,10 @@ const Sidebar = () => {
                         {/* <div class="px-4 sm:px-6">
 
                                             </div> */}
-                        <div class="relative flex-1 w-auto h-auto p-5 md:pt-10 md:pl-5 ">
-                          <div className="flex w-full h-auto flex-wrap md:flex-nowrap items-center gap-x-7 ">
+                        <div class="relative flex-1 w-auto h-auto p-1 md:p-5 md:pt-10 md:pl-5 ">
+                          <div className="flex w-full h-auto flex-wrap md:flex-nowrap items-center gap-x-7">
                             {/* searchbar */}
-                            <div className="mx-10 md:mx-1 order-4 md:mr-20 lg:mr-40 md:order-1 pt-10 md:pt-0 h-fit md:w-1/2 w-full gap-x-2 flex border-b-2 py-[0.6rem] border-black items-center ">
+                            <div className="mx-10 md:mx-1 order-4 md:mr-20 lg:mr-40 md:order-1 pt-10 md:pt-0 h-fit md:w-1/2 w-full gap-x-2 flex border-b-2 py-[0.6rem] border-black items-center">
                               <img
                                 src={afsearch}
                                 alt="search"
@@ -54,7 +54,7 @@ const Sidebar = () => {
                                 <img className=" h-6" src={afuser} alt="user" />
                               </NavLink>
                             </div>
-                            <div className="pl-5 pr-80 md:pr-5 order-1 md:order-4">
+                            <div className="pl-2 md:pl-5 pr-36 md:pr-5 order-1 md:order-4">
                               <img
                                 onClick={() => {
                                   setHide(!hide);
@@ -67,7 +67,7 @@ const Sidebar = () => {
                             </div>
                             <div className="flex justify-evenly items-center gap-x-10"></div>
                           </div>
-                          <div className="h-auto flex flex-col justify-start items-start gap-y-9 px-10 pt-9 md:px-8">
+                          <div className="h-auto flex flex-col justify-start items-start gap-y-7 md:gap-y-9 px-10 pt-9 md:px-8">
                             <NavLink to="/my-account">
                               <p className="capitalize text-3xl font-medium">
                                 account
@@ -104,8 +104,8 @@ const Sidebar = () => {
                               </p>
                             </NavLink>
                           </div>
-                          <hr className="border-2 border-black mt-10 md:mt-72 " />
-                          <div className="w-full flex flex-col md:flex-row  md:justify-between gap-y-9 px-10 mt-10">
+                          <hr className="border border-black mx-5 mt-7 md:mt-72 " />
+                          <div className="w-full flex flex-col md:flex-row  md:justify-between gap-y-7 md:gap-y-9 px-10 mt-10">
                             <div className="flex">
                               <p className="uppercase text-lg font-semibold">
                                 faq

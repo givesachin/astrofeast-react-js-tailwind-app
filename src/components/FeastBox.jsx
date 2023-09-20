@@ -45,7 +45,7 @@ const FeastBox = () => {
             <div className="flex overflow-scroll lg:overflow-hidden lg:w-2/3">
               {products.map((product) => (
                 <div key={product.id} className="pl-8 pt-8 pb-8">
-                  <div className="h-96 w-76 flex flex-col border-black border justify-center items-center">
+                  <div className="h-96 w-[240px] md:w-76 flex flex-col border-black border justify-center items-center">
                     <img
                       className="w-full object-cover h-72 border-black border-b"
                       src={product.prod_img}
@@ -82,7 +82,7 @@ const FeastBox = () => {
                     src={added.prod_img}
                     alt="product"
                   />
-                  <div className="pl-40 lg:pl-8">
+                  <div className="md:pl-40 lg:pl-8">
                     <p className="text-xl font-poppins font-semibold w-full ">
                       {added.title}
                     </p>
@@ -100,25 +100,22 @@ const FeastBox = () => {
               </div>
               <div className="flex justify-center items-center border border-black m-8 p-2">
                 <button
-                  className={`px-4 py-2 space-x-10 text-black ${
-                    selectedOption === "weekly" ? "bg-[#BDC695]" : "bg-white"
-                  }`}
+                  className={`px-4 py-2 space-x-10 text-black ${selectedOption === "weekly" ? "bg-[#BDC695]" : "bg-white"
+                    }`}
                   onClick={() => handleOptionChange("weekly")}
                 >
                   Weekly
                 </button>
                 <button
-                  className={`px-4 py-2 text-black ${
-                    selectedOption === "bi-weekly" ? "bg-[#BDC695]" : "bg-white"
-                  }`}
+                  className={`px-4 py-2 text-black ${selectedOption === "bi-weekly" ? "bg-[#BDC695]" : "bg-white"
+                    }`}
                   onClick={() => handleOptionChange("bi-weekly")}
                 >
                   Bi-Weekly
                 </button>
                 <button
-                  className={`px-4 py-2 text-black ${
-                    selectedOption === "monthly" ? "bg-[#BDC695]" : "bg-white"
-                  }`}
+                  className={`px-4 py-2 text-black ${selectedOption === "monthly" ? "bg-[#BDC695]" : "bg-white"
+                    }`}
                   onClick={() => handleOptionChange("monthly")}
                 >
                   Monthly

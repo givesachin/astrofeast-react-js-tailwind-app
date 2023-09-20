@@ -37,7 +37,7 @@ const Orders = () => {
       </section>
       <section className="lg:px-16  border-t border-black">
         <AccountNavbar />
-        <div className="w-full border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-black gap-y-3 pb-5 ">
+        <div className="w-full border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-black md:gap-y-3 pb-5 ">
           <div className="md:pl-6 order-1 w-full md:w-1/2   flex flex-col border-black pt-6  ">
             <p className="px-6 h-auto fs_w400_s48 flex items-center justify-start">
               orders
@@ -50,7 +50,7 @@ const Orders = () => {
           </div>
           <div className="md:pr-6 order-2 md:w-1/2 flex md:justify-end">
             <input
-              className="flex text-3xl md:text-xl py-6 px-6 text-[#F4A73F] font-Staatliches"
+              className="flex text-3xl md:text-xl py-3 md:py-6 px-6 text-[#F4A73F] font-Staatliches"
               type="submit"
               value="reedem code"
             />
@@ -165,11 +165,13 @@ const Orders = () => {
                   </div>
                 </div>
                 <div className="md:hidden">
-                  <input
-                    className="w-full flex py-4 text-white font-Staatliches bg-black justify-center text-xl"
-                    type="submit"
-                    value="track order"
-                  />
+                  <NavLink to="/track-order">
+                    <input
+                      className="w-full flex py-4 text-white font-Staatliches bg-black justify-center text-xl"
+                      type="submit"
+                      value="track order"
+                    />
+                  </NavLink>
                 </div>
               </div>
 

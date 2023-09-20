@@ -133,7 +133,7 @@ const Recipe = () => {
           <div className="flex flex-col lg:flex-row  border-black">
             <div className="flex flex-col lg:w-1/2 ">
               <div className="">
-                <p className="fs_w400_s48 h-auto pl-8 py-3 flex items-center justify-start border-y lg:border-r  border-black bg-slate-50">
+                <p className="fs_w400_s24 md:fs_w400_s48 h-auto pl-8 py-3 flex items-center justify-start border-y lg:border-r  border-black bg-slate-50">
                   preparation
                 </p>
               </div>
@@ -162,7 +162,7 @@ const Recipe = () => {
             </div>
             <div className="flex flex-col lg:w-1/2">
               <div className="">
-                <p className="h-auto pl-8 py-3 fs_w400_s48 flex items-center justify-start border-y border-black  bg-slate-50">
+                <p className="h-auto pl-8 py-3 fs_w400_s24 md:fs_w400_s48 flex items-center justify-start border-y border-black  bg-slate-50">
                   ingredients
                 </p>
               </div>
@@ -197,11 +197,11 @@ const Recipe = () => {
                         </div>
                     </div> */}
           <div className="p-6 flex justify-between border-t border-black  bg-slate-50">
-            <p className="text-3xl font-Staatliches md:fs_w400_s48 font-semi-bold text-left">
+            <p className="text-2xl font-Staatliches md:fs_w400_s48 font-semi-bold text-left">
               Look at more recipes
             </p>
             <input
-              className="text-3xl font-Staatliches md:fs_w400_s48 "
+              className="text-2xl font-Staatliches md:fs_w400_s48 "
               type="submit"
               value="view all     >"
             />
