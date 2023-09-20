@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import aflogo from "../../assets/aflogo.svg";
+import { NavLink } from "react-router-dom";
+import afbag from "../../assets/afbag.png";
 import afmenu from "../../assets/afmenu.svg";
 import afsearch from "../../assets/search.svg";
-import afuser from "../../assets/afuser.svg";
-import afbag from "../../assets/afbag.png";
 import Sidebar from "./Sidebar";
-import { NavLink } from "react-router-dom";
 
 const FloatNavbar = () => {
   const [toggle, setToggle] = useState(false);

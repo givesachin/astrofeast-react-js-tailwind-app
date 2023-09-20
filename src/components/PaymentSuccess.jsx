@@ -1,7 +1,7 @@
-import { React, useState } from "react";
+import { React } from "react";
+import FloatNavbar from "./Atoms/FloatNavbar";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
-import FloatNavbar from "./Atoms/FloatNavbar";
 const PaymentSuccess = () => {
   return (
     <>
