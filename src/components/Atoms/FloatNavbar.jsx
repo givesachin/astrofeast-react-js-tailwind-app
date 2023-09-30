@@ -6,15 +6,23 @@ import afsearch from "../../assets/search.svg";
 import Sidebar from "./Sidebar";
 
 const FloatNavbar = () => {
-  const [toggle, setToggle] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [closeButtonState, setCloseButtonState] = useState(false);
+
+  const handleToggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
+
+  const handleCloseSidebar = () => {
+    setSidebarVisible(false);
+    setCloseButtonState(true);
+  };
 
   return (
     <div className="fixed z-50 bottom-4 bg-slate-100 lg:hidden flex self-center w-auto mt-28 px-8 md:px-16 py-3 justify-evenly gap-x-10 items-center">
       <div className="">
         <img
-          onClick={() => {
-            setToggle(!toggle);
-          }}
+          onClick={handleToggleSidebar}
           className="invert"
           src={afmenu}
           alt="menu"
@@ -27,7 +35,13 @@ const FloatNavbar = () => {
       <button className="font-Staatliches h-fix whitespace-nowrap border md:border-2 border-black px-7 md:px-40 py-2 font-medium text-lg tracking-wide">
         see collection
       </button>
-      {toggle && <Sidebar />}
+      {sidebarVisible && (
+        <Sidebar
+          sidebarVisible={sidebarVisible}
+          closeSidebar={handleCloseSidebar}
+          closeButtonState={closeButtonState}
+        />
+      )}
     </div>
   );
 };

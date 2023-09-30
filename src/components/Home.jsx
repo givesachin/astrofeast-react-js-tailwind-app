@@ -93,7 +93,6 @@ const Home = () => {
               </button>
             </NavLink>
           </div>
-          <FloatNavbar />
         </div>
         <div className="absolute right-0 bottom-28 md:bottom-0 w-auto h-auto m-8 md:m-16">
           <NavLink to="/auth/signup">
@@ -169,7 +168,9 @@ const Home = () => {
       </section>
       <section className="w-full h-auto flex flex-col items-center py-52 px-10 md:px-16 justify-between gap-y-8">
         <div className="flex flex-col items-center w-full h-auto gap-y-4">
-          <p className="text-5xl font-Staatliches md:fs_w400_s60">The astrofeast project</p>
+          <p className="text-5xl font-Staatliches md:fs_w400_s60">
+            The astrofeast project
+          </p>
           <div className="flex place-content-center">
             <p className=" md:w-8/12 text-center font-poppins">
               or how we declassify authentic food from around the world, and

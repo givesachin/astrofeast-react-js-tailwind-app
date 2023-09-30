@@ -8,8 +8,17 @@ import Sidebar from "./Sidebar";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const [toggle, setToggle] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [closeButtonState, setCloseButtonState] = useState(false);
 
+  const handleToggleSidebar = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
+
+  const handleCloseSidebar = () => {
+    setSidebarVisible(false);
+    setCloseButtonState(true);
+  };
   return (
     <>
       <header className="w-full h-auto  flex flex-col items-center">
@@ -56,10 +65,7 @@ const Header = () => {
                             */}
                 <div className="hidden lg:flex">
                   <img
-                    onClick={() => {
-                      setToggle(!toggle);
-                      console.log("click from header", toggle);
-                    }}
+                    onClick={handleToggleSidebar}
                     className=""
                     src={afmenu}
                     alt="menu"
@@ -115,7 +121,13 @@ const Header = () => {
           </a>
         </nav>
         {/* menu */}
-        {toggle && <Sidebar />}
+        {sidebarVisible && (
+          <Sidebar
+            sidebarVisible={sidebarVisible}
+            closeSidebar={handleCloseSidebar}
+            closeButtonState={closeButtonState}
+          />
+        )}
       </header>
     </>
   );
