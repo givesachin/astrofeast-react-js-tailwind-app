@@ -29,25 +29,30 @@ const data = [
 ];
 const Orders = () => {
   return (
-    <section>
+    <section
+      className="dark:text-gray-100
+    dark:bg-slate-900"
+    >
       <Header />
       <FloatNavbar />
       <section className="hidden lg:block lg:px-16 lg:relative">
-        <div className="border-x border-black pt-12" />
+        <div className="border-x border-black dark:border-slate-300 pt-12" />
       </section>
-      <section className="lg:px-16  border-t border-black">
+      <section className="lg:px-16  border-t border-black dark:border-slate-300">
         <AccountNavbar />
-        <div className="w-full border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-black md:gap-y-3 pb-5 ">
-          <div className="md:pl-6 order-1 w-full md:w-1/2   flex flex-col border-black pt-6  ">
+        {/* Orders page title */}
+        <div className="w-full border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-black dark:border-slate-300 md:gap-y-3 pb-5 ">
+          <div className="md:pl-6 order-1 w-full md:w-1/2   flex flex-col border-black dark:border-slate-300 pt-6  ">
             <p className="px-6 h-auto fs_w400_s48 flex items-center justify-start">
               orders
             </p>
           </div>
           <div className="md:pl-6 order-3 pb-3 ">
-            <p className="order-3 px-6 border-black font-poppins flex flex-col justify-evenly text-start font-medium">
+            <p className="order-3 px-6 border-black dark:border-slate-300 font-poppins flex flex-col justify-evenly text-start font-medium">
               Check previous orders. Track your current orders.
             </p>
           </div>
+          {/* reedem code button */}
           <div className="md:pr-6 order-2 md:w-1/2 flex md:justify-end">
             <input
               className="flex text-3xl md:text-xl py-3 md:py-6 px-6 text-[#F4A73F] font-Staatliches"
@@ -56,10 +61,11 @@ const Orders = () => {
             />
           </div>
         </div>
-        <div className="hidden lg:block lg:px-6 lg:py-3 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black lg:justify-between lg:gap-5">
+        {/* order info for desktop screen */}
+        <div className="hidden lg:block lg:px-6 lg:py-3 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black dark:border-slate-300 lg:justify-between lg:gap-5">
           {data.map((item, index) => (
             <div key={index} className="flex flex-col">
-              <div className="flex px-6 py-6 flex-row w-full h-full border-black justify-between gap-5">
+              <div className="flex px-6 py-6 flex-row w-full h-full border-black dark:border-slate-300 justify-between gap-5">
                 <div>
                   <p className=" text-2xl h-auto font-Staatliches flex items-center justify-start">
                     order #{item.order_number}
@@ -93,11 +99,12 @@ const Orders = () => {
                     {item.order_date}
                   </p>
                 </div>
-
+                {/* Track Order button */}
                 <div>
                   <NavLink to="/track-order" className="">
                     <input
-                      className="flex px-6 py-3 text-white font-Staatliches bg-black object-start"
+                      className="flex px-6 py-3 text-white font-Staatliches bg-black object-start dark:text-gray-900
+                      dark:bg-slate-300 "
                       type="submit"
                       value="track order"
                     />
@@ -107,16 +114,17 @@ const Orders = () => {
 
               {index !== data.length - 1 && (
                 <div className="flex ">
-                  <hr className="w-full border-t border-black" />
+                  <hr className="w-full border-t border-black dark:border-slate-300" />
                 </div>
               )}
             </div>
           ))}
         </div>
-        <div className="lg:hidden block px-2 md:px-6 py-3 flex-column w-full h-full border-t border-black justify-between gap-5">
+        {/* order info for mobile and tablet screen */}
+        <div className="lg:hidden block px-2 md:px-6 py-3 flex-column w-full h-full border-t border-black dark:border-slate-300 justify-between gap-5">
           {data.map((item, index) => (
             <div key={index} className="flex flex-col">
-              <div className="flex px-6 py-6 flex-col w-full h-full border-black justify-between gap-5">
+              <div className="flex px-6 py-6 flex-col w-full h-full border-black dark:border-slate-300 justify-between gap-5">
                 <div className="flex justify-between">
                   <div>
                     <p className="text-3xl md:text-2xl h-auto font-Staatliches flex items-center justify-start">
@@ -177,16 +185,16 @@ const Orders = () => {
 
               {index !== data.length - 1 && (
                 <div className="flex ">
-                  <hr className="w-full border-t border-black" />
+                  <hr className="w-full border-t border-black dark:border-slate-300" />
                 </div>
               )}
             </div>
           ))}
         </div>
       </section>
-      <div className="h-0 lg:border-t  border-black flex justify-center items-center" />
+      <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
       <section className="hidden  lg:block lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+        <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
       </section>
       <Footer />
     </section>

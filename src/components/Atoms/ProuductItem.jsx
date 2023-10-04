@@ -3,7 +3,7 @@ import React from "react";
 const ProductItem = ({ prodList }) => {
   return (
     <div
-      className="h-auto w-72 flex flex-col border-black border"
+      className="h-auto w-72 flex flex-col border-black border dark:border-slate-300"
       key={prodList.id}
     >
       <img

@@ -7,24 +7,28 @@ import AccountNavbar from "../Account/AccountNavbar";
 import FloatNavbar from "../Atoms/FloatNavbar";
 const GoldenTicket = () => {
   return (
-    <section>
+    <section
+      className="dark:text-gray-100
+    dark:bg-slate-900"
+    >
       <Header />
       <FloatNavbar />
       <section className="hidden lg:block lg:px-16 lg:relative">
-        <div className="border-x border-black pt-12" />
+        <div className="border-x border-black dark:border-slate-300 pt-12" />
       </section>
-      <section className="lg:px-16  border-t border-black">
+      <section className="lg:px-16  border-t border-black dark:border-slate-300">
         <AccountNavbar />
-        <div className="w-full border-t h-auto flex lg:border-x border-black flex-col">
-          <div className="w-full flex flex-col border-black py-6 gap-1 px-10">
+        {/* Track order page */}
+        <div className="w-full border-t h-auto flex lg:border-x border-black dark:border-slate-300 flex-col">
+          <div className="w-full flex flex-col border-black dark:border-slate-300 py-6 gap-1 px-10">
             <p className=" h-auto fs_w400_s48 flex items-center justify-start">
               Track your package
             </p>
-            <p className=" border-black font-poppins flex flex-col justify-evenly text-start">
+            <p className=" border-black dark:border-slate-300 font-poppins flex flex-col justify-evenly text-start">
               Sit back relax while we deliver to your doorstep
             </p>
           </div>
-          <div className="border-t border-black h-20 flex align-middle p-10 ">
+          <div className="border-t border-black dark:border-slate-300 h-20 flex align-middle p-10 ">
             <div class="w-11/12 lg:w-2/6 mx-auto">
               <div class="bg-gray-200 h-1 flex items-center justify-between">
                 <div class="w-1/3 bg-indigo-700 h-1 flex items-center">
@@ -74,8 +78,8 @@ const GoldenTicket = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row border-t border-black p-10 lg:p-0 ">
-            <div className="lg:border-r border-black w-full lg:w-1/2">
+          <div className="flex flex-col lg:flex-row border-t border-black dark:border-slate-300 p-10 lg:p-0 ">
+            <div className="lg:border-r border-black dark:border-slate-300 w-full lg:w-1/2">
               <p className="text-start p-4 font-poppins font-semibold">
                 Shipment information
               </p>
@@ -92,7 +96,7 @@ const GoldenTicket = () => {
                 <p className="text-start">#121213</p>
               </div>
             </div>
-            <div className="border-t  border-black  lg:border-t-0 w-full lg:w-1/2">
+            <div className="border-t  border-black dark:border-slate-300  lg:border-t-0 w-full lg:w-1/2">
               <p className="text-start p-4 font-poppins font-semibold">
                 Order details
               </p>
@@ -120,9 +124,9 @@ const GoldenTicket = () => {
           </div>
         </div>
       </section>
-      <div className="h-0 lg:border-t  border-black flex justify-center items-center" />
+      <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
       <section className="hidden  lg:block lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+        <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
       </section>
       <Footer />
     </section>

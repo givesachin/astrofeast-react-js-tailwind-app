@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import aflogo from "../../assets/aflogo.svg";
 import afmenu from "../../assets/afmenu.svg";
 import afsearch from "../../assets/search.svg";
@@ -19,9 +19,70 @@ const Header = () => {
     setSidebarVisible(false);
     setCloseButtonState(true);
   };
+
+  {
+    /* For Darkmode */
+  }
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+  );
+  const element = document.documentElement;
+  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const options = [
+    {
+      icon: "sunny",
+      text: "light",
+    },
+    {
+      icon: "moon",
+      text: "dark",
+    },
+    {
+      icon: "desktop-outline",
+      text: "system",
+    },
+  ];
+  function onWindowMatch() {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) && darkQuery.matches)
+    ) {
+      element.classList.add("dark");
+    } else {
+      element.classList.remove("dark");
+    }
+  }
+  onWindowMatch();
+  useEffect(() => {
+    switch (theme) {
+      case "dark":
+        element.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+        break;
+      case "light":
+        element.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        break;
+
+      default:
+        localStorage.removeItem("theme");
+        onWindowMatch();
+        break;
+    }
+  }, [theme]);
+  darkQuery.addEventListener("change", (e) => {
+    if (!("theme" in localStorage)) {
+      if (e.matches) {
+        element.classList.add("dark");
+      } else {
+        element.classList.remove("dark");
+      }
+    }
+  });
   return (
     <>
-      <header className="w-full h-auto  flex flex-col items-center">
+      <header className="w-full h-auto  flex flex-col items-center dark:bg-slate-900 dark:text-gray-100">
         {/* black head bar */}
         <div className="w-full h-full py-5 pr-8 md:pr-16 bg-black flex justify-between items-center">
           <NavLink to="/">
@@ -48,7 +109,7 @@ const Header = () => {
                 />
               </div>
               {/* other icons */}
-              <div className="w-auto h-auto flex justify-evenly gap-x-4 items-center">
+              <div className="w-auto h-auto flex justify-evenly gap-x-4 items-center  ">
                 <NavLink to="/feastbox" className="">
                   <img className="lg:invert h-10" src={afbag} alt="bag" />
                 </NavLink>
@@ -57,12 +118,6 @@ const Header = () => {
                     <img className="invert h-5" src={afuser} alt="user" />
                   </NavLink>
                 </div>
-                {/*
-                              there is an issue when user will click first time,
-                              the button will work. perhaps, the user
-                              will click again after the sidebar is closed,
-                              the button needs to be click 2 times to display sidebar
-                            */}
                 <div className="hidden lg:flex">
                   <img
                     onClick={handleToggleSidebar}
@@ -71,50 +126,63 @@ const Header = () => {
                     alt="menu"
                   />
                 </div>
+                <div className="-right-1 top-4 z-50 fixed duration-100 dark:bg-slate-700 bg-gray-200 rounded flex flex-col">
+                  {options?.map((opt) => (
+                    <button
+                      key={opt.text}
+                      onClick={() => setTheme(opt.text)}
+                      className={`w-8 h-8 leading-9 text-xl rounded-full m-1 ${
+                        theme === opt.text && "text-sky-600"
+                      }`}
+                    >
+                      <ion-icon name={opt.icon}></ion-icon>
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
         {/* navigation */}
-        <nav className="hidden lg:w-full lg:h-auto lg:flex lg:justify-between  lg:border-b lg:border-black">
+        <nav className="hidden lg:w-full lg:h-auto lg:flex lg:justify-between  lg:border-b lg:border-black dark:lg:border-slate-300 dark:border-t">
           <a
-            className="uppercase text-black p-4 w-full font-Staatliches"
+            className="uppercase text-black dark:text-gray-100 p-4 w-full font-Staatliches"
             href=""
           >
             Appetizer
           </a>
           <a
-            className="uppercase text-black border-l border-black  p-4 w-full font-Staatliches"
+            className="uppercase text-black dark:text-gray-100  border-l border-black dark:border-slate-300 p-4 w-full font-Staatliches"
             href=""
           >
             desserts
           </a>
           <a
-            className="uppercase text-black border-l border-black  p-4 w-full font-Staatliches"
+            className="uppercase text-black dark:text-gray-100  border-l border-black dark:border-slate-300 p-4 w-full font-Staatliches"
             href=""
           >
             combos
           </a>
           <a
-            className="uppercase text-black border-l border-black  p-4 w-full font-Staatliches"
+            className="uppercase text-black dark:text-gray-100  border-l border-black dark:border-slate-300 p-4 w-full font-Staatliches"
             href=""
           >
             seafood
           </a>
           <a
-            className="uppercase text-black border-l border-black  p-4 w-full font-Staatliches"
+            className="uppercase text-black dark:text-gray-100  border-l border-black dark:border-slate-300 p-4 w-full font-Staatliches"
             href=""
           >
             vegetarian
           </a>
           <a
-            className="uppercase text-black border-l border-black  p-4 w-full font-Staatliches"
+            className="uppercase text-black dark:text-gray-100  border-l border-black dark:border-slate-300 p-4 w-full font-Staatliches"
             href=""
           >
             meat
           </a>
           <a
-            className="uppercase text-[#F4A73F] border-l border-black  p-4 w-full font-Staatliches "
+            className="uppercase text-[#F4A73F] border-l border-black dark:border-slate-300 p-4 w-full font-Staatliches "
             href=""
           >
             view all

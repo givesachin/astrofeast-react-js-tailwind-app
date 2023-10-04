@@ -71,7 +71,7 @@ const Home = () => {
     <section>
       <Header />
       <FloatNavbar />
-      <section className="w-full h-[48.75rem] relative">
+      <section className="w-full h-[48.75rem] relative ">
         <CTABar />
         <img
           className="w-full object-cover h-full brightness-50"
@@ -166,7 +166,10 @@ const Home = () => {
           </NavLink>
         </div>
       </section>
-      <section className="w-full h-auto flex flex-col items-center py-52 px-10 md:px-16 justify-between gap-y-8">
+      <section
+        className="w-full h-auto flex flex-col items-center py-52 px-10 md:px-16 justify-between gap-y-8 dark:text-gray-100
+dark:bg-slate-900"
+      >
         <div className="flex flex-col items-center w-full h-auto gap-y-4">
           <p className="text-5xl font-Staatliches md:fs_w400_s60">
             The astrofeast project
@@ -178,9 +181,9 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <button className="bg-black w-auto h-auto text-white px-6 py-3 flex items-center font-Staatliches text-xl  gap-x-2">
+        <button className="bg-black dark:bg-slate-300 w-auto h-auto text-white dark:text-gray-900 px-6 py-3 flex items-center font-Staatliches text-xl  gap-x-2">
           why we freeze
-          <img src={afarrow} alt="arrow" />
+          <img className="dark:invert" src={afarrow} alt="arrow" />
         </button>
       </section>
 

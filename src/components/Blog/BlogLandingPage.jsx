@@ -30,12 +30,15 @@ const BlogLandingPage = () => {
     // })
   }
   return (
-    <section className="w-full h-full font-poppins">
+    <section
+      className="w-full h-full font-poppins dark:text-gray-100
+    dark:bg-slate-900"
+    >
       <Header />
       <FloatNavbar />
       <CTABar />
       <section className="lg:px-16 relative">
-        <div className="w-full lg:border-x border-black pt-2 lg:pt-8">
+        <div className="w-full lg:border-x border-black dark:border-slate-300 pt-2 lg:pt-8">
           <div className="w-full">
             <p className="fs_w400_s60 h-auto p-8 flex items-center justify-start">
               BLOGS
@@ -47,9 +50,8 @@ const BlogLandingPage = () => {
                 alt="certified"
               />
             </NavLink>
-            {/* <p className='px-6 border-black font-poppins flex flex-col justify-evenly text-start'>CHECK OUT RECIPES!</p> */}
           </div>
-          <div className="p-8 flex flex-col lg:flex-row border-t border-black gap-10 items-center">
+          <div className="p-8 flex flex-col lg:flex-row border-t border-black dark:border-slate-300 gap-10 items-center">
             <div className="lg:w-1/2 lg:h-1/2 ">
               <img className="" src={blog1} alt="blog1" />
             </div>
@@ -65,20 +67,21 @@ const BlogLandingPage = () => {
                 Exercitation veniam consequat sunt nostrud amet.
               </p>
               <input
-                className="mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base "
+                className="mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base dark:text-gray-900
+                dark:bg-slate-300  "
                 type="submit"
                 value="read now     >"
               />
             </div>
           </div>
         </div>
-        <div className="w-full lg:border-x border-black lg:pt-10">
-          <div className="w-full border-t border-black">
+        <div className="w-full lg:border-x border-black dark:border-slate-300 lg:pt-10">
+          <div className="w-full border-t border-black dark:border-slate-300">
             <p className="text-4xl font-Staatliches md:fs_w400_s48 h-auto px-8 py-4 md:p-8 flex items-center justify-start">
               feature section
             </p>
           </div>
-          <div className="flex flex-col lg:flex-row border-t lg:border-b border-black gap-10">
+          <div className="flex flex-col lg:flex-row border-t lg:border-b border-black dark:border-slate-300 gap-10">
             <div className="lg:w-1/2 lg:h-1/2  ">
               <img className="w-full" src={blog2} alt="blog1" />
             </div>
@@ -94,15 +97,16 @@ const BlogLandingPage = () => {
                 Exercitation veniam consequat sunt nostrud amet.{" "}
               </p>
               <input
-                className="mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base "
+                className="mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base dark:text-gray-900
+                dark:bg-slate-300  "
                 type="submit"
                 value="read now     >"
               />
             </div>
           </div>
         </div>
-        <div className="w-full lg:border-x border-black pt-6 lg:pt-0">
-          <div className="flex flex-col lg:flex-row border-b border-t border-black lg:gap-16">
+        <div className="w-full lg:border-x border-black dark:border-slate-300 pt-6 lg:pt-0">
+          <div className="flex flex-col lg:flex-row border-b border-t border-black dark:border-slate-300 lg:gap-16">
             <div className="lg:w-1/2 lg:h-1/2 place-self-center gap-20 ml-6 my-6 lg:m-10 order-2 lg:order-1">
               <p className="font-poppins font-bold text-left text-2xl leading-10">
                 {" "}
@@ -115,7 +119,8 @@ const BlogLandingPage = () => {
                 Exercitation veniam consequat sunt nostrud amet.
               </p>
               <input
-                className="mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base"
+                className="mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base dark:text-gray-900
+                dark:bg-slate-300 "
                 type="submit"
                 value="read now     >"
               />
@@ -125,7 +130,7 @@ const BlogLandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="w-full lg:border-x border-black">
+        <div className="w-full lg:border-x border-black dark:border-slate-300">
           <div className="p-6 flex flex-col md:flex-row justify-between">
             <div className="self-start">
               <p className="text-3xl font-Staatliches lg:fs_w400_s48 font-semi-bold text-left">
@@ -140,18 +145,18 @@ const BlogLandingPage = () => {
               />
             </div>
           </div>
-          {/* <div>
-                        <img></img>
-                        <p></p>
-                    </div> */}
-          <div className=" flex gap-x-8 flex-nowrap p-6 border-t border-black ">
+
+          <div className=" flex gap-x-8 flex-nowrap p-6 border-t border-black dark:border-slate-300 ">
             {products.slice(0, 4).map((item, index) => (
-              <div key={index} className="flex flex-col border-black border">
+              <div
+                key={index}
+                className="flex flex-col border-black dark:border-slate-300 border"
+              >
                 <img
-                  className="border-b border-black w-80 h-80 object-cover"
+                  className="border-b border-black dark:border-slate-300 w-80 h-80 object-cover"
                   src={item.image}
                 />
-                {/* <img className='border-black border-b object-cover' src={item.image} alt="product" /> */}
+
                 <div className="w-full font-poppins font-semi-bold h-auto flex items-end justify-center py-5">
                   <p className="text-lg w-full font-medium">
                     {item.title.substring(0, item.title.indexOf(" "))}
@@ -162,9 +167,9 @@ const BlogLandingPage = () => {
           </div>
         </div>
       </section>
-      <div className="h-0 lg:border-t  border-black flex justify-center items-center" />
+      <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
       <section className="hidden  lg:block lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+        <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
       </section>
 
       <Footer />

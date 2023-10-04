@@ -12,26 +12,30 @@ const data = {
 };
 const Subscriptions = () => {
   return (
-    <section>
+    <section
+      className="dark:text-gray-100
+    dark:bg-slate-900"
+    >
       <Header />
       <FloatNavbar />
       <section className="hidden lg:block lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+        <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
       </section>
-      <section className="lg:px-16  border-t border-black">
+      <section className="lg:px-16  border-t border-black dark:border-slate-300">
         <AccountNavbar />
-
-        <div className="w-full border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-black ">
-          <div className="px-6 md:pl-6 lg:px-3 order-1 w-full md:w-1/2   flex flex-col border-black pt-6  ">
+        {/* Subscription page title */}
+        <div className="w-full border-t h-auto flex md:flex-wrap flex-col md:flex-row lg:border-x border-black dark:border-slate-300 ">
+          <div className="px-6 md:pl-6 lg:px-3 order-1 w-full md:w-1/2   flex flex-col border-black dark:border-slate-300 pt-6  ">
             <p className="md:px-6 lg:px-3 h-auto fs_w400_s48 flex items-center justify-start">
               subscriptions
             </p>
           </div>
           <div className="md:pl-6 lg:px-3 order-3 pb-3  ">
-            <p className="order-3 px-6  border-black font-poppins flex flex-col justify-evenly text-start">
+            <p className="order-3 px-6  border-black dark:border-slate-300 font-poppins flex flex-col justify-evenly text-start">
               Flat 3% off on all orders for that year.
             </p>
           </div>
+          {/* add subscription button*/}
           <div className="md:pr-6 order-2 md:w-1/2 flex md:justify-end">
             <input
               className="flex text-3xl md:text-xl py-6 px-6 text-[#F4A73F] font-Staatliches"
@@ -40,7 +44,8 @@ const Subscriptions = () => {
             />
           </div>
         </div>
-        <div className="hidden lg:flex lg:px-6 lg:py-6 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black lg:justify-between lg:gap-5">
+        {/* subscription info for desktop screen */}
+        <div className="hidden lg:flex lg:px-6 lg:py-6 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black dark:border-slate-300 lg:justify-between lg:gap-5">
           <div>
             <p className=" text-2xl h-auto font-Staatliches flex items-center justify-start">
               subscription #{data.subscriptionNumber}
@@ -73,13 +78,16 @@ const Subscriptions = () => {
           </div>
           <div>
             <input
-              className="flex px-6 py-3 text-white font-Staatliches bg-black object-start"
+              className="flex px-6 py-3 text-white font-Staatliches bg-black object-start dark:text-gray-900
+              dark:bg-slate-300 "
               type="submit"
               value="modify"
             />
           </div>
         </div>
-        <div className="lg:hidden flex md:px-12 px-6 py-6 flex-col w-full h-full border-t  border-black justify-between gap-5">
+
+        {/* subscription info for mobile and tablet screen */}
+        <div className="lg:hidden flex md:px-12 px-6 py-6 flex-col w-full h-full border-t  border-black dark:border-slate-300 justify-between gap-5">
           <div className="flex justify-between">
             <div>
               <p className=" text-2xl h-auto font-Staatliches flex items-center justify-start">
@@ -91,13 +99,13 @@ const Subscriptions = () => {
             </div>
             <div>
               <input
-                className="hidden md:flex md:px-6 md:py-3 md:text-white md:font-Staatliches md:bg-black md:object-start"
+                className="hidden md:flex md:px-6 md:py-3 md:text-white md:font-Staatliches md:bg-black md:object-start "
                 type="submit"
                 value="modify"
               />
             </div>
           </div>
-
+          {/* subscription detail for mobile screen*/}
           <div className="flex flex-col gap-y-5  md:flex-row justify-between">
             <div>
               <p className="text-sm md:text-xs font-poppins justify-start flex">
@@ -131,9 +139,9 @@ const Subscriptions = () => {
           </div>
         </div>
       </section>
-      <div className="h-0 lg:border-t  border-black flex justify-center items-center" />
+      <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
       <section className="hidden  lg:block lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+        <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
       </section>
       <Footer />
     </section>

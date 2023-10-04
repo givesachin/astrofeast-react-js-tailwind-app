@@ -97,18 +97,18 @@ const ProductDetails = () => {
       <Header />
       <FloatNavbar />
       <CTABar />
-      <section className="relative">
+      <section className="relative dark:text-gray-100 dark:bg-slate-900 ">
         <section className="lg:px-16 relative">
           {/* container */}
-          <div className="lg:border-x border-black lg:pt-14">
+          <div className="lg:border-x border-black dark:border-slate-300 lg:pt-14">
             {/* headline */}
 
             {/* <hr className='w-screen  border-black absolute left-0' /> */}
             {/* poduct details */}
-            <section className="h-full w-full border-b border-black flex lg:flex-row flex-col">
+            <section className="h-full w-full border-b border-black dark:border-slate-300 flex lg:flex-row flex-col">
               {/* name and images */}
               <div className=" h-full w-auto flex flex-col justify-start ">
-                <div className="flex flex-col justify-between items-start w-full h-full py-5 px-4 border-b  border-black gap-y-5">
+                <div className="flex flex-col justify-between items-start w-full h-full py-5 px-4 border-b  border-black dark:border-slate-300 gap-y-5">
                   <h1 className="font-Staatliches  text-5xl">
                     tenderloin (250g)
                   </h1>
@@ -124,7 +124,7 @@ const ProductDetails = () => {
                     alt="products"
                   />
                   <img
-                    className="left-0 absolute lg:left-10 lg:top-52 md:left-0 md:top-44"
+                    className="left-0 absolute lg:left-10 lg:top-60 md:left-0 md:top-44"
                     src={fssai_certified}
                     alt="certified"
                   />
@@ -154,16 +154,16 @@ const ProductDetails = () => {
                 </div>
               </div>
               {/* nutrition and certi */}
-              <section className="flex flex-col h-auto border-t lg:border-t-0 lg:border-x border-black">
-                <div className="flex flex-col h-auto w-full border-b border-black">
-                  <div className="flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100">
+              <section className="flex flex-col h-auto border-t lg:border-t-0 lg:border-x border-black dark:border-slate-300">
+                <div className="flex flex-col h-auto w-full border-b border-black dark:border-slate-300">
+                  <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches  text-4xl">nutrition</h3>
                   </div>
                   <div className="flex flex-col w-full h-auto gap-5 p-8 justify-start items-start">
                     {nutrition.map((ntr) => (
                       <div
                         key={ntr.id}
-                        className="flex w-full text-black justify-between"
+                        className="flex w-full text-black dark:text-gray-100 justify-between"
                       >
                         <p>{ntr.scope}</p>
                         <p>{ntr.qty}</p>
@@ -172,14 +172,14 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="flex flex-col h-auto w-full ">
-                  <div className="flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100">
+                  <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches  text-4xl">certificates</h3>
                   </div>
                   <div className="flex flex-col gap-6 p-8 justify-between items-center">
                     <div className="w-full justify-center flex gap-6 items-center">
                       <button className="">
                         <img
-                          className="invert rotate-180"
+                          className="invert rotate-180 dark:invert-0"
                           src={afarrow}
                           alt="back arrow"
                         />
@@ -193,7 +193,7 @@ const ProductDetails = () => {
 
                       <button className="">
                         <img
-                          className="invert"
+                          className="invert dark:invert-0"
                           src={afarrow}
                           alt="back arrow"
                         />
@@ -207,8 +207,8 @@ const ProductDetails = () => {
               </section>
               {/* tale sub and stash */}
               <section className="flex flex-col h-auto lg:w-[28rem]">
-                <div className="flex flex-col h-full w-full border-t lg:border-t-0 border-b border-black">
-                  <div className="w-full flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100">
+                <div className="flex flex-col h-full w-full border-t lg:border-t-0 border-b border-black dark:border-slate-300">
+                  <div className="w-full flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches  text-4xl">tales</h3>
                   </div>
                   <div className="w-full flex flex-col h-auto gap-5 p-8 justify-start items-start">
@@ -225,11 +225,11 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="flex flex-col h-auto w-full ">
-                  <div className="flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100">
+                  <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches text-4xl">subscribe</h3>
                   </div>
                   <div className="w-auto flex flex-col gap-6 p-8 justify-start items-start">
-                    <div className="w-full h-auto justify-center items-center flex gap-2 p-2 border border-black ">
+                    <div className="w-full h-auto justify-center items-center flex gap-2 p-2 border border-black dark:border-slate-300 ">
                       <button className="capitalize bg-green p-2 w-full h-auto">
                         <span className="w-full h-auto">weekly</span>
                       </button>
@@ -288,11 +288,11 @@ const ProductDetails = () => {
                         </p>
                       </div>
                     </div>
-                    <hr className="w-full border-black " />
+                    <hr className="w-full border-black dark:border-slate-300 " />
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <button className="h-full w-auto border border-black p-2 text-center">
+                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
@@ -320,7 +320,7 @@ const ProductDetails = () => {
                             </svg>
                           </button>
                           <button className="p-2 text-center">1</button>
-                          <button className="h-full w-auto border border-black p-2 text-center">
+                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
@@ -347,8 +347,16 @@ const ProductDetails = () => {
                       </div>
                     </div>
                     <NavLink to="/checkout" className="">
-                      <button className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches">
-                        add to stash <img src={afarrow} alt="arrow to stash" />
+                      <button
+                        className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
+dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches"
+                      >
+                        add to stash{" "}
+                        <img
+                          src={afarrow}
+                          className="dark:invert"
+                          alt="arrow to stash"
+                        />
                       </button>
                     </NavLink>
                     <p className="w-full text-center font-medium">
@@ -361,8 +369,8 @@ const ProductDetails = () => {
                 </div>
               </section>
             </section>
-            <section className=" flex flex-col border-b border-black w-full h-full">
-              <div className="flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100">
+            <section className=" flex flex-col border-b border-black dark:border-slate-300 w-full h-full">
+              <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                 <h3 className="font-Staatliches text-4xl">how to heat</h3>
               </div>
               <div className="flex flex-col justify-start gap-10 p-8 items-start py-6 px-8">
@@ -463,8 +471,8 @@ const ProductDetails = () => {
               </div>
             </section>
             {/* how to heat and comments */}
-            <section className="border-b border-black flex flex-col w-full h-full">
-              <div className="flex justify-start border-b border-black items-start py-6 px-8 bg-gray-100">
+            <section className="border-b border-black dark:border-slate-300 flex flex-col w-full h-full">
+              <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                 <h3 className="font-Staatliches text-4xl">tips</h3>
               </div>
               <div className="w-full p-8 flex flex-col justify-start text-left h-auto gap-y-8">
@@ -486,7 +494,7 @@ const ProductDetails = () => {
                     24 people found this useful
                   </p>
                   <div className="flex w-auto justify-start gap-x-5">
-                    <div className="rounded-full border p-3 border-black">
+                    <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -506,68 +514,7 @@ const ProductDetails = () => {
                         />
                       </svg>
                     </div>
-                    <div className="rounded-full border p-3 border-black rotate-180">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <hr className="w-full border" />
-                <div className="flex flex-col w-full gap-y-4">
-                  <div className="w-full flex items-center justify-between">
-                    <p>Add a little more lemon in the end</p>
-                    <p>20th jan</p>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing. Ac
-                    viverra purus inpretium.Lorem ipsum dolor sit amet,
-                    consectetur adipiscing. Ac viverra purus inpretium.Lorem
-                    ipsum dolor sit am Lorem ipsum dolor sit amet, consectetur
-                    adipiscing. Ac viverra purus inpretium.Lorem ipsum dolor sit
-                    amet, consectetur adipiscing. Ac viverra purus
-                    inpretium.Lorem ipsum dolor sit am
-                  </p>
-                  <p className="text-emerald-500 italic">
-                    24 people found this useful
-                  </p>
-                  <div className="flex w-auto justify-start gap-x-5">
-                    <div className="rounded-full border p-3 border-black">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
-                    </div>
-                    <div className="rounded-full border p-3 border-black rotate-180">
+                    <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -608,7 +555,7 @@ const ProductDetails = () => {
                     24 people found this useful
                   </p>
                   <div className="flex w-auto justify-start gap-x-5">
-                    <div className="rounded-full border p-3 border-black">
+                    <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -628,7 +575,68 @@ const ProductDetails = () => {
                         />
                       </svg>
                     </div>
-                    <div className="rounded-full border p-3 border-black rotate-180">
+                    <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 11.5V21"
+                          stroke="#030712"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
+                          stroke="#030712"
+                          strokeWidth="1.5"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <hr className="w-full border" />
+                <div className="flex flex-col w-full gap-y-4">
+                  <div className="w-full flex items-center justify-between">
+                    <p>Add a little more lemon in the end</p>
+                    <p>20th jan</p>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing. Ac
+                    viverra purus inpretium.Lorem ipsum dolor sit amet,
+                    consectetur adipiscing. Ac viverra purus inpretium.Lorem
+                    ipsum dolor sit am Lorem ipsum dolor sit amet, consectetur
+                    adipiscing. Ac viverra purus inpretium.Lorem ipsum dolor sit
+                    amet, consectetur adipiscing. Ac viverra purus
+                    inpretium.Lorem ipsum dolor sit am
+                  </p>
+                  <p className="text-emerald-500 italic">
+                    24 people found this useful
+                  </p>
+                  <div className="flex w-auto justify-start gap-x-5">
+                    <div className="rounded-full border p-3 border-black dark:border-slate-300">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 11.5V21"
+                          stroke="#030712"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
+                          stroke="#030712"
+                          strokeWidth="1.5"
+                        />
+                      </svg>
+                    </div>
+                    <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
@@ -652,9 +660,13 @@ const ProductDetails = () => {
                 </div>
               </div>
             </section>
-            <div className="flex justify-between  items-start py-6 px-8 bg-gray-100">
-              <h3 className="font-Staatliches text-3xl md:text-4xl">similar products</h3>
-              <h3 className="font-Staatliches text-3xl md:text-4xl">View all</h3>
+            <div className="flex justify-between  items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+              <h3 className="font-Staatliches text-3xl md:text-4xl">
+                similar products
+              </h3>
+              <h3 className="font-Staatliches text-3xl md:text-4xl">
+                View all
+              </h3>
             </div>
             <ProductContainer
               cardcontainer="flex-nowrap"
@@ -662,9 +674,9 @@ const ProductDetails = () => {
             />
           </div>
         </section>
-        <div className="h-0 lg:border-t  border-black flex justify-center items-center" />
+        <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
         <section className="hidden  lg:block lg:px-16 lg:relative">
-          <div className="lg:border-x border-black pt-12" />
+          <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
         </section>
         <Footer />
       </section>

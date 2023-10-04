@@ -22,7 +22,6 @@ const Signup = () => {
     let isValid = true;
     const newFormErrors = { ...initialFormErrors };
 
-    console.log("logging form data", formData);
     // Validate name
     if (!formData.name.trim()) {
       newFormErrors.name = "Name is required";
@@ -65,7 +64,7 @@ const Signup = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    // setUsers(values => ({ ...values, [name]: value }))
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -83,7 +82,10 @@ const Signup = () => {
   };
 
   return (
-    <section className="w-full h-screen">
+    <section
+      className="w-full h-screen dark:text-gray-100
+    dark:bg-slate-900"
+    >
       <form
         className="flex-col flex items-start gap-2 capitalize"
         action="/"
@@ -93,7 +95,7 @@ const Signup = () => {
         <div className="w-full text-start">
           <label htmlFor="name">name</label>
           <input
-            className={`w-full text-lg  py-4 pl-4 border-2 ${
+            className={`w-full text-lg  py-4 pl-4 dark:bg-slate-900 border-2 ${
               formErrors.name ? "border-red-500" : "border-gray-400"
             }`}
             placeholder="enter name"
@@ -107,7 +109,7 @@ const Signup = () => {
         <div className="w-full text-start">
           <label htmlFor="Mobile">Mobile number</label>
           <input
-            className={`w-full text-lg  py-4 pl-4 border-2  ${
+            className={`w-full text-lg  py-4 pl-4 border-2 dark:bg-slate-900  ${
               formErrors.mobile ? "border-red-500" : "border-gray-400"
             }`}
             placeholder="enter mobile number"
@@ -121,7 +123,7 @@ const Signup = () => {
         <div className="w-full text-start">
           <label htmlFor="email">Email</label>
           <input
-            className={`w-full text-lg  py-4 pl-4 border-2  ${
+            className={`w-full text-lg  py-4 pl-4 border-2 dark:bg-slate-900  ${
               formErrors.email ? "border-red-500" : "border-gray-400"
             }`}
             placeholder="enter email"
@@ -135,7 +137,7 @@ const Signup = () => {
         <div className="w-full text-start">
           <label htmlFor="address">Address</label>
           <textarea
-            className={`w-full text-lg  py-4 pl-4 border-2  ${
+            className={`w-full text-lg  py-4 pl-4 border-2 dark:bg-slate-900 ${
               formErrors.address ? "border-red-500" : "border-gray-400"
             }`}
             placeholder="enter address"
@@ -148,7 +150,8 @@ const Signup = () => {
         </div>
         <button
           type="submit"
-          className="w-full py-3 bg-black text-white capitalize"
+          className="w-full py-3 bg-black text-white capitalize dark:text-gray-900
+          dark:bg-slate-300 "
         >
           Create Account{" "}
         </button>

@@ -7,11 +7,20 @@ const PaymentSuccess = () => {
     <>
       <Header />
       <FloatNavbar />
-      <section className="lg:px-16 relative font-poppins">
-        <div className="lg:border-x border-black lg:pt-10">
-          <hr className="w-full border-black absolute left-0" />
-          <div class="bg-gray-100 h-screen font-poppins">
-            <div class="bg-white p-6  md:mx-auto">
+      <section
+        className="lg:px-16 relative font-poppins dark:text-gray-100
+dark:bg-slate-900"
+      >
+        <div
+          className="lg:border-x border-black dark:border-slate-300
+ lg:pt-10"
+        >
+          <hr
+            className="w-full border-black dark:border-slate-300
+ absolute left-0"
+          />
+          <div class="bg-gray-100 dark:bg-slate-800 h-screen font-poppins">
+            <div class="bg-white dark:bg-slate-900 p-6  md:mx-auto">
               <svg
                 viewBox="0 0 24 24"
                 class="text-green-600 w-16 h-16 mx-auto my-6"
@@ -22,7 +31,7 @@ const PaymentSuccess = () => {
                 ></path>
               </svg>
               <div class="text-center">
-                <h3 class="md:text-2xl text-base text-gray-900 font-semibold text-center">
+                <h3 class="md:text-2xl text-base dark:text-gray-100 text-gray-900 font-semibold text-center">
                   Payment Done!
                 </h3>
                 <p class="text-gray-600 my-2">
@@ -42,9 +51,15 @@ const PaymentSuccess = () => {
           </div>
         </div>
       </section>
-      <div className="lg:h-0 lg:border-t  border-black lg:flex lg:justify-center lg:items-center" />
-      <section className="lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+      <div
+        className="lg:h-0 lg:border-t  border-black dark:border-slate-300
+ lg:flex lg:justify-center lg:items-center"
+      />
+      <section className="lg:px-16 lg:relative dark:bg-slate-900">
+        <div
+          className="lg:border-x border-black dark:border-slate-300
+ pt-12"
+        />
       </section>
 
       <Footer />

@@ -151,7 +151,6 @@ const OrderCheckout = () => {
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    // setUsers(values => ({ ...values, [name]: value }))
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -159,13 +158,6 @@ const OrderCheckout = () => {
   };
   const handleEdit = (event) => {
     event.preventDefault();
-    if (validateForm()) {
-      // Form is valid, proceed with form submission
-      console.log("Form submitted:", formData);
-      console.log("Form validation failed", formErrors);
-    } else {
-      console.log("Form validation failed");
-    }
   };
   const [selectedOption, setSelectedOption] = useState("weekly"); // Default selected option
 
@@ -177,16 +169,19 @@ const OrderCheckout = () => {
     <>
       <Header />
       <FloatNavbar />
-      <section className="lg:px-16 relative font-poppins">
-        <div className="lg:border-x border-black lg:pt-10">
-          <hr className="w-full border-black absolute left-0" />
+      <section
+        className="lg:px-16 relative font-poppins dark:text-gray-100
+dark:bg-slate-900"
+      >
+        <div className="lg:border-x border-black dark:border-slate-300 lg:pt-10">
+          <hr className="w-full border-black dark:border-slate-300 absolute left-0" />
           <div className="w-full flex flex-col justify-start items-start gap-y-4 py-9 px-8 ">
             <p className="font-Staatliches text-5xl text-left">
               order checkout
             </p>
           </div>
 
-          <div className="w-full flex border-t border-black">
+          <div className="w-full flex border-t border-black dark:border-slate-300">
             <div className="w-full h-auto flex flex-col">
               <section className="w-full h-auto">
                 <form
@@ -195,7 +190,7 @@ const OrderCheckout = () => {
                   method="get"
                   onSubmit={handleEdit}
                 >
-                  <div className="w-full lg:w-2/3 p-6 gap-y-10 flex flex-col border-black">
+                  <div className="w-full lg:w-2/3 p-6 gap-y-10 flex flex-col border-black dark:border-slate-300">
                     <div>
                       <p className="font-Poppins text-xl text-left">
                         Enter the recipient's details
@@ -203,7 +198,7 @@ const OrderCheckout = () => {
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 border-2  ${
+                        className={`w-full py-2 pl-4 border-2 dark:bg-slate-900  ${
                           formErrors.email
                             ? "border-red-500"
                             : "border-gray-400"
@@ -214,12 +209,14 @@ const OrderCheckout = () => {
                         name="email"
                         id="umail"
                       />
-                      <p className="text-red-500 text-sm">{formErrors.email}</p>
+                      <p className="text-red-500 text-sm ">
+                        {formErrors.email}
+                      </p>
                     </div>
                     <div className="w-full flex flex-col md:flex-row gap-5">
                       <div className="w-full text-start">
                         <input
-                          className={`w-full py-2 pl-4  border-2 ${
+                          className={`w-full py-2 pl-4   dark:bg-slate-900 border-2 ${
                             formErrors.first_name
                               ? "border-red-500"
                               : "border-gray-400"
@@ -236,7 +233,7 @@ const OrderCheckout = () => {
                       </div>
                       <div className="w-full text-start">
                         <input
-                          className={`w-full  py-2 pl-4  border-2 ${
+                          className={`w-full  py-2 pl-4  dark:bg-slate-900 border-2 ${
                             formErrors.last_name
                               ? "border-red-500"
                               : "border-gray-400"
@@ -254,7 +251,7 @@ const OrderCheckout = () => {
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 border-2  ${
+                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${
                           formErrors.mobile
                             ? "border-red-500"
                             : "border-gray-400"
@@ -271,7 +268,7 @@ const OrderCheckout = () => {
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 border-2  ${
+                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${
                           formErrors.state
                             ? "border-red-500"
                             : "border-gray-400"
@@ -286,7 +283,7 @@ const OrderCheckout = () => {
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 border-2  ${
+                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${
                           formErrors.zipcode
                             ? "border-red-500"
                             : "border-gray-400"
@@ -303,7 +300,7 @@ const OrderCheckout = () => {
                     </div>
                     <div className="w-full text-start">
                       <textarea
-                        className={`w-full py-2 pl-4 border-2  ${
+                        className={`w-full py-2 pl-4  dark:bg-slate-900 border-2  ${
                           formErrors.address
                             ? "border-red-500"
                             : "border-gray-400"
@@ -319,14 +316,14 @@ const OrderCheckout = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="w-full lg:w-1/3 flex border-t lg:border-t-0 lg:border-l border-black ">
+                  <div className="w-full lg:w-1/3 flex border-t lg:border-t-0 lg:border-l border-black dark:border-slate-300 ">
                     <div className="w-full ">
                       <div className="">
                         <p className="p-8 text-left text-3xl font-Staatliches">
                           Your Cart (2)
                         </p>
                       </div>
-                      <div className="border-t border-black">
+                      <div className="border-t border-black dark:border-slate-300">
                         <p className="p-8 text-sm text-[#F4A73F] text-left font-Poppins"></p>
                       </div>
                       {added_products.map((added) => (
@@ -351,7 +348,7 @@ const OrderCheckout = () => {
                         </div>
                       ))}
 
-                      <div className="flex flex-col p-8 border-t border-black gap-y-3 font-poppins">
+                      <div className="flex flex-col p-8 border-t border-black dark:border-slate-300 gap-y-3 font-poppins">
                         <div className="text-start flex justify-between">
                           <p>Service fee</p>
                           <p>$83</p>
@@ -364,13 +361,14 @@ const OrderCheckout = () => {
                           <p>Weekly discount</p>
                           <p>-$28</p>
                         </div>
-                        <div className="text-start flex justify-between border-y border-black p-3">
+                        <div className="text-start flex justify-between border-y border-black dark:border-slate-300 p-3">
                           <p>Total</p>
                           <p>$701</p>
                         </div>
                         <NavLink to="/payment-success" className="">
                           <input
-                            className=" w-full p-3 text-white font-Staatliches  bg-black"
+                            className=" w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
+                            dark:bg-slate-300 "
                             type="submit"
                             value="place order    >"
                           />
@@ -384,9 +382,9 @@ const OrderCheckout = () => {
           </div>
         </div>
       </section>
-      <div className="lg:h-0 lg:border-t  border-black lg:flex lg:justify-center lg:items-center" />
-      <section className="lg:px-16 lg:relative">
-        <div className="lg:border-x border-black pt-12" />
+      <div className="lg:h-0 lg:border-t  border-black dark:border-slate-300 lg:flex lg:justify-center lg:items-center" />
+      <section className="lg:px-16 lg:relative dark:bg-slate-900">
+        <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
       </section>
 
       <Footer />

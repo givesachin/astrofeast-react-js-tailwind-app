@@ -24,18 +24,21 @@ const FeastBox = () => {
     setSelectedOption(option);
   };
   return (
-    <section className="w-full h-full font-poppins">
+    <section
+      className="w-full h-full font-poppins dark:text-gray-100
+    dark:bg-slate-900"
+    >
       <Header />
       <FloatNavbar />
       <CTABar />
       <section className="lg:px-16 relative">
-        <div className="border-x border-black lg:pt-10 ">
-          <div className="w-full h-auto flex flex-row lg:flex-col border-b border-black">
-            <div className="w-full flex flex-col border-black p-8 gap-1">
+        <div className="border-x border-black dark:border-slate-300 lg:pt-10 ">
+          <div className="w-full h-auto flex flex-row lg:flex-col border-b border-black dark:border-slate-300">
+            <div className="w-full flex flex-col border-black dark:border-slate-300 p-8 gap-1">
               <p className="fs_w400_s60 text-4xl h-auto flex items-center justify-start">
                 build your own feast box
               </p>
-              <p className="lg:w-1/2 border-black font-poppins flex flex-col justify-evenly text-start">
+              <p className="lg:w-1/2 border-black dark:border-slate-300 font-poppins flex flex-col justify-evenly text-start">
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo con.
               </p>
@@ -45,9 +48,9 @@ const FeastBox = () => {
             <div className="flex overflow-scroll lg:overflow-hidden lg:w-2/3">
               {products.map((product) => (
                 <div key={product.id} className="pl-8 pt-8 pb-8">
-                  <div className="h-96 w-[240px] md:w-76 flex flex-col border-black border justify-center items-center">
+                  <div className="h-96 w-[240px] md:w-76 flex flex-col border-black dark:border-slate-300 border justify-center items-center">
                     <img
-                      className="w-full object-cover h-72 border-black border-b"
+                      className="w-full object-cover h-72 border-black dark:border-slate-300 border-b"
                       src={product.prod_img}
                       alt="product"
                     />
@@ -61,13 +64,13 @@ const FeastBox = () => {
                 </div>
               ))}
             </div>
-            <div className="border-t lg:border-t-0 lg:border-l border-black lg:ml-8 lg:w-1/3 ">
+            <div className="border-t lg:border-t-0 lg:border-l border-black dark:border-slate-300 lg:ml-8 lg:w-1/3 ">
               <div className="">
                 <p className="p-8 text-left text-3xl font-Staatliches">
                   my feast box
                 </p>
               </div>
-              <div className="border-t border-black">
+              <div className="border-t border-black dark:border-slate-300">
                 <p className="p-8 text-sm text-[#F4A73F] text-left font-Poppins">
                   Add at least 4 more dishes to complete the box.
                 </p>
@@ -94,40 +97,43 @@ const FeastBox = () => {
                 </div>
               ))}
               <div className="">
-                <p className="p-8 text-left text-3xl font-Staatliches border-y border-black">
+                <p className="p-8 text-left text-3xl font-Staatliches border-y border-black dark:border-slate-300">
                   subscribe
                 </p>
               </div>
-              <div className="flex justify-center items-center border border-black m-8 p-2">
+              <div className="flex justify-center items-center border border-black dark:border-slate-300 m-8 p-2">
                 <button
-                  className={`px-4 py-2 space-x-10 text-black ${selectedOption === "weekly" ? "bg-[#BDC695]" : "bg-white"
-                    }`}
+                  className={`px-4 py-2 space-x-10 text-black ${
+                    selectedOption === "weekly" ? "bg-[#BDC695]" : "bg-white"
+                  }`}
                   onClick={() => handleOptionChange("weekly")}
                 >
                   Weekly
                 </button>
                 <button
-                  className={`px-4 py-2 text-black ${selectedOption === "bi-weekly" ? "bg-[#BDC695]" : "bg-white"
-                    }`}
+                  className={`px-4 py-2 text-black ${
+                    selectedOption === "bi-weekly" ? "bg-[#BDC695]" : "bg-white"
+                  }`}
                   onClick={() => handleOptionChange("bi-weekly")}
                 >
                   Bi-Weekly
                 </button>
                 <button
-                  className={`px-4 py-2 text-black ${selectedOption === "monthly" ? "bg-[#BDC695]" : "bg-white"
-                    }`}
+                  className={`px-4 py-2 text-black ${
+                    selectedOption === "monthly" ? "bg-[#BDC695]" : "bg-white"
+                  }`}
                   onClick={() => handleOptionChange("monthly")}
                 >
                   Monthly
                 </button>
               </div>
-              <div className="border-b border-black m-6 pb-5">
+              <div className="border-b border-black dark:border-slate-300 m-6 pb-5">
                 <div className="flex pb-5 gap-5">
-                  <img src={bullet} alt="bullet" />
+                  <img src={bullet} className="invert" alt="bullet" />
                   <p>Flat 5% off on all subscriptions</p>
                 </div>
                 <div className="flex gap-5">
-                  <img src={bullet} alt="bullet" />
+                  <img src={bullet} className="invert" alt="bullet" />
                   <p>Pause, cancel, modify — anytime</p>
                 </div>
               </div>
@@ -140,7 +146,8 @@ const FeastBox = () => {
                   <p className="text-center self-center fs_w400_s48">$350.00</p>
                 </div>
                 <input
-                  className=" w-full p-3 text-white font-Staatliches  bg-black"
+                  className=" w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
+                  dark:bg-slate-300 "
                   type="submit"
                   value="add to stash    >"
                 />
@@ -149,9 +156,9 @@ const FeastBox = () => {
           </div>
         </div>
       </section>
-      <div className="hidden lg:h-0 lg:border-t  lg:border-black lg:flex lg:justify-center lg:items-center" />
+      <div className="hidden lg:h-0 lg:border-t  lg:border-black dark:border-slate-300 lg:flex lg:justify-center lg:items-center" />
       <section className="lg:px-16 lg:relative">
-        <div className="border-x border-black pt-12" />
+        <div className="border-x border-black dark:border-slate-300 pt-12" />
       </section>
       <Footer />
     </section>

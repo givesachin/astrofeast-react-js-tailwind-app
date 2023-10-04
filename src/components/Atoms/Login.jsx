@@ -44,7 +44,8 @@ const Login = () => {
     <form
       action="/"
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col items-start w-full gap-y-4 h-auto"
+      className="flex flex-col items-start w-full gap-y-4 h-auto dark:text-gray-100
+      dark:bg-slate-900 "
     >
       <label htmlFor="email">Email:</label>
       <input
@@ -57,7 +58,7 @@ const Login = () => {
             message: "Invalid email address",
           },
         })}
-        className="h-auto text-lg w-full border border-[#d3d3d3] pl-4 py-3"
+        className="h-auto text-lg w-full border border-[#d3d3d3] pl-4 py-3 dark:bg-slate-900"
       />
       {errors.email && (
         <span className="text-red-700">
@@ -92,7 +93,8 @@ const Login = () => {
 
       <button
         type="submit"
-        className="w-full py-3 bg-black text-white capitalize"
+        className="w-full py-3 bg-black dark:text-gray-900
+        dark:bg-slate-300  text-white capitalize"
       >
         Login
       </button>
