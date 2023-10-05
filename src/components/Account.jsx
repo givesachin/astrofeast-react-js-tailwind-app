@@ -90,6 +90,7 @@ const Account = () => {
       // Form is valid, proceed with form submission
       console.log("Form submitted:", formData);
       console.log("Form validation failed", formErrors);
+      alert("Form submitted successfully!");
     } else {
       console.log("Form validation failed");
     }

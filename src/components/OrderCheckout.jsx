@@ -158,6 +158,13 @@ const OrderCheckout = () => {
   };
   const handleEdit = (event) => {
     event.preventDefault();
+    if (validateForm()) {
+      // Form is valid, proceed with form submission
+      console.log("Form submitted:", formData);
+      console.log("Form validation failed", formErrors);
+    } else {
+      console.log("Form validation failed");
+    }
   };
   const [selectedOption, setSelectedOption] = useState("weekly"); // Default selected option
 
@@ -371,6 +378,7 @@ dark:bg-slate-900"
                             dark:bg-slate-300 "
                             type="submit"
                             value="place order    >"
+                            onClick={handleEdit}
                           />
                         </NavLink>
                       </div>
