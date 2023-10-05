@@ -38,6 +38,9 @@ const Recipe = () => {
     //     setProducts(response.data)
     // });
   }
+  useEffect(() => {
+    document.title = "Astrofeast - Recipes";
+  }, []);
   return (
     <section
       className="w-full h-full font-poppins dark:text-gray-100

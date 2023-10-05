@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import ProductContainer from "./Atoms/ProductContainer";
@@ -6,6 +6,9 @@ import afherobg from "../assets/herobg.png";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 const CategoryDetail = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Category Details";
+  }, []);
   const [FilterToggle, setFilterToggle] = useState();
 
   function handleFilter() {

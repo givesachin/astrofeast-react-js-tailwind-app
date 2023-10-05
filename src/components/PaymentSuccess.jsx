@@ -1,8 +1,11 @@
-import { React } from "react";
+import { React, useEffect } from "react";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 const PaymentSuccess = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Payment Success";
+  }, []);
   return (
     <>
       <Header />

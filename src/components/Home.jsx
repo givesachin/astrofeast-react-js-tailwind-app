@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import afarrow from "../assets/afarrow.svg";
 import afherobg from "../assets/herobg.png";
@@ -66,6 +66,9 @@ const Home = () => {
   //     //     setProducts(response.data)
   //     // })
   // }
+  useEffect(() => {
+    document.title = "Astrofeast - Home";
+  }, []);
   const [toggle, setToggle] = useState(false);
   return (
     <section>

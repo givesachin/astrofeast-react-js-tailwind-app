@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Footer from "../Atoms/Footer";
 import Header from "../Atoms/Header";
@@ -6,6 +6,9 @@ import Header from "../Atoms/Header";
 import AccountNavbar from "../Account/AccountNavbar";
 import FloatNavbar from "../Atoms/FloatNavbar";
 const GoldenTicket = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Track Order";
+  }, []);
   return (
     <section
       className="dark:text-gray-100

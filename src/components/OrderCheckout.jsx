@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import afnonveg from "../assets/afnonveg.avif";
 import afherobg from "../assets/herobg.png";
 import Footer from "./Atoms/Footer";
@@ -38,6 +38,9 @@ const added_products = [
 ];
 
 const OrderCheckout = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Order Checkout";
+  }, []);
   const [FilterToggle, setFilterToggle] = useState();
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);

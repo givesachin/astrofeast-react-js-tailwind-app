@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Footer from "../Atoms/Footer";
 import Header from "../Atoms/Header";
@@ -10,6 +10,9 @@ import gt2 from "../../assets/gt2.png";
 import gt3 from "../../assets/gt3.png";
 import FloatNavbar from "../Atoms/FloatNavbar";
 const GoldenTicket = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Golden Ticket";
+  }, []);
   return (
     <section
       className="dark:text-gray-100

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import afwho from "../assets/whoaf.png";
 import afnonveg from "../assets/afnonveg.avif";
 import afshubh from "../assets/shubh.jpeg";
@@ -11,6 +11,9 @@ import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - About Us";
+  }, []);
   return (
     <section
       className="w-full h-full font-poppins dark:text-gray-100

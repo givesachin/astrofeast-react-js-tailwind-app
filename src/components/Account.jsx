@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
@@ -24,6 +24,9 @@ const initialFormErrors = {
 };
 
 const Account = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Account";
+  }, []);
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import afherobg from "../assets/herobg.png";
@@ -92,6 +92,9 @@ const bestseller = {
 };
 
 const ProductDetails = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Product Details";
+  }, []);
   return (
     <>
       <Header />

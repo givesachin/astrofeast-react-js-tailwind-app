@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import ProductContainer from "./Atoms/ProductContainer";
@@ -91,6 +91,9 @@ const bestseller = {
 };
 
 const Shop = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Products";
+  }, []);
   return (
     <div>
       <Header />

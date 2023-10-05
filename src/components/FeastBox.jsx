@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import afnonveg from "../assets/afnonveg.avif";
 import bullet from "../assets/bullet.png";
 import CTABar from "./Atoms/CTABar";
@@ -23,6 +23,9 @@ const FeastBox = () => {
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
+  useEffect(() => {
+    document.title = "Astrofeast - Feastbox";
+  }, []);
   return (
     <section
       className="w-full h-full font-poppins dark:text-gray-100

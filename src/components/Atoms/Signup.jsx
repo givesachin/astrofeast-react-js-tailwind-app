@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 const initialFormData = {
   name: "",
@@ -80,6 +80,9 @@ const Signup = () => {
       console.log("Form validation failed");
     }
   };
+  useEffect(() => {
+    document.title = "Astrofeast - Sign up";
+  }, []);
 
   return (
     <section

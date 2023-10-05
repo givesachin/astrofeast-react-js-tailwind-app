@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
 const Login = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Login";
+  }, []);
   const {
     register,
     handleSubmit,

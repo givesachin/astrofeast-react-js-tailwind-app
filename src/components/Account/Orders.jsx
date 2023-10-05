@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Atoms/Footer";
 import Header from "../Atoms/Header";
 import AccountNavbar from "./AccountNavbar";
@@ -28,6 +28,9 @@ const data = [
   },
 ];
 const Orders = () => {
+  useEffect(() => {
+    document.title = "Astrofeast - Orders";
+  }, []);
   return (
     <section
       className="dark:text-gray-100

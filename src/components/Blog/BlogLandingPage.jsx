@@ -29,6 +29,9 @@ const BlogLandingPage = () => {
     //     setProducts(response.data)
     // })
   }
+  useEffect(() => {
+    document.title = "Astrofeast - Blog";
+  }, []);
   return (
     <section
       className="w-full h-full font-poppins dark:text-gray-100
