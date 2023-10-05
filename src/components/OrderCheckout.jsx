@@ -4,7 +4,7 @@ import afherobg from "../assets/herobg.png";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import QuantityBox from "./Atoms/QuantityBox";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 const initialFormData = {
   first_name: "",
@@ -159,12 +159,15 @@ const OrderCheckout = () => {
       [name]: value,
     }));
   };
+  const navigate = useNavigate();
   const handleEdit = (event) => {
     event.preventDefault();
     if (validateForm()) {
       // Form is valid, proceed with form submission
       console.log("Form submitted:", formData);
       console.log("Form validation failed", formErrors);
+      alert("Form submitted successfully!");
+      navigate("/payment-success");
     } else {
       console.log("Form validation failed");
     }

@@ -76,6 +76,7 @@ const Signup = () => {
       // Form is valid, proceed with form submission
       console.log("Form submitted:", formData);
       console.log("Form validation failed", formErrors);
+      alert("Registered!!");
     } else {
       console.log("Form validation failed");
     }

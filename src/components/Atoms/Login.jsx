@@ -19,6 +19,7 @@ const Login = () => {
     setShowPasswordInput(true);
     if (validatePassword(data.password)) {
       localStorage.setItem("user", JSON.stringify(data));
+      alert("Login successfully!");
       navigate("/"); // Redirect to the home screen
     }
   };
