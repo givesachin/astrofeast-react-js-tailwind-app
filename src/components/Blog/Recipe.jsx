@@ -56,6 +56,7 @@ const Recipe = () => {
                 to="/shop"
               >
                 {" "}
+                {/**SVG for back button arrow */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"

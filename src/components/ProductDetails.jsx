@@ -242,7 +242,9 @@ const ProductDetails = () => {
                     </div>
                     <div className="flex flex-col gap-4">
                       <div className="w-full flex justify-start gap-x-3">
+                        {/**SVG for bullet correct sign */}
                         <svg
+                          className="stroke-[#030712] dark:stroke-white"
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
                           height="24"
@@ -251,12 +253,10 @@ const ProductDetails = () => {
                         >
                           <path
                             d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            stroke="#030712"
                             strokeWidth="1.5"
                           />
                           <path
                             d="M7.25 12.75L10.75 15.75L16.75 8.25"
-                            stroke="#030712"
                             strokeWidth="1.5"
                           />
                         </svg>
@@ -265,7 +265,9 @@ const ProductDetails = () => {
                         </p>
                       </div>
                       <div className="w-full flex justify-start gap-x-3">
+                        {/**SVG for bullet correct sign */}
                         <svg
+                          className="stroke-[#030712] dark:stroke-white"
                           xmlns="http://www.w3.org/2000/svg"
                           width="24"
                           height="24"
@@ -274,12 +276,10 @@ const ProductDetails = () => {
                         >
                           <path
                             d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            stroke="#030712"
                             strokeWidth="1.5"
                           />
                           <path
                             d="M7.25 12.75L10.75 15.75L16.75 8.25"
-                            stroke="#030712"
                             strokeWidth="1.5"
                           />
                         </svg>
@@ -292,8 +292,10 @@ const ProductDetails = () => {
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center">
+                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center order-3">
+                            {/**SVG for minus sign */}
                             <svg
+                              className="stroke-[#030712] dark:stroke-white"
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
                               height="20"
@@ -303,12 +305,10 @@ const ProductDetails = () => {
                               <g clipPath="url(#clip0_2591_4101)">
                                 <path
                                   d="M10 0.833313V19.1666"
-                                  stroke="#030712"
                                   strokeWidth="1.25"
                                 />
                                 <path
                                   d="M0.833496 10H19.1668"
-                                  stroke="#030712"
                                   strokeWidth="1.25"
                                 />
                               </g>
@@ -319,9 +319,11 @@ const ProductDetails = () => {
                               </defs>
                             </svg>
                           </button>
-                          <button className="p-2 text-center">1</button>
-                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center">
+                          <button className="p-2 text-center order-2">1</button>
+                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center order-1">
+                            {/**SVG for plus sign */}
                             <svg
+                              className="stroke-[#030712] dark:stroke-white"
                               xmlns="http://www.w3.org/2000/svg"
                               width="20"
                               height="20"
@@ -331,7 +333,6 @@ const ProductDetails = () => {
                               <g clipPath="url(#clip0_2591_4101)">
                                 <path
                                   d="M0.833496 10H19.1668"
-                                  stroke="#030712"
                                   strokeWidth="1.25"
                                 />
                               </g>
@@ -375,26 +376,20 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
               </div>
               <div className="flex flex-col justify-start gap-10 p-8 items-start py-6 px-8">
                 <div className="flex w-full justify-start items-center gap-6">
+                  {/**SVG for how to heat1 */}
                   <svg
+                    className="stroke-[#030712] dark:stroke-white"
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
                     height="48"
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path
-                      d="M12 36H36V44H12V36Z"
-                      stroke="#030712"
-                      strokeWidth="3"
-                    />
-                    <path
-                      d="M14 8H34V16H14V8Z"
-                      stroke="#030712"
-                      strokeWidth="3"
-                    />
-                    <path d="M24 8V2" stroke="#030712" strokeWidth="3" />
-                    <path d="M18 16L15 36" stroke="#030712" strokeWidth="3" />
-                    <path d="M30 16L33 36" stroke="#030712" strokeWidth="3" />
+                    <path d="M12 36H36V44H12V36Z" strokeWidth="3" />
+                    <path d="M14 8H34V16H14V8Z" strokeWidth="3" />
+                    <path d="M24 8V2" strokeWidth="3" />
+                    <path d="M18 16L15 36" strokeWidth="3" />
+                    <path d="M30 16L33 36" strokeWidth="3" />
                   </svg>
                   <p className="text-2xl text-left">
                     {" "}
@@ -403,33 +398,28 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   </p>
                 </div>
                 <div className="flex w-full justify-start items-center gap-6">
+                  {/**SVG for how to heat2 */}
                   <svg
+                    className="stroke-[#030712] dark:stroke-white"
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
                     height="48"
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path
-                      d="M10 4H38V30H10V4Z"
-                      stroke="#030712"
-                      strokeWidth="3"
-                    />
-                    <path d="M38 8H46" stroke="#030712" strokeWidth="3" />
-                    <path d="M2 8H10" stroke="#030712" strokeWidth="3" />
+                    <path d="M10 4H38V30H10V4Z" strokeWidth="3" />
+                    <path d="M38 8H46" strokeWidth="3" />
+                    <path d="M2 8H10" strokeWidth="3" />
                     <path
                       d="M8 41.5V41L11.5 36.5L15 41V41.5C15 43.433 13.433 45 11.5 45C9.567 45 8 43.433 8 41.5Z"
-                      stroke="#030712"
                       strokeWidth="3"
                     />
                     <path
                       d="M33 41.5V41L36.5 36.5L40 41V41.5C40 43.433 38.433 45 36.5 45C34.567 45 33 43.433 33 41.5Z"
-                      stroke="#030712"
                       strokeWidth="3"
                     />
                     <path
                       d="M20.5 41.5V41L24 36.5L27.5 41V41.5C27.5 43.433 25.933 45 24 45C22.067 45 20.5 43.433 20.5 41.5Z"
-                      stroke="#030712"
                       strokeWidth="3"
                     />
                   </svg>
@@ -441,25 +431,19 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   </p>
                 </div>
                 <div className="flex w-full justify-start items-center gap-6">
+                  {/**SVG for how to heat3 */}
                   <svg
+                    className="stroke-[#030712] dark:stroke-white"
                     xmlns="http://www.w3.org/2000/svg"
                     width="48"
                     height="48"
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path
-                      d="M10 16H30V32H10V16Z"
-                      stroke="#030712"
-                      strokeWidth="3"
-                    />
-                    <path
-                      d="M4 10H44V38H4V10Z"
-                      stroke="#030712"
-                      strokeWidth="3"
-                    />
-                    <path d="M35.5 17H38.5" stroke="#030712" strokeWidth="3" />
-                    <path d="M35.5 24H38.5" stroke="#030712" strokeWidth="3" />
+                    <path d="M10 16H30V32H10V16Z" strokeWidth="3" />
+                    <path d="M4 10H44V38H4V10Z" strokeWidth="3" />
+                    <path d="M35.5 17H38.5" strokeWidth="3" />
+                    <path d="M35.5 24H38.5" strokeWidth="3" />
                   </svg>
                   <p className="text-2xl text-left">
                     {" "}
@@ -495,41 +479,35 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   </p>
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
+                      {/**SVG for like */}
                       <svg
+                        className="stroke-[#030712] dark:stroke-white"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
+                        <path d="M6 11.5V21" strokeWidth="1.5" />
                         <path
                           d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
                           strokeWidth="1.5"
                         />
                       </svg>
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
+                      {/**SVG for dislike */}
                       <svg
+                        className="stroke-[#030712] dark:stroke-white"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
+                        <path d="M6 11.5V21" strokeWidth="1.5" />
                         <path
                           d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
                           strokeWidth="1.5"
                         />
                       </svg>
@@ -556,41 +534,35 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   </p>
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
+                      {/**SVG for like */}
                       <svg
+                        className="stroke-[#030712] dark:stroke-white"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
+                        <path d="M6 11.5V21" strokeWidth="1.5" />
                         <path
                           d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
                           strokeWidth="1.5"
                         />
                       </svg>
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
+                      {/**SVG for dislike */}
                       <svg
+                        className="stroke-[#030712] dark:stroke-white"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
+                        <path d="M6 11.5V21" strokeWidth="1.5" />
                         <path
                           d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
                           strokeWidth="1.5"
                         />
                       </svg>
@@ -617,41 +589,35 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   </p>
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
+                      {/**SVG for like */}
                       <svg
+                        className="stroke-[#030712] dark:stroke-white"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
+                        <path d="M6 11.5V21" strokeWidth="1.5" />
                         <path
                           d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
                           strokeWidth="1.5"
                         />
                       </svg>
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
+                      {/**SVG for dislike */}
                       <svg
+                        className="stroke-[#030712] dark:stroke-white"
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
                         fill="none"
                       >
-                        <path
-                          d="M6 11.5V21"
-                          stroke="#030712"
-                          strokeWidth="1.5"
-                        />
+                        <path d="M6 11.5V21" strokeWidth="1.5" />
                         <path
                           d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          stroke="#030712"
                           strokeWidth="1.5"
                         />
                       </svg>

@@ -91,6 +91,7 @@ const Footer = () => {
           </div>
           {/* Whatsapp, Twitter, Linkdin,  */}
           <div className="flex gap-y-8 justify-center lg:justify-end gap-x-8 uppercase  ">
+            {/**Whatsapp */}
             <svg
               className="fill-[#030712] dark:fill-white"
               width="16"
@@ -113,6 +114,7 @@ const Footer = () => {
                 </clipPath>
               </defs>
             </svg>
+            {/**Twitter */}
             <svg
               className="fill-[#030712] dark:fill-white"
               width="16"
@@ -127,6 +129,7 @@ const Footer = () => {
                 d="M7.99992 5.05737L3.99991 1.05737L3.52851 1.52877C1.42721 3.63007 1.42721 7.03695 3.52851 9.13828L3.72376 9.33355L1.72376 11.3335L0.528564 12.5287L1.47137 13.4715L2.67645 12.2665C5.25286 14.529 9.17885 14.4307 11.638 11.9716C13.3464 10.2631 13.9154 7.84681 13.3449 5.66683H15.3333V4.33349H12.8349C12.5313 3.74345 12.1323 3.18981 11.638 2.69544L10.9999 2.05737L7.99992 5.05737Z"
               />
             </svg>
+            {/**Linkdin*/}
             <svg
               className="fill-[#030712] dark:fill-white"
               width="16"
@@ -141,6 +144,7 @@ const Footer = () => {
                 d="M4.49992 1.5H0.833252V5.16667H4.49992V1.5ZM4.49992 6.16667H0.833252V15.1667H4.49992V6.16667ZM10.6666 6.16667H5.83325V15.1667H9.49992V9.83333H9.99992C10.8283 9.83333 11.4999 10.5049 11.4999 11.3333V15.1667H15.1666V10.6667C15.1666 8.1814 13.1519 6.16667 10.6666 6.16667Z"
               />
             </svg>
+            {/**Instagram*/}
             <svg
               className="fill-[#030712] dark:fill-white"
               width="16"

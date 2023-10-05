@@ -21,7 +21,7 @@ const QuantityBox = () => {
           -
         </button>
         <input
-          type="text"
+          type="numeric"
           className="w-10 font-Poppins font-semibold text-center text-black dark:bg-slate-900 dark:text-gray-100"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}

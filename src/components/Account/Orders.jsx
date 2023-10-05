@@ -137,7 +137,8 @@ const Orders = () => {
                   <div>
                     <NavLink to="/track-order" className="">
                       <input
-                        className="hidden md:flex md:px-6 md:py-3 md:text-white md:font-Staatliches md:bg-black md:object-start"
+                        className="hidden md:flex md:px-6 md:py-3 md:text-white md:font-Staatliches md:bg-black md:object-start  dark:text-gray-900
+                        dark:bg-slate-300"
                         type="submit"
                         value="track order"
                       />
@@ -175,7 +176,8 @@ const Orders = () => {
                 <div className="md:hidden">
                   <NavLink to="/track-order">
                     <input
-                      className="w-full flex py-4 text-white font-Staatliches bg-black justify-center text-xl"
+                      className="w-full flex py-4 text-white font-Staatliches bg-black justify-center text-xl  dark:text-gray-900
+                      dark:bg-slate-300"
                       type="submit"
                       value="track order"
                     />

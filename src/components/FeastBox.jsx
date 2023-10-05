@@ -139,7 +139,9 @@ const FeastBox = () => {
               </div>
               <div className="px-8 pb-8">
                 <div className="">
-                  <p className="text-left text-gray-900">Select Quantity:</p>
+                  <p className="text-left text-gray-900 dark:text-gray-100">
+                    Select Quantity:
+                  </p>
                 </div>
                 <div className="flex ">
                   <QuantityBox />

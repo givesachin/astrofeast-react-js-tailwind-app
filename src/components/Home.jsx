@@ -72,7 +72,6 @@ const Home = () => {
       <Header />
       <FloatNavbar />
       <section className="w-full h-[48.75rem] relative ">
-        <CTABar />
         <img
           className="w-full object-cover h-full brightness-50"
           src={afherobg}
@@ -96,6 +95,7 @@ const Home = () => {
         </div>
         <div className="absolute right-0 bottom-28 md:bottom-0 w-auto h-auto m-8 md:m-16">
           <NavLink to="/auth/signup">
+            {/**Sign up cloud*/}
             <svg
               width="150"
               height="150"
@@ -165,6 +165,7 @@ const Home = () => {
             </svg>
           </NavLink>
         </div>
+        <CTABar />
       </section>
       <section
         className="w-full h-auto flex flex-col items-center py-52 px-10 md:px-16 justify-between gap-y-8 dark:text-gray-100
@@ -189,6 +190,7 @@ dark:bg-slate-900"
 
       <section className="w-screen h-auto flex pb-16 px-8 relative">
         <div className="absolute -top-1/4">
+          {/**SVG for frozne like it's hot cloud*/}
           <svg
             width="180"
             height="180"

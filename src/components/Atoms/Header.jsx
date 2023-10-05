@@ -5,11 +5,14 @@ import afsearch from "../../assets/search.svg";
 import afuser from "../../assets/afuser.svg";
 import afbag from "../../assets/afbag.png";
 import Sidebar from "./Sidebar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [closeButtonState, setCloseButtonState] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggleSidebar = () => {
     setSidebarVisible(!sidebarVisible);
@@ -80,6 +83,14 @@ const Header = () => {
       }
     }
   });
+  const isLoggedIn = () => {
+    return localStorage.getItem("user") !== null;
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/auth/login");
+  };
+
   return (
     <>
       <header className="w-full h-auto  flex flex-col items-center dark:bg-slate-900 dark:text-gray-100">
@@ -114,9 +125,15 @@ const Header = () => {
                   <img className="lg:invert h-10" src={afbag} alt="bag" />
                 </NavLink>
                 <div className="">
-                  <NavLink to="/auth/login" className="">
-                    <img className="invert h-5" src={afuser} alt="user" />
-                  </NavLink>
+                  {isLoggedIn() ? ( // Conditionally render the user profile link
+                    <NavLink to="/" className="">
+                      <img className="invert h-5" src={afuser} alt="user" />
+                    </NavLink>
+                  ) : (
+                    <NavLink to="/auth/login" className="">
+                      <img className="invert h-5" src={afuser} alt="user" />
+                    </NavLink>
+                  )}
                 </div>
                 <div className="hidden lg:flex">
                   <img
@@ -125,6 +142,17 @@ const Header = () => {
                     src={afmenu}
                     alt="menu"
                   />
+                </div>
+                <div className="hidden lg:flex">
+                  {isLoggedIn() ? ( // Conditionally render something for logged-in users
+                    <div>
+                      {/* Add content for logged-in users */}
+                      <button onClick={handleLogout}>
+                        {" "}
+                        <FontAwesomeIcon icon={faSignOutAlt} />
+                      </button>
+                    </div>
+                  ) : null}
                 </div>
                 <div className="-right-1 top-4 z-50 fixed duration-100 dark:bg-slate-700 bg-gray-200 rounded flex flex-col">
                   {options?.map((opt) => (

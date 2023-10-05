@@ -225,6 +225,7 @@ const Account = () => {
                     dark:bg-slate-300 "
                     type="submit"
                     value="SAVE CHANGES"
+                    onClick={handleEdit}
                   />
                   <input
                     className=" px-6 py-3 text-black font-Staatliches border-2 border-gray-400 dark:border-slate-300 dark:text-gray-100"

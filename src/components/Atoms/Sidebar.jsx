@@ -3,10 +3,19 @@ import afclose from "../../assets/close.svg";
 import afsearch from "../../assets/search.svg";
 import afuser from "../../assets/afuser.svg";
 import afbag from "../../assets/afbag.png";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
   const [hide, setHide] = useState(true);
+  const navigate = useNavigate();
+  const isLoggedIn = () => {
+    return localStorage.getItem("user") !== null;
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/auth/login");
+  };
   return (
     <>
       <section
@@ -14,7 +23,7 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
           sidebarVisible ? "block" : "hidden"
         }`}
       >
-        <div className="w-3/6 h-screen bg-white  py-16 px-20 flex-col flex justify-between gap-y-16 items-start ">
+        <div className="w-3/6 h-screen bg-white dark:bg-slate-900 py-16 px-20 flex-col flex justify-between gap-y-16 items-start ">
           <div
             class="relative z-10"
             aria-labelledby="slide-over-title"
@@ -38,7 +47,7 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                               className=" h-6 w-fit  font-bold dark:invert"
                             />
                             <input
-                              className="w-[15.875rem]  text-black placeholder:text-black text-sm bg-white dark:placeholder:text-gray-100
+                              className="w-[15.875rem]   placeholder:text-black text-sm bg-white dark:placeholder:text-gray-100
                               dark:bg-slate-900 focus:outline-none"
                               type="text"
                               placeholder="Search / Track Order"
@@ -51,9 +60,15 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                             </NavLink>
                           </div>
                           <div className="order-3 md:order-3 dark:invert">
-                            <NavLink to="/auth/login" className="">
-                              <img className=" h-6" src={afuser} alt="user" />
-                            </NavLink>
+                            {isLoggedIn() ? ( // Conditionally render the user profile link
+                              <NavLink to="/" className="">
+                                <img className=" h-5" src={afuser} alt="user" />
+                              </NavLink>
+                            ) : (
+                              <NavLink to="/auth/login" className="">
+                                <img className=" h-5" src={afuser} alt="user" />
+                              </NavLink>
+                            )}
                           </div>
                           <div className="pl-2 md:pl-5 pr-36 md:pr-5 order-1 md:order-4 dark:invert">
                             <img
@@ -62,6 +77,17 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                               src={afclose}
                               alt="menu"
                             />
+                          </div>{" "}
+                          <div className="hidden lg:flex">
+                            {isLoggedIn() ? ( // Conditionally render something for logged-in users
+                              <div>
+                                {/* Add content for logged-in users */}
+                                <button onClick={handleLogout}>
+                                  {" "}
+                                  <FontAwesomeIcon icon={faSignOutAlt} />
+                                </button>
+                              </div>
+                            ) : null}
                           </div>
                           <div className="flex justify-evenly items-center gap-x-10"></div>
                         </div>

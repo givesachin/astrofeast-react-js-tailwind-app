@@ -73,6 +73,7 @@ dark:bg-slate-900"
                 to="/shop"
               >
                 {" "}
+                {/**SVG for back to shop button arrow*/}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -104,6 +105,7 @@ dark:bg-slate-900"
                     onClick={handleFilter}
                     className="w-full flex gap-1 items-center "
                   >
+                    {/**SVG for Clear button cross sign */}
                     <svg
                       className="fill-[#030712] dark:fill-white"
                       xmlns="http://www.w3.org/2000/svg"
@@ -136,13 +138,15 @@ dark:bg-slate-900"
               </div>
               {/* filter 1 */}
 
-              <div className="hidden lg:w-full lg:h-auto lg:gap-7 lg:flex lg:flex-col lg:justify-start lg:items-center border-t ">
+              <div className="hidden lg:w-full lg:h-auto lg:gap-7 lg:flex lg:flex-col lg:justify-start lg:items-center ">
                 <div className="w-full flex justify-between gap-y-6 ">
                   <p className="text-xl font-poppins font-semibold capitalize ">
                     starters
                   </p>
                   <button onClick={handleFilter}>
+                    {/**SVG for down arrow for show more*/}
                     <svg
+                      className="stroke-[#030712] dark:stroke-white"
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
                       height="20"
@@ -152,7 +156,7 @@ dark:bg-slate-900"
                       <g clipPath="url(#clip0_2591_4726)">
                         <path
                           d="M1.42871 6.3269L10.0001 14.8983L18.5716 6.32691"
-                          stroke="#030712"
+                          // stroke="#030712"
                           strokeWidth="1.63265"
                         />
                       </g>

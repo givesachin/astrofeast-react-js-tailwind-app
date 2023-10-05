@@ -99,7 +99,8 @@ const Subscriptions = () => {
             </div>
             <div>
               <input
-                className="hidden md:flex md:px-6 md:py-3 md:text-white md:font-Staatliches md:bg-black md:object-start "
+                className="hidden md:flex md:px-6 md:py-3 md:text-white md:font-Staatliches md:bg-black md:object-start  dark:text-gray-900
+                dark:bg-slate-300"
                 type="submit"
                 value="modify"
               />
@@ -132,7 +133,8 @@ const Subscriptions = () => {
           </div>
           <div className="md:hidden">
             <input
-              className="w-full justify-center flex px-6 py-3 text-white font-Staatliches bg-black "
+              className="w-full justify-center flex px-6 py-3 text-white font-Staatliches bg-black  dark:text-gray-900
+              dark:bg-slate-300 "
               type="submit"
               value="modify"
             />

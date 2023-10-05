@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const Login = () => {
   const {
     register,
@@ -9,11 +9,14 @@ const Login = () => {
     watch,
   } = useForm();
 
+  const navigate = useNavigate();
+
   const [showPasswordInput, setShowPasswordInput] = useState(false);
   const onSubmit = (data) => {
     setShowPasswordInput(true);
     if (validatePassword(data.password)) {
-      window.location.href = "/";
+      localStorage.setItem("user", JSON.stringify(data));
+      navigate("/"); // Redirect to the home screen
     }
   };
 
