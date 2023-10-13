@@ -73,7 +73,7 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                           <div className="pl-2 md:pl-5 pr-36 md:pr-5 order-1 md:order-4 dark:invert">
                             <img
                               onClick={closeSidebar}
-                              className=" h-5"
+                              className=" h-5 hover:cursor-pointer"
                               src={afclose}
                               alt="menu"
                             />
@@ -131,12 +131,12 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                         <hr className="border border-black dark:border-slate-300 mx-5 mt-7 md:mt-64" />
                         <div className="w-full flex flex-col md:flex-row  md:justify-between gap-y-7 md:gap-y-9 px-10 mt-10">
                           <div className="flex">
-                            <p className="uppercase text-lg font-semibold">
+                            <p className="uppercase text-lg font-semibold hover:cursor-pointer">
                               faq
                             </p>
                           </div>
                           <div className="flex ">
-                            <p className="uppercase text-lg font-semibold">
+                            <p className="uppercase text-lg font-semibold hover:cursor-pointer">
                               get in touch
                             </p>
                           </div>

@@ -71,7 +71,7 @@ const BlogLandingPage = () => {
               </p>
               <input
                 className="mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base dark:text-gray-900
-                dark:bg-slate-300  "
+                dark:bg-slate-300 hover:cursor-pointer "
                 type="submit"
                 value="read now     >"
               />
@@ -101,7 +101,7 @@ const BlogLandingPage = () => {
               </p>
               <input
                 className="mt-6 lg:mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base dark:text-gray-900
-                dark:bg-slate-300  "
+                dark:bg-slate-300 hover:cursor-pointer "
                 type="submit"
                 value="read now     >"
               />
@@ -123,7 +123,7 @@ const BlogLandingPage = () => {
               </p>
               <input
                 className="mt-3 flex px-6 py-3 text-white font-Staatliches bg-black object-start text-xl md:text-base dark:text-gray-900
-                dark:bg-slate-300 "
+                dark:bg-slate-300 hover:cursor-pointer"
                 type="submit"
                 value="read now     >"
               />
@@ -142,7 +142,7 @@ const BlogLandingPage = () => {
             </div>
             <div className="pt-2 md:pt-0 self-start">
               <input
-                className="  text-3xl font-Staatliches "
+                className="  text-3xl font-Staatliches hover:cursor-pointer"
                 type="submit"
                 value="view all     >"
               />

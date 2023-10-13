@@ -633,7 +633,7 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
               <h3 className="font-Staatliches text-3xl md:text-4xl">
                 similar products
               </h3>
-              <h3 className="font-Staatliches text-3xl md:text-4xl">
+              <h3 className="font-Staatliches text-3xl md:text-4xl hover:cursor-pointer">
                 View all
               </h3>
             </div>

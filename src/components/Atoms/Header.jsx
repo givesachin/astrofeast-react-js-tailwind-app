@@ -138,7 +138,7 @@ const Header = () => {
                 <div className="hidden lg:flex">
                   <img
                     onClick={handleToggleSidebar}
-                    className=""
+                    className="hover:cursor-pointer"
                     src={afmenu}
                     alt="menu"
                   />

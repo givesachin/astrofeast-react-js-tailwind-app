@@ -192,7 +192,7 @@ const Recipe = () => {
               Look at more recipes
             </p>
             <input
-              className="text-2xl font-Staatliches md:fs_w400_s48 "
+              className="text-2xl font-Staatliches md:fs_w400_s48 hover:cursor-pointer "
               type="submit"
               value="view all     >"
             />

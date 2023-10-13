@@ -380,7 +380,7 @@ dark:bg-slate-900"
                         </div>
                         <NavLink to="/payment-success" className="">
                           <input
-                            className=" w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
+                            className="hover:cursor-pointer w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
                             dark:bg-slate-300 "
                             type="submit"
                             value="place order    >"

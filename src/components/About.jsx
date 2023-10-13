@@ -475,7 +475,7 @@ const About = () => {
                 <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3">
                   {/**Message Shubhranshu Jha */}
                   <svg
-                    className="fill-[#030712] dark:fill-white"
+                    className="fill-[#030712] dark:fill-white hover:cursor-pointer"
                     width="25"
                     height="24"
                     viewBox="0 0 25 24"
@@ -536,7 +536,7 @@ const About = () => {
                 <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3">
                   {/**Message Rana Uppalapati */}
                   <svg
-                    className="fill-[#030712] dark:fill-white"
+                    className="fill-[#030712] dark:fill-white hover:cursor-pointer"
                     width="25"
                     height="24"
                     viewBox="0 0 25 24"
@@ -593,7 +593,7 @@ const About = () => {
                 <p className="w-3/4 self-center font-medium text-center lg:text-left font-poppins">
                   Drop in a message
                 </p>
-                <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3">
+                <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3 hover:cursor-pointer">
                   {/**Message  Hemanth Thimmasarthi*/}
                   <svg
                     className="fill-[#030712] dark:fill-white"

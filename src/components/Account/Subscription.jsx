@@ -41,7 +41,7 @@ const Subscriptions = () => {
           {/* add subscription button*/}
           <div className="md:pr-6 order-2 md:w-1/2 flex md:justify-end">
             <input
-              className="flex text-3xl md:text-xl py-6 px-6 text-[#F4A73F] font-Staatliches"
+              className="flex text-3xl md:text-xl py-6 px-6 text-[#F4A73F] font-Staatliches hover:cursor-pointer"
               type="submit"
               value="Add subscription"
             />
@@ -82,7 +82,7 @@ const Subscriptions = () => {
           <div>
             <input
               className="flex px-6 py-3 text-white font-Staatliches bg-black object-start dark:text-gray-900
-              dark:bg-slate-300 "
+              dark:bg-slate-300 hover:cursor-pointer"
               type="submit"
               value="modify"
             />

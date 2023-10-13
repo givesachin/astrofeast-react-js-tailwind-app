@@ -30,7 +30,7 @@ const Footer = () => {
                   placeholder="Email/Whatsapp"
                 />
                 <input
-                  className="w-full px-6 py-3 text-white dark:bg-slate-300 dark:text-gray-900 font-Staatliches  bg-black lg:w-auto md:w-1/4 text-xl md:tracking-wider"
+                  className="w-full px-6 py-3 hover:cursor-pointer text-white dark:bg-slate-300 dark:text-gray-900 font-Staatliches  bg-black lg:w-auto md:w-1/4 text-xl md:tracking-wider"
                   type="submit"
                   value="Send me a tale"
                 />
@@ -46,12 +46,24 @@ const Footer = () => {
             <p className="px-8 md:px-16 py-4 md:py-6 text-start border-b text-lg font-medium uppercase border-black dark:border-slate-300 font-poppins">
               work with us
             </p>
-            <div className="w-full gap-y-6 md:gap-y-5 p-8 md:p-16 flex flex-col items-start font-poppins lg:gap-y-4">
-              <p className=" font-semibold text-xl md:text-2xl"> Kitchens</p>
-              <p className=" font-semibold text-xl md:text-2xl"> Investors</p>
-              <p className=" font-semibold text-xl md:text-2xl"> Careers</p>
-              <p className=" font-semibold text-xl md:text-2xl"> Cold Chain</p>
-              <p className=" font-semibold text-xl md:text-2xl">
+            <div className="w-full  gap-y-6 md:gap-y-5 p-8 md:p-16 flex flex-col items-start font-poppins lg:gap-y-4">
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                {" "}
+                Kitchens
+              </p>
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                {" "}
+                Investors
+              </p>
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                {" "}
+                Careers
+              </p>
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                {" "}
+                Cold Chain
+              </p>
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
                 {" "}
                 Sustainability
               </p>
@@ -63,19 +75,31 @@ const Footer = () => {
             </p>
             <div className="w-full md:gap-y-5 lg:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins gap-y-6">
               <NavLink to="/my-account">
-                <p className=" font-semibold text-xl md:text-2xl"> Account</p>
+                <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                  {" "}
+                  Account
+                </p>
               </NavLink>
               <NavLink to="/shop">
-                <p className=" font-semibold text-xl md:text-2xl"> Shop</p>
+                <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                  {" "}
+                  Shop
+                </p>
               </NavLink>
               <NavLink to="/golden-ticket">
-                <p className=" font-semibold text-xl md:text-2xl">
+                <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
                   {" "}
                   Golden Ticket
                 </p>
               </NavLink>
-              <p className=" font-semibold text-xl md:text-2xl"> FAQs </p>
-              <p className=" font-semibold text-xl md:text-2xl"> Support</p>
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                {" "}
+                FAQs{" "}
+              </p>
+              <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
+                {" "}
+                Support
+              </p>
             </div>
           </div>
         </div>
@@ -85,15 +109,15 @@ const Footer = () => {
         <p className="w-full lg:text-left uppercase">2023 &#169; astrofeast</p>
         <div className="w-full flex md:place-content-center  flex-col md:flex-row gap-y-8 gap-x-8">
           <div className="flex gap-y-8 justify-center lg:justify-start gap-x-8 uppercase">
-            <p>whitepaper</p>
-            <p>privacy</p>
-            <p>terms</p>
+            <p className="hover:cursor-pointer">whitepaper</p>
+            <p className="hover:cursor-pointer">privacy</p>
+            <p className="hover:cursor-pointer">terms</p>
           </div>
           {/* Whatsapp, Twitter, Linkdin,  */}
           <div className="flex gap-y-8 justify-center lg:justify-end gap-x-8 uppercase  ">
             {/**Whatsapp */}
             <svg
-              className="fill-[#030712] dark:fill-white"
+              className="fill-[#030712] dark:fill-white hover:cursor-pointer"
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -116,7 +140,7 @@ const Footer = () => {
             </svg>
             {/**Twitter */}
             <svg
-              className="fill-[#030712] dark:fill-white"
+              className="fill-[#030712] dark:fill-white hover:cursor-pointer"
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -131,7 +155,7 @@ const Footer = () => {
             </svg>
             {/**Linkdin*/}
             <svg
-              className="fill-[#030712] dark:fill-white"
+              className="fill-[#030712] dark:fill-white hover:cursor-pointer"
               width="16"
               height="16"
               viewBox="0 0 16 16"
@@ -146,7 +170,7 @@ const Footer = () => {
             </svg>
             {/**Instagram*/}
             <svg
-              className="fill-[#030712] dark:fill-white"
+              className="fill-[#030712] dark:fill-white hover:cursor-pointer"
               width="16"
               height="16"
               viewBox="0 0 16 16"

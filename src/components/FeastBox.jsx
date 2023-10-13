@@ -48,12 +48,12 @@ const FeastBox = () => {
             </div>
           </div>
           <div className="flex flex-col lg:flex-row">
-            <div className="flex overflow-scroll lg:overflow-hidden lg:w-2/3">
+            <div className="flex overflow-auto lg:overflow-hidden lg:w-2/3">
               {products.map((product) => (
                 <div key={product.id} className="pl-8 pt-8 pb-8">
                   <div className="h-96 w-[240px] md:w-76 flex flex-col border-black dark:border-slate-300 border justify-center items-center">
                     <img
-                      className="w-full object-cover h-72 border-black dark:border-slate-300 border-b"
+                      className="w-full object-cover h-72 border-black dark:border-slate-300 border-b hover:cursor-pointer"
                       src={product.prod_img}
                       alt="product"
                     />
@@ -152,7 +152,7 @@ const FeastBox = () => {
                 </div>
                 <input
                   className=" w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
-                  dark:bg-slate-300 "
+                  dark:bg-slate-300 hover:cursor-pointer"
                   type="submit"
                   value="add to stash    >"
                 />

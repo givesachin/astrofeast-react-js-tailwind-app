@@ -124,7 +124,7 @@ const Account = () => {
           </div>
           <div className="order-2 md:w-1/2 h-10 flex gap-3 md:p-8 place-content-start px-6 md:justify-end ">
             <img className="h-6 w-6 md:h-5 md:w-5" src={pencil} alt="bag" />
-            <p className="text-orange-400 font-Staatliches text-2xl md:text-xl ">
+            <p className="text-orange-400 font-Staatliches text-2xl md:text-xl hover:cursor-pointer">
               EDIT DETAILS
             </p>
           </div>
@@ -226,13 +226,13 @@ const Account = () => {
                 <div className="flex gap-5">
                   <input
                     className=" px-6 py-3 text-white font-Staatliches  bg-black dark:text-gray-900
-                    dark:bg-slate-300 "
+                    dark:bg-slate-300 hover:cursor-pointer"
                     type="submit"
                     value="SAVE CHANGES"
                     onClick={handleEdit}
                   />
                   <input
-                    className=" px-6 py-3 text-black font-Staatliches border-2 border-gray-400 dark:border-slate-300 dark:text-gray-100"
+                    className=" px-6 hover:cursor-pointer py-3 text-black font-Staatliches border-2 border-gray-400 dark:border-slate-300 dark:text-gray-100"
                     type="reset"
                     value="DISCARD"
                   />

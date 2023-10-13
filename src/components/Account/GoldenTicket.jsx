@@ -57,7 +57,7 @@ const GoldenTicket = () => {
             <br />
             <input
               className="flex px-6 py-3 text-white font-Staatliches bg-black object-start dark:text-gray-900
-              dark:bg-slate-300 "
+              dark:bg-slate-300 hover:cursor-pointer"
               type="submit"
               value="view golden ticket"
             />
