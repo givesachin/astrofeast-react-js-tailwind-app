@@ -47,7 +47,7 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                               className=" h-6 w-fit  font-bold dark:invert"
                             />
                             <input
-                              className="w-[15.875rem]   placeholder:text-black text-sm bg-white dark:placeholder:text-gray-100
+                              className="w-[15.875rem] placeholder:text-black text-sm bg-white dark:placeholder:text-gray-100
                               dark:bg-slate-900 focus:outline-none"
                               type="text"
                               placeholder="Search / Track Order"

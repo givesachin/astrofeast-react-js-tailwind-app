@@ -5,6 +5,7 @@ import Footer from "../Atoms/Footer";
 import Header from "../Atoms/Header";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "../Atoms/FloatNavbar";
+import axios from "axios";
 const options = {
   method: "GET",
   url: "https://the-mexican-food-db.p.rapidapi.com/",
@@ -30,13 +31,20 @@ const recipe = {
 };
 const Recipe = () => {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
   useEffect(() => {
     getProducts();
   }, []);
   function getProducts() {
-    // axios.request(options).then(function (response) {
-    //     setProducts(response.data)
-    // });
+    axios
+      .request(options)
+      .then(function (response) {
+        setProducts(response.data);
+      })
+      .catch(function (error) {
+        // Handle the error here
+        setError(error);
+      });
   }
   useEffect(() => {
     document.title = "Astrofeast - Recipes";
@@ -144,25 +152,38 @@ const Recipe = () => {
                 </p>
               </div>
               <div className="lg:border-r h-full border-black dark:border-slate-300  ">
-                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-20">
+                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-10">
                   Heat the olive oil in a frying pan, add the onion and cook for
                   5 minutes until softened and starting to turn golden. Set
-                  aside.In a bowl, combine the beef mince with the herbs and the
-                  egg. Season, add the onions and mix well. Using your hands,
-                  shape into 4 patties.Cook the burgers on a preheated barbecue
-                  or griddle for 5-6 minutes on each side. While the second side
-                  is cooking, lay a slice of cheese on top to melt slightly (if
-                  using).Lay burgers on an oiled barbecue grill over a solid bed
-                  of hot coals or high heat on a gas grill (you can hold your
-                  hand at grill level only 2 to 3 seconds); close lid on gas
-                  grill. Cook burgers, turning once, until browned on both sides
-                  and no longer pink inside (cut to test), 7 to 8 minutes total.
-                  Remove from grillMeanwhile, lightly toast the cut-sides of the
-                  buns on the barbecue. Fill with the lettuce, burgers and
-                  tomato slices. Serve with ketchup, if you like.Meanwhile,
-                  lightly toast the cut-sides of the buns on the barbecue. Fill
-                  with the lettuce, burgers and tomato slices. Serve with
-                  ketchup, if you like.
+                  aside.
+                </p>
+                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-10">
+                  In a bowl, combine the beef mince with the herbs and the egg.
+                  Season, add the onions and mix well. Using your hands, shape
+                  into 4 patties.
+                </p>
+                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-10">
+                  Cook the burgers on a preheated barbecue or griddle for 5-6
+                  minutes on each side. While the second side is cooking, lay a
+                  slice of cheese on top to melt slightly (if using).
+                </p>
+                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-10">
+                  Lay burgers on an oiled barbecue grill over a solid bed of hot
+                  coals or high heat on a gas grill (you can hold your hand at
+                  grill level only 2 to 3 seconds); close lid on gas grill. Cook
+                  burgers, turning once, until browned on both sides and no
+                  longer pink inside (cut to test), 7 to 8 minutes total. Remove
+                  from grill
+                </p>
+                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-10">
+                  Meanwhile, lightly toast the cut-sides of the buns on the
+                  barbecue. Fill with the lettuce, burgers and tomato slices.
+                  Serve with ketchup, if you like.
+                </p>
+                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center text-left justify-start  pr-10">
+                  Meanwhile, lightly toast the cut-sides of the buns on the
+                  barbecue. Fill with the lettuce, burgers and tomato slices.
+                  Serve with ketchup, if you like.
                 </p>
               </div>
             </div>
@@ -173,15 +194,54 @@ const Recipe = () => {
                 </p>
               </div>
               <div className="">
-                <p className="text-sm h-auto pl-8 py-3 font-poppins flex items-center justify-start  text-left pr-80">
-                  1 lb. Beyond Beef 16 cherry tomatoes 2 small zucchini, each
-                  cut into 8(½- inch) slices 2 small yellow squash, each cut
-                  into 8(½-inch) slices 1 medium orange bell pepper, cut into 16
-                  pieces 1 tbsp olive oil ¾ tsp kosher salt, divided ¾ tsp black
-                  pepper, divided 1 large red onion ½ cup chopped fresh
-                  cilantro, leaves and stems 1¼ tsp ground cumin, divided ½ cup
-                  plain fat - free Greek yogurt 1 tbsp fresh lemon juice 1 small
-                  garlic clove, grated Cooking spray
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  1 lb. Beyond Beef
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  16 cherry tomatoes{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  2 small zucchini, each cut into 8(½- inch) slices{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  2 small yellow squash, each cut into 8(½-inch) slices{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  1 medium orange bell pepper, cut into 16 pieces
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  1 tbsp olive oil{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  ¾ tsp kosher salt, divided
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  ¾ tsp black pepper, divided{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  1 large red onion
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  ½ cup chopped fresh cilantro, leaves and stems{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  {" "}
+                  1¼ tsp ground cumin, divided{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  ½ cup plain fat - free Greek yogurt{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  {" "}
+                  1 tbsp fresh lemon juice{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  {" "}
+                  1 small garlic clove, grated{" "}
+                </p>
+                <p className="text-sm h-auto pl-8 py-2 font-medium font-poppins flex items-center justify-start  text-left pr-10">
+                  {" "}
+                  Cooking spray
                 </p>
               </div>
             </div>
@@ -217,6 +277,14 @@ const Recipe = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="bg-slate-400 items-center justify-between w-full dark:bg-slate-900">
+            {error && (
+              <p className="text-lg w-full font-medium dark:text-gray-100">
+                Error: FAILED TO LOAD DATA... {error.message}
+              </p>
+            )}{" "}
+            {/* Display the error if it exists */}
           </div>
         </div>
       </section>

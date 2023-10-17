@@ -8,6 +8,8 @@ import Header from "../Atoms/Header";
 import checkoutRecipe from "../../assets/checkoutRecipe.png";
 import FloatNavbar from "../Atoms/FloatNavbar";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+
 const options = {
   method: "GET",
   url: "https://the-mexican-food-db.p.rapidapi.com/",
@@ -18,13 +20,20 @@ const options = {
 };
 const BlogLandingPage = () => {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
   useEffect(() => {
     getProducts();
   }, []);
   function getProducts() {
-    // axios.request(options).then(function (response) {
-    //     setProducts(response.data)
-    // });
+    axios
+      .request(options)
+      .then(function (response) {
+        setProducts(response.data);
+      })
+      .catch(function (error) {
+        // Handle the error here
+        setError(error);
+      });
     // axios.get('').then(function (response) {
     //     setProducts(response.data)
     // })
@@ -167,6 +176,14 @@ const BlogLandingPage = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="bg-slate-400 items-center justify-between w-full dark:bg-slate-900">
+            {error && (
+              <p className="text-lg w-full font-medium dark:text-gray-100">
+                Error: FAILED TO LOAD DATA... {error.message}
+              </p>
+            )}{" "}
+            {/* Display the error if it exists */}
           </div>
         </div>
       </section>

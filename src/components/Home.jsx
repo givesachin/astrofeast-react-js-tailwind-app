@@ -7,6 +7,7 @@ import FloatNavbar from "./Atoms/FloatNavbar";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import Sidebar from "./Atoms/Sidebar";
+import axios from "axios";
 
 // const prodData =
 // {
@@ -56,16 +57,25 @@ const options = {
 
 const Home = () => {
   // TODO: get products API here 1.1
-  // const [products, setProducts] = useState([]);
-  // useEffect(() => { getProducts(); }, []);
-  // function getProducts() {
-  //     axios.request(options).then(function (response) {
-  //         setProducts(response.data)
-  //     });
-  //     // axios.get('').then(function (response) {
-  //     //     setProducts(response.data)
-  //     // })
-  // }
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    getProducts();
+  }, []);
+  function getProducts() {
+    axios
+      .request(options)
+      .then(function (response) {
+        setProducts(response.data);
+      })
+      .catch(function (error) {
+        // Handle the error here
+        setError(error);
+      });
+    // axios.get('').then(function (response) {
+    //     setProducts(response.data)
+    // })
+  }
   useEffect(() => {
     document.title = "Astrofeast - Home";
   }, []);
@@ -191,7 +201,7 @@ dark:bg-slate-900"
         </button>
       </section>
 
-      <section className="w-screen h-auto flex pb-16 px-8 relative">
+      <section className="w-screen h-auto flex pb-16 px-8 relative dark:bg-slate-900">
         <div className="absolute -top-1/4">
           {/**SVG for frozne like it's hot cloud*/}
           <svg
@@ -250,17 +260,29 @@ dark:bg-slate-900"
             </defs>
           </svg>
         </div>
-        <div className=" h-full flex  overflow-x-scroll flex-nowrap ">
+        <div className=" h-full flex  flex-nowrap dark:bg-slate-900 ">
           {/* TODO: set products here from API 1.2 */}
-          {/* <div className=' flex gap-x-8 flex-nowrap '>
-                        {products.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
-                            <img className='w-full object-cover h-72 border-black border-b' src={item.image} alt="product" />
-                            <div className='w-full h-auto flex items-end justify-center py-5'>
-                                <p className='text-lg w-full'>{item.title}</p>
-                            </div>
-                        </div>))}
-
-                    </div> */}
+          <div className=" flex gap-x-8 flex-nowrap ">
+            {products.slice(0, 10).map((item, index) => (
+              <div
+                key={index}
+                className="h-auto w-72 flex flex-col border-black border dark:border-slate-300 dark:text-gray-100"
+              >
+                <img
+                  className="w-full object-cover h-72 border-black border-b"
+                  src={item.image}
+                  alt="product"
+                />
+                <div className="w-full flex items-end justify-center py-5">
+                  <p className="text-lg w-full font-medium">
+                    {item.title.length > 20
+                      ? item.title.slice(0, 20) + "..."
+                      : item.title}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
           {/* <div className=' flex gap-x-8 flex-nowrap '>
                         {prodData.items.map((item, index) => (<div key={index} className='h-auto w-72 flex flex-col border-black border'>
                             <img className='w-full object-cover h-72 border-black border-b' src={item.imageSrc} alt="product" />
@@ -270,6 +292,14 @@ dark:bg-slate-900"
                         </div>))}
 
                     </div> */}
+        </div>
+        <div className="bg-slate-400 items-center justify-between w-full dark:bg-slate-900">
+          {error && (
+            <p className="text-lg w-full font-medium dark:text-gray-100">
+              Error: FAILED TO LOAD DATA... {error.message}
+            </p>
+          )}{" "}
+          {/* Display the error if it exists */}
         </div>
       </section>
       {toggle && <Sidebar />}
