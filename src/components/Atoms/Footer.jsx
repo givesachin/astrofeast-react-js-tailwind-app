@@ -35,12 +35,12 @@ const Footer = () => {
                     </div >
                     <div className='w-1/2 md:w-full flex flex-col'>
                         <p className='px-8 md:px-16 py-4 md:py-6 text-start border-b text-lg font-medium uppercase border-black font-poppins'>quick links</p>
-                        <div className='w-full md:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins gap-y-6'>
-                            <p className=' font-semibold text-2xl'> Account</p>
-                            <p className=' font-semibold text-2xl'> Shop</p>
-                            <p className=' font-semibold text-2xl'> Golden Ticket</p>
-                            <p className=' font-semibold text-2xl'> FAQs </p>
-                            <p className=' font-semibold text-2xl'> Support</p>
+                        <div className='w-full ??? gap-y-6 md:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins lg:gap-y-4'>
+                            <span className=' font-semibold text-2xl'> Account</span>
+                            <span className=' font-semibold text-2xl'> Shop</span>
+                            <span className='w-full ??? p-0 m-0 font-semibold text-2xl'>Golden Ticket</span>
+                            <span className=' font-semibold text-2xl'> FAQs </span>
+                            <span className=' font-semibold text-2xl'> Support</span>
                         </div >
                     </div >
                 </div>

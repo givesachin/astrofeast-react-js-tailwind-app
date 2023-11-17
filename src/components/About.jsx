@@ -12,7 +12,7 @@ const About = () => {
         <section className='w-full h-full font-poppins'>
             <Header />
             <div className='absolute w-screen h-auto z-10'>
-                <ul className='w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 '>
+                <ul className='text-[14px] w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 '>
                     <li>  <p className='w-full'>&#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p></li>
                     <li>  <p className='w-full'> &#x2022; We are currently avaliable at delhi, to know more <span className='font-bold'>Click here</span></p> </li>
                 </ul>
@@ -22,14 +22,14 @@ const About = () => {
                 {/* container */}
                 <div className='border-x border-black pt-10'>
                     {/* poster */}
-                    <img className='w-full border-b border-black ' src={afwho} alt="af who?" />
+                    <img className=' w-[656px] h-[284px] border-b border-black ' src={afwho} alt="af who?" />
                     {/* about us hero */}
                     <div className='w-full h-auto flex justify-between border-b border-black'>
                         <div className='w-full flex flex-col border-r  border-black'>
                             <p className='text-5xl h-auto p-8 font-Staatliches flex items-center justify-start'>ABOUT US</p>
-                            <div className='w-full h-full p-8 border-t border-black flex flex-col justify-evenly  text-start'>
-                                <p className='w-full'>What we eat matters.<br /> So is how it's grown, sold & delivered.</p>
-                                <p className='w-full'>We want to shoot down this broken food system with a frozen fresh spread from around the world</p>
+                            <div className='font-poppins w-full h-full p-8 border-t border-black flex flex-col justify-evenly  text-start'>
+                                <p className='text-[18px] leading-[28px] w-full'>What we eat matters.<br /> So is how it's grown, sold & delivered.</p>
+                                <p className='text-[18px] leading-[28px]'>We want to shoot down this broken food system with a frozen fresh spread from around the world</p>
                             </div>
                         </div>
                         <img className='w-full h-[344px] object-cover' src={afnonveg} alt="noveg food" legend='hehe shravan he' />

@@ -10,7 +10,7 @@ const Sidebar = () => {
     return (
         <>
             {hide ? <section className='overflow-hidden w-screen h-screen absolute top-0  z-50 flex flex-row-reverse bg-black/50'>
-                <div className='w-3/6 h-screen bg-white py-16 px-20 flex-col flex justify-between gap-y-16 items-start' >
+                <div className='font-poppins w-3/6 h-screen bg-white py-16 px-20 flex-col flex justify-between gap-y-16 items-start' >
                     <div className='flex w-full h-auto justify-between gap-x-6'>
                         {/* searchbar */}
                         <div className='h-fit w-auto gap-x-2 flex border-b py-[0.6rem] border-black items-center justify-between '>

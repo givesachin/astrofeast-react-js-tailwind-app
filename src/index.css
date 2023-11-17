@@ -17,3 +17,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@layer components {
+  .\?\?\? {
+    @apply outline-red-500 outline-2 outline
+  }
+}

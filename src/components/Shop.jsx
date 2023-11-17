@@ -117,8 +117,6 @@ const Shop = () => {
                         <p className='font-Staatliches text-4xl w-full text-left'>meat</p>
                     </div>
                     <ProductContainer cardcontainer='flex-nowrap' pitem={bestseller.meat} />
-
-
                 </div>
             </section>
             <Footer />
