@@ -8,6 +8,8 @@ import { NavLink } from "react-router-dom";
 import ProductContainer from "../components/Atoms/ProductContainer";
 import CTABar from "./Atoms/CTABar";
 import FloatNavbar from "./Atoms/FloatNavbar";
+import { ReactComponent as LikeIcon } from "../assets/like.svg";
+import { ReactComponent as DislikeIcon } from "../assets/dislike.svg";
 const nutrition = [
   {
     id: 1,
@@ -483,37 +485,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <svg
-                        className="stroke-[#030712] dark:stroke-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M6 11.5V21" strokeWidth="1.5" />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
+                      <LikeIcon />
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <svg
-                        className="stroke-[#030712] dark:stroke-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M6 11.5V21" strokeWidth="1.5" />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
+                      <DislikeIcon />
                     </div>
                   </div>
                 </div>
@@ -538,37 +514,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <svg
-                        className="stroke-[#030712] dark:stroke-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M6 11.5V21" strokeWidth="1.5" />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
+                      <LikeIcon />
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <svg
-                        className="stroke-[#030712] dark:stroke-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M6 11.5V21" strokeWidth="1.5" />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
+                      <DislikeIcon />
                     </div>
                   </div>
                 </div>
@@ -593,37 +543,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <svg
-                        className="stroke-[#030712] dark:stroke-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M6 11.5V21" strokeWidth="1.5" />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
+                      <LikeIcon />
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <svg
-                        className="stroke-[#030712] dark:stroke-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path d="M6 11.5V21" strokeWidth="1.5" />
-                        <path
-                          d="M19.5 21H2V11.5H6L8.5 3H9.4C11.3882 3 13 4.61177 13 6.6V9H22L19.5 21Z"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
+                      <DislikeIcon />
                     </div>
                   </div>
                 </div>

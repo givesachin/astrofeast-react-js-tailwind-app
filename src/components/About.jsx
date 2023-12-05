@@ -9,7 +9,8 @@ import Header from "./Atoms/Header";
 import CTABar from "./Atoms/CTABar";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
-
+import { ReactComponent as MessageIcon } from "../assets/message.svg";
+import { ReactComponent as LinkedInIcon } from "../assets/linkedin.svg";
 const About = () => {
   useEffect(() => {
     document.title = "Astrofeast - About Us";
@@ -474,40 +475,14 @@ const About = () => {
                 </p>
                 <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3">
                   {/**Message Shubhranshu Jha */}
-                  <svg
-                    className="fill-[#030712] dark:fill-white hover:cursor-pointer"
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M23.3333 3.5H1.33325V5.93068L12.3333 13.1046L23.3333 5.93068V3.5ZM23.3333 7.72149L12.743 14.6282L12.3333 14.8954L11.9236 14.6282L1.33325 7.72149V20.5H23.3333V7.72149Z"
-                    />
-                  </svg>
+                  <MessageIcon />
                   <a
                     className="active:border-[#BDC695] active:rounded-md active:border-2  p-2 border-white"
                     href="https://www.linkedin.com/in/11shubhranshu/"
                   >
                     {" "}
                     {/**Linkdin profile of Shubhranshu Jha */}
-                    <svg
-                      className="fill-[#030712] dark:fill-white"
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M7.08325 2.25H1.58325V7.75H7.08325V2.25ZM7.08325 9.25H1.58325V22.75H7.08325V9.25ZM16.3333 9.25H9.08325V22.75H14.5833V14.75H15.3333C16.5759 14.75 17.5833 15.7574 17.5833 17V22.75H23.0833V16C23.0833 12.2721 20.0612 9.25 16.3333 9.25Z"
-                      />
-                    </svg>
+                    <LinkedInIcon />
                   </a>
                 </div>
               </div>
@@ -535,40 +510,14 @@ const About = () => {
                 </p>
                 <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3">
                   {/**Message Rana Uppalapati */}
-                  <svg
-                    className="fill-[#030712] dark:fill-white hover:cursor-pointer"
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M23.3333 3.5H1.33325V5.93068L12.3333 13.1046L23.3333 5.93068V3.5ZM23.3333 7.72149L12.743 14.6282L12.3333 14.8954L11.9236 14.6282L1.33325 7.72149V20.5H23.3333V7.72149Z"
-                    />
-                  </svg>
+                  <MessageIcon />
                   <a
                     className="active:border-[#BDC695] active:rounded-md active:border-2  p-2 border-white"
                     href="https://www.linkedin.com/in/rana-uppalapati-502226/"
                   >
                     {" "}
                     {/**Linkdin profile of Rana Uppalapati */}
-                    <svg
-                      className="fill-[#030712] dark:fill-white"
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M7.08325 2.25H1.58325V7.75H7.08325V2.25ZM7.08325 9.25H1.58325V22.75H7.08325V9.25ZM16.3333 9.25H9.08325V22.75H14.5833V14.75H15.3333C16.5759 14.75 17.5833 15.7574 17.5833 17V22.75H23.0833V16C23.0833 12.2721 20.0612 9.25 16.3333 9.25Z"
-                      />
-                    </svg>
+                    <LinkedInIcon />
                   </a>
                 </div>
               </div>
@@ -595,39 +544,13 @@ const About = () => {
                 </p>
                 <div className="w-auto flex justify-center lg:justify-end items-center gap-x-9 lg:gap-x-3 hover:cursor-pointer">
                   {/**Message  Hemanth Thimmasarthi*/}
-                  <svg
-                    className="fill-[#030712] dark:fill-white"
-                    width="25"
-                    height="24"
-                    viewBox="0 0 25 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M23.3333 3.5H1.33325V5.93068L12.3333 13.1046L23.3333 5.93068V3.5ZM23.3333 7.72149L12.743 14.6282L12.3333 14.8954L11.9236 14.6282L1.33325 7.72149V20.5H23.3333V7.72149Z"
-                    />
-                  </svg>
+                  <MessageIcon />
                   <a
                     className="active:border-[#BDC695] active:rounded-md active:border-2  p-2 border-white"
                     href="https://www.linkedin.com/in/hemanth-thimmasarthi/"
                   >
                     {/**Linkdin profile of  Hemanth Thimmasarthi */}
-                    <svg
-                      className="fill-[#030712] dark:fill-white"
-                      width="25"
-                      height="24"
-                      viewBox="0 0 25 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M7.08325 2.25H1.58325V7.75H7.08325V2.25ZM7.08325 9.25H1.58325V22.75H7.08325V9.25ZM16.3333 9.25H9.08325V22.75H14.5833V14.75H15.3333C16.5759 14.75 17.5833 15.7574 17.5833 17V22.75H23.0833V16C23.0833 12.2721 20.0612 9.25 16.3333 9.25Z"
-                      />
-                    </svg>
+                    <LinkedInIcon />
                   </a>
                 </div>
               </div>

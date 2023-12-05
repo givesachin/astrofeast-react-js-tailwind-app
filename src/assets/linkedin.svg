@@ -1,0 +1,14 @@
+  <svg
+              className="fill-[#030712] dark:fill-white hover:cursor-pointer"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M4.49992 1.5H0.833252V5.16667H4.49992V1.5ZM4.49992 6.16667H0.833252V15.1667H4.49992V6.16667ZM10.6666 6.16667H5.83325V15.1667H9.49992V9.83333H9.99992C10.8283 9.83333 11.4999 10.5049 11.4999 11.3333V15.1667H15.1666V10.6667C15.1666 8.1814 13.1519 6.16667 10.6666 6.16667Z"
+              />
+            </svg>
