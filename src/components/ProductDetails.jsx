@@ -10,6 +10,7 @@ import CTABar from "./Atoms/CTABar";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import { ReactComponent as LikeIcon } from "../assets/like.svg";
 import { ReactComponent as DislikeIcon } from "../assets/dislike.svg";
+import { ReactComponent as CorrectBulletIcon } from "../assets/correctbullet.svg";
 const nutrition = [
   {
     id: 1,
@@ -248,46 +249,14 @@ const ProductDetails = () => {
                     <div className="flex flex-col gap-4">
                       <div className="w-full flex justify-start gap-x-3">
                         {/**SVG for bullet correct sign */}
-                        <svg
-                          className="stroke-[#030712] dark:stroke-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
-                          <path
-                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            strokeWidth="1.5"
-                          />
-                          <path
-                            d="M7.25 12.75L10.75 15.75L16.75 8.25"
-                            strokeWidth="1.5"
-                          />
-                        </svg>
+                        <CorrectBulletIcon />
                         <p className="w-full">
                           Flat 5% off on all subscriptions
                         </p>
                       </div>
                       <div className="w-full flex justify-start gap-x-3">
                         {/**SVG for bullet correct sign */}
-                        <svg
-                          className="stroke-[#030712] dark:stroke-white"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                        >
-                          <path
-                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            strokeWidth="1.5"
-                          />
-                          <path
-                            d="M7.25 12.75L10.75 15.75L16.75 8.25"
-                            strokeWidth="1.5"
-                          />
-                        </svg>
+                        <CorrectBulletIcon />
                         <p className="w-full">
                           Flat 5% off on all subscriptions
                         </p>
