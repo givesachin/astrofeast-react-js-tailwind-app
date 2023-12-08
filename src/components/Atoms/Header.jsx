@@ -20,12 +20,11 @@ const Header = () => {
                     <div className='flex w-auto h-auto justify-center gap-x-6'>
                         {/* searchbar */}
                         <div className='hidden lg:h-fit lg:w-auto lg:gap-x-2 lg:flex lg:border-b lg:border-white lg:items-center lg:justify-between '>
-                            <img src={afsearch} alt="search" className='h-5 w-fit invert font-bold' />
-                            <input className='w-[15.875rem] py-[0.6rem] text-white text-sm bg-black focus:outline-none placeholder:text-white' type="text" placeholder='Search / Track Order' />
+                            <img src={afsearch} alt="search" className='pt-[0.15rem] h-6 w-fit invert font-bold' />
+                            <input className='w-[15.875rem] py-[0.6rem] font-poppins text-white text-sm bg-black focus:outline-none placeholder:text-white' type="text" placeholder='Search / Track Order' />
                         </div>
                         {/* other icons */}
-                        <div className='w-auto h-auto flex justify-evenly gap-x-4 items-center'>
-                            <img className='lg:invert h-10' src={afbag} alt="bag" />
+                        <div className='w-auto h-auto flex  gap-8 items-center'>
                             <div className=''><img className='invert h-5' src={afuser} alt="user" /></div>
                             {/*
                               there is an issue when user will click first time,

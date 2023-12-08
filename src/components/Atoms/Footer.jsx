@@ -19,7 +19,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="w-full gap-y-2 flex flex-col items-start ">
+            <div className="w-full gap-y-2 flex flex-col items-start z-50 ">
               <form
                 className="w-full flex md:flex-nowrap flex-wrap md:flex-between gap-y-4 md:gap-x-4 border "
                 action="get"
@@ -58,19 +58,21 @@ const Footer = () => {
             <p className="px-8 md:px-16 py-4 md:py-6 text-start border-b text-lg font-medium uppercase border-black font-poppins">
               quick links
             </p>
-            <div className="w-full md:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins gap-y-6">
-              <p className=" font-semibold text-2xl"> Account</p>
-              <p className=" font-semibold text-2xl"> Shop</p>
-              <p className=" font-semibold text-2xl"> Golden Ticket</p>
-              <p className=" font-semibold text-2xl"> FAQs </p>
-              <p className=" font-semibold text-2xl"> Support</p>
+            <div className="w-full ??? gap-y-6 md:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins lg:gap-y-4">
+              <span className=" font-semibold text-2xl"> Account</span>
+              <span className=" font-semibold text-2xl"> Shop</span>
+              <span className="w-full ??? p-0 m-0 font-semibold text-2xl">
+                Golden Ticket
+              </span>
+              <span className=" font-semibold text-2xl"> FAQs </span>
+              <span className=" font-semibold text-2xl"> Support</span>
             </div>
           </div>
         </div>
       </div>
       <div className="w-full font-poppins flex flex-col-reverse gap-y-8 lg:flex-row justify-between px-16 py-12 border-t border-black font-medium">
         <p className="w-full lg:text-left uppercase">2023 &#169; astrofeast</p>
-        <div className="w-full flex md:place-content-center  flex-col md:flex-row gap-y-8 gap-x-8 items-center  place-content-center">
+        <div className="w-full flex md:place-content-center  flex-col md:flex-row gap-y-8 gap-x-8">
           <div className="flex gap-y-8 justify-center lg:justify-start gap-x-8 uppercase">
             <p>whitepaper</p>
             <p>privacy</p>
