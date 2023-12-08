@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  darkMode: 'class',
   content: ["./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
     extend: {
@@ -18,7 +19,8 @@ module.exports = {
         'gray-900': '#070123',
       },
       screens: {
-        'md': '768px',
+        
+        'md': '640px',
         // => @media (min-width: 768px) { ... }
 
         'lg': '1024px',
