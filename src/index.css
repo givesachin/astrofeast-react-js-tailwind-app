@@ -19,8 +19,3 @@ code {
 }
 
 
-@layer components {
-  .\?\?\? {
-    @apply outline-red-500 outline-2 outline
-  }
-}
