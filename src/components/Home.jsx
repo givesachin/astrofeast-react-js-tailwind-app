@@ -8,6 +8,8 @@ import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import Sidebar from "./Atoms/Sidebar";
 import axios from "axios";
+import { Product } from "@medusajs/medusa";
+import { useProducts } from "medusa-react";
 
 // const prodData =
 // {
@@ -62,6 +64,20 @@ const Home = () => {
   useEffect(() => {
     getProducts();
   }, []);
+
+  const Products = () => {
+    const { products, isLoading } = useProducts();
+
+    return isLoading ? (
+      <div>Loading...</div>
+    ) : (
+      <ul>
+        {products?.map((product) => (
+          <li key={product.id}>{product.title}</li>
+        ))}
+      </ul>
+    );
+  };
   function getProducts() {
     axios
       .request(options)
@@ -201,8 +217,8 @@ dark:bg-slate-900"
         </button>
       </section>
 
-      <section className="w-screen h-auto flex pb-16 px-8 relative dark:bg-slate-900">
-        <div className="absolute -top-1/4">
+      <section className="w-screen h-auto flex pb-16 px-8 relative">
+        <div className="pointer-events-none bottom-24 fixed">
           {/**SVG for frozne like it's hot cloud*/}
           <svg
             width="180"

@@ -75,8 +75,8 @@ const Footer = () => {
             <p className="px-8 md:px-16 py-4 md:py-6 text-start border-b text-lg font-medium uppercase border-black dark:border-slate-300 font-poppins">
               quick links
             </p>
-            <div className="w-full md:gap-y-5 lg:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins gap-y-6">
-              <NavLink to="/my-account">
+            <div className="w-full md:gap-y-5 lg:gap-y-2 p-8 md:p-16 flex flex-col items-start font-poppins space-y-2">
+              <NavLink to="/my-account" className="">
                 <p className=" font-semibold text-xl md:text-2xl hover:cursor-pointer">
                   {" "}
                   Account

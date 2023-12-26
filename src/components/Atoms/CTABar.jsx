@@ -2,7 +2,7 @@ import React from "react";
 const CTABar = () => {
   return (
     <div className="hidden lg:absolute lg:w-screen lg:h-auto lg:z-10 lg:block">
-      <ul className="w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 ">
+      <ul className="text-[14px] w-full bg-[#BDC695] h-auto p-2 flex justify-center gap-x-12 ">
         <li>
           {" "}
           <p className="w-full">

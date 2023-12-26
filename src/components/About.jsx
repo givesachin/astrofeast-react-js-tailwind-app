@@ -32,7 +32,7 @@ const About = () => {
         <div className="lg:border-x border-black dark:border-slate-300 lg:pt-10">
           {/* poster */}
           <img
-            className="hidden md:block md:w-full md:border-b border-black dark:border-slate-300 dark:invert"
+            className="hidden md:block w-[656px] h-[284px] md:border-b border-black dark:border-slate-300 dark:invert"
             src={afwho}
             alt="af who?"
           />
@@ -42,12 +42,12 @@ const About = () => {
               <p className="fs_w400_s24 md:fs_w400_s48 h-auto p-4 md:p-8 flex items-center justify-center md:justify-start">
                 about us
               </p>
-              <div className="w-full h-full p-8 border-t border-black dark:border-slate-300 flex flex-col justify-evenly gap-y-5 text-start">
-                <p className="w-full">
+              <div className="font-poppins w-full h-full p-8 border-t border-black dark:border-slate-300 flex flex-col justify-evenly gap-y-5 text-start">
+                <p className="w-full text-[18px] leading-[28px]">
                   What we eat matters.
                   <br /> So is how it's grown, sold & delivered.
                 </p>
-                <p className="w-full">
+                <p className="w-full text-[18px] leading-[28px]">
                   For us it meant a symphony of frost & flavor
                 </p>
               </div>

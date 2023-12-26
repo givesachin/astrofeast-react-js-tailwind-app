@@ -24,9 +24,20 @@ import ProductDetails from "./components/ProductDetails";
 import OrderCheckout from "./components/OrderCheckout";
 import PaymentSuccess from "./components/PaymentSuccess";
 
+import { MedusaProvider } from "medusa-react";
+
+import { QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
 function App() {
   return (
     <div className="App">
+      <MedusaProvider
+        queryClientProviderProps={{ client: queryClient }}
+        baseUrl="https://astrofeast-admin.onrender.com"
+      ></MedusaProvider>
+
       {/* <NavLink to="/auth"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Login</p></NavLink> */}
       <Router>
         <Routes>

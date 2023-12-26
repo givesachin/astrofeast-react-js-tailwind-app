@@ -111,10 +111,10 @@ const Header = () => {
                 <img
                   src={afsearch}
                   alt="search"
-                  className="h-5 w-fit invert font-bold"
+                  className="pt-[0.15rem] h-6 w-fit invert font-bold"
                 />
                 <input
-                  className="w-[15.875rem] py-[0.6rem] text-white text-sm bg-black focus:outline-none placeholder:text-white"
+                  className=" font-poppins w-[15.875rem] py-[0.6rem] text-white text-sm bg-black focus:outline-none placeholder:text-white"
                   type="text"
                   placeholder="Search / Track Order"
                 />
@@ -122,7 +122,7 @@ const Header = () => {
               {/* other icons */}
               <div className="w-auto h-auto flex justify-evenly gap-x-4 items-center  ">
                 <NavLink to="/feastbox" className="">
-                  <img className="lg:invert h-10" src={afbag} alt="bag" />
+                  <img className="lg:invert h-8" src={afbag} alt="bag" />
                 </NavLink>
                 <div className="">
                   {isLoggedIn() ? ( // Conditionally render the user profile link
