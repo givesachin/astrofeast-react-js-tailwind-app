@@ -8,8 +8,8 @@ import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import Sidebar from "./Atoms/Sidebar";
 import axios from "axios";
-import { Product } from "@medusajs/medusa";
-import { useProducts } from "medusa-react";
+// import { Product } from "@medusajs/medusa";
+// import { useProducts } from "medusa-react";
 
 // const prodData =
 // {
@@ -65,19 +65,19 @@ const Home = () => {
     getProducts();
   }, []);
 
-  const Products = () => {
-    const { products, isLoading } = useProducts();
+  // const Products = () => {
+  //   const { products, isLoading } = useProducts();
 
-    return isLoading ? (
-      <div>Loading...</div>
-    ) : (
-      <ul>
-        {products?.map((product) => (
-          <li key={product.id}>{product.title}</li>
-        ))}
-      </ul>
-    );
-  };
+  //   return isLoading ? (
+  //     <div>Loading...</div>
+  //   ) : (
+  //     <ul>
+  //       {products?.map((product) => (
+  //         <li key={product.id}>{product.title}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // };
   function getProducts() {
     axios
       .request(options)
