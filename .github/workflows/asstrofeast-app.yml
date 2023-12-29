@@ -21,8 +21,8 @@ jobs:
         #working-directory: ./astrofeast/af-react-js-tailwind-app
         run: yarn build
       - name: Move App Build to Production
-        #rm -rf frontend
         run: |
           ls -lah
-          mv build/* ~/astrofeast/af-react-js-tailwind-app/build/
+          cp -r build/* ~/astrofeast/af-react-js-tailwind-app/build/
+          rm -rf build/
           ls -lah
