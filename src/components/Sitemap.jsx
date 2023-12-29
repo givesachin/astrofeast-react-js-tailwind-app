@@ -65,7 +65,7 @@ const Sitemap = () => {
                     <h1 className="text-xl font-bold capitalize">track-order</h1>
                 </NavLink>
                 <NavLink to="/track-order">
-                    <h1 className="text-xl font-bold capitalize">CI CD comment</h1>
+                    <h1 className="text-xl font-bold capitalize">CI CD comment 2</h1>
                 </NavLink>
             </section>
             <Footer/>
