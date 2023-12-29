@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} has pushed to production 🚀
 on: [push]
 jobs:
   Deploy:
-    runs-on: sekf-hosted
+    runs-on: self-hosted
     if: github.ref == 'refs/heads/main'
     env:
          CI: false
