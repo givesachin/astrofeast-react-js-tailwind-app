@@ -5,6 +5,8 @@ jobs:
   Deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    env:
+         CI: true
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -17,7 +19,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - with:
+          script: |
+            pm2 stop "App"
       #- run: pm2 stop "App"
       - run: yarn install
       - run: yarn build
       #- run: pm2 start "App"
+      - with:
+          script: |
+            pm2 start "App"
