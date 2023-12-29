@@ -17,7 +17,7 @@ jobs:
           ls ${{ github.workspace }}
       - name: Install Dependencies
         working-directory: ~/astrofeast/af-react-js-tailwind-app
-      - run: yarn install
+        run: yarn install
       - name: Build App
         working-directory: ~/astrofeast/af-react-js-tailwind-app
-      - run: yarn build
+        run: yarn build
