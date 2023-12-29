@@ -19,13 +19,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-        with:
+      - with:
           script: |
             pm2 stop "App"
       #- run: pm2 stop "App"
       - run: yarn install
       - run: yarn build
       #- run: pm2 start "App"
-        with:
+      - with:
           script: |
             pm2 start "App"
