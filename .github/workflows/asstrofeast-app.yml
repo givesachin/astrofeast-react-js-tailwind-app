@@ -4,7 +4,7 @@ on: [push]
 jobs:
   Deploy:
     runs-on: self-hosted
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/production'
     env:
          CI: false
     steps:
