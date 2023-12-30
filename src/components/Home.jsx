@@ -52,7 +52,7 @@ const options = {
   method: "GET",
   url: "https://the-mexican-food-db.p.rapidapi.com/",
   headers: {
-    "X-RapidAPI-Key": "25ad220f10msh8efa45310a070c6p1a029cjsn3a6be4c1eca8",
+    "X-RapidAPI-Key": "bdbad44431mshf133f3e78cc7290p12f0b7jsna61826593fed",
     "X-RapidAPI-Host": "the-mexican-food-db.p.rapidapi.com",
   },
 };
@@ -97,7 +97,7 @@ const Home = () => {
   }, []);
   const [toggle, setToggle] = useState(false);
   return (
-    <section>
+    <section className="w-full">
       <Header />
       <FloatNavbar />
       <section className="w-full h-[48.75rem] relative ">
@@ -217,7 +217,7 @@ dark:bg-slate-900"
         </button>
       </section>
 
-      <section className="w-screen h-auto flex pb-16 px-8 relative">
+      <div className="w-full h-auto flex pb-16 px-8 relative">
         <div className="pointer-events-none bottom-24 fixed">
           {/**SVG for frozne like it's hot cloud*/}
           <svg
@@ -276,9 +276,11 @@ dark:bg-slate-900"
             </defs>
           </svg>
         </div>
-        <div className=" h-full flex  flex-nowrap dark:bg-slate-900 ">
+      </div>
+      <div className="pb-16 px-8 relative">
+        <div className=" h-full w-auto flex overflow-x-auto flex-nowrap dark:bg-slate-900 ">
           {/* TODO: set products here from API 1.2 */}
-          <div className=" flex gap-x-8 flex-nowrap ">
+          <div className=" flex gap-x-8 flex-nowrap  ">
             {products.slice(0, 10).map((item, index) => (
               <div
                 key={index}
@@ -317,7 +319,7 @@ dark:bg-slate-900"
           )}{" "}
           {/* Display the error if it exists */}
         </div>
-      </section>
+      </div>
       {toggle && <Sidebar />}
       <Footer />
     </section>
