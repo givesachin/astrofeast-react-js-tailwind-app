@@ -1,5 +1,5 @@
 name: CI/CD Astrofeast-App
-run-name: ${{ github.actor }} - $ {{ github.ref }}
+run-name: ${{ github.actor }} - ${{ github.ref }}
 on: [push]
 jobs:
   Deploy:
