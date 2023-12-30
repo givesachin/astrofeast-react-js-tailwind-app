@@ -10,13 +10,19 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: echo "💡 The epository has been cloned to the runner."
-      - name: Install dependencies
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - name: Install Dependencies
         run: yarn install
-      - name: Build app version
+      - name: Build App
         run: yarn build
-      - name: Move version to production
+      - name: Move App Build to Production
         run: |
           pm2 stop App
+          ls -lah
           cp -r build/* ~/astrofeast/af-react-js-tailwind-app/build/
+          rm -rf build/
+          ls -lah
           pm2 start App
