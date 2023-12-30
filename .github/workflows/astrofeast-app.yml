@@ -1,0 +1,22 @@
+name: CI/CD Astrofeast-App
+run-name: ${{ github.actor }} - $ {{ github.ref }}
+on: [push]
+jobs:
+  Deploy:
+    runs-on: self-hosted
+    if: github.ref == 'refs/heads/production'
+    env:
+         CI: false
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "The repository has been cloned to the runner."
+      - name: Install dependencies
+        run: yarn install
+      - name: Build app version
+        run: yarn build
+      - name: Move version to production
+        run: |
+          pm2 stop App
+          cp -r build/* ~/astrofeast/af-react-js-tailwind-app/build/
+          pm2 start App
