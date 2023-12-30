@@ -27,6 +27,8 @@ import PaymentSuccess from "./components/PaymentSuccess";
 import { MedusaProvider } from "medusa-react";
 
 import { QueryClient } from "@tanstack/react-query";
+import PrivateRoute from "./components/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 const queryClient = new QueryClient();
 
@@ -40,39 +42,45 @@ function App() {
 
       {/* <NavLink to="/auth"><p className='text-right w-full capitalize text-blue-600 active:text-purple-600 '>Login</p></NavLink> */}
       <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/about" element={<About />}></Route>
-          <Route exact path="/shop" element={<Shop />}></Route>
-          <Route
-            exact
-            path="/shop/categorydetail"
-            element={<CategoryDetail />}
-          ></Route>
-          <Route
-            exact
-            path="/shop/productdetail"
-            element={<ProductDetails />}
-          ></Route>
-          <Route exact path="/sitemap" element={<Sitemap />}></Route>
-          <Route path="/auth" element={<Auth />}>
-            <Route exact path="login" element={<Login />} />
-            <Route exact path="signup" element={<Signup />} />
-          </Route>
+        <AuthProvider>
 
-          <Route path="/my-account" element={<Account />}></Route>
-          <Route path="/golden-ticket" element={<GoldenTicket />}></Route>
-          <Route path="/subscriptions" element={<Subscriptions />}></Route>
-          <Route path="/orders" element={<Orders />}></Route>
-          <Route path="/blog/" element={<BlogLandingPage />}></Route>
-          <Route path="/blog/recipe" element={<Recipe />}></Route>
-          <Route path="/feastbox" element={<FeastBox />}></Route>
+          <Routes>
 
-          <Route path="*" element={<h1>page not found</h1>} />
-          <Route path="/checkout" element={<OrderCheckout />}></Route>
-          <Route path="/payment-success" element={<PaymentSuccess />}></Route>
-          <Route path="/track-order" element={<TrackOrder />}></Route>
-        </Routes>
+
+            <Route exact path="/" element={<Home />}></Route>
+            {/* <PrivateRoute path="/dashboard" element={<Dashboard />} /> */}
+            <Route exact path="/about" element={<About />}></Route>
+            <Route exact path="/shop" element={<Shop />}></Route>
+            <Route
+              exact
+              path="/shop/categorydetail"
+              element={<CategoryDetail />}
+            ></Route>
+            <Route
+              exact
+              path="/shop/productdetail"
+              element={<ProductDetails />}
+            ></Route>
+            <Route exact path="/sitemap" element={<Sitemap />}></Route>
+            <Route path="/auth" element={<Auth />}>
+              <Route exact path="login" element={<Login />} />
+              <Route exact path="signup" element={<Signup />} />
+            </Route>
+
+            <PrivateRoute path="/my-account" element={<Account />}></PrivateRoute>
+            <PrivateRoute path="/golden-ticket" element={<GoldenTicket />}></PrivateRoute>
+            <PrivateRoute path="/subscriptions" element={<Subscriptions />}></PrivateRoute>
+            <PrivateRoute path="/orders" element={<Orders />}></PrivateRoute>
+            <Route path="/blog/" element={<BlogLandingPage />}></Route>
+            <Route path="/blog/recipe" element={<Recipe />}></Route>
+            <Route path="/feastbox" element={<FeastBox />}></Route>
+
+            <Route path="*" element={<h1>page not found</h1>} />
+            <PrivateRoute path="/checkout" element={<OrderCheckout />}></PrivateRoute>
+            <PrivateRoute path="/payment-success" element={<PaymentSuccess />}></PrivateRoute>
+            <PrivateRoute path="/track-order" element={<TrackOrder />}></PrivateRoute>
+          </Routes>
+        </AuthProvider>
       </Router>
       {/* uncomment the component which you want to be displayed */}
       {/* <Home /> */}
