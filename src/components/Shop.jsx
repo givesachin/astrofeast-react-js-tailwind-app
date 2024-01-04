@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import ProductContainer from "./Atoms/ProductContainer";
@@ -6,6 +6,7 @@ import afherobg from "../assets/herobg.png";
 import offer from "../assets/offer.png";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
+import axios from "axios";
 const bestseller = {
   meat: [
     {
@@ -90,9 +91,60 @@ const bestseller = {
   ],
 };
 
+
+
 const Shop = () => {
+
+
+
+
+
+  const [products, setProducts] = useState([])
+
+  const fetchProducts = () => {
+
+    let data = JSON.stringify({
+      "filters": {
+        "state": "active"
+      }
+    });
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.1.0/products',
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': '123',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
+        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
+      },
+      data: data
+    };
+
+    axios.request(config)
+      .then((response) => {
+        console.log((response.data));
+
+        setProducts(response.data.data)
+
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
+  }
+
+
   useEffect(() => {
     document.title = "Astrofeast - Products";
+
+    fetchProducts()
+
+
+
+
   }, []);
   return (
     <div>
@@ -121,10 +173,17 @@ const Shop = () => {
               <NavLink to="/shop/categorydetail">best sellers</NavLink>
             </p>
           </div>
-          <ProductContainer
+          {/* <ProductContainer
             cardcontainer="flex-nowrap"
             pitem={bestseller.veggies}
+          /> */}
+
+          <ProductContainer
+            cardcontainer="flex-nowrap"
+            pitem={products}
           />
+
+
           <div className="w-full py-5 md:py-9 px-8 border-t border-black dark:border-slate-300 bg-gray-100 dark:bg-slate-800">
             <p className="font-Staatliches text-3xl md:text-4xl w-full text-left">
               seafood

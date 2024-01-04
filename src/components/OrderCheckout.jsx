@@ -353,10 +353,10 @@ dark:bg-slate-900"
                             <p className="text-xl font-poppins font-semibold w-full ">
                               {added.title}
                             </p>
-                            <QuantityBox />
-                            <p className="font-Poppins text-left text-gray-400">
+                            <QuantityBox price={added.price}/>
+                            {/* <p className="font-Poppins text-left text-gray-400">
                               ${added.price}
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       ))}

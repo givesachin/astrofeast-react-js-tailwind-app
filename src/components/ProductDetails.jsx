@@ -1,16 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
 import fssai_certified from "../assets/fssai_certified.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 import ProductContainer from "../components/Atoms/ProductContainer";
 import CTABar from "./Atoms/CTABar";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import { ReactComponent as LikeIcon } from "../assets/like.svg";
 import { ReactComponent as DislikeIcon } from "../assets/dislike.svg";
 import { ReactComponent as CorrectBulletIcon } from "../assets/correctbullet.svg";
+import axios from "axios";
+import QuantityBox from "./Atoms/QuantityBox";
 const nutrition = [
   {
     id: 1,
@@ -95,8 +97,54 @@ const bestseller = {
 };
 
 const ProductDetails = () => {
+
+
+
+  const [products, setProducts] = useState([])
+  const [product, setProduct] = useState({})
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get('id');
+
+  const fetchProducts = () => {
+
+    let data = JSON.stringify({
+      "filters": {
+        "state": "active"
+      }
+    });
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.1.0/products',
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': '123',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
+        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
+      },
+      data: data
+    };
+
+    axios.request(config)
+      .then((response) => {
+        console.log((response.data));
+
+        setProducts(response.data.data)
+
+        setProduct(response.data.data.find(prd => prd.id == id))
+
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
+  }
+
   useEffect(() => {
     document.title = "Astrofeast - Product Details";
+    fetchProducts()
   }, []);
   return (
     <>
@@ -116,17 +164,18 @@ const ProductDetails = () => {
               <div className=" h-full w-auto flex flex-col justify-start ">
                 <div className="flex flex-col justify-between items-start w-full h-full py-5 px-4 border-b  border-black dark:border-slate-300 gap-y-5">
                   <h1 className="font-Staatliches  text-5xl">
-                    tenderloin (250g)
+                    {/* {JSON.stringify(product)} */}
+                    {product.name} {`(${product.weight})`}
                   </h1>
-                  <h2 className="font-Staatliches  text-3xl">$350.00</h2>
+                  <h2 className="font-Staatliches  text-3xl">${product.price}</h2>
                   <h2 className="font-normal md:font-medium text-left text-xl">
-                    steak marinated with a blend of lemon, chilli and herbs
+                    {product.description}
                   </h2>
                 </div>
                 <div className="flex flex-col gap-6 w-auto h-auto py-5 md:py-10 px-4 md:px-8 ">
                   <img
                     className="w-96 h-96 md:w-full md:h-full object-cover"
-                    src={afherobg}
+                    src={product.media ? product.media[0].original_url : "#"}
                     alt="products"
                   />
                   <img
@@ -266,59 +315,9 @@ const ProductDetails = () => {
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center order-3">
-                            {/**SVG for minus sign */}
-                            <svg
-                              className="stroke-[#030712] dark:stroke-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                            >
-                              <g clipPath="url(#clip0_2591_4101)">
-                                <path
-                                  d="M10 0.833313V19.1666"
-                                  strokeWidth="1.25"
-                                />
-                                <path
-                                  d="M0.833496 10H19.1668"
-                                  strokeWidth="1.25"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_2591_4101">
-                                  <rect width="20" height="20" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                          </button>
-                          <button className="p-2 text-center order-2">1</button>
-                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center order-1">
-                            {/**SVG for plus sign */}
-                            <svg
-                              className="stroke-[#030712] dark:stroke-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                            >
-                              <g clipPath="url(#clip0_2591_4101)">
-                                <path
-                                  d="M0.833496 10H19.1668"
-                                  strokeWidth="1.25"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_2591_4101">
-                                  <rect width="20" height="20" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                          </button>
+                          <QuantityBox price={product.price} isDetailsPage={true}/>
                         </div>
-                        <h4 className="font-Staatliches text-5xl">$350.00</h4>
+                        {/* <h4 className="font-Staatliches text-5xl">${product.price}</h4> */}
                       </div>
                     </div>
                     <NavLink to="/checkout" className="">
