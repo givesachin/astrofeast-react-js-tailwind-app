@@ -17,7 +17,7 @@ const Auth = () => {
         alt="astrofeast login poster"
         title="poster"
       />
-      <div className=" md:w-3/4 lg:w-[45%] h-full noscrollbar overflow-y-scroll flex flex-col justify-evenly items-center lg:items-start w-full pt-52 p-3 md:p-3">
+      <div className=" md:w-3/4 lg:w-[45%] h-full noscrollbar overflow-y-scroll flex flex-col gap-10 items-center lg:items-start w-full md:pt-32 p-3 md:p-3">
         <img
           className="self-center"
           src={aflogoufo}
@@ -30,7 +30,7 @@ const Auth = () => {
         <p className="md:whitespace-nowrap">
           Free Delivery on the first order & Access to all content
         </p>
-        <hr className="h-px  mb-5  w-full border-[#0f0d0d] dark:border-slate-300" />
+        <hr className="h-px  mb-3  w-full border-[#0f0d0d] dark:border-slate-300" />
         <Outlet  />
         {/* <p className="w-full my-4">or</p>
         <button className="w-full py-3 border-2 border-black dark:border-slate-300 capitalize">
