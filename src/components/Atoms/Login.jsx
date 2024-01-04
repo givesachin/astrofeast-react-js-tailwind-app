@@ -17,7 +17,7 @@ const Login = () => {
   const [showPasswordInput, setShowPasswordInput] = useState(false);
   const onSubmit = (data) => {
     setShowPasswordInput(true);
-    if (validatePassword(data.password)) {
+    if (data.password && data.password !== "" && validatePassword(data.password)) {
       localStorage.setItem("user", JSON.stringify(data));
       alert("Login successfully!");
       navigate("/"); // Redirect to the home screen
@@ -25,7 +25,7 @@ const Login = () => {
   };
 
   const validatePassword = (value) => {
-    if (!value) {
+    if (!value || value === "") {
       return "Password is required";
     }
     if (!/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W)(?!.*\s).{8,}/.test(value)) {
@@ -106,9 +106,9 @@ const Login = () => {
         Login
       </button>
       <div className="flex ">
-        <p className="">Dont have an account?</p>
+        <p className="">Dont have an account?</p>{" "}
         <NavLink to="/auth/signup">
-          <p className="text-right w-full capitalize text-blue-600 active:text-purple-600 ">
+          <p className="ml-1 text-right w-full capitalize text-blue-600 active:text-purple-600 ">
             Create Account
           </p>
         </NavLink>

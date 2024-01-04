@@ -31,11 +31,11 @@ const Auth = () => {
           Free Delivery on the first order & Access to all content
         </p>
         <hr className="h-px  mb-5  w-full border-[#0f0d0d] dark:border-slate-300" />
-        <Outlet />
-        <p className="w-full my-4">or</p>
+        <Outlet  />
+        {/* <p className="w-full my-4">or</p>
         <button className="w-full py-3 border-2 border-black dark:border-slate-300 capitalize">
           Sign up with google
-        </button>
+        </button> */}
         <hr className="h-px  mt-5  w-full border-[#B9B9B9]" />
         <div className="flex justify-center w-full ">
           <p>Privacy</p>

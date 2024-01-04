@@ -160,7 +160,7 @@ const Signup = () => {
           Create Account{" "}
         </button>
         <div className="flex ">
-          <p className="">already have an account?</p>
+          <p className="">already have an account?</p> {" "}
           <NavLink to="/auth/login">
             <p className="text-right w-full capitalize text-blue-600 active:text-purple-600 ">
               Log In

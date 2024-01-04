@@ -14,7 +14,7 @@ const ProductItem = ({ prodList }) => {
       <div className="w-full h-auto flex items-end flex-col justify-center py-5">
         <p className="text-xl font-semibold w-full">{prodList.name}</p>
         <p className="text-base opacity-60 font-medium w-full ">
-          {prodList.price}
+          ${prodList.price}
         </p>
       </div>
     </div>
