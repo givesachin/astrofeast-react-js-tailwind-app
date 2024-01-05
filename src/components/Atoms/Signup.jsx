@@ -87,7 +87,7 @@ const Signup = () => {
       formDataToSend.append('password', formData.password);
       formDataToSend.append('firstname', firstName);
       formDataToSend.append('lastname', lastName);
-      formDataToSend.append('mobile', formData.mobile);
+      formDataToSend.append('phone', formData.mobile);
       // formDataToSend.append('address', formData.address);
 
 
