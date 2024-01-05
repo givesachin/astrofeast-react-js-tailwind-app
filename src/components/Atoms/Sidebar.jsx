@@ -61,7 +61,7 @@ const Sidebar = ({ sidebarVisible, closeSidebar, closeButtonState }) => {
                           </div>
                           <div className="order-3 md:order-3 dark:invert">
                             {isLoggedIn() ? ( // Conditionally render the user profile link
-                              <NavLink to="/" className="">
+                              <NavLink to="/my-account" className="">
                                 <img className=" h-5" src={afuser} alt="user" />
                               </NavLink>
                             ) : (
