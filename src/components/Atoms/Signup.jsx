@@ -91,7 +91,7 @@ const Signup = () => {
       // formDataToSend.append('address', formData.address);
 
 
-      const res = await networkHandler.post('/v1.1.0/register', formDataToSend, {
+      const res = await networkHandler.post('/v1.2.0/register', formDataToSend, {
         headers: {
           'Content-type': 'multipart/form-data'
         }

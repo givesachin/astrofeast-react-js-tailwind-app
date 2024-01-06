@@ -4,8 +4,9 @@ import afherobg from "../assets/herobg.png";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import QuantityBox from "./Atoms/QuantityBox";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
+import axios from "axios";
 const initialFormData = {
   first_name: "",
   last_name: "",
@@ -32,18 +33,74 @@ const products = [
   { id: 2, prod_img: afnonveg, title: "Fresh Pancakes" },
 ];
 
-const added_products = [
-  { id: 0, prod_img: afnonveg, title: "Fresh Pancakes", price: 249.0 },
-  { id: 1, prod_img: afnonveg, title: "Fresh Pancakes", price: 249.0 },
-];
+// const added_products = [
+//   { id: 0, prod_img: afnonveg, title: "Fresh Pancakes", price: 249.0 },
+//   { id: 1, prod_img: afnonveg, title: "Fresh Pancakes", price: 249.0 },
+// ];
+
+
 
 const OrderCheckout = () => {
+  const { state } = useLocation();
+  const { product_id } = state; // Read values passed on state
+  const [products, setProducts] = useState([]);
+  // const [product, setProduct] = useState([]);
+
+  const fetchProducts = () => {
+
+    let data = JSON.stringify({
+      "filters": {
+        "state": "active"
+      }
+    });
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.2.0/products',
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': '123',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
+        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
+      },
+      data: data
+    };
+
+    axios.request(config)
+      .then((response) => {
+        console.log((response.data));
+
+        setProducts(response.data.data)
+
+        // setProduct(response.data.data.find(prd => prd.id == id))
+
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
+  }
+
+  console.log({ product_id });
+
+
+  useEffect(()=>{
+
+    fetchProducts();
+  }, [])
+
+
   useEffect(() => {
     document.title = "Astrofeast - Order Checkout";
   }, []);
   const [FilterToggle, setFilterToggle] = useState();
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
+
+
+
 
   const validateForm = () => {
     let isValid = true;
@@ -162,15 +219,66 @@ const OrderCheckout = () => {
   const navigate = useNavigate();
   const handleEdit = (event) => {
     event.preventDefault();
-    if (validateForm()) {
-      // Form is valid, proceed with form submission
-      console.log("Form submitted:", formData);
-      console.log("Form validation failed", formErrors);
-      alert("Form submitted successfully!");
-      navigate("/payment-success");
-    } else {
-      console.log("Form validation failed");
+    // if (validateForm()) {
+    //   // Form is valid, proceed with form submission
+    //   console.log("Form submitted:", formData);
+    //   console.log("Form validation failed", formErrors);
+    //   alert("Form submitted successfully!");
+    //   navigate("/payment-success");
+    // } else {
+    //   console.log("Form validation failed");
+    // }
+
+
+let data = JSON.stringify({
+  "billpayer": {
+    "email": "test.customer@gmail.com",
+    "phone": "8140996031",
+    "firstname": "Test",
+    "lastname": "Customer",
+    "company_name": null,
+    "tax_nr": null,
+    "address": {
+      "country_id": "IN",
+      "address": "Consult Anubhav",
+      "postalcode": "390001",
+      "city": "Vadodara"
     }
+  },
+  "ship_to_billing_address": "1",
+  "shipping_address": {
+    "name": null,
+    "country_id": null,
+    "address": null,
+    "postalcode": null,
+    "city": null
+  },
+  "payment_method": "1",
+  "notes": "see ya."
+});
+
+let config = {
+  method: 'post',
+  maxBodyLength: Infinity,
+  url: 'https://test.astrofeast.com/admin/customers/api/v1.2.0/create_order',
+  headers: { 
+    'Accept': 'application/json', 
+    'X-CSRF-Token': 'PyokNHTYgP6UaEIw5HlwgjHkUOzTfkPoVOjwPGsl', 
+    'Content-Type': 'application/json', 
+    'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9', 
+    'Cookie': 'XSRF-TOKEN=eyJpdiI6Ii9CcWo3UzBxZnBPQU5qNktCYkpsUVE9PSIsInZhbHVlIjoiV0ptVCtFaUc0ckpVN0x1ZUFkdXk1QzRqUnhHZGk3VWhBRW01S0xETUlsalRrTzVPN0pWMjd5MVhkWWQ2MzVRSU1WL3FCQy9LRUFPdEVXa2JFZElLK2VNcHQrQStZdzROcTUxSFpoS0dWQ1h0NVhWZ2VEVUdQbW96VkRWdmQzaFMiLCJtYWMiOiJlNGMwMzlhNGQ4ZDkyZTU1NTBjMjlhNTE1YTEwM2I5NGM2Y2U5ZGE4MTZlMDBkMGIxMjNiYTQ3Zjk3ZGE0Nzg1IiwidGFnIjoiIn0%3D; laravel_session=XwH4BbNsCo937SwdJubTLAe38M5UKP45MEt0ReYG'
+  },
+  data : data
+};
+
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log(error);
+});
+
   };
   const [selectedOption, setSelectedOption] = useState("weekly"); // Default selected option
 
@@ -211,11 +319,10 @@ dark:bg-slate-900"
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 border-2 dark:bg-slate-900  ${
-                          formErrors.email
+                        className={`w-full py-2 pl-4 border-2 dark:bg-slate-900  ${formErrors.email
                             ? "border-red-500"
                             : "border-gray-400"
-                        }`}
+                          }`}
                         placeholder="Email address"
                         onChange={handleChange}
                         type="email"
@@ -229,11 +336,10 @@ dark:bg-slate-900"
                     <div className="w-full flex flex-col md:flex-row gap-5">
                       <div className="w-full text-start">
                         <input
-                          className={`w-full py-2 pl-4   dark:bg-slate-900 border-2 ${
-                            formErrors.first_name
+                          className={`w-full py-2 pl-4   dark:bg-slate-900 border-2 ${formErrors.first_name
                               ? "border-red-500"
                               : "border-gray-400"
-                          }`}
+                            }`}
                           placeholder="Enter first name"
                           onChange={handleChange}
                           type="text"
@@ -246,11 +352,10 @@ dark:bg-slate-900"
                       </div>
                       <div className="w-full text-start">
                         <input
-                          className={`w-full  py-2 pl-4  dark:bg-slate-900 border-2 ${
-                            formErrors.last_name
+                          className={`w-full  py-2 pl-4  dark:bg-slate-900 border-2 ${formErrors.last_name
                               ? "border-red-500"
                               : "border-gray-400"
-                          }`}
+                            }`}
                           placeholder="Enter last name"
                           onChange={handleChange}
                           type="text"
@@ -264,11 +369,10 @@ dark:bg-slate-900"
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${
-                          formErrors.mobile
+                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${formErrors.mobile
                             ? "border-red-500"
                             : "border-gray-400"
-                        }`}
+                          }`}
                         placeholder="Phone number"
                         onChange={handleChange}
                         type="tel"
@@ -281,11 +385,10 @@ dark:bg-slate-900"
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${
-                          formErrors.state
+                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${formErrors.state
                             ? "border-red-500"
                             : "border-gray-400"
-                        }`}
+                          }`}
                         placeholder="State"
                         onChange={handleChange}
                         type="text"
@@ -296,11 +399,10 @@ dark:bg-slate-900"
                     </div>
                     <div className="w-full text-start">
                       <input
-                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${
-                          formErrors.zipcode
+                        className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${formErrors.zipcode
                             ? "border-red-500"
                             : "border-gray-400"
-                        }`}
+                          }`}
                         placeholder="Zip code"
                         onChange={handleChange}
                         type="number"
@@ -313,11 +415,10 @@ dark:bg-slate-900"
                     </div>
                     <div className="w-full text-start">
                       <textarea
-                        className={`w-full py-2 pl-4  dark:bg-slate-900 border-2  ${
-                          formErrors.address
+                        className={`w-full py-2 pl-4  dark:bg-slate-900 border-2  ${formErrors.address
                             ? "border-red-500"
                             : "border-gray-400"
-                        }`}
+                          }`}
                         placeholder="Address"
                         onChange={handleChange}
                         type="textarea"
@@ -333,27 +434,27 @@ dark:bg-slate-900"
                     <div className="w-full ">
                       <div className="">
                         <p className="p-8 text-left text-3xl font-Staatliches">
-                          Your Cart (2)
+                          Your Cart ({products.length})
                         </p>
                       </div>
                       <div className="border-t border-black dark:border-slate-300">
                         <p className="p-8 text-sm text-[#F4A73F] text-left font-Poppins"></p>
                       </div>
-                      {added_products.map((added) => (
+                      {products.map((added) => (
                         <div
                           key={added.id}
                           className="h-auto px-8 pb-8 w-auto flex lg:justify-normal justify-between"
                         >
                           <img
                             className="w-32 h-32 object-cover"
-                            src={added.prod_img}
+                            src={added.media ? added.media[0].original_url : "#"}
                             alt="product"
                           />
                           <div className="pl-8">
                             <p className="text-xl font-poppins font-semibold w-full ">
-                              {added.title}
+                              {added.name}
                             </p>
-                            <QuantityBox price={added.price}/>
+                            <QuantityBox price={added.price} />
                             {/* <p className="font-Poppins text-left text-gray-400">
                               ${added.price}
                             </p> */}
@@ -378,7 +479,7 @@ dark:bg-slate-900"
                           <p>Total</p>
                           <p>$701</p>
                         </div>
-                        <NavLink to="/payment-success" className="">
+                        {/* <NavLink to="/payment-success" className=""> */}
                           <input
                             className="hover:cursor-pointer w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
                             dark:bg-slate-300 "
@@ -386,7 +487,7 @@ dark:bg-slate-900"
                             value="place order    >"
                             onClick={handleEdit}
                           />
-                        </NavLink>
+                        {/* </NavLink> */}
                       </div>
                     </div>
                   </div>

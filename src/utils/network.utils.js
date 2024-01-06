@@ -1,7 +1,7 @@
 import axios from 'axios';
-import {useAuth} from './auth.utils'
+import { useAuth } from './auth.utils'
 export const baseUrl =
-  'https://test.astrofeast.com/admin/customers/api/v1.1.0' || 'http://localhost:3000/api/';
+  'https://test.astrofeast.com/admin/customers/api/v1.2.0' || 'http://localhost:3000/api/';
 
 export const cAxios = axios.create({
   baseURL: baseUrl,
@@ -31,7 +31,7 @@ export const attachClientSideNetworkChain = () => {
 
   const attachNetworkChain = (promise) => attachCatch(attachThen(promise));
 
-  return {attachNetworkChain};
+  return { attachNetworkChain };
 };
 
 /**
@@ -54,7 +54,7 @@ export const attachClientSideNetworkChain = () => {
 // };
 
 export const clientSideOpenNetworkHandler = () => {
-  const {attachNetworkChain} = attachClientSideNetworkChain();
+  const { attachNetworkChain } = attachClientSideNetworkChain();
   const networkHandler = {
     get: (endpoint, params) => attachNetworkChain(cAxios.get(endpoint, params)),
     post: (endpoint, body, params,) => {
@@ -71,12 +71,12 @@ export const clientSideOpenNetworkHandler = () => {
       );
     },
   }
-  return {networkHandler};
+  return { networkHandler };
 };
 
 export const useClientSideAuthorizedNetworkHandler = () => {
-  const {attachNetworkChain} = attachClientSideNetworkChain();
-  const {helpers} = useAuth();
+  const { attachNetworkChain } = attachClientSideNetworkChain();
+  const { helpers } = useAuth();
   const authorizedGet = async (
     endpoint,
     params
@@ -94,80 +94,85 @@ export const useClientSideAuthorizedNetworkHandler = () => {
     );
   };
   const authorizedPost = async (
-      endpoint,
-      body,
-      params
-    ) => {
-      const authToken = (await helpers.getAuthToken()).token;
-      console.log("authToken", authToken, typeof(authToken))
-      return attachNetworkChain(
-        cAxios.post(endpoint, body, {
-          ...params,
-          headers: {
-            ...params?.headers,
-            Authorization: authToken ? `Bearer ${authToken}` : undefined,
-          },
-          crossDomain: true,
-        })
-      );
-    }
-  ;
+    endpoint,
+    body,
+    params
+  ) => {
+    const authToken = (await helpers.getAuthToken()).token;
+    const session_id = (await helpers.getAuthSessionToken()).sessionToken;
+
+    console.log({authToken, session_id})
+    
+    return attachNetworkChain(
+      cAxios.post(endpoint, body, {
+        ...params,
+        headers: {
+          ...params?.headers,
+          Authorization: authToken ? `Bearer ${authToken}` : undefined,
+          ['X-Session-ID']: session_id,
+          ['X-Requested-With']:'XMLHttpRequest'
+        },
+        crossDomain: true,
+      })
+    );
+  }
+    ;
 
   const authorizedPut = async (
-      endpoint,
-      body,
-      params
-    ) => {
-      const authToken = helpers.getAuthToken();
-      return attachNetworkChain(
-        cAxios.put(endpoint, body, {
-          ...params,
-          headers: {
-            ...params?.headers,
-            Authorization: authToken ? `Bearer ${authToken}` : undefined,
-          },
-        })
-      );
-    }
-  ;
+    endpoint,
+    body,
+    params
+  ) => {
+    const authToken = helpers.getAuthToken();
+    return attachNetworkChain(
+      cAxios.put(endpoint, body, {
+        ...params,
+        headers: {
+          ...params?.headers,
+          Authorization: authToken ? `Bearer ${authToken}` : undefined,
+        },
+      })
+    );
+  }
+    ;
 
   const authorizedDelete = async (
-      endpoint,
-      params
-    ) => {
-      const authToken = helpers.getAuthToken();
-      return attachNetworkChain(
-        cAxios.delete(endpoint, {
-          ...params,
-          headers: {
-            ...params?.headers,
-            Authorization: authToken ? `Bearer ${authToken}` : undefined,
-          },
-        })
-      );
-    }
-  ;
+    endpoint,
+    params
+  ) => {
+    const authToken = helpers.getAuthToken();
+    return attachNetworkChain(
+      cAxios.delete(endpoint, {
+        ...params,
+        headers: {
+          ...params?.headers,
+          Authorization: authToken ? `Bearer ${authToken}` : undefined,
+        },
+      })
+    );
+  }
+    ;
 
   const authorizedFileUpload = async (
-      endpoint,
-      formData,
-      params
-    ) => {
-      const authToken = helpers.getAuthToken();
-      return attachNetworkChain(
-        cAxios.post(endpoint, formData, {
-          ...params,
-          maxBodyLength: Infinity,
-          headers: {
-            ...params?.headers,
-            Authorization: authToken ? `Bearer ${authToken}` : undefined,
-            ...formData.getHeaders,
-            // "Content-Type": "multipart/form-data",
-          },
-        })
-      );
-    }
-  ;
+    endpoint,
+    formData,
+    params
+  ) => {
+    const authToken = helpers.getAuthToken();
+    return attachNetworkChain(
+      cAxios.post(endpoint, formData, {
+        ...params,
+        maxBodyLength: Infinity,
+        headers: {
+          ...params?.headers,
+          Authorization: authToken ? `Bearer ${authToken}` : undefined,
+          ...formData.getHeaders,
+          // "Content-Type": "multipart/form-data",
+        },
+      })
+    );
+  }
+    ;
 
   return {
     authorizedGet,

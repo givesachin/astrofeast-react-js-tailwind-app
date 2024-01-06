@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
 import fssai_certified from "../assets/fssai_certified.png";
-import {NavLink, useNavigate, useSearchParams} from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import ProductContainer from "../components/Atoms/ProductContainer";
 import CTABar from "./Atoms/CTABar";
 import FloatNavbar from "./Atoms/FloatNavbar";
-import {ReactComponent as LikeIcon} from "../assets/like.svg";
-import {ReactComponent as DislikeIcon} from "../assets/dislike.svg";
-import {ReactComponent as CorrectBulletIcon} from "../assets/correctbullet.svg";
+import { ReactComponent as LikeIcon } from "../assets/like.svg";
+import { ReactComponent as DislikeIcon } from "../assets/dislike.svg";
+import { ReactComponent as CorrectBulletIcon } from "../assets/correctbullet.svg";
 import axios from "axios";
 import QuantityBox from "./Atoms/QuantityBox";
-import {useClientSideAuthorizedNetworkHandler} from "../utils/network.utils";
+import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
 
 const nutrition = [
   {
@@ -107,7 +107,7 @@ const ProductDetails = () => {
   const id = searchParams.get('id');
 
   const navigate = useNavigate()
-  const {authorizedPost} = useClientSideAuthorizedNetworkHandler()
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
 
   const fetchProducts = () => {
 
@@ -120,7 +120,7 @@ const ProductDetails = () => {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.1.0/products',
+      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.2.0/products',
       headers: {
         'Accept': 'application/json',
         'X-CSRF-Token': '123',
@@ -140,8 +140,8 @@ const ProductDetails = () => {
         setProduct(response.data.data.find(prd => prd.id == id))
 
       }).catch((error) => {
-      console.log(error);
-    });
+        console.log(error);
+      });
 
 
   }
@@ -155,7 +155,7 @@ const ProductDetails = () => {
     // let config = {
     //   method: 'post',
     //   maxBodyLength: Infinity,
-    //   url: 'https://test.astrofeast.com/admin/customers/api/v1.1.0/add_cart_item',
+    //   url: 'https://test.astrofeast.com/admin/customers/api/v1.2.0/add_cart_item',
     //   headers: {
     //     'Accept': 'application/json',
     //     'X-CSRF-Token': '9yUJ8AbRIErS2w8azsydrzFuV4CqeW56awPW7bkH',
@@ -179,6 +179,7 @@ const ProductDetails = () => {
     //   });
 
 
+
     authorizedPost('/add_cart_item', data, {
       // withCredentials: false
 
@@ -194,6 +195,14 @@ const ProductDetails = () => {
         console.log(error);
       });
 
+    // navigate({
+    //   pathname: "/checkout",
+    // }, {
+    //   replace: false,
+    //   state:{
+    //     product_id:id
+    //   }
+    // })
   }
 
   useEffect(() => {
@@ -202,9 +211,9 @@ const ProductDetails = () => {
   }, []);
   return (
     <>
-      <Header/>
-      <FloatNavbar/>
-      <CTABar/>
+      <Header />
+      <FloatNavbar />
+      <CTABar />
       <section className="relative dark:text-gray-100 dark:bg-slate-900 ">
         <section className="lg:px-16 relative">
           {/* container */}
@@ -225,7 +234,7 @@ const ProductDetails = () => {
                   <h2 className="font-Staatliches  text-3xl">${product.price}</h2>
                   <h2 className="font-normal md:font-medium text-left text-xl" dangerouslySetInnerHTML={{
                     __html: product.description
-                  }}/>
+                  }} />
                 </div>
                 <div className="flex flex-col gap-6 w-auto h-auto py-5 md:py-10 px-4 md:px-8 ">
                   <div className="relative w-full h-full">
@@ -362,24 +371,24 @@ const ProductDetails = () => {
                     <div className="flex flex-col gap-4">
                       <div className="w-full flex justify-start gap-x-3">
                         {/**SVG for bullet correct sign */}
-                        <CorrectBulletIcon/>
+                        <CorrectBulletIcon />
                         <p className="w-full">
                           Flat 5% off on all subscriptions
                         </p>
                       </div>
                       <div className="w-full flex justify-start gap-x-3">
                         {/**SVG for bullet correct sign */}
-                        <CorrectBulletIcon/>
+                        <CorrectBulletIcon />
                         <p className="w-full">
                           Flat 5% off on all subscriptions
                         </p>
                       </div>
                     </div>
-                    <hr className="w-full border-black dark:border-slate-300 "/>
+                    <hr className="w-full border-black dark:border-slate-300 " />
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <QuantityBox price={product.price} isDetailsPage={true}/>
+                          <QuantityBox price={product.price} isDetailsPage={true} />
                         </div>
                         {/* <h4 className="font-Staatliches text-5xl">${product.price}</h4> */}
                       </div>
@@ -424,11 +433,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path d="M12 36H36V44H12V36Z" strokeWidth="3"/>
-                    <path d="M14 8H34V16H14V8Z" strokeWidth="3"/>
-                    <path d="M24 8V2" strokeWidth="3"/>
-                    <path d="M18 16L15 36" strokeWidth="3"/>
-                    <path d="M30 16L33 36" strokeWidth="3"/>
+                    <path d="M12 36H36V44H12V36Z" strokeWidth="3" />
+                    <path d="M14 8H34V16H14V8Z" strokeWidth="3" />
+                    <path d="M24 8V2" strokeWidth="3" />
+                    <path d="M18 16L15 36" strokeWidth="3" />
+                    <path d="M30 16L33 36" strokeWidth="3" />
                   </svg>
                   <p className="text-2xl text-left">
                     {" "}
@@ -446,9 +455,9 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path d="M10 4H38V30H10V4Z" strokeWidth="3"/>
-                    <path d="M38 8H46" strokeWidth="3"/>
-                    <path d="M2 8H10" strokeWidth="3"/>
+                    <path d="M10 4H38V30H10V4Z" strokeWidth="3" />
+                    <path d="M38 8H46" strokeWidth="3" />
+                    <path d="M2 8H10" strokeWidth="3" />
                     <path
                       d="M8 41.5V41L11.5 36.5L15 41V41.5C15 43.433 13.433 45 11.5 45C9.567 45 8 43.433 8 41.5Z"
                       strokeWidth="3"
@@ -479,10 +488,10 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path d="M10 16H30V32H10V16Z" strokeWidth="3"/>
-                    <path d="M4 10H44V38H4V10Z" strokeWidth="3"/>
-                    <path d="M35.5 17H38.5" strokeWidth="3"/>
-                    <path d="M35.5 24H38.5" strokeWidth="3"/>
+                    <path d="M10 16H30V32H10V16Z" strokeWidth="3" />
+                    <path d="M4 10H44V38H4V10Z" strokeWidth="3" />
+                    <path d="M35.5 17H38.5" strokeWidth="3" />
+                    <path d="M35.5 24H38.5" strokeWidth="3" />
                   </svg>
                   <p className="text-2xl text-left">
                     {" "}
@@ -520,15 +529,15 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <LikeIcon/>
+                      <LikeIcon />
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <DislikeIcon/>
+                      <DislikeIcon />
                     </div>
                   </div>
                 </div>
-                <hr className="w-full border"/>
+                <hr className="w-full border" />
                 <div className="flex flex-col w-full gap-y-4">
                   <div className="w-full flex items-center justify-between">
                     <p>Add a little more lemon in the end</p>
@@ -549,15 +558,15 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <LikeIcon/>
+                      <LikeIcon />
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <DislikeIcon/>
+                      <DislikeIcon />
                     </div>
                   </div>
                 </div>
-                <hr className="w-full border"/>
+                <hr className="w-full border" />
                 <div className="flex flex-col w-full gap-y-4">
                   <div className="w-full flex items-center justify-between">
                     <p>Add a little more lemon in the end</p>
@@ -578,11 +587,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <LikeIcon/>
+                      <LikeIcon />
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <DislikeIcon/>
+                      <DislikeIcon />
                     </div>
                   </div>
                 </div>
@@ -602,11 +611,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
             />
           </div>
         </section>
-        <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center"/>
+        <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
         <section className="hidden  lg:block lg:px-16 lg:relative">
-          <div className="lg:border-x border-black dark:border-slate-300 pt-12"/>
+          <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
         </section>
-        <Footer/>
+        <Footer />
       </section>
     </>
   );
