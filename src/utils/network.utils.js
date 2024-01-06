@@ -9,7 +9,9 @@ export const cAxios = axios.create({
   maxBodyLength: Infinity,
   withCredentials: true,
   crossDomain: true,
-
+  headers: {
+    // 'X-XSS-Protection': '1;'
+  }
 });
 
 export const attachClientSideNetworkChain = () => {
@@ -85,6 +87,7 @@ export const useClientSideAuthorizedNetworkHandler = () => {
         ...params,
         headers: {
           Authorization: authToken ? `Bearer ${authToken}` : undefined,
+          // Cookie: "",
           ...params?.headers,
         },
       })

@@ -185,7 +185,9 @@ const ProductDetails = () => {
     }).then((response) => {
       console.log(JSON.stringify(response.data));
       navigate({
-        pathname: "/checkout"
+        pathname: "/checkout",
+      }, {
+        replace: false,
       })
     })
       .catch((error) => {

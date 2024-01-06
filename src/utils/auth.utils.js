@@ -1,9 +1,10 @@
 import {useCookies} from 'react-cookie';
 
 const AUTH_KEY = 'auth';
+const LARAVEL_SESSION = "laravel_session";
 
 export const useAuth = () => {
-  const [authCookie, setAuthCookie, removeAuthCookie] = useCookies([AUTH_KEY]);
+  const [authCookie, setAuthCookie, removeAuthCookie] = useCookies([AUTH_KEY, LARAVEL_SESSION]);
   const setAuthToken = async (token) => {
     if (token === '') return;
     setAuthCookie(AUTH_KEY, JSON.stringify({token}), {
@@ -30,6 +31,25 @@ export const useAuth = () => {
     removeAuthCookie(AUTH_KEY);
   };
 
+  // const setSession = async (token) => {
+  //   if (token === '') return;
+  //   setAuthCookie(LARAVEL_SESSION, JSON.stringify({token}), {
+  //     maxAge: 1704085200,
+  //     sameSite: 'none',
+  //     secure: true,
+  //   });
+  // };
+  // const getSessionToken = () => {
+  //   const authKey = authCookie.laravel_session;//getCookie(AUTH_KEY);
+  //   try {
+  //     if (!authKey) return '';
+  //     else if (typeof authKey === 'string') return JSON.parse(authKey).token;
+  //     return authKey;
+  //   } catch (e) {
+  //     return '';
+  //   }
+  // };
+
 
   // const renewToken = () => {
   //   if (hasCookie(AUTH_KEY)) {
@@ -46,6 +66,8 @@ export const useAuth = () => {
       getAuthToken,
       isLoggedIn,
       invalidateAuth,
+      setSession,
+      getSessionToken,
     },
   };
 };
