@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useAuth} from './auth.utils'
 export const baseUrl =
-  'https://test.astrofeast.com/admin/guest/customers/api' || 'http://localhost:3000/api/';
+  'https://test.astrofeast.com/admin/customers/api' || 'http://localhost:3000/api/';
 
 export const cAxios = axios.create({
   baseURL: baseUrl,
@@ -91,7 +91,8 @@ export const useClientSideAuthorizedNetworkHandler = () => {
       body,
       params
     ) => {
-      const authToken = helpers.getAuthToken();
+      const authToken = (await helpers.getAuthToken()).token;
+      console.log("authToken", authToken, typeof(authToken))
       return attachNetworkChain(
         cAxios.post(endpoint, body, {
           ...params,

@@ -122,7 +122,7 @@ const Signup = () => {
         <div className="w-full text-start">
           <label htmlFor="name">name</label>
           <input
-            className={`w-full text-lg  py-4 pl-4 dark:bg-slate-900 border-2 ${
+            className={`w-full text-lg py-4 pl-4 dark:bg-slate-900 border-2 ${
               formErrors.name ? "border-red-500" : "border-gray-400"
             }`}
             placeholder="enter name"

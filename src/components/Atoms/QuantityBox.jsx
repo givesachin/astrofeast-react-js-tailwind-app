@@ -11,10 +11,11 @@ const QuantityBox = ({ price, isDetailsPage }) => {
       >
         <div className="flex pr-4">
           <button
-            className="border border-black dark:border-slate-300
- text-black dark:text-gray-100 w-10 text-2xl"
+          disabled={quantity<=1}
+            className={`border border-black dark:border-slate-300
+ text-black dark:text-gray-100 w-10 text-2xl`}
             onClick={() => {
-              if (quantity > 0) {
+              if (quantity > 1) {
                 setQuantity(quantity - 1);
               }
             }}

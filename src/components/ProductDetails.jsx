@@ -4,7 +4,7 @@ import Footer from "./Atoms/Footer";
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
 import fssai_certified from "../assets/fssai_certified.png";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import ProductContainer from "../components/Atoms/ProductContainer";
 import CTABar from "./Atoms/CTABar";
 import FloatNavbar from "./Atoms/FloatNavbar";
@@ -13,6 +13,7 @@ import { ReactComponent as DislikeIcon } from "../assets/dislike.svg";
 import { ReactComponent as CorrectBulletIcon } from "../assets/correctbullet.svg";
 import axios from "axios";
 import QuantityBox from "./Atoms/QuantityBox";
+import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
 const nutrition = [
   {
     id: 1,
@@ -105,6 +106,9 @@ const ProductDetails = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
 
+  const navigate = useNavigate()
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+
   const fetchProducts = () => {
 
     let data = JSON.stringify({
@@ -139,6 +143,51 @@ const ProductDetails = () => {
         console.log(error);
       });
 
+
+  }
+
+  const handleAddToStashButton = (id) => {
+    let data = JSON.stringify({
+      "product_variant_id": id
+    });
+
+    
+    // let config = {
+    //   method: 'post',
+    //   maxBodyLength: Infinity,
+    //   url: 'https://test.astrofeast.com/admin/customers/api/v1.1.0/add_cart_item',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'X-CSRF-Token': '9yUJ8AbRIErS2w8azsydrzFuV4CqeW56awPW7bkH',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
+    //     'Cookie': 'XSRF-TOKEN=eyJpdiI6IkRQN29BbWdVTkdNN2V4RS9ZTHNmaGc9PSIsInZhbHVlIjoieEJ0MmxxVHJ1bVBwSWZabUNHRGxVS1gxY3ZBeTNDZ2pJb1RlVkoydUMzZGRHZm5UZi96TWFKZ3h4SHlCcnNKVlVuVjF5TVo1Y09HY3NRRHhKSUZzRjNkYjFDZzdLcWIwTkRSclNYV3V1eWVDaURHOCtrMjVrVDgvelBNVUlMcWwiLCJtYWMiOiJiZjI4NzkwNzlkNTI5OGViNGY5ZjA1ZTIzZTQ0N2RkYWNjMDI2OTcyZDNkYmYxYWU1ZmU3ZDE1OTBmZWJjNmQ5IiwidGFnIjoiIn0%3D; laravel_session=pnitrDkwnKer4y5xl5caJSzC3lgIpyOPUY9iRnAO'
+    //   },
+    //   data: data
+    // };
+
+
+    // axios.request(config)
+    //   .then((response) => {
+    //     console.log(JSON.stringify(response.data));
+    //     navigate({
+    //       pathname: "/checkout"
+    //     })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+
+    authorizedPost('/v1.1.0/add_cart_item', data).then((response) => {
+      console.log(JSON.stringify(response.data));
+      navigate({
+        pathname: "/checkout"
+      })
+    })
+      .catch((error) => {
+        console.log(error);
+      });
 
   }
 
@@ -315,24 +364,25 @@ const ProductDetails = () => {
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <QuantityBox price={product.price} isDetailsPage={true}/>
+                          <QuantityBox price={product.price} isDetailsPage={true} />
                         </div>
                         {/* <h4 className="font-Staatliches text-5xl">${product.price}</h4> */}
                       </div>
                     </div>
-                    <NavLink to="/checkout" className="">
-                      <button
-                        className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
+                    {/* <NavLink to="/checkout" className=""> */}
+                    <button
+                      onClick={() => handleAddToStashButton(product.id)}
+                      className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
 dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches"
-                      >
-                        add to stash{" "}
-                        <img
-                          src={afarrow}
-                          className="dark:invert"
-                          alt="arrow to stash"
-                        />
-                      </button>
-                    </NavLink>
+                    >
+                      add to stash{" "}
+                      <img
+                        src={afarrow}
+                        className="dark:invert"
+                        alt="arrow to stash"
+                      />
+                    </button>
+                    {/* </NavLink> */}
                     <p className="w-full text-center font-medium">
                       For really huge orders,{" "}
                       <NavLink to="">
