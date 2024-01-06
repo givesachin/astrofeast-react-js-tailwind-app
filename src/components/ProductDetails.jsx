@@ -181,6 +181,7 @@ const ProductDetails = () => {
 
     authorizedPost('/add_cart_item', data, {
       // withCredentials: false
+
     }).then((response) => {
       console.log(JSON.stringify(response.data));
       navigate({

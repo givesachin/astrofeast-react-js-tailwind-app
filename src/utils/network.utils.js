@@ -8,6 +8,8 @@ export const cAxios = axios.create({
   timeout: 1000 * 60 * 60,
   maxBodyLength: Infinity,
   withCredentials: true,
+  crossDomain: true,
+
 });
 
 export const attachClientSideNetworkChain = () => {
@@ -102,6 +104,7 @@ export const useClientSideAuthorizedNetworkHandler = () => {
             ...params?.headers,
             Authorization: authToken ? `Bearer ${authToken}` : undefined,
           },
+          crossDomain: true,
         })
       );
     }
