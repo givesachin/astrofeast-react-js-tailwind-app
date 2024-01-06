@@ -7,6 +7,7 @@ import offer from "../assets/offer.png";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import axios from "axios";
+import {clientSideOpenNetworkHandler} from "../utils/network.utils";
 const bestseller = {
   meat: [
     {
@@ -97,7 +98,7 @@ const Shop = () => {
 
 
 
-
+  const {networkHandler} = clientSideOpenNetworkHandler()
 
   const [products, setProducts] = useState([])
 
@@ -109,21 +110,11 @@ const Shop = () => {
       }
     });
 
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.1.0/products',
-      headers: {
-        'Accept': 'application/json',
-        'X-CSRF-Token': '123',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
-        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
-      },
-      data: data
-    };
+    // let config = {
+    //   data:
+    // };
 
-    axios.request(config)
+    networkHandler.post('/products', data)
       .then((response) => {
         console.log((response.data));
 
@@ -191,7 +182,7 @@ const Shop = () => {
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={bestseller.seafood}
+            pitem={products}
           />
 
           <div className="w-full py-5 md:py-9 px-8 border-t border-black dark:border-slate-300 bg-gray-100 dark:bg-slate-800">
@@ -201,7 +192,7 @@ const Shop = () => {
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={bestseller.meat}
+            pitem={products}
           />
         </div>
       </section>

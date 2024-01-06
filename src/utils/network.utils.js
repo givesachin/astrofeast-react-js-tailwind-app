@@ -1,12 +1,13 @@
 import axios from 'axios';
 import {useAuth} from './auth.utils'
 export const baseUrl =
-  'https://test.astrofeast.com/admin/customers/api' || 'http://localhost:3000/api/';
+  'https://test.astrofeast.com/admin/customers/api/v1.1.0' || 'http://localhost:3000/api/';
 
 export const cAxios = axios.create({
   baseURL: baseUrl,
   timeout: 1000 * 60 * 60,
   maxBodyLength: Infinity,
+  withCredentials: true,
 });
 
 export const attachClientSideNetworkChain = () => {
@@ -61,6 +62,7 @@ export const clientSideOpenNetworkHandler = () => {
             'Content-Type': body ? 'application/json' : undefined,
             ...params?.headers,
           },
+          withCredentials: false,
         })
       );
     },

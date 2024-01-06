@@ -4,6 +4,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {clientSideOpenNetworkHandler} from "../../utils/network.utils";
 import FormData from 'form-data'
 import {useAuth} from "../../utils/auth.utils";
+import { useCookies } from 'react-cookie';
+
 
 const Login = () => {
   const {networkHandler} = clientSideOpenNetworkHandler();
@@ -30,12 +32,12 @@ const Login = () => {
         const formData = new FormData()
         formData.append('email', data.email);
         formData.append('password', data.password);
-        const res = await networkHandler.post('/v1.1.0/login', data, {
-          baseURL: "https://test.astrofeast.com/admin/guest/customers/api",
+        const res = await networkHandler.post('/login', data, {
           headers: {
             // ...formData.getHeaders(),
             'Content-type': 'multipart/form-data',
-          }
+          },
+          withCredentials: false
         })
         if (res.status !== 200) {
           console.log(res)
