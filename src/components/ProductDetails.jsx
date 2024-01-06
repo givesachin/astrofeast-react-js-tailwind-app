@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import afherobg from "../assets/herobg.png";
 import afarrow from "../assets/afarrow.svg";
 import fssai_certified from "../assets/fssai_certified.png";
-import { NavLink } from "react-router-dom";
+import {NavLink, useNavigate, useSearchParams} from "react-router-dom";
 import ProductContainer from "../components/Atoms/ProductContainer";
 import CTABar from "./Atoms/CTABar";
 import FloatNavbar from "./Atoms/FloatNavbar";
-import { ReactComponent as LikeIcon } from "../assets/like.svg";
-import { ReactComponent as DislikeIcon } from "../assets/dislike.svg";
-import { ReactComponent as CorrectBulletIcon } from "../assets/correctbullet.svg";
+import {ReactComponent as LikeIcon} from "../assets/like.svg";
+import {ReactComponent as DislikeIcon} from "../assets/dislike.svg";
+import {ReactComponent as CorrectBulletIcon} from "../assets/correctbullet.svg";
+import axios from "axios";
+import QuantityBox from "./Atoms/QuantityBox";
+import {useClientSideAuthorizedNetworkHandler} from "../utils/network.utils";
+
 const nutrition = [
   {
     id: 1,
@@ -95,14 +99,110 @@ const bestseller = {
 };
 
 const ProductDetails = () => {
+
+
+  const [products, setProducts] = useState([])
+  const [product, setProduct] = useState({})
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get('id');
+
+  const navigate = useNavigate()
+  const {authorizedPost} = useClientSideAuthorizedNetworkHandler()
+
+  const fetchProducts = () => {
+
+    let data = JSON.stringify({
+      "filters": {
+        "state": "active"
+      }
+    });
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.1.0/products',
+      headers: {
+        'Accept': 'application/json',
+        'X-CSRF-Token': '123',
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
+        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
+      },
+      data: data
+    };
+
+    axios.request(config)
+      .then((response) => {
+        console.log((response.data));
+
+        setProducts(response.data.data)
+
+        setProduct(response.data.data.find(prd => prd.id == id))
+
+      }).catch((error) => {
+      console.log(error);
+    });
+
+
+  }
+
+  const handleAddToStashButton = (id) => {
+    let data = {
+      "product_variant_id": id
+    };
+
+
+    // let config = {
+    //   method: 'post',
+    //   maxBodyLength: Infinity,
+    //   url: 'https://test.astrofeast.com/admin/customers/api/v1.1.0/add_cart_item',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'X-CSRF-Token': '9yUJ8AbRIErS2w8azsydrzFuV4CqeW56awPW7bkH',
+    //     'Content-Type': 'application/json',
+    //     'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
+    //     'Cookie': 'XSRF-TOKEN=eyJpdiI6IkRQN29BbWdVTkdNN2V4RS9ZTHNmaGc9PSIsInZhbHVlIjoieEJ0MmxxVHJ1bVBwSWZabUNHRGxVS1gxY3ZBeTNDZ2pJb1RlVkoydUMzZGRHZm5UZi96TWFKZ3h4SHlCcnNKVlVuVjF5TVo1Y09HY3NRRHhKSUZzRjNkYjFDZzdLcWIwTkRSclNYV3V1eWVDaURHOCtrMjVrVDgvelBNVUlMcWwiLCJtYWMiOiJiZjI4NzkwNzlkNTI5OGViNGY5ZjA1ZTIzZTQ0N2RkYWNjMDI2OTcyZDNkYmYxYWU1ZmU3ZDE1OTBmZWJjNmQ5IiwidGFnIjoiIn0%3D; laravel_session=pnitrDkwnKer4y5xl5caJSzC3lgIpyOPUY9iRnAO'
+    //   },
+    //   data: data
+    // };
+
+
+    // axios.request(config)
+    //   .then((response) => {
+    //     console.log(JSON.stringify(response.data));
+    //     navigate({
+    //       pathname: "/checkout"
+    //     })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+
+    authorizedPost('/add_cart_item', data, {
+      // withCredentials: false
+
+    }).then((response) => {
+      console.log(JSON.stringify(response.data));
+      navigate({
+        pathname: "/checkout"
+      })
+    })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }
+
   useEffect(() => {
     document.title = "Astrofeast - Product Details";
+    fetchProducts()
   }, []);
   return (
     <>
-      <Header />
-      <FloatNavbar />
-      <CTABar />
+      <Header/>
+      <FloatNavbar/>
+      <CTABar/>
       <section className="relative dark:text-gray-100 dark:bg-slate-900 ">
         <section className="lg:px-16 relative">
           {/* container */}
@@ -114,55 +214,61 @@ const ProductDetails = () => {
             <section className="h-full w-full border-b border-black dark:border-slate-300 flex lg:flex-row flex-col">
               {/* name and images */}
               <div className=" h-full w-auto flex flex-col justify-start ">
-                <div className="flex flex-col justify-between items-start w-full h-full py-5 px-4 border-b  border-black dark:border-slate-300 gap-y-5">
+                <div
+                  className="flex flex-col justify-between items-start w-full h-full py-5 px-4 border-b  border-black dark:border-slate-300 gap-y-5">
                   <h1 className="font-Staatliches  text-5xl">
-                    tenderloin (250g)
+                    {/* {JSON.stringify(product)} */}
+                    {product.name} {`(${product.weight})`}
                   </h1>
-                  <h2 className="font-Staatliches  text-3xl">$350.00</h2>
-                  <h2 className="font-normal md:font-medium text-left text-xl">
-                    steak marinated with a blend of lemon, chilli and herbs
-                  </h2>
+                  <h2 className="font-Staatliches  text-3xl">${product.price}</h2>
+                  <h2 className="font-normal md:font-medium text-left text-xl" dangerouslySetInnerHTML={{
+                    __html: product.description
+                  }}/>
                 </div>
                 <div className="flex flex-col gap-6 w-auto h-auto py-5 md:py-10 px-4 md:px-8 ">
-                  <img
-                    className="w-96 h-96 md:w-full md:h-full object-cover"
-                    src={afherobg}
-                    alt="products"
-                  />
-                  <img
-                    className="left-0 absolute lg:left-10 lg:top-60 md:left-0 md:top-44"
-                    src={fssai_certified}
-                    alt="certified"
-                  />
-
-                  <div className="flex w-auto h-auto justify-between">
+                  <div className="relative w-full h-full">
                     <img
-                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
-                      src={afherobg}
-                      alt="products"
+                      className="-left-8 -top-12 absolute"
+                      src={fssai_certified}
+                      alt="certified"
                     />
                     <img
-                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
-                      src={afherobg}
-                      alt="products"
-                    />
-                    <img
-                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
-                      src={afherobg}
-                      alt="products"
-                    />
-                    <img
-                      className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"
-                      src={afherobg}
+                      className="w-96 h-96 md:w-full md:h-full object-cover"
+                      src={product.media ? product.media[0].original_url : "#"}
                       alt="products"
                     />
                   </div>
+
+                  {/*<div className="flex w-auto h-auto justify-between">*/}
+                  {/*  <img*/}
+                  {/*    className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"*/}
+                  {/*    src={afherobg}*/}
+                  {/*    alt="products"*/}
+                  {/*  />*/}
+                  {/*  <img*/}
+                  {/*    className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"*/}
+                  {/*    src={afherobg}*/}
+                  {/*    alt="products"*/}
+                  {/*  />*/}
+                  {/*  <img*/}
+                  {/*    className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"*/}
+                  {/*    src={afherobg}*/}
+                  {/*    alt="products"*/}
+                  {/*  />*/}
+                  {/*  <img*/}
+                  {/*    className=" h-20 md:h-24 w-20 md:w-36 lg:w-24 object-cover"*/}
+                  {/*    src={afherobg}*/}
+                  {/*    alt="products"*/}
+                  {/*  />*/}
+                  {/*</div>*/}
                 </div>
               </div>
               {/* nutrition and certi */}
-              <section className="flex flex-col h-auto border-t lg:border-t-0 lg:border-x border-black dark:border-slate-300">
+              <section
+                className="flex flex-col h-auto border-t lg:border-t-0 lg:border-x border-black dark:border-slate-300">
                 <div className="flex flex-col h-auto w-full border-b border-black dark:border-slate-300">
-                  <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+                  <div
+                    className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches  text-4xl">nutrition</h3>
                   </div>
                   <div className="flex flex-col w-full h-auto gap-5 p-8 justify-start items-start">
@@ -178,7 +284,8 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="flex flex-col h-auto w-full ">
-                  <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+                  <div
+                    className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches  text-4xl">certificates</h3>
                   </div>
                   <div className="flex flex-col gap-6 p-8 justify-between items-center">
@@ -213,8 +320,10 @@ const ProductDetails = () => {
               </section>
               {/* tale sub and stash */}
               <section className="flex flex-col h-auto lg:w-[28rem]">
-                <div className="flex flex-col h-full w-full border-t lg:border-t-0 border-b border-black dark:border-slate-300">
-                  <div className="w-full flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+                <div
+                  className="flex flex-col h-full w-full border-t lg:border-t-0 border-b border-black dark:border-slate-300">
+                  <div
+                    className="w-full flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches  text-4xl">tales</h3>
                   </div>
                   <div className="w-full flex flex-col h-auto gap-5 p-8 justify-start items-start">
@@ -231,11 +340,13 @@ const ProductDetails = () => {
                   </div>
                 </div>
                 <div className="flex flex-col h-auto w-full ">
-                  <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+                  <div
+                    className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                     <h3 className="font-Staatliches text-4xl">subscribe</h3>
                   </div>
                   <div className="w-auto flex flex-col gap-6 p-8 justify-start items-start">
-                    <div className="w-full h-auto justify-center items-center flex gap-2 p-2 border border-black dark:border-slate-300 ">
+                    <div
+                      className="w-full h-auto justify-center items-center flex gap-2 p-2 border border-black dark:border-slate-300 ">
                       <button className="capitalize bg-green p-2 w-full h-auto">
                         <span className="w-full h-auto">weekly</span>
                       </button>
@@ -249,91 +360,42 @@ const ProductDetails = () => {
                     <div className="flex flex-col gap-4">
                       <div className="w-full flex justify-start gap-x-3">
                         {/**SVG for bullet correct sign */}
-                        <CorrectBulletIcon />
+                        <CorrectBulletIcon/>
                         <p className="w-full">
                           Flat 5% off on all subscriptions
                         </p>
                       </div>
                       <div className="w-full flex justify-start gap-x-3">
                         {/**SVG for bullet correct sign */}
-                        <CorrectBulletIcon />
+                        <CorrectBulletIcon/>
                         <p className="w-full">
                           Flat 5% off on all subscriptions
                         </p>
                       </div>
                     </div>
-                    <hr className="w-full border-black dark:border-slate-300 " />
+                    <hr className="w-full border-black dark:border-slate-300 "/>
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center order-3">
-                            {/**SVG for minus sign */}
-                            <svg
-                              className="stroke-[#030712] dark:stroke-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                            >
-                              <g clipPath="url(#clip0_2591_4101)">
-                                <path
-                                  d="M10 0.833313V19.1666"
-                                  strokeWidth="1.25"
-                                />
-                                <path
-                                  d="M0.833496 10H19.1668"
-                                  strokeWidth="1.25"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_2591_4101">
-                                  <rect width="20" height="20" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                          </button>
-                          <button className="p-2 text-center order-2">1</button>
-                          <button className="h-full w-auto border border-black dark:border-slate-300 p-2 text-center order-1">
-                            {/**SVG for plus sign */}
-                            <svg
-                              className="stroke-[#030712] dark:stroke-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                            >
-                              <g clipPath="url(#clip0_2591_4101)">
-                                <path
-                                  d="M0.833496 10H19.1668"
-                                  strokeWidth="1.25"
-                                />
-                              </g>
-                              <defs>
-                                <clipPath id="clip0_2591_4101">
-                                  <rect width="20" height="20" fill="white" />
-                                </clipPath>
-                              </defs>
-                            </svg>
-                          </button>
+                          <QuantityBox price={product.price} isDetailsPage={true}/>
                         </div>
-                        <h4 className="font-Staatliches text-5xl">$350.00</h4>
+                        {/* <h4 className="font-Staatliches text-5xl">${product.price}</h4> */}
                       </div>
                     </div>
-                    <NavLink to="/checkout" className="">
-                      <button
-                        className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
+                    {/* <NavLink to="/checkout" className=""> */}
+                    <button
+                      onClick={() => handleAddToStashButton(product.id)}
+                      className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
 dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches"
-                      >
-                        add to stash{" "}
-                        <img
-                          src={afarrow}
-                          className="dark:invert"
-                          alt="arrow to stash"
-                        />
-                      </button>
-                    </NavLink>
+                    >
+                      add to stash{" "}
+                      <img
+                        src={afarrow}
+                        className="dark:invert"
+                        alt="arrow to stash"
+                      />
+                    </button>
+                    {/* </NavLink> */}
                     <p className="w-full text-center font-medium">
                       For really huge orders,{" "}
                       <NavLink to="">
@@ -345,7 +407,8 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
               </section>
             </section>
             <section className=" flex flex-col border-b border-black dark:border-slate-300 w-full h-full">
-              <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+              <div
+                className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                 <h3 className="font-Staatliches text-4xl">how to heat</h3>
               </div>
               <div className="flex flex-col justify-start gap-10 p-8 items-start py-6 px-8">
@@ -359,11 +422,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path d="M12 36H36V44H12V36Z" strokeWidth="3" />
-                    <path d="M14 8H34V16H14V8Z" strokeWidth="3" />
-                    <path d="M24 8V2" strokeWidth="3" />
-                    <path d="M18 16L15 36" strokeWidth="3" />
-                    <path d="M30 16L33 36" strokeWidth="3" />
+                    <path d="M12 36H36V44H12V36Z" strokeWidth="3"/>
+                    <path d="M14 8H34V16H14V8Z" strokeWidth="3"/>
+                    <path d="M24 8V2" strokeWidth="3"/>
+                    <path d="M18 16L15 36" strokeWidth="3"/>
+                    <path d="M30 16L33 36" strokeWidth="3"/>
                   </svg>
                   <p className="text-2xl text-left">
                     {" "}
@@ -381,9 +444,9 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path d="M10 4H38V30H10V4Z" strokeWidth="3" />
-                    <path d="M38 8H46" strokeWidth="3" />
-                    <path d="M2 8H10" strokeWidth="3" />
+                    <path d="M10 4H38V30H10V4Z" strokeWidth="3"/>
+                    <path d="M38 8H46" strokeWidth="3"/>
+                    <path d="M2 8H10" strokeWidth="3"/>
                     <path
                       d="M8 41.5V41L11.5 36.5L15 41V41.5C15 43.433 13.433 45 11.5 45C9.567 45 8 43.433 8 41.5Z"
                       strokeWidth="3"
@@ -414,10 +477,10 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                     viewBox="0 0 48 48"
                     fill="none"
                   >
-                    <path d="M10 16H30V32H10V16Z" strokeWidth="3" />
-                    <path d="M4 10H44V38H4V10Z" strokeWidth="3" />
-                    <path d="M35.5 17H38.5" strokeWidth="3" />
-                    <path d="M35.5 24H38.5" strokeWidth="3" />
+                    <path d="M10 16H30V32H10V16Z" strokeWidth="3"/>
+                    <path d="M4 10H44V38H4V10Z" strokeWidth="3"/>
+                    <path d="M35.5 17H38.5" strokeWidth="3"/>
+                    <path d="M35.5 24H38.5" strokeWidth="3"/>
                   </svg>
                   <p className="text-2xl text-left">
                     {" "}
@@ -430,7 +493,8 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
             </section>
             {/* how to heat and comments */}
             <section className="border-b border-black dark:border-slate-300 flex flex-col w-full h-full">
-              <div className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
+              <div
+                className="flex justify-start border-b border-black dark:border-slate-300 items-start py-6 px-8 bg-gray-100 dark:bg-slate-800">
                 <h3 className="font-Staatliches text-4xl">tips</h3>
               </div>
               <div className="w-full p-8 flex flex-col justify-start text-left h-auto gap-y-8">
@@ -454,15 +518,15 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <LikeIcon />
+                      <LikeIcon/>
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <DislikeIcon />
+                      <DislikeIcon/>
                     </div>
                   </div>
                 </div>
-                <hr className="w-full border" />
+                <hr className="w-full border"/>
                 <div className="flex flex-col w-full gap-y-4">
                   <div className="w-full flex items-center justify-between">
                     <p>Add a little more lemon in the end</p>
@@ -483,15 +547,15 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <LikeIcon />
+                      <LikeIcon/>
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <DislikeIcon />
+                      <DislikeIcon/>
                     </div>
                   </div>
                 </div>
-                <hr className="w-full border" />
+                <hr className="w-full border"/>
                 <div className="flex flex-col w-full gap-y-4">
                   <div className="w-full flex items-center justify-between">
                     <p>Add a little more lemon in the end</p>
@@ -512,11 +576,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                   <div className="flex w-auto justify-start gap-x-5">
                     <div className="rounded-full border p-3 border-black dark:border-slate-300">
                       {/**SVG for like */}
-                      <LikeIcon />
+                      <LikeIcon/>
                     </div>
                     <div className="rounded-full border p-3 border-black dark:border-slate-300 rotate-180">
                       {/**SVG for dislike */}
-                      <DislikeIcon />
+                      <DislikeIcon/>
                     </div>
                   </div>
                 </div>
@@ -536,11 +600,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
             />
           </div>
         </section>
-        <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
+        <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center"/>
         <section className="hidden  lg:block lg:px-16 lg:relative">
-          <div className="lg:border-x border-black dark:border-slate-300 pt-12" />
+          <div className="lg:border-x border-black dark:border-slate-300 pt-12"/>
         </section>
-        <Footer />
+        <Footer/>
       </section>
     </>
   );

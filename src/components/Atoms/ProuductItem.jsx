@@ -8,13 +8,13 @@ const ProductItem = ({ prodList }) => {
     >
       <img
         className="w-full object-cover h-72 border-black border-b"
-        src={prodList.Image}
+        src={prodList?.media ? prodList.media[0]?.original_url:"#"}
         alt="product"
       />
       <div className="w-full h-auto flex items-end flex-col justify-center py-5">
-        <p className="text-xl font-semibold w-full">{prodList.p_name}</p>
+        <p className="text-xl font-semibold w-full">{prodList.name}</p>
         <p className="text-base opacity-60 font-medium w-full ">
-          {prodList.Price}
+          {prodList.price ? `$${prodList.price}` : "Currently unavailable"}
         </p>
       </div>
     </div>

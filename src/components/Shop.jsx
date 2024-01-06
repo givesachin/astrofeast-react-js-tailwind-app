@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Atoms/Header";
 import Footer from "./Atoms/Footer";
 import ProductContainer from "./Atoms/ProductContainer";
@@ -6,6 +6,8 @@ import afherobg from "../assets/herobg.png";
 import offer from "../assets/offer.png";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
+import axios from "axios";
+import {clientSideOpenNetworkHandler} from "../utils/network.utils";
 const bestseller = {
   meat: [
     {
@@ -90,9 +92,50 @@ const bestseller = {
   ],
 };
 
+
+
 const Shop = () => {
+
+
+
+  const {networkHandler} = clientSideOpenNetworkHandler()
+
+  const [products, setProducts] = useState([])
+
+  const fetchProducts = () => {
+
+    let data = JSON.stringify({
+      "filters": {
+        "state": "active"
+      }
+    });
+
+    // let config = {
+    //   data:
+    // };
+
+    networkHandler.post('/products', data)
+      .then((response) => {
+        console.log((response.data));
+
+        setProducts(response.data.data)
+
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
+  }
+
+
   useEffect(() => {
     document.title = "Astrofeast - Products";
+
+    fetchProducts()
+
+
+
+
   }, []);
   return (
     <div>
@@ -121,10 +164,17 @@ const Shop = () => {
               <NavLink to="/shop/categorydetail">best sellers</NavLink>
             </p>
           </div>
-          <ProductContainer
+          {/* <ProductContainer
             cardcontainer="flex-nowrap"
             pitem={bestseller.veggies}
+          /> */}
+
+          <ProductContainer
+            cardcontainer="flex-nowrap"
+            pitem={products}
           />
+
+
           <div className="w-full py-5 md:py-9 px-8 border-t border-black dark:border-slate-300 bg-gray-100 dark:bg-slate-800">
             <p className="font-Staatliches text-3xl md:text-4xl w-full text-left">
               seafood
@@ -132,7 +182,7 @@ const Shop = () => {
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={bestseller.seafood}
+            pitem={products}
           />
 
           <div className="w-full py-5 md:py-9 px-8 border-t border-black dark:border-slate-300 bg-gray-100 dark:bg-slate-800">
@@ -142,7 +192,7 @@ const Shop = () => {
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={bestseller.meat}
+            pitem={products}
           />
         </div>
       </section>

@@ -1,36 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
+import {clientSideOpenNetworkHandler} from "../../utils/network.utils";
+import FormData from 'form-data'
+import {useAuth} from "../../utils/auth.utils";
+import { useCookies } from 'react-cookie';
+
+
 const Login = () => {
+  const {networkHandler} = clientSideOpenNetworkHandler();
   useEffect(() => {
     document.title = "Astrofeast - Login";
   }, []);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
   } = useForm();
+  const {helpers: authHelpers} = useAuth()
 
   const navigate = useNavigate();
 
   const [showPasswordInput, setShowPasswordInput] = useState(false);
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     setShowPasswordInput(true);
-    if (validatePassword(data.password)) {
-      localStorage.setItem("user", JSON.stringify(data));
-      alert("Login successfully!");
-      navigate("/"); // Redirect to the home screen
+    if (data.password && data.password !== "" && validatePassword(data.password)) {
+
+      try {
+        const formData = new FormData()
+        formData.append('email', data.email);
+        formData.append('password', data.password);
+        const res = await networkHandler.post('/login', data, {
+          headers: {
+            // ...formData.getHeaders(),
+            'Content-type': 'multipart/form-data',
+          },
+          withCredentials: false
+        })
+        if (res.status !== 200) {
+          console.log(res)
+          throw new Error('Error while tring to login')
+        }
+        await authHelpers.setAuthToken(res.data["_token"])
+        localStorage.setItem("user", JSON.stringify(res.data['user']));
+        navigate("/");
+      } catch (e) {
+        console.log(e)
+        alert('error while trying to login')
+      }
+
     }
   };
 
   const validatePassword = (value) => {
-    if (!value) {
+    if (!value || value === "") {
       return "Password is required";
     }
-    if (!/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W)(?!.*\s).{8,}/.test(value)) {
-      return "Invalid password format";
-    }
+    // if (!/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W)(?!.*\s).{3,}/.test(value)) {
+    //   return "Invalid password format";
+    // }
     if (value.includes(watch("email"))) {
       return "Password should not contain the email";
     }
@@ -87,14 +117,14 @@ const Login = () => {
             {...register("password", {
               validate: validatePassword,
             })}
-            className="h-auto text-lg w-full border border-[#d3d3d3] pl-4 py-3"
+            className="h-auto text-lg w-full border border-[#d3d3d3] pl-4 py-3 dark:bg-slate-900"
           />
           {errors.password && errors.password.type === "validate" && (
             <span>{errors.password.message}</span>
           )}
-          {!errors.password && passwordValue && (
-            <span className="text-green-700">Strong password</span>
-          )}
+          {/*{!errors.password && passwordValue && (*/}
+          {/*  <span className="text-green-700">Strong password</span>*/}
+          {/*)}*/}
         </>
       )}
 
@@ -106,9 +136,9 @@ const Login = () => {
         Login
       </button>
       <div className="flex ">
-        <p className="">Dont have an account?</p>
+        <p className="">Dont have an account?</p>{" "}
         <NavLink to="/auth/signup">
-          <p className="text-right w-full capitalize text-blue-600 active:text-purple-600 ">
+          <p className="ml-1 text-right w-full capitalize text-blue-600 active:text-purple-600 ">
             Create Account
           </p>
         </NavLink>

@@ -126,7 +126,7 @@ const Header = () => {
                 </NavLink>
                 <div className="">
                   {isLoggedIn() ? ( // Conditionally render the user profile link
-                    <NavLink to="/" className="">
+                    <NavLink to="/my-account" className="">
                       <img className="invert h-5" src={afuser} alt="user" />
                     </NavLink>
                   ) : (
