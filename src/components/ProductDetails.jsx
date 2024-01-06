@@ -189,6 +189,9 @@ const ProductDetails = () => {
         pathname: "/checkout",
       }, {
         replace: false,
+        state:{
+              product_id:id
+            }
       })
     })
       .catch((error) => {
