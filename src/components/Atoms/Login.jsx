@@ -31,6 +31,7 @@ const Login = () => {
         formData.append('email', data.email);
         formData.append('password', data.password);
         const res = await networkHandler.post('/v1.1.0/login', data, {
+          baseURL: "https://test.astrofeast.com/admin/guest/customers/api",
           headers: {
             // ...formData.getHeaders(),
             'Content-type': 'multipart/form-data',
