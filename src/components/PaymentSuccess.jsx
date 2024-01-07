@@ -5,19 +5,7 @@ import Header from "./Atoms/Header";
 import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
 import { useLocation } from "react-router-dom";
 const PaymentSuccess = () => {
-  function loadScript(src) {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  }
+  
   useEffect(() => {
     document.title = "Astrofeast - Payment Success";
   }, []);
