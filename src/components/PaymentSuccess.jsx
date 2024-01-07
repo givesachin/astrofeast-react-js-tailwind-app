@@ -21,81 +21,10 @@ const PaymentSuccess = () => {
   useEffect(() => {
     document.title = "Astrofeast - Payment Success";
   }, []);
-  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
-
-  const { state } = useLocation();
-  const { order } = state; // Read values passed on state
-  const data = {
-    "order_id": order.number,
-  }
-
-
-  console.log("order" , order)
-
-  async function displayRazorpay() {
-    const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
-    );
-
-    if (!res) {
-      alert("Razorpay SDK failed to load. Are you online?");
-      return;
-    }
-
-    const result = await authorizedPost("/initiate_payment", data,)
 
 
 
 
-    if (!result) {
-      alert("Server error. Are you online?");
-      return;
-    }
-
-    // Getting the order details back
-    const { order_total: amount, order:result_order,customer ,key,rzp_order_id} = result.data;
-
-
-    const options = {
-      key: key, // Enter the Key ID generated from the Dashboard
-      amount: amount,
-      currency: "USD",
-      name: customer.name,
-      description: "Test Transaction",
-      order_id: rzp_order_id,
-      handler: async function (response) {
-        const data = {
-         
-
-          
-            "razorpay_payment_id": response.razorpay_payment_id,
-            "razorpay_order_id": response.razorpay_order_id,
-            "razorpay_signature": response.razorpay_signature,
-            "order_id": rzp_order_id
-        
-        };
-
-        const result = await authorizedPost("/capture_payment", data,)
-
-        console.log("payment capture", result)
-
-      },
-      prefill: {
-        name: customer.name,
-        email: customer.email,
-        contact: "9999999999",
-      },
-      notes: {
-        address: result_order.shipping_address_id,
-      },
-      theme: {
-        color: "#61dafb",
-      },
-    };
-
-    const paymentObject = new window.Razorpay(options);
-    paymentObject.open();
-  }
 
 
 
@@ -119,10 +48,10 @@ dark:bg-slate-900"
           <div className="bg-gray-100 dark:bg-slate-800 h-screen font-poppins">
             <div className="bg-white dark:bg-slate-900 p-6  md:mx-auto">
               {/**SVG for success correct sign*/}
-              <button className="App-link" onClick={displayRazorpay}>
+              {/* <button className="App-link" onClick={displayRazorpay}>
                 Pay Now
-              </button>
-              {/* <svg
+              </button> */}
+              <svg
                 viewBox="0 0 24 24"
                 className="text-green-600 w-16 h-16 mx-auto my-6"
               >
@@ -147,7 +76,7 @@ dark:bg-slate-900"
                     GO BACK
                   </a>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

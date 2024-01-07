@@ -265,7 +265,74 @@ const OrderCheckout = () => {
       "notes": "see ya."
     }
 
+    async function displayRazorpay(order_number) {
+      const res = await loadScript(
+        "https://checkout.razorpay.com/v1/checkout.js"
+      );
 
+      if (!res) {
+        alert("Razorpay SDK failed to load. Are you online?");
+        return;
+      }
+
+      const result = await authorizedPost("/initiate_payment", {order_id:order_number},)
+
+
+
+
+      if (!result) {
+        alert("Server error. Are you online?");
+        return;
+      }
+
+      // Getting the order details back
+      const { order_total: amount, order: result_order, customer, key, rzp_order_id } = result.data;
+
+
+      const options = {
+        key: key, // Enter the Key ID generated from the Dashboard
+        amount: amount,
+        currency: "USD",
+        name: customer.name,
+        description: "Test Transaction",
+        order_id: rzp_order_id,
+        handler: async function (response) {
+          const data = {
+            "razorpay_payment_id": response.razorpay_payment_id,
+            "razorpay_order_id": response.razorpay_order_id,
+            "razorpay_signature": response.razorpay_signature,
+            "order_id": rzp_order_id
+
+          };
+
+          const result = await authorizedPost("/capture_payment", data,)
+
+          console.log("payment capture", result)
+
+          if (typeof result.data.payment == 'undefined' ||  result.data.payment < 1) {
+            alert("you will get refund by your bank")
+          } else {
+            navigate("/payment-success")
+          }
+
+
+        },
+        prefill: {
+          name: customer.name,
+          email: customer.email,
+          contact: "9999999999",
+        },
+        notes: {
+          address: result_order.shipping_address_id,
+        },
+        theme: {
+          color: "#61dafb",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    }
 
 
 
@@ -284,20 +351,21 @@ const OrderCheckout = () => {
       //         product_id:id
       //       }
       // })
+      displayRazorpay(response.data.order.number)
 
-      navigate("/payment-success", {
-        state:{
-            // order_id:response.data.order.number,
-            order:response.data.order
-        }
-      })
+      // navigate("/payment-success", {
+      //   state:{
+      //       // order_id:response.data.order.number,
+      //       order:response.data.order
+      //   }
+      // })
 
     })
       .catch((error) => {
         console.log(error);
         navigate("/payment-success", {
-          state:{
-              order_id:"AS-0034"
+          state: {
+            order_id: "AS-0034"
           }
         })
       });
