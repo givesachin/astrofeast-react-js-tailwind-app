@@ -156,47 +156,6 @@ const OrderCheckout = () => {
     setFilterToggle(!FilterToggle);
   }
 
-  const bestseller = {
-    meat: [
-      {
-        id: 0,
-        Image: afherobg,
-        p_name: "Beef Steak",
-        Price: "$20",
-      },
-      {
-        id: 1,
-        Image: afherobg,
-        p_name: "Chicken Breast",
-        Price: "$10",
-      },
-      {
-        id: 2,
-        Image: afherobg,
-        p_name: "Pork Chops",
-        Price: "$15",
-      },
-      {
-        id: 3,
-        Image: afherobg,
-        p_name: "Lamb Chops",
-        Price: "$25",
-      },
-      {
-        id: 4,
-        Image: afherobg,
-        p_name: "Lamb Chops",
-        Price: "$25",
-      },
-      {
-        id: 5,
-        Image: afherobg,
-        p_name: "Lamb Chops",
-        Price: "$25",
-      },
-      // Add more meat products as needed
-    ],
-  };
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -510,13 +469,13 @@ dark:bg-slate-900"
                     <div className="w-full ">
                       <div className="">
                         <p className="p-8 text-left text-3xl font-Staatliches">
-                          Your Cart ({cart?.cart?.items?.lenght??0})
+                          Your Cart ({cart?.cart?.items?.length??0})
                         </p>
                       </div>
                       <div className="border-t border-black dark:border-slate-300">
                         <p className="p-8 text-sm text-[#F4A73F] text-left font-Poppins"></p>
                       </div>
-                      {products.map((added) => (
+                      {cart?.cart?.items?.map((added) => (
                         <div
                           key={added.id}
                           className="h-auto px-8 pb-8 w-auto flex lg:justify-normal justify-between"
@@ -530,7 +489,7 @@ dark:bg-slate-900"
                             <p className="text-xl font-poppins font-semibold w-full ">
                               {added.name}
                             </p>
-                            <QuantityBox price={added.price} />
+                            <QuantityBox price={added.price} initQuantity={added.quantity} />
                             {/* <p className="font-Poppins text-left text-gray-400">
                               ${added.price}
                             </p> */}
