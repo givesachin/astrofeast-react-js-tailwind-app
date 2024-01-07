@@ -29,13 +29,15 @@ const Login = () => {
     if (data.password && data.password !== "" && validatePassword(data.password)) {
 
       try {
+        const authToken = "3|c7Z1mVfuS9zYgCDvrhbuUTsaQIRnVxrYqTCUuBpg8bfc33e9"
         const formData = new FormData()
-        formData.append('email', data.email);
+        formData.append('email_', data.email);
         formData.append('password', data.password);
         const res = await networkHandler.post('/login', data, {
           headers: {
             // ...formData.getHeaders(),
             'Content-type': 'multipart/form-data',
+            Authorization: authToken ? `Bearer ${authToken}` : undefined,
           },
           withCredentials: false
         })
@@ -43,7 +45,8 @@ const Login = () => {
           console.log(res)
           throw new Error('Error while tring to login')
         }
-        await authHelpers.setAuthToken(res.data["_token"])
+        await authHelpers.setAuthToken(res.data["access_token"])
+        // await authHelpers.setAuthSessionToken(res.data["session_id"])
         // console.log(res)
         // await authHelpers.setSession(res.headers["Set-Cookie"])
         localStorage.setItem("user", JSON.stringify(res.data['user']));
