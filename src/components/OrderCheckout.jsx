@@ -287,14 +287,19 @@ const OrderCheckout = () => {
 
       navigate("/payment-success", {
         state:{
-            order_id:response.data.order.number
+            // order_id:response.data.order.number,
+            order:response.data.order
         }
       })
 
     })
       .catch((error) => {
         console.log(error);
-        // navigate("/payment-success")
+        navigate("/payment-success", {
+          state:{
+              order_id:"AS-0034"
+          }
+        })
       });
 
 

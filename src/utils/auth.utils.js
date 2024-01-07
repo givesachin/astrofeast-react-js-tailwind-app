@@ -13,6 +13,14 @@ export const useAuth = () => {
       sameSite: 'none',
       secure: true,
     });
+
+
+
+
+
+
+
+
   };
   const getAuthToken = () => {
     const authKey = authCookie.auth;//getCookie(AUTH_KEY);
@@ -27,7 +35,7 @@ export const useAuth = () => {
   const [authSeesionCookie, setAuthSessionCookie, removeAuthSessionCookie] = useCookies([SESSION_KEY, LARAVEL_SESSION]);
   const setAuthSessionToken = async (token) => {
     if (token === '') return;
-    setAuthSessionCookie(SESSION_KEY, JSON.stringify({ sessionToken:token }), {
+    setAuthSessionCookie(SESSION_KEY, JSON.stringify({ sessionToken: token }), {
       maxAge: 1704085200,
       sameSite: 'none',
       secure: true,

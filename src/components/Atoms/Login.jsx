@@ -29,7 +29,7 @@ const Login = () => {
     if (data.password && data.password !== "" && validatePassword(data.password)) {
 
       try {
-        const authToken = "3|c7Z1mVfuS9zYgCDvrhbuUTsaQIRnVxrYqTCUuBpg8bfc33e9"
+        
         const formData = new FormData()
         formData.append('email_', data.email);
         formData.append('password', data.password);
@@ -37,7 +37,7 @@ const Login = () => {
           headers: {
             // ...formData.getHeaders(),
             'Content-type': 'multipart/form-data',
-            Authorization: authToken ? `Bearer ${authToken}` : undefined,
+            
           },
           withCredentials: false
         })
