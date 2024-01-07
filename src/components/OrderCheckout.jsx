@@ -285,7 +285,11 @@ const OrderCheckout = () => {
       //       }
       // })
 
-      navigate("/payment-success")
+      navigate("/payment-success", {
+        state:{
+            order_id:response.data.order.number
+        }
+      })
 
     })
       .catch((error) => {

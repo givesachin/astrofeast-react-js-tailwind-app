@@ -3,6 +3,7 @@ import FloatNavbar from "./Atoms/FloatNavbar";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
+import { useLocation } from "react-router-dom";
 const PaymentSuccess = () => {
   function loadScript(src) {
     return new Promise((resolve) => {
@@ -22,6 +23,11 @@ const PaymentSuccess = () => {
   }, []);
   const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
 
+  const { state } = useLocation();
+  const { order_id } = state; // Read values passed on state
+  const data = {
+    "order_id": order_id,
+  }
 
   async function displayRazorpay() {
     const res = await loadScript(
@@ -33,11 +39,9 @@ const PaymentSuccess = () => {
       return;
     }
 
-    const data = {
-      "order_id": 12345,
-    }
-
     const result = await authorizedPost("/initiate_payment", data,)
+
+
 
 
     if (!result) {
@@ -46,16 +50,16 @@ const PaymentSuccess = () => {
     }
 
     // Getting the order details back
-    const { order_total:amount, rzp_order_id: order_id, currency } = result.data;
+    const { order_total: amount, order, } = result.data;
 
 
     const options = {
       key: result.key, // Enter the Key ID generated from the Dashboard
       amount: amount,
-      currency: currency,
+      currency: "inr",
       name: "Soumya Corp.",
       description: "Test Transaction",
-      order_id: order_id,
+      order_id: order.order_id,
       handler: async function (response) {
         const data = {
           orderCreationId: order_id,
