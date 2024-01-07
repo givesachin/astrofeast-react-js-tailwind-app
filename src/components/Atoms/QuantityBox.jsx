@@ -1,7 +1,75 @@
 import { React, useState } from "react";
+import { useClientSideAuthorizedNetworkHandler } from "../../utils/network.utils";
 
-const QuantityBox = ({ price = 0, isDetailsPage = false, isFeastBoxPage = false, initQuantity = 1, isDisabled = false }) => {
+const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false, isFeastBoxPage = false, initQuantity = 1, isDisabled = false }) => {
   const [quantity, setQuantity] = useState(initQuantity);
+
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+
+  const handlePlus = () => {
+    setQuantity(quantity + 1)
+
+    if (cart_) {
+
+
+      const data = {
+        cart: {
+
+          ...cart_,
+          items: cart_.items.map(cart_item => {
+            if (cart_item.id === cart_.items[0].id) {
+              return {
+                ...cart_item,
+                quantity: cart_item.quantity + 1
+              }
+            }
+            return cart_item
+          })
+        }
+      }
+
+      authorizedPost('/update_cart_item', data).then((res) => {
+        console.log(res.data)
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
+
+  }
+  const handleMinus = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+
+
+      if (cart_) {
+
+        const data = {
+          cart: {
+
+            ...cart_,
+            items: cart_.items.map(cart_item => {
+              if (cart_item.id === cart_.items[0].id) {
+                return {
+                  ...cart_item,
+                  quantity: cart_item.quantity - 1
+                }
+              }
+              return cart_item
+            })
+          }
+        }
+
+
+
+        authorizedPost('/update_cart_item', data).then((res) => {
+          console.log(res.data)
+        }).catch((err) => {
+          console.log(err)
+        })
+      }
+
+    }
+  }
 
   return (
     <>
@@ -14,11 +82,7 @@ const QuantityBox = ({ price = 0, isDetailsPage = false, isFeastBoxPage = false,
             disabled={isDisabled || quantity <= 1}
             className={`border border-black dark:border-slate-300
  text-black dark:text-gray-100 w-10 text-2xl`}
-            onClick={() => {
-              if (quantity > 1) {
-                setQuantity(quantity - 1);
-              }
-            }}
+            onClick={handleMinus}
           >
             -
           </button>
@@ -33,7 +97,7 @@ const QuantityBox = ({ price = 0, isDetailsPage = false, isFeastBoxPage = false,
             className="border border-black
  bg-black text-white dark:text-gray-900
  dark:bg-slate-300  w-10 text-2xl"
-            onClick={() => setQuantity(quantity + 1)}
+            onClick={handlePlus}
           >
             +
           </button>
