@@ -7,6 +7,7 @@ import QuantityBox from "./Atoms/QuantityBox";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import axios from "axios";
+import { useAuth } from "../utils/auth.utils";
 const initialFormData = {
   first_name: "",
   last_name: "",
@@ -216,9 +217,12 @@ const OrderCheckout = () => {
       [name]: value,
     }));
   };
+  const {helpers} = useAuth()
   const navigate = useNavigate();
   const handleEdit = (event) => {
     event.preventDefault();
+    const token = helpers.getAuthToken().token
+    console.log("token", token)
     // if (validateForm()) {
     //   // Form is valid, proceed with form submission
     //   console.log("Form submitted:", formData);
@@ -230,54 +234,58 @@ const OrderCheckout = () => {
     // }
 
 
-let data = JSON.stringify({
-  "billpayer": {
-    "email": "test.customer@gmail.com",
-    "phone": "8140996031",
-    "firstname": "Test",
-    "lastname": "Customer",
-    "company_name": null,
-    "tax_nr": null,
-    "address": {
-      "country_id": "IN",
-      "address": "Consult Anubhav",
-      "postalcode": "390001",
-      "city": "Vadodara"
-    }
-  },
-  "ship_to_billing_address": "1",
-  "shipping_address": {
-    "name": null,
-    "country_id": null,
-    "address": null,
-    "postalcode": null,
-    "city": null
-  },
-  "payment_method": "1",
-  "notes": "see ya."
-});
+    let data = JSON.stringify({
+      "billpayer": {
+        "email": "yash.desai.naik@gmail.com",
+        "phone": "8140996031",
+        "firstname": "Sachin",
+        "lastname": "Bhoi",
+        "company_name": null,
+        "tax_nr": null,
+        "address": {
+          "country_id": "IN",
+          "address": "Consult Anubhav",
+          "postalcode": "390001",
+          "city": "Vadodara"
+        }
+      },
+      "ship_to_billing_address": "1",
+      "shipping_address": {
+        "name": null,
+        "country_id": null,
+        "address": null,
+        "postalcode": null,
+        "city": null
+      },
+      "payment_method": "1",
+      "notes": "see ya."
+    });
 
-let config = {
-  method: 'post',
-  maxBodyLength: Infinity,
-  url: 'https://test.astrofeast.com/admin/customers/api/v1.2.0/create_order',
-  headers: { 
-    'Accept': 'application/json', 
-    'X-CSRF-Token': 'PyokNHTYgP6UaEIw5HlwgjHkUOzTfkPoVOjwPGsl', 
-    'Content-Type': 'application/json', 
-    'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9', 
-    'Cookie': 'XSRF-TOKEN=eyJpdiI6Ii9CcWo3UzBxZnBPQU5qNktCYkpsUVE9PSIsInZhbHVlIjoiV0ptVCtFaUc0ckpVN0x1ZUFkdXk1QzRqUnhHZGk3VWhBRW01S0xETUlsalRrTzVPN0pWMjd5MVhkWWQ2MzVRSU1WL3FCQy9LRUFPdEVXa2JFZElLK2VNcHQrQStZdzROcTUxSFpoS0dWQ1h0NVhWZ2VEVUdQbW96VkRWdmQzaFMiLCJtYWMiOiJlNGMwMzlhNGQ4ZDkyZTU1NTBjMjlhNTE1YTEwM2I5NGM2Y2U5ZGE4MTZlMDBkMGIxMjNiYTQ3Zjk3ZGE0Nzg1IiwidGFnIjoiIn0%3D; laravel_session=XwH4BbNsCo937SwdJubTLAe38M5UKP45MEt0ReYG'
-  },
-  data : data
-};
-
-axios.request(config)
-.then((response) => {
-  console.log(JSON.stringify(response.data));
-})
-.catch((error) => {
-  console.log(error);
-});
+    
+   
+    
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://test.astrofeast.com/admin/customers/api/v1.2.0/create_order',
+      headers: { 
+        'Accept': 'application/json', 
+        'X-CSRF-Token': token, 
+        'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${token}`, 
+        'Cookie': 'XSRF-TOKEN=eyJpdiI6Ikl6R2NxaTJ6SndtSTFNMWVFditnMmc9PSIsInZhbHVlIjoib2tuK3pxVS9PZFhOaUhkYjdTTExLY01ic1dLczNHcTczTWdpRGpVWGUyb1J6WXBMbzVyQXpROUNwR1JKSnArTks4eTBtaUI4UDUrT1NIVjhud2lxdGp6Q2czcjFGTHF3M0hJNWJFNnJyWVV0bjEwMFJxeWwxejRsZzJRVGsxWmoiLCJtYWMiOiI0YzllNmIyOTUxMDA2NmY3ZTc2MzlmNmI0YzI4YmVlYjZkNmZkMzJhYjljMWFkMzk2YjM5NmEzZDJkMWFmMzM0IiwidGFnIjoiIn0%3D; laravel_session=R67NsZIrVFyw9DmDvUdrLnr62wQo4MjNrUeIhfZf'
+      },
+      data : data
+    };
+    
+    axios.request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
 
   };
   const [selectedOption, setSelectedOption] = useState("weekly"); // Default selected option

@@ -45,8 +45,8 @@ const Login = () => {
           console.log(res)
           throw new Error('Error while tring to login')
         }
-        await authHelpers.setAuthToken(res.data["_token"])
-        await authHelpers.setAuthSessionToken(res.data["session_id"])
+        await authHelpers.setAuthToken(res.data["access_token"])
+        // await authHelpers.setAuthSessionToken(res.data["session_id"])
         // console.log(res)
         // await authHelpers.setSession(res.headers["Set-Cookie"])
         localStorage.setItem("user", JSON.stringify(res.data['user']));
