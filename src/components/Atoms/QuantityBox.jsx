@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 
-const QuantityBox = ({ price, isDetailsPage }) => {
-  const [quantity, setQuantity] = useState(1);
+const QuantityBox = ({ price, isDetailsPage, initQuantity }) => {
+  const [quantity, setQuantity] = useState(initQuantity);
 
   return (
     <>
