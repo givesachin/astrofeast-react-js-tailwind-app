@@ -62,10 +62,10 @@ const PaymentSuccess = () => {
       currency: "USD",
       name: customer.name,
       description: "Test Transaction",
-      order_id: result_order.id,
+      order_id: result_order.number,
       handler: async function (response) {
         const data = {
-          orderCreationId: result_order.id,
+          orderCreationId: result_order.number,
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
