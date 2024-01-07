@@ -29,16 +29,6 @@ const initialFormErrors = {
   zipcode: "",
 };
 
-const products = [
-  { id: 0, prod_img: afnonveg, title: "Fresh Pancakes" },
-  { id: 1, prod_img: afnonveg, title: "Fresh Pancakes" },
-  { id: 2, prod_img: afnonveg, title: "Fresh Pancakes" },
-];
-
-// const added_products = [
-//   { id: 0, prod_img: afnonveg, title: "Fresh Pancakes", price: 249.0 },
-//   { id: 1, prod_img: afnonveg, title: "Fresh Pancakes", price: 249.0 },
-// ];
 
 
 
@@ -170,43 +160,75 @@ const OrderCheckout = () => {
     event.preventDefault();
     const token = helpers.getAuthToken().token
     console.log("token", token)
-    // if (validateForm()) {
-    //   // Form is valid, proceed with form submission
-    //   console.log("Form submitted:", formData);
-    //   console.log("Form validation failed", formErrors);
-    //   alert("Form submitted successfully!");
-    //   navigate("/payment-success");
-    // } else {
-    //   console.log("Form validation failed");
-    // }
-
-
-    let data = {
-      "billpayer": {
-        "email": "test.customer2@gmail.com",
-        "phone": "8140996031",
-        "firstname": "Sachin",
-        "lastname": "Bhoi",
-        "company_name": null,
-        "tax_nr": null,
-        "address": {
+    if (validateForm()) {
+      // Form is valid, proceed with form submission
+      console.log("Form submitted:", formData);
+      console.log("Form validation failed", formErrors);
+      // alert("Form submitted successfully!");
+      // navigate("/payment-success");
+      let data = {
+        "billpayer": {
+          "email": formData.email,
+          "phone": formData.mobile,
+          "firstname": formData.first_name,
+          "lastname": formData.last_name,
+          "company_name": null,
+          "tax_nr": null,
+          "address": {
+            "country_id": "IN",
+            "address": formData.address,
+            "postalcode": formData.zipcode,
+            "city": formData.state,
+          }
+        },
+        "ship_to_billing_address": "1",
+        "shipping_address": {
+          "name": formData.first_name + " " + formData.last_name,
           "country_id": "IN",
-          "address": "Consult Anubhav",
-          "postalcode": "390001",
-          "city": "Vadodara"
-        }
-      },
-      "ship_to_billing_address": "1",
-      "shipping_address": {
-        "name": null,
-        "country_id": null,
-        "address": null,
-        "postalcode": null,
-        "city": null
-      },
-      "payment_method": "1",
-      "notes": "see ya."
+          "address": formData.address,
+          "postalcode": formData.zipcode,
+          "city": formData.state,
+        },
+        "payment_method": "1",
+        "notes": "see ya."
+      }
+      authorizedPost('/create_order', data, {
+        // withCredentials: false
+  
+      }).then((response) => {
+        console.log(JSON.stringify(response.data));
+        // navigate({
+        //   pathname: "/checkout",
+        // }, {
+        //   replace: false,
+        //   state:{
+        //         product_id:id
+        //       }
+        // })
+        displayRazorpay(response.data.order.number)
+  
+        // navigate("/payment-success", {
+        //   state:{
+        //       // order_id:response.data.order.number,
+        //       order:response.data.order
+        //   }
+        // })
+  
+      })
+        .catch((error) => {
+          console.log(error);
+          // navigate("/payment-success", {
+          //   state: {
+          //     order_id: "AS-0034"
+          //   }
+          // })
+        });
+    } else {
+      console.log("Form validation failed");
     }
+
+
+    
 
     async function displayRazorpay(order_number) {
       const res = await loadScript(
@@ -281,37 +303,8 @@ const OrderCheckout = () => {
 
 
 
-    authorizedPost('/create_order', data, {
-      // withCredentials: false
 
-    }).then((response) => {
-      console.log(JSON.stringify(response.data));
-      // navigate({
-      //   pathname: "/checkout",
-      // }, {
-      //   replace: false,
-      //   state:{
-      //         product_id:id
-      //       }
-      // })
-      displayRazorpay(response.data.order.number)
-
-      // navigate("/payment-success", {
-      //   state:{
-      //       // order_id:response.data.order.number,
-      //       order:response.data.order
-      //   }
-      // })
-
-    })
-      .catch((error) => {
-        console.log(error);
-        // navigate("/payment-success", {
-        //   state: {
-        //     order_id: "AS-0034"
-        //   }
-        // })
-      });
+   
 
 
   };
@@ -482,7 +475,7 @@ dark:bg-slate-900"
                         >
                           <img
                             className="w-32 h-32 object-cover"
-                            src={added.media ? added.media[0].original_url : "#"}
+                            src={added.media ? added.default_media : "#"}
                             alt="product"
                           />
                           <div className="pl-8">
