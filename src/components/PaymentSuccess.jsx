@@ -65,11 +65,19 @@ const PaymentSuccess = () => {
       order_id: rzp_order_id,
       handler: async function (response) {
         const data = {
-          orderCreationId: rzp_order_id,
-          razorpayPaymentId: response.razorpay_payment_id,
-          razorpayOrderId: response.razorpay_order_id,
-          razorpaySignature: response.razorpay_signature,
+         
+
+          
+            "razorpay_payment_id": response.razorpay_payment_id,
+            "razorpay_order_id": response.razorpay_order_id,
+            "razorpay_signature": response.razorpay_signature,
+            "order_id": rzp_order_id
+        
         };
+
+        const result = await authorizedPost("/capture_payment", data,)
+
+        console.log("payment capture", result)
 
       },
       prefill: {
