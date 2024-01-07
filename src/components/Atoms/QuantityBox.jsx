@@ -6,6 +6,10 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
 
   const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
 
+  function roundToTwoDecimals(value) {
+    return Math.round(value * 100) / 100;
+  }
+
   const handlePlus = () => {
     setQuantity(quantity + 1)
 
@@ -105,7 +109,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
       </div>
       {isDetailsPage
         ? <h4 className="font-Staatliches py-5 text-5xl">
-          ${(Number(price) * Number(quantity)).toFixed(2)}
+          ${roundToTwoDecimals((Number(price) * Number(quantity)).toFixed(2))}
         </h4>
         : isFeastBoxPage
           ? <></>
