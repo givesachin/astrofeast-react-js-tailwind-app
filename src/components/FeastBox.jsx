@@ -61,7 +61,7 @@ const FeastBox = () => {
                       {product.title}
                     </p>
                     <div className="flex justify-center">
-                      <QuantityBox />
+                      <QuantityBox isFeastBoxPage={true} />
                     </div>
                   </div>
                 </div>
@@ -93,9 +93,9 @@ const FeastBox = () => {
                       {added.title}
                     </p>
                     <QuantityBox />
-                    <p className="font-Poppins text-left text-gray-400">
+                    {/* <p className="font-Poppins text-left text-gray-400">
                       ${added.price}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               ))}
