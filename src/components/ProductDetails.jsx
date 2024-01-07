@@ -569,7 +569,8 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
               cardcontainer="flex-nowrap"
               pitem={bestseller.meat}
             />
-          </div> */}
+          */}
+          </div> 
         </section>
         <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
         <section className="hidden  lg:block lg:px-16 lg:relative">
