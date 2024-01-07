@@ -43,46 +43,20 @@ const products = [
 
 
 const OrderCheckout = () => {
+  
+    const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
   const { state } = useLocation();
   const { product_id } = state; // Read values passed on state
-  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([]);
   // const [product, setProduct] = useState([]);
 
-  const fetchProducts = () => {
-
-    let data = JSON.stringify({
-      "filters": {
-        "state": "active"
-      }
-    });
-
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.2.0/products',
-      headers: {
-        'Accept': 'application/json',
-        'X-CSRF-Token': '123',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
-        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
-      },
-      data: data
-    };
-
-    axios.request(config)
-      .then((response) => {
-        console.log((response.data));
-
-        setProducts(response.data.data)
-
-        // setProduct(response.data.data.find(prd => prd.id == id))
-
-      }).catch((error) => {
-        console.log(error);
-      });
-
-
+  const fetchCart = ()=>{
+      authorizedPost("/cart").then((res)=>{
+        console.log(res.data)
+          setCart(res.data)
+      }).catch((err)=>{
+        console.log(err)
+      })
   }
 
   console.log({ product_id });
@@ -90,7 +64,7 @@ const OrderCheckout = () => {
 
   useEffect(() => {
 
-    fetchProducts();
+    fetchCart();
   }, [])
 
 
@@ -100,8 +74,6 @@ const OrderCheckout = () => {
   const [FilterToggle, setFilterToggle] = useState();
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-
-  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
 
 
 
@@ -375,11 +347,11 @@ const OrderCheckout = () => {
     })
       .catch((error) => {
         console.log(error);
-        navigate("/payment-success", {
-          state: {
-            order_id: "AS-0034"
-          }
-        })
+        // navigate("/payment-success", {
+        //   state: {
+        //     order_id: "AS-0034"
+        //   }
+        // })
       });
 
 
@@ -538,7 +510,7 @@ dark:bg-slate-900"
                     <div className="w-full ">
                       <div className="">
                         <p className="p-8 text-left text-3xl font-Staatliches">
-                          Your Cart ({products.length})
+                          Your Cart ({cart?.cart?.items?.lenght??0})
                         </p>
                       </div>
                       <div className="border-t border-black dark:border-slate-300">
