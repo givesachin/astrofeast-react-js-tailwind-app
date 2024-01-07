@@ -68,35 +68,7 @@ const nutrition = [
   },
 ];
 
-const bestseller = {
-  meat: [
-    {
-      id: 0,
-      Image: afherobg,
-      p_name: "Beef Steak",
-      Price: "$20",
-    },
-    {
-      id: 1,
-      Image: afherobg,
-      p_name: "Chicken Breast",
-      Price: "$10",
-    },
-    {
-      id: 2,
-      Image: afherobg,
-      p_name: "Pork Chops",
-      Price: "$15",
-    },
-    {
-      id: 3,
-      Image: afherobg,
-      p_name: "Lamb Chops",
-      Price: "$25",
-    },
-    // Add more meat products as needed
-  ],
-};
+
 
 const ProductDetails = () => {
 
@@ -383,7 +355,7 @@ const ProductDetails = () => {
                     </div>
                     {/* <NavLink to="/checkout" className=""> */}
                     <button
-                      onClick={() => handleAddToStashButton(product.id)}
+                      onClick={() => handleAddToStashButton(product?.variant[0]?.id)}
                       className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
 dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches"
                     >
@@ -593,11 +565,11 @@ dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staat
                 View all
               </h3>
             </div>
-            <ProductContainer
+            {/* <ProductContainer
               cardcontainer="flex-nowrap"
               pitem={bestseller.meat}
             />
-          </div>
+          </div> */}
         </section>
         <div className="h-0 lg:border-t  border-black dark:border-slate-300 flex justify-center items-center" />
         <section className="hidden  lg:block lg:px-16 lg:relative">
