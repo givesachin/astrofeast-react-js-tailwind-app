@@ -512,7 +512,7 @@ dark:bg-slate-900"
                         </div>
                         <div className="text-start flex justify-between border-y border-black dark:border-slate-300 p-3">
                           <p>Total</p>
-                          <p>${cart.cart_total??0+83+29-28}</p>
+                          <p>${((cart.cart_total??0)+(83+29)-28).toFixed(2)}</p>
                         </div>
                         {/* <NavLink to="/payment-success" className=""> */}
                         <input
