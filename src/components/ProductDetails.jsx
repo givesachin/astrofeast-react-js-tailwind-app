@@ -117,23 +117,23 @@ const ProductDetails = () => {
       }
     });
 
-    
 
 
-      authorizedPost('/products', data, {
-        // withCredentials: false
-  
-      }).then((response) => {
-        console.log((response.data));
 
-        setProducts(response.data.data)
+    authorizedPost('/products', data, {
+      // withCredentials: false
 
-        setProduct(response.data.data.find(prd => prd.id == id))
-        
-      })
-        .catch((error) => {
-          console.log(error);
-        });
+    }).then((response) => {
+      console.log((response.data));
+
+      setProducts(response.data.data)
+
+      setProduct(response.data.data.find(prd => prd.id == id))
+
+    })
+      .catch((error) => {
+        console.log(error);
+      });
 
 
   }
@@ -177,14 +177,7 @@ const ProductDetails = () => {
 
     }).then((response) => {
       console.log(JSON.stringify(response.data));
-      navigate({
-        pathname: "/checkout",
-      }, {
-        replace: false,
-        state:{
-              product_id:id
-            }
-      })
+      navigate({ pathname: "/checkout" })
     })
       .catch((error) => {
         console.log(error);

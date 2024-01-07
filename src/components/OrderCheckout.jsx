@@ -35,8 +35,6 @@ const initialFormErrors = {
 const OrderCheckout = () => {
   
     const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
-  const { state } = useLocation();
-  const { product_id } = state; // Read values passed on state
   const [cart, setCart] = useState([]);
   // const [product, setProduct] = useState([]);
 
@@ -49,7 +47,6 @@ const OrderCheckout = () => {
       })
   }
 
-  console.log({ product_id });
 
 
   useEffect(() => {

@@ -38,7 +38,7 @@ const QuantityBox = ({ price, isDetailsPage, initQuantity }) => {
           </button>
         </div>
       </div>
-      {isDetailsPage ? <h4 className="font-Staatliches py-5 text-5xl">${(price * quantity).toFixed(2)}</h4> : <p className="font-Poppins text-left text-gray-400">
+      {isDetailsPage ? <h4 className="font-Staatliches py-5 text-5xl">${(price?.toFixed(2) * quantity).toFixed(2)}</h4> : <p className="font-Poppins text-left text-gray-400">
         ${price * quantity}
       </p>}
     </>
