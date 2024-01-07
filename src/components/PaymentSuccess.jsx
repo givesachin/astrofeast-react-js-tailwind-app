@@ -2,10 +2,89 @@ import { React, useEffect } from "react";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
+import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
 const PaymentSuccess = () => {
+  function loadScript(src) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
   useEffect(() => {
     document.title = "Astrofeast - Payment Success";
   }, []);
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+
+
+  async function displayRazorpay() {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+
+    const data = {
+      "order_id": 12345,
+    }
+
+    const result = await authorizedPost("/initiate_payment", data,)
+
+
+    if (!result) {
+      alert("Server error. Are you online?");
+      return;
+    }
+
+    // Getting the order details back
+    const { order_total:amount, rzp_order_id: order_id, currency } = result.data;
+
+
+    const options = {
+      key: result.key, // Enter the Key ID generated from the Dashboard
+      amount: amount,
+      currency: currency,
+      name: "Soumya Corp.",
+      description: "Test Transaction",
+      order_id: order_id,
+      handler: async function (response) {
+        const data = {
+          orderCreationId: order_id,
+          razorpayPaymentId: response.razorpay_payment_id,
+          razorpayOrderId: response.razorpay_order_id,
+          razorpaySignature: response.razorpay_signature,
+        };
+
+      },
+      prefill: {
+        name: "Soumya Dey",
+        email: "SoumyaDey@example.com",
+        contact: "9999999999",
+      },
+      notes: {
+        address: "Soumya Dey Corporate Office",
+      },
+      theme: {
+        color: "#61dafb",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  }
+
+
+
+
   return (
     <>
       <Header />
@@ -25,7 +104,10 @@ dark:bg-slate-900"
           <div className="bg-gray-100 dark:bg-slate-800 h-screen font-poppins">
             <div className="bg-white dark:bg-slate-900 p-6  md:mx-auto">
               {/**SVG for success correct sign*/}
-              <svg
+              <button className="App-link" onClick={displayRazorpay}>
+                Pay ₹500
+              </button>
+              {/* <svg
                 viewBox="0 0 24 24"
                 className="text-green-600 w-16 h-16 mx-auto my-6"
               >
@@ -50,7 +132,7 @@ dark:bg-slate-900"
                     GO BACK
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

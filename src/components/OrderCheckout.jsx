@@ -88,7 +88,7 @@ const OrderCheckout = () => {
   console.log({ product_id });
 
 
-  useEffect(()=>{
+  useEffect(() => {
 
     fetchProducts();
   }, [])
@@ -221,7 +221,7 @@ const OrderCheckout = () => {
       [name]: value,
     }));
   };
-  const {helpers} = useAuth()
+  const { helpers } = useAuth()
   const navigate = useNavigate();
   const handleEdit = (event) => {
     event.preventDefault();
@@ -265,10 +265,10 @@ const OrderCheckout = () => {
       "notes": "see ya."
     }
 
-    
-   
-    
-    
+
+
+
+
 
 
     authorizedPost('/create_order', data, {
@@ -284,11 +284,15 @@ const OrderCheckout = () => {
       //         product_id:id
       //       }
       // })
+
+      navigate("/payment-success")
+
     })
       .catch((error) => {
         console.log(error);
+        // navigate("/payment-success")
       });
-    
+
 
   };
   const [selectedOption, setSelectedOption] = useState("weekly"); // Default selected option
@@ -331,8 +335,8 @@ dark:bg-slate-900"
                     <div className="w-full text-start">
                       <input
                         className={`w-full py-2 pl-4 border-2 dark:bg-slate-900  ${formErrors.email
-                            ? "border-red-500"
-                            : "border-gray-400"
+                          ? "border-red-500"
+                          : "border-gray-400"
                           }`}
                         placeholder="Email address"
                         onChange={handleChange}
@@ -348,8 +352,8 @@ dark:bg-slate-900"
                       <div className="w-full text-start">
                         <input
                           className={`w-full py-2 pl-4   dark:bg-slate-900 border-2 ${formErrors.first_name
-                              ? "border-red-500"
-                              : "border-gray-400"
+                            ? "border-red-500"
+                            : "border-gray-400"
                             }`}
                           placeholder="Enter first name"
                           onChange={handleChange}
@@ -364,8 +368,8 @@ dark:bg-slate-900"
                       <div className="w-full text-start">
                         <input
                           className={`w-full  py-2 pl-4  dark:bg-slate-900 border-2 ${formErrors.last_name
-                              ? "border-red-500"
-                              : "border-gray-400"
+                            ? "border-red-500"
+                            : "border-gray-400"
                             }`}
                           placeholder="Enter last name"
                           onChange={handleChange}
@@ -381,8 +385,8 @@ dark:bg-slate-900"
                     <div className="w-full text-start">
                       <input
                         className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${formErrors.mobile
-                            ? "border-red-500"
-                            : "border-gray-400"
+                          ? "border-red-500"
+                          : "border-gray-400"
                           }`}
                         placeholder="Phone number"
                         onChange={handleChange}
@@ -397,8 +401,8 @@ dark:bg-slate-900"
                     <div className="w-full text-start">
                       <input
                         className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${formErrors.state
-                            ? "border-red-500"
-                            : "border-gray-400"
+                          ? "border-red-500"
+                          : "border-gray-400"
                           }`}
                         placeholder="State"
                         onChange={handleChange}
@@ -411,8 +415,8 @@ dark:bg-slate-900"
                     <div className="w-full text-start">
                       <input
                         className={`w-full py-2 pl-4 dark:bg-slate-900 border-2  ${formErrors.zipcode
-                            ? "border-red-500"
-                            : "border-gray-400"
+                          ? "border-red-500"
+                          : "border-gray-400"
                           }`}
                         placeholder="Zip code"
                         onChange={handleChange}
@@ -427,8 +431,8 @@ dark:bg-slate-900"
                     <div className="w-full text-start">
                       <textarea
                         className={`w-full py-2 pl-4  dark:bg-slate-900 border-2  ${formErrors.address
-                            ? "border-red-500"
-                            : "border-gray-400"
+                          ? "border-red-500"
+                          : "border-gray-400"
                           }`}
                         placeholder="Address"
                         onChange={handleChange}
@@ -491,13 +495,13 @@ dark:bg-slate-900"
                           <p>$701</p>
                         </div>
                         {/* <NavLink to="/payment-success" className=""> */}
-                          <input
-                            className="hover:cursor-pointer w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
+                        <input
+                          className="hover:cursor-pointer w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
                             dark:bg-slate-300 "
-                            type="submit"
-                            value="place order    >"
-                            onClick={handleEdit}
-                          />
+                          type="submit"
+                          value="place order    >"
+                          onClick={handleEdit}
+                        />
                         {/* </NavLink> */}
                       </div>
                     </div>
