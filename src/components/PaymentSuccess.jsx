@@ -53,7 +53,7 @@ const PaymentSuccess = () => {
     }
 
     // Getting the order details back
-    const { order_total: amount, order:result_order,customer ,key} = result.data;
+    const { order_total: amount, order:result_order,customer ,key,rzp_order_id} = result.data;
 
 
     const options = {
@@ -62,10 +62,10 @@ const PaymentSuccess = () => {
       currency: "USD",
       name: customer.name,
       description: "Test Transaction",
-      order_id: result_order.number,
+      order_id: rzp_order_id,
       handler: async function (response) {
         const data = {
-          orderCreationId: result_order.number,
+          orderCreationId: rzp_order_id,
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
