@@ -24,10 +24,13 @@ const PaymentSuccess = () => {
   const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
 
   const { state } = useLocation();
-  const { order_id } = state; // Read values passed on state
+  const { order } = state; // Read values passed on state
   const data = {
-    "order_id": order_id,
+    "order_id": order.number,
   }
+
+
+  console.log("order" , order)
 
   async function displayRazorpay() {
     const res = await loadScript(
@@ -57,12 +60,12 @@ const PaymentSuccess = () => {
       key: result.key, // Enter the Key ID generated from the Dashboard
       amount: amount,
       currency: "USD",
-      name: "Soumya Corp.",
+      name: result.customer.name,
       description: "Test Transaction",
       order_id: order.order_id,
       handler: async function (response) {
         const data = {
-          orderCreationId: order_id,
+          orderCreationId: order.order_id,
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
@@ -70,12 +73,12 @@ const PaymentSuccess = () => {
 
       },
       prefill: {
-        name: "Soumya Dey",
-        email: "SoumyaDey@example.com",
+        name: result.customer.name,
+        email: result.customer.email,
         contact: "9999999999",
       },
       notes: {
-        address: "Soumya Dey Corporate Office",
+        address: result.order.shipping_address_id,
       },
       theme: {
         color: "#61dafb",
@@ -109,7 +112,7 @@ dark:bg-slate-900"
             <div className="bg-white dark:bg-slate-900 p-6  md:mx-auto">
               {/**SVG for success correct sign*/}
               <button className="App-link" onClick={displayRazorpay}>
-                Pay ₹500
+                Pay Now
               </button>
               {/* <svg
                 viewBox="0 0 24 24"
