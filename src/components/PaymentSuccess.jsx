@@ -56,7 +56,7 @@ const PaymentSuccess = () => {
     const options = {
       key: result.key, // Enter the Key ID generated from the Dashboard
       amount: amount,
-      currency: "inr",
+      currency: "USD",
       name: "Soumya Corp.",
       description: "Test Transaction",
       order_id: order.order_id,
