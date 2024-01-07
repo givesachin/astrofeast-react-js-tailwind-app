@@ -20,7 +20,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
             if (cart_item.id === cart_.items[0].id) {
               return {
                 ...cart_item,
-                quantity: quantity
+                quantity: quantity + 1
               }
             }
             return cart_item
@@ -51,7 +51,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
               if (cart_item.id === cart_.items[0].id) {
                 return {
                   ...cart_item,
-                  quantity: quantity
+                  quantity: quantity - 1
                 }
               }
               return cart_item
@@ -104,7 +104,9 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
         </div>
       </div>
       {isDetailsPage
-        ? <h4 className="font-Staatliches py-5 text-5xl">${(price?.toFixed(2) * quantity).toFixed(2)}</h4>
+        ? <h4 className="font-Staatliches py-5 text-5xl">
+          ${(Number(price) * Number(quantity)).toFixed(2)}
+        </h4>
         : isFeastBoxPage
           ? <></>
           : <p className="font-Poppins text-left text-gray-400">
