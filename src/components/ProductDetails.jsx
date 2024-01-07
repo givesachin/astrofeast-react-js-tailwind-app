@@ -355,7 +355,7 @@ const ProductDetails = () => {
                     </div>
                     {/* <NavLink to="/checkout" className=""> */}
                     <button
-                      onClick={() => handleAddToStashButton(product?.variant[0]?.id)}
+                      onClick={() => handleAddToStashButton(product?.variants[0]?.id)}
                       className="w-full md:px-72 px-[124px] lg:w-96 bg-black text-white dark:text-gray-900
 dark:bg-slate-300 py-3 lg:px-5 flex justify-center gap-2 items-center font-Staatliches"
                     >
