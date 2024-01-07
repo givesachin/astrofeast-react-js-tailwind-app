@@ -20,7 +20,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
             if (cart_item.id === cart_.items[0].id) {
               return {
                 ...cart_item,
-                quantity: cart_item.quantity + 1
+                quantity: quantity
               }
             }
             return cart_item
@@ -51,7 +51,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
               if (cart_item.id === cart_.items[0].id) {
                 return {
                   ...cart_item,
-                  quantity: cart_item.quantity - 1
+                  quantity: quantity
                 }
               }
               return cart_item
