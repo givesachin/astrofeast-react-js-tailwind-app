@@ -98,9 +98,9 @@ export const useClientSideAuthorizedNetworkHandler = () => {
     body,
     params
   ) => {
-    // const authToken = (await helpers.getAuthToken()).token;
+    const authToken = (await helpers.getAuthToken()).token;
 
-    const authToken = "3|c7Z1mVfuS9zYgCDvrhbuUTsaQIRnVxrYqTCUuBpg8bfc33e9"
+    
     const session_id = (await helpers.getAuthSessionToken()).sessionToken;
 
     console.log({authToken, session_id})
@@ -111,8 +111,8 @@ export const useClientSideAuthorizedNetworkHandler = () => {
         headers: {
           ...params?.headers,
           Authorization: authToken ? `Bearer ${authToken}` : undefined,
-          ['X-Session-ID']: session_id,
-          ['X-Requested-With']:'XMLHttpRequest'
+          // ['X-Session-ID']: session_id,
+          // ['X-Requested-With']:'XMLHttpRequest'
         },
         crossDomain: true,
       })

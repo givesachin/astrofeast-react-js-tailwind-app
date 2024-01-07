@@ -8,6 +8,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import axios from "axios";
 import { useAuth } from "../utils/auth.utils";
+import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
 const initialFormData = {
   first_name: "",
   last_name: "",
@@ -99,6 +100,9 @@ const OrderCheckout = () => {
   const [FilterToggle, setFilterToggle] = useState();
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
+
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+
 
 
 
@@ -234,9 +238,9 @@ const OrderCheckout = () => {
     // }
 
 
-    let data = JSON.stringify({
+    let data = {
       "billpayer": {
-        "email": "yash.desai.naik@gmail.com",
+        "email": "test.customer2@gmail.com",
         "phone": "8140996031",
         "firstname": "Sachin",
         "lastname": "Bhoi",
@@ -259,32 +263,31 @@ const OrderCheckout = () => {
       },
       "payment_method": "1",
       "notes": "see ya."
-    });
+    }
 
     
    
     
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://test.astrofeast.com/admin/customers/api/v1.2.0/create_order',
-      headers: { 
-        'Accept': 'application/json', 
-        'X-CSRF-Token': token, 
-        'Content-Type': 'application/json', 
-        'Authorization': `Bearer ${token}`, 
-        'Cookie': 'XSRF-TOKEN=eyJpdiI6Ikl6R2NxaTJ6SndtSTFNMWVFditnMmc9PSIsInZhbHVlIjoib2tuK3pxVS9PZFhOaUhkYjdTTExLY01ic1dLczNHcTczTWdpRGpVWGUyb1J6WXBMbzVyQXpROUNwR1JKSnArTks4eTBtaUI4UDUrT1NIVjhud2lxdGp6Q2czcjFGTHF3M0hJNWJFNnJyWVV0bjEwMFJxeWwxejRsZzJRVGsxWmoiLCJtYWMiOiI0YzllNmIyOTUxMDA2NmY3ZTc2MzlmNmI0YzI4YmVlYjZkNmZkMzJhYjljMWFkMzk2YjM5NmEzZDJkMWFmMzM0IiwidGFnIjoiIn0%3D; laravel_session=R67NsZIrVFyw9DmDvUdrLnr62wQo4MjNrUeIhfZf'
-      },
-      data : data
-    };
     
-    axios.request(config)
-    .then((response) => {
+
+
+    authorizedPost('/create_order', data, {
+      // withCredentials: false
+
+    }).then((response) => {
       console.log(JSON.stringify(response.data));
+      // navigate({
+      //   pathname: "/checkout",
+      // }, {
+      //   replace: false,
+      //   state:{
+      //         product_id:id
+      //       }
+      // })
     })
-    .catch((error) => {
-      console.log(error);
-    });
+      .catch((error) => {
+        console.log(error);
+      });
     
 
   };

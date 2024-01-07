@@ -117,31 +117,23 @@ const ProductDetails = () => {
       }
     });
 
-    let config = {
-      method: 'post',
-      maxBodyLength: Infinity,
-      url: 'https://test.astrofeast.com/admin/guest/customers/api/v1.2.0/products',
-      headers: {
-        'Accept': 'application/json',
-        'X-CSRF-Token': '123',
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer 1|mKCcYsvGRvABFFAbX03B6sLQJ1E3g2VHSmfH0pg2167fe6d9',
-        'Cookie': 'XSRF-TOKEN=eyJpdiI6Im9SdnkrYlQ0N09qQk00d0R3U21Xb1E9PSIsInZhbHVlIjoiSXZNZDY2cVlnTk1zeFU3NHpTeUFkMXpEM1EremhvUVNqenFoaTVLNTFKbWI2ZXJqZHY2M05XRTIvZEx6b2tNS0FFUmNaSUpqeDFjTHZjcVdUdUhBWkQ3UU40V1ozU1JQZzIzRjNCaWJINHBNVFI1ZG5Cb3cxMTNUUVQ2YjNuUlQiLCJtYWMiOiJkNzI3NDQ5YWM5MjExNTNhYjlkNjlhMzk5ZGM3MTk2ZjZhMTQzNjQxMTE5NDJiNmYwZTM3ZDZmYjUyOTJhNDY0IiwidGFnIjoiIn0%3D; laravel_session=BGdcWTBgCHwkcBuN8eDAU3v0Y1peoB4KlxuUlF2O'
-      },
-      data: data
-    };
+    
 
-    axios.request(config)
-      .then((response) => {
+
+      authorizedPost('/products', data, {
+        // withCredentials: false
+  
+      }).then((response) => {
         console.log((response.data));
 
         setProducts(response.data.data)
 
         setProduct(response.data.data.find(prd => prd.id == id))
-
-      }).catch((error) => {
-        console.log(error);
-      });
+        
+      })
+        .catch((error) => {
+          console.log(error);
+        });
 
 
   }
