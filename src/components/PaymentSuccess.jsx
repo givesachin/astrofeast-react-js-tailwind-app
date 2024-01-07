@@ -53,19 +53,19 @@ const PaymentSuccess = () => {
     }
 
     // Getting the order details back
-    const { order_total: amount, order, } = result.data;
+    const { order_total: amount, order:result_order,customer ,key} = result.data;
 
 
     const options = {
-      key: result.key, // Enter the Key ID generated from the Dashboard
+      key: key, // Enter the Key ID generated from the Dashboard
       amount: amount,
       currency: "USD",
-      name: result.customer.name,
+      name: customer.name,
       description: "Test Transaction",
-      order_id: order.order_id,
+      order_id: result_order.id,
       handler: async function (response) {
         const data = {
-          orderCreationId: order.order_id,
+          orderCreationId: result_order.id,
           razorpayPaymentId: response.razorpay_payment_id,
           razorpayOrderId: response.razorpay_order_id,
           razorpaySignature: response.razorpay_signature,
@@ -73,12 +73,12 @@ const PaymentSuccess = () => {
 
       },
       prefill: {
-        name: result.customer.name,
-        email: result.customer.email,
+        name: customer.name,
+        email: customer.email,
         contact: "9999999999",
       },
       notes: {
-        address: result.order.shipping_address_id,
+        address: result_order.shipping_address_id,
       },
       theme: {
         color: "#61dafb",
