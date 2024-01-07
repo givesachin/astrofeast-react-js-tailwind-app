@@ -8,89 +8,7 @@ import { NavLink } from "react-router-dom";
 import FloatNavbar from "./Atoms/FloatNavbar";
 import axios from "axios";
 import {clientSideOpenNetworkHandler} from "../utils/network.utils";
-const bestseller = {
-  meat: [
-    {
-      id: 0,
-      Image: afherobg,
-      p_name: "Beef Steak",
-      Price: "$20",
-    },
-    {
-      id: 1,
-      Image: afherobg,
-      p_name: "Chicken Breast",
-      Price: "$10",
-    },
-    {
-      id: 2,
-      Image: afherobg,
-      p_name: "Pork Chops",
-      Price: "$15",
-    },
-    {
-      id: 3,
-      Image: afherobg,
-      p_name: "Lamb Chops",
-      Price: "$25",
-    },
-    // Add more meat products as needed
-  ],
-  seafood: [
-    {
-      id: 0,
-      Image: afherobg,
-      p_name: "Salmon",
-      Price: "$15",
-    },
-    {
-      id: 1,
-      Image: afherobg,
-      p_name: "Shrimp",
-      Price: "$12",
-    },
-    {
-      id: 2,
-      Image: afherobg,
-      p_name: "Tuna",
-      Price: "$18",
-    },
-    {
-      id: 3,
-      Image: afherobg,
-      p_name: "Lobster",
-      Price: "$30",
-    },
-    // Add more seafood products as needed
-  ],
-  veggies: [
-    {
-      id: 0,
-      Image: afherobg,
-      p_name: "Carrots",
-      Price: "$2",
-    },
-    {
-      id: 1,
-      Image: afherobg,
-      p_name: "Broccoli",
-      Price: "$3",
-    },
-    {
-      id: 2,
-      Image: afherobg,
-      p_name: "Spinach",
-      Price: "$2.5",
-    },
-    {
-      id: 3,
-      Image: afherobg,
-      p_name: "Tomatoes",
-      Price: "$2",
-    },
-    // Add more vegetable products as needed
-  ],
-};
+
 
 
 
@@ -114,7 +32,7 @@ const Shop = () => {
     //   data:
     // };
 
-    networkHandler.post('/products', data)
+    networkHandler.get('/products/shop')
       .then((response) => {
         console.log((response.data));
 
@@ -171,7 +89,7 @@ const Shop = () => {
 
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={products}
+            pitem={products?.best_sellers}
           />
 
 
@@ -182,7 +100,7 @@ const Shop = () => {
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={products}
+            pitem={products?.meat}
           />
 
           <div className="w-full py-5 md:py-9 px-8 border-t border-black dark:border-slate-300 bg-gray-100 dark:bg-slate-800">
@@ -192,7 +110,7 @@ const Shop = () => {
           </div>
           <ProductContainer
             cardcontainer="flex-nowrap"
-            pitem={products}
+            pitem={products?.sea_food}
           />
         </div>
       </section>
