@@ -383,7 +383,7 @@ const ProductDetails = () => {
                     <div className="w-full h-auto flex flex-col justify-start">
                       <div className="w-full h-auto flex items-center justify-between">
                         <div className="w-full flex justify-start gap-2">
-                          <QuantityBox price={product.price} isDetailsPage={true} />
+                          <QuantityBox price={product.price} isDetailsPage={true} initQuantity={1} />
                         </div>
                         {/* <h4 className="font-Staatliches text-5xl">${product.price}</h4> */}
                       </div>
