@@ -489,7 +489,7 @@ dark:bg-slate-900"
                             <p className="text-xl font-poppins font-semibold w-full ">
                               {added.name}
                             </p>
-                            <QuantityBox price={added.price} initQuantity={added.quantity} />
+                            <QuantityBox price={Number(added.price??0)} initQuantity={added.quantity} />
                             {/* <p className="font-Poppins text-left text-gray-400">
                               ${added.price}
                             </p> */}
@@ -512,7 +512,7 @@ dark:bg-slate-900"
                         </div>
                         <div className="text-start flex justify-between border-y border-black dark:border-slate-300 p-3">
                           <p>Total</p>
-                          <p>$701</p>
+                          <p>${cart.cart_total??0+83+29-28}</p>
                         </div>
                         {/* <NavLink to="/payment-success" className=""> */}
                         <input
