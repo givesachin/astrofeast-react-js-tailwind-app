@@ -33,18 +33,18 @@ const initialFormErrors = {
 
 
 const OrderCheckout = () => {
-  
-    const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
   const [cart, setCart] = useState([]);
   // const [product, setProduct] = useState([]);
 
-  const fetchCart = ()=>{
-      authorizedPost("/cart").then((res)=>{
-        console.log(res.data)
-          setCart(res.data)
-      }).catch((err)=>{
-        console.log(err)
-      })
+  const fetchCart = () => {
+    authorizedPost("/cart").then((res) => {
+      console.log(res.data)
+      setCart(res.data)
+    }).catch((err) => {
+      console.log(err)
+    })
   }
 
 
@@ -191,7 +191,7 @@ const OrderCheckout = () => {
       }
       authorizedPost('/create_order', data, {
         // withCredentials: false
-  
+
       }).then((response) => {
         console.log(JSON.stringify(response.data));
         // navigate({
@@ -203,14 +203,14 @@ const OrderCheckout = () => {
         //       }
         // })
         displayRazorpay(response.data.order.number)
-  
+
         // navigate("/payment-success", {
         //   state:{
         //       // order_id:response.data.order.number,
         //       order:response.data.order
         //   }
         // })
-  
+
       })
         .catch((error) => {
           console.log(error);
@@ -225,7 +225,7 @@ const OrderCheckout = () => {
     }
 
 
-    
+
 
     async function displayRazorpay(order_number) {
       const res = await loadScript(
@@ -237,7 +237,7 @@ const OrderCheckout = () => {
         return;
       }
 
-      const result = await authorizedPost("/initiate_payment", {order_id:order_number},)
+      const result = await authorizedPost("/initiate_payment", { order_id: order_number },)
 
 
 
@@ -271,7 +271,7 @@ const OrderCheckout = () => {
 
           console.log("payment capture", result)
 
-          if (typeof result.data.payment == 'undefined' ||  result.data.payment < 1) {
+          if (typeof result.data.payment == 'undefined' || result.data.payment < 1) {
             alert("you will get refund by your bank")
           } else {
             navigate("/payment-success")
@@ -301,7 +301,7 @@ const OrderCheckout = () => {
 
 
 
-   
+
 
 
   };
@@ -459,7 +459,7 @@ dark:bg-slate-900"
                     <div className="w-full ">
                       <div className="">
                         <p className="p-8 text-left text-3xl font-Staatliches">
-                          Your Cart ({cart?.cart?.items?.length??0})
+                          Your Cart ({cart?.cart?.items?.length ?? 0})
                         </p>
                       </div>
                       <div className="border-t border-black dark:border-slate-300">
@@ -479,7 +479,7 @@ dark:bg-slate-900"
                             <p className="text-xl font-poppins font-semibold w-full ">
                               {added.name}
                             </p>
-                            <QuantityBox price={Number(added.price??0)} initQuantity={added.quantity} />
+                            <QuantityBox price={Number(added.price ?? 0)} initQuantity={added.quantity} />
                             {/* <p className="font-Poppins text-left text-gray-400">
                               ${added.price}
                             </p> */}
@@ -490,19 +490,19 @@ dark:bg-slate-900"
                       <div className="flex flex-col p-8 border-t border-black dark:border-slate-300 gap-y-3 font-poppins">
                         <div className="text-start flex justify-between">
                           <p>Service fee</p>
-                          <p>$83</p>
+                          <p>${cart?.service_fee}</p>
                         </div>
                         <div className="text-start flex justify-between">
                           <p>Taxes and fees</p>
-                          <p>$29</p>
+                          <p>${cart?.taxes_and_fees}</p>
                         </div>
                         <div className="text-start flex justify-between">
                           <p>Weekly discount</p>
-                          <p>-$28</p>
+                          <p>-${cart?.discount}</p>
                         </div>
                         <div className="text-start flex justify-between border-y border-black dark:border-slate-300 p-3">
                           <p>Total</p>
-                          <p>${((cart.cart_total??0)+(83+29)-28).toFixed(2)}</p>
+                          <p>${((cart.cart_total ?? 0)).toFixed(2)}</p>
                         </div>
                         {/* <NavLink to="/payment-success" className=""> */}
                         <input
