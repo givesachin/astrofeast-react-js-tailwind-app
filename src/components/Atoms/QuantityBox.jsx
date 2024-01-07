@@ -109,7 +109,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
       </div>
       {isDetailsPage
         ? <h4 className="font-Staatliches py-5 text-5xl">
-          ${roundToTwoDecimals((Number(price) * Number(quantity)).toFixed(2))}
+          ${roundToTwoDecimals((parseFloat(price) * parseInt(quantity,  10)))}
         </h4>
         : isFeastBoxPage
           ? <></>
