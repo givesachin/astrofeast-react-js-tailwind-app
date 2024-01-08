@@ -169,13 +169,15 @@ const OrderCheckout = () => {
       console.log("Form validation failed", formErrors);
       // alert("Form submitted successfully!");
       // navigate("/payment-success");
+      const firstname = formData.name.split(" ").shift()
+      const lastname = formData.name.split(" ").pop()
       let data = {
         "billpayer": {
           "email": formData.email,
           "phone": formData.mobile,
-          "firstname": formData.name,
+          "firstname": firstname,
           //last word of the "name" is lastname, so take the last word
-          "lastname": formData.name.split(" ").pop(),
+          "lastname": lastname,
           "company_name": null,
           "tax_nr": null,
           "address": {
@@ -187,7 +189,7 @@ const OrderCheckout = () => {
         },
         "ship_to_billing_address": "1",
         "shipping_address": {
-          "name": formData.name + " " + formData.name.split(" ").pop(),
+          "name": formData.name,
           "country_id": "IN",
           "address": formData.address,
           "postalcode": formData.zipcode,
@@ -376,7 +378,7 @@ dark:bg-slate-900"
                           onChange={handleChange}
                           type="text"
                           name="name"
-                          id="ufirstname"
+                          id="uname"
                         />
                         <p className="text-red-500 text-sm">
                           {formErrors.name}
