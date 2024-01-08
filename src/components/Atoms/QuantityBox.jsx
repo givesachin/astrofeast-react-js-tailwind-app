@@ -4,7 +4,7 @@ import { useClientSideAuthorizedNetworkHandler } from "../../utils/network.utils
 const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 0, isDetailsPage = false, isFeastBoxPage = false, initQuantity = 1, isDisabled = false, updateTotalCartAmount = undefined }) => {
   const [quantity, setQuantity] = useState(initQuantity);
 
-  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+  const { authorizedPost,authorizedDelete } = useClientSideAuthorizedNetworkHandler()
 
   function roundToTwoDecimals(value) {
     return Math.round(value * 100) / 100;
@@ -71,7 +71,7 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
     }else {
       // If quantity goes below 1, call the delete cart API
       if (cart_) {
-        authorizedPost('/delete_cart_item', { product_variant_id: product_id })
+        authorizedDelete('/delete_cart_item', { product_variant_id: product_id })
           .then((res) => {
             console.log(res.data);
             console.log("cartTotalToBeChanged", roundToTwoDecimals(res.data.cart_total))

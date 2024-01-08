@@ -4,32 +4,44 @@ import Header from "../Atoms/Header";
 import AccountNavbar from "./AccountNavbar";
 import { NavLink } from "react-router-dom";
 import FloatNavbar from "../Atoms/FloatNavbar";
-const data = [
-  {
-    order_number: "12345",
-    no_of_meals: "10",
-    status: "Shipped",
-    shipped_to: "India gate, Delhi",
-    order_date: "Dec 14, 2022",
-  },
-  {
-    order_number: "12345",
-    no_of_meals: "10",
-    status: "Shipped",
-    shipped_to: "India gate, Delhi",
-    order_date: "Dec 14, 2022",
-  },
-  {
-    order_number: "12345",
-    no_of_meals: "10",
-    status: "Shipped",
-    shipped_to: "India gate, Delhi",
-    order_date: "Dec 14, 2022",
-  },
-];
+import { useClientSideAuthorizedNetworkHandler } from "../../utils/network.utils";
+// const data = [
+//   {
+//     order_number: "12345",
+//     no_of_meals: "10",
+//     status: "Shipped",
+//     shipped_to: "India gate, Delhi",
+//     order_date: "Dec 14, 2022",
+//   },
+//   {
+//     order_number: "12345",
+//     no_of_meals: "10",
+//     status: "Shipped",
+//     shipped_to: "India gate, Delhi",
+//     order_date: "Dec 14, 2022",
+//   },
+//   {
+//     order_number: "12345",
+//     no_of_meals: "10",
+//     status: "Shipped",
+//     shipped_to: "India gate, Delhi",
+//     order_date: "Dec 14, 2022",
+//   },
+// ];
 const Orders = () => {
+  const [orders, setOrders] = useState([])
+  const {authorizedPost} = useClientSideAuthorizedNetworkHandler()
+  const fetchOrders=()=>{
+    authorizedPost("/list_orders").then((res)=>{
+      console.log(res.data)
+      setOrders(res.data.draft_orders)
+    }).catch((err)=>{
+      console.log(err)
+    })
+  }
   useEffect(() => {
     document.title = "Astrofeast - Orders";
+    fetchOrders()
   }, []);
   return (
     <section
@@ -66,15 +78,15 @@ const Orders = () => {
         </div>
         {/* order info for desktop screen */}
         <div className="hidden lg:block lg:px-6 lg:py-3 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black dark:border-slate-300 lg:justify-between lg:gap-5">
-          {data.map((item, index) => (
+          {orders&&orders?.map((item, index) => (
             <div key={index} className="flex flex-col">
               <div className="flex px-6 py-6 flex-row w-full h-full border-black dark:border-slate-300 justify-between gap-5">
                 <div>
                   <p className=" text-2xl h-auto font-Staatliches flex items-center justify-start">
-                    order #{item.order_number}
+                    order #{item.number}
                   </p>
                   <p className="text-sm font-poppins font-medium justify-start flex">
-                    No of meals: {item.no_of_meals}
+                    No of meals: {item.items.length}
                   </p>
                 </div>
                 <div>
@@ -91,7 +103,7 @@ const Orders = () => {
                     Shipped to
                   </p>
                   <p className="text-sm font-semibold font-poppins justify-start flex pt-2">
-                    {item.shipped_to}
+                    {item.shipping_address_id}
                   </p>
                 </div>
                 <div>
@@ -99,7 +111,7 @@ const Orders = () => {
                     Order Date
                   </p>
                   <p className="text-sm font-semibold font-poppins justify-start flex pt-2">
-                    {item.order_date}
+                    {item.ordered_at}
                   </p>
                 </div>
                 {/* Track Order button */}
@@ -115,7 +127,7 @@ const Orders = () => {
                 </div>
               </div>
 
-              {index !== data.length - 1 && (
+              {index !== orders?.length - 1 && (
                 <div className="flex ">
                   <hr className="w-full border-t border-black dark:border-slate-300" />
                 </div>
@@ -125,16 +137,16 @@ const Orders = () => {
         </div>
         {/* order info for mobile and tablet screen */}
         <div className="lg:hidden block px-2 md:px-6 py-3 flex-column w-full h-full border-t border-black dark:border-slate-300 justify-between gap-5">
-          {data.map((item, index) => (
+          {orders&&orders?.map((item, index) => (
             <div key={index} className="flex flex-col">
               <div className="flex px-6 py-6 flex-col w-full h-full border-black dark:border-slate-300 justify-between gap-5">
                 <div className="flex justify-between">
                   <div>
                     <p className="text-3xl md:text-2xl h-auto font-Staatliches flex items-center justify-start">
-                      order #{item.order_number}
+                      order #{item.number}
                     </p>
                     <p className="text-base md:text-sm font-medium font-poppins justify-start flex">
-                      No of meals: {item.no_of_meals}
+                      No of meals: {item.items.length}
                     </p>
                   </div>
                   <div>
@@ -164,7 +176,7 @@ const Orders = () => {
                       Shipped to
                     </p>
                     <p className="text-base md:text-sm font-semibold font-poppins justify-start flex pt-1 md:pt-2">
-                      {item.shipped_to}
+                      {item.shipping_address_id}
                     </p>
                   </div>
                   <div className="pt-6 md:pt-0">
@@ -172,7 +184,7 @@ const Orders = () => {
                       Order Date
                     </p>
                     <p className="text-base md:text-sm font-semibold font-poppins justify-start flex pt-1 md:pt-2">
-                      {item.order_date}
+                      {item.ordered_at}
                     </p>
                   </div>
                 </div>
@@ -188,7 +200,7 @@ const Orders = () => {
                 </div>
               </div>
 
-              {index !== data.length - 1 && (
+              {index !== orders?.length - 1 && (
                 <div className="flex ">
                   <hr className="w-full border-t border-black dark:border-slate-300" />
                 </div>
