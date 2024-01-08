@@ -64,7 +64,9 @@ const OrderCheckout = () => {
   const [totalCartAmount, setTotalCartAmount] = useState(0);
   // Define a function to update totalCartAmount in OrderCheckout
   const updateTotalCartAmount = (newTotalCartAmount) => {
+    console.log("newTotalCartAmount(ShouldChangeTo)", newTotalCartAmount);
     setTotalCartAmount(newTotalCartAmount);
+    console.log("newTotalCartAmount(NowMustBeChangeTo)", newTotalCartAmount,totalCartAmount);
   };
 
 
