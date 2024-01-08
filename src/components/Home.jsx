@@ -8,6 +8,7 @@ import Footer from "./Atoms/Footer";
 import Header from "./Atoms/Header";
 import Sidebar from "./Atoms/Sidebar";
 import axios from "axios";
+import { BACKEND_BASE_URL, BEARER_TOKEN, } from '../apis/index'
 // import { Product } from "@medusajs/medusa";
 // import { useProducts } from "medusa-react";
 
@@ -49,8 +50,8 @@ import axios from "axios";
 // }
 
 const options = {
-  method: "GET",
-  url: "https://the-mexican-food-db.p.rapidapi.com/",
+  method: "POST",
+  url: `${BACKEND_BASE_URL}/products`,
   headers: {
     "X-RapidAPI-Key": "bdbad44431mshf133f3e78cc7290p12f0b7jsna61826593fed",
     "X-RapidAPI-Host": "the-mexican-food-db.p.rapidapi.com",
@@ -82,7 +83,7 @@ const Home = () => {
     axios
       .request(options)
       .then(function (response) {
-        setProducts(response.data);
+        setProducts(response.data.data);
       })
       .catch(function (error) {
         // Handle the error here
@@ -288,14 +289,14 @@ dark:bg-slate-900"
               >
                 <img
                   className="w-full object-cover h-72 border-black border-b"
-                  src={item.image}
+                  src={item.default_media}
                   alt="product"
                 />
                 <div className="w-full flex items-end justify-center py-5">
                   <p className="text-lg w-full font-medium">
-                    {item.title.length > 20
-                      ? item.title.slice(0, 20) + "..."
-                      : item.title}
+                    {item.name.length > 20
+                      ? item.name.slice(0, 20) + "..."
+                      : item.name}
                   </p>
                 </div>
               </div>
