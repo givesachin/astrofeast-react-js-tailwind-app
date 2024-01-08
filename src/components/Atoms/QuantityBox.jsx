@@ -17,19 +17,21 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
 
 
       const data = {
-        cart: {
+        product_variant_id: cart_.items.find(cart_item => cart_item.id === cart_.items[0].id).product_variant_id,
+        quantity: quantity + 1
+        // cart: {
 
-          ...cart_,
-          items: cart_.items.map(cart_item => {
-            if (cart_item.id === cart_.items[0].id) {
-              return {
-                ...cart_item,
-                quantity: quantity + 1
-              }
-            }
-            return cart_item
-          })
-        }
+        //   ...cart_,
+        //   items: cart_.items.map(cart_item => {
+        //     if (cart_item.id === cart_.items[0].id) {
+        //       return {
+        //         ...cart_item,
+        //         quantity: quantity + 1
+        //       }
+        //     }
+        //     return cart_item
+        //   })
+        // }
       }
 
       authorizedPost('/update_cart_item', data).then((res) => {
@@ -48,19 +50,22 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
       if (cart_) {
 
         const data = {
-          cart: {
+          product_variant_id: cart_.items.find(cart_item => cart_item.id === cart_.items[0].id).
+            product_variant_id,
+          quantity: quantity - 1
+          // cart: {
 
-            ...cart_,
-            items: cart_.items.map(cart_item => {
-              if (cart_item.id === cart_.items[0].id) {
-                return {
-                  ...cart_item,
-                  quantity: quantity - 1
-                }
-              }
-              return cart_item
-            })
-          }
+          //   ...cart_,
+          //   items: cart_.items.map(cart_item => {
+          //     if (cart_item.id === cart_.items[0].id) {
+          //       return {
+          //         ...cart_item,
+          //         quantity: quantity - 1
+          //       }
+          //     }
+          //     return cart_item
+          //   })
+          // }
         }
 
 
@@ -109,7 +114,7 @@ const QuantityBox = ({ cart: cart_ = undefined, price = 0, isDetailsPage = false
       </div>
       {isDetailsPage
         ? <h4 className="font-Staatliches py-5 text-5xl">
-          ${roundToTwoDecimals((parseFloat(price) * parseInt(quantity,  10)))}
+          ${roundToTwoDecimals((parseFloat(price) * parseInt(quantity, 10)))}
         </h4>
         : isFeastBoxPage
           ? <></>
