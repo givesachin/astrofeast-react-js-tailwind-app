@@ -272,7 +272,7 @@ const OrderCheckout = () => {
             "razorpay_payment_id": response.razorpay_payment_id,
             "razorpay_order_id": response.razorpay_order_id,
             "razorpay_signature": response.razorpay_signature,
-            "order_number": rzp_order_id
+            "order_number": order_number
 
           };
 
