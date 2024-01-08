@@ -75,7 +75,7 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
     }else {
       // If quantity goes below 1, call the delete cart API
       if (cart_) {
-        authorizedDelete('/delete_cart_item', { product_variant_id: product_id })
+        authorizedPost('/delete_cart_item', { product_variant_id: product_id })
           .then((res) => {
             console.log(res.data);
             console.log("cartTotalToBeChanged", roundToTwoDecimals(res.data.cart_total))
