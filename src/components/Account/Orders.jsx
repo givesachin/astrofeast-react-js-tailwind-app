@@ -30,12 +30,12 @@ import { useClientSideAuthorizedNetworkHandler } from "../../utils/network.utils
 // ];
 const Orders = () => {
   const [orders, setOrders] = useState([])
-  const {authorizedPost} = useClientSideAuthorizedNetworkHandler()
-  const fetchOrders=()=>{
-    authorizedPost("/list_orders").then((res)=>{
+  const { authorizedPost } = useClientSideAuthorizedNetworkHandler()
+  const fetchOrders = () => {
+    authorizedPost("/list_orders").then((res) => {
       console.log(res.data)
       setOrders(res.data.draft_orders)
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err)
     })
   }
@@ -78,7 +78,7 @@ const Orders = () => {
         </div>
         {/* order info for desktop screen */}
         <div className="hidden lg:block lg:px-6 lg:py-3 lg:flex-column lg:w-full lg:h-full lg:border-t lg:border-x lg:border-black dark:border-slate-300 lg:justify-between lg:gap-5">
-          {orders&&orders?.map((item, index) => (
+          {orders && orders?.map((item, index) => (
             <div key={index} className="flex flex-col">
               <div className="flex px-6 py-6 flex-row w-full h-full border-black dark:border-slate-300 justify-between gap-5">
                 <div>
@@ -103,7 +103,7 @@ const Orders = () => {
                     Shipped to
                   </p>
                   <p className="text-sm font-semibold font-poppins justify-start flex pt-2">
-                    {item.shipping_address_id}
+                    {item.shipping_address.address + ", " + item.shipping_address.city}
                   </p>
                 </div>
                 <div>
@@ -111,7 +111,7 @@ const Orders = () => {
                     Order Date
                   </p>
                   <p className="text-sm font-semibold font-poppins justify-start flex pt-2">
-                    {item.ordered_at}
+                    {(new Date(item.ordered_at)).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}
                   </p>
                 </div>
                 {/* Track Order button */}
@@ -137,7 +137,7 @@ const Orders = () => {
         </div>
         {/* order info for mobile and tablet screen */}
         <div className="lg:hidden block px-2 md:px-6 py-3 flex-column w-full h-full border-t border-black dark:border-slate-300 justify-between gap-5">
-          {orders&&orders?.map((item, index) => (
+          {orders && orders?.map((item, index) => (
             <div key={index} className="flex flex-col">
               <div className="flex px-6 py-6 flex-col w-full h-full border-black dark:border-slate-300 justify-between gap-5">
                 <div className="flex justify-between">
@@ -176,7 +176,7 @@ const Orders = () => {
                       Shipped to
                     </p>
                     <p className="text-base md:text-sm font-semibold font-poppins justify-start flex pt-1 md:pt-2">
-                      {item.shipping_address_id}
+                      {item.shipping_address.address + ", " + item.shipping_address.city}
                     </p>
                   </div>
                   <div className="pt-6 md:pt-0">
@@ -184,7 +184,7 @@ const Orders = () => {
                       Order Date
                     </p>
                     <p className="text-base md:text-sm font-semibold font-poppins justify-start flex pt-1 md:pt-2">
-                      {item.ordered_at}
+                      {(new Date(item.ordered_at)).toLocaleString("en-US", { year: "numeric", month: "short", day: "numeric" })}
                     </p>
                   </div>
                 </div>
