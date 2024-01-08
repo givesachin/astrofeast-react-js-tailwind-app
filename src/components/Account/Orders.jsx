@@ -34,7 +34,7 @@ const Orders = () => {
   const fetchOrders = () => {
     authorizedPost("/list_orders").then((res) => {
       console.log(res.data)
-      setOrders(res.data.draft_orders)
+      setOrders(res.data.orders)
     }).catch((err) => {
       console.log(err)
     })
