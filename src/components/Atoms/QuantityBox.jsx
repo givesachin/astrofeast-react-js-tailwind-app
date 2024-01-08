@@ -68,6 +68,21 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
         })
       }
 
+    }else {
+      // If quantity goes below 1, call the delete cart API
+      if (cart_) {
+        authorizedPost('/delete_cart_item', { product_variant_id: product_id })
+          .then((res) => {
+            console.log(res.data);
+            console.log("cartTotalToBeChanged", roundToTwoDecimals(res.data.cart_total))
+
+            
+            updateTotalCartAmount(roundToTwoDecimals(res.data.cart_total)); // Update totalCartAmount in OrderCheckout
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
     }
   }
 
@@ -79,12 +94,12 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
       >
         <div className="flex pr-4">
           <button
-            disabled={isDisabled || quantity <= 1}
+            disabled={isDisabled}
             className={`border border-black dark:border-slate-300
  text-black dark:text-gray-100 w-10 text-2xl`}
             onClick={handleMinus}
           >
-            -
+            {quantity > 1? "-" : "x"}
           </button>
           <input
             type="numeric"
