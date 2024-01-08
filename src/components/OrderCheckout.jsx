@@ -244,7 +244,7 @@ const OrderCheckout = () => {
         return;
       }
 
-      const result = await authorizedPost("/initiate_payment", { order_number: order_number },)
+      const result = await authorizedPost("/initiate_payment", { order_id: order_number },)
 
 
 
@@ -270,7 +270,7 @@ const OrderCheckout = () => {
             "razorpay_payment_id": response.razorpay_payment_id,
             "razorpay_order_id": response.razorpay_order_id,
             "razorpay_signature": response.razorpay_signature,
-            "order_id": rzp_order_id
+            "order_number": rzp_order_id
 
           };
 
