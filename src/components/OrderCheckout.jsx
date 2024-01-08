@@ -61,7 +61,11 @@ const OrderCheckout = () => {
   const [FilterToggle, setFilterToggle] = useState();
   const [formData, setFormData] = useState(initialFormData);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-
+  const [totalCartAmount, setTotalCartAmount] = useState(0);
+  // Define a function to update totalCartAmount in OrderCheckout
+  const updateTotalCartAmount = (newTotalCartAmount) => {
+    setTotalCartAmount(newTotalCartAmount);
+  };
 
 
 
@@ -479,7 +483,13 @@ dark:bg-slate-900"
                             <p className="text-xl font-poppins font-semibold w-full ">
                               {added.name}
                             </p>
-                            <QuantityBox product_id={added.id} cart={cart?.cart} price={Number(added.price ?? 0)} initQuantity={added.quantity} />
+                            <QuantityBox
+                              product_id={added.id}
+                              cart={cart?.cart}
+                              price={Number(added.price ?? 0)}
+                              initQuantity={added.quantity}
+                              updateTotalCartAmount={updateTotalCartAmount} // Pass the function as a prop
+                            />
                             {/* <p className="font-Poppins text-left text-gray-400">
                               ${added.price}
                             </p> */}
