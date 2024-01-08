@@ -10,8 +10,7 @@ import axios from "axios";
 import { useAuth } from "../utils/auth.utils";
 import { useClientSideAuthorizedNetworkHandler } from "../utils/network.utils";
 const initialFormData = {
-  first_name: "",
-  last_name: "",
+  name: "",
   mobile: "",
   email: "",
   address: "",
@@ -20,8 +19,7 @@ const initialFormData = {
 };
 
 const initialFormErrors = {
-  first_name: "",
-  last_name: "",
+  name: "",
   mobile: "",
   email: "",
   address: "",
@@ -90,20 +88,20 @@ const OrderCheckout = () => {
     let isValid = true;
     const newFormErrors = { ...initialFormErrors };
 
-    // Validate first_name
-    if (!formData.first_name.trim()) {
-      newFormErrors.first_name = "First name is required";
+    // Validate name
+    if (!formData.name.trim()) {
+      newFormErrors.name = "Name is required";
       isValid = false;
     } else {
-      newFormErrors.first_name = ""; // Clear the error message
+      newFormErrors.name = ""; // Clear the error message
     }
-    // Validate last_name
-    if (!formData.last_name.trim()) {
-      newFormErrors.last_name = "Last name is required";
-      isValid = false;
-    } else {
-      newFormErrors.last_name = ""; // Clear the error message
-    }
+    // // Validate last_name
+    // if (!formData.last_name.trim()) {
+    //   newFormErrors.last_name = "Last name is required";
+    //   isValid = false;
+    // } else {
+    //   newFormErrors.last_name = ""; // Clear the error message
+    // }
 
     // Validate mobile
     const mobilePattern = /^\d{10}$/;
@@ -175,8 +173,9 @@ const OrderCheckout = () => {
         "billpayer": {
           "email": formData.email,
           "phone": formData.mobile,
-          "firstname": formData.first_name,
-          "lastname": formData.last_name,
+          "firstname": formData.name,
+          //last word of the "name" is lastname, so take the last word
+          "lastname": formData.name.split(" ").pop(),
           "company_name": null,
           "tax_nr": null,
           "address": {
@@ -188,7 +187,7 @@ const OrderCheckout = () => {
         },
         "ship_to_billing_address": "1",
         "shipping_address": {
-          "name": formData.first_name + " " + formData.last_name,
+          "name": formData.name + " " + formData.name.split(" ").pop(),
           "country_id": "IN",
           "address": formData.address,
           "postalcode": formData.zipcode,
@@ -245,7 +244,7 @@ const OrderCheckout = () => {
         return;
       }
 
-      const result = await authorizedPost("/initiate_payment", { order_id: order_number },)
+      const result = await authorizedPost("/initiate_payment", { order_number: order_number },)
 
 
 
@@ -369,21 +368,21 @@ dark:bg-slate-900"
                     <div className="w-full flex flex-col md:flex-row gap-5">
                       <div className="w-full text-start">
                         <input
-                          className={`w-full py-2 pl-4   dark:bg-slate-900 border-2 ${formErrors.first_name
+                          className={`w-full py-2 pl-4   dark:bg-slate-900 border-2 ${formErrors.name
                             ? "border-red-500"
                             : "border-gray-400"
                             }`}
                           placeholder="Enter first name"
                           onChange={handleChange}
                           type="text"
-                          name="first_name"
+                          name="name"
                           id="ufirstname"
                         />
                         <p className="text-red-500 text-sm">
-                          {formErrors.first_name}
+                          {formErrors.name}
                         </p>
                       </div>
-                      <div className="w-full text-start">
+                      {/* <div className="w-full text-start">
                         <input
                           className={`w-full  py-2 pl-4  dark:bg-slate-900 border-2 ${formErrors.last_name
                             ? "border-red-500"
@@ -398,7 +397,7 @@ dark:bg-slate-900"
                         <p className="text-red-500 text-sm">
                           {formErrors.last_name}
                         </p>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="w-full text-start">
                       <input
