@@ -42,7 +42,7 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
     }
 
   }
-  const handleMinus = () => {
+  const handleMinus = (e) => {
     e.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
