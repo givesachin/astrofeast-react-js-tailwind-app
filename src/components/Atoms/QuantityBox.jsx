@@ -29,7 +29,9 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
       authorizedPost('/update_cart_item', data).then((res) => {
         console.log(res.data)
 
-        // setTotalCartAmount(roundToTwoDecimals(res.data.cart_total))
+        console.log("cartTotalToBeChanged", roundToTwoDecimals(res.data.cart_total))
+
+
         updateTotalCartAmount(roundToTwoDecimals(res.data.cart_total)); // Update totalCartAmount in OrderCheckout
 
 
@@ -59,6 +61,10 @@ const QuantityBox = ({ product_id = undefined, cart: cart_ = undefined, price = 
 
         authorizedPost('/update_cart_item', data).then((res) => {
           console.log(res.data)
+          console.log("cartTotalToBeChanged", roundToTwoDecimals(res.data.cart_total))
+
+
+
           updateTotalCartAmount(roundToTwoDecimals(res.data.cart_total)); // Update totalCartAmount in OrderCheckout
 
         }).catch((err) => {
