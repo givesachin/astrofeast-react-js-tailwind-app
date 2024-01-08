@@ -521,8 +521,10 @@ dark:bg-slate-900"
                         </div>
                         {/* <NavLink to="/payment-success" className=""> */}
                         <input
+
+                        disabled={cart?.cart?.items?.length == 0}
                           className="hover:cursor-pointer w-full p-3 text-white font-Staatliches  bg-black dark:text-gray-900
-                            dark:bg-slate-300 "
+                            dark:bg-slate-300 disabled:cursor-not-allowed disabled:bg-gray-400"
                           type="submit"
                           value="place order    >"
                           onClick={handleEdit}

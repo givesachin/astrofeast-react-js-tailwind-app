@@ -121,7 +121,7 @@ const Header = () => {
               </div>
               {/* other icons */}
               <div className="w-auto h-auto flex justify-evenly gap-x-4 items-center  ">
-                <NavLink to="/feastbox" className="">
+                <NavLink to="/checkout" className="">
                   <img className="lg:invert h-8" src={afbag} alt="bag" />
                 </NavLink>
                 <div className="">
