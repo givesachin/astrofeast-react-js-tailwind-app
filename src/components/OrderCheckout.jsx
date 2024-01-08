@@ -42,6 +42,8 @@ const OrderCheckout = () => {
     authorizedPost("/cart").then((res) => {
       console.log(res.data)
       setCart(res.data)
+      setTotalCartAmount(res.data.cart_total)
+
     }).catch((err) => {
       console.log(err)
     })
