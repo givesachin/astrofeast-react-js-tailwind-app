@@ -154,19 +154,19 @@ const Header = () => {
                     </div>
                   ) : null}
                 </div>
-                <div className="-right-1 top-4 z-50 fixed duration-100 dark:bg-slate-700 bg-gray-200 rounded flex flex-col">
-                  {options?.map((opt) => (
-                    <button
-                      key={opt.text}
-                      onClick={() => setTheme(opt.text)}
-                      className={`w-8 h-8 leading-9 text-xl rounded-full m-1 ${
-                        theme === opt.text && "text-sky-600"
-                      }`}
-                    >
-                      <ion-icon name={opt.icon}></ion-icon>
-                    </button>
-                  ))}
-                </div>
+                {/*<div className="-right-1 top-4 z-50 fixed duration-100 dark:bg-slate-700 bg-gray-200 rounded flex flex-col">*/}
+                {/*  {options?.map((opt) => (*/}
+                {/*    <button*/}
+                {/*      key={opt.text}*/}
+                {/*      onClick={() => setTheme(opt.text)}*/}
+                {/*      className={`w-8 h-8 leading-9 text-xl rounded-full m-1 ${*/}
+                {/*        theme === opt.text && "text-sky-600"*/}
+                {/*      }`}*/}
+                {/*    >*/}
+                {/*      <ion-icon name={opt.icon}></ion-icon>*/}
+                {/*    </button>*/}
+                {/*  ))}*/}
+                {/*</div>*/}
               </div>
             </div>
           </div>
